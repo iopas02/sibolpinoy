@@ -7,13 +7,6 @@
       require "layout.part/admin.header.php";
   ?>
   <!-- Header End -->
-  <?php
-    include('comptroller/config.php');
-
-    $SqlEvents   = ("SELECT * FROM eventcalendar");
-    $resulEvents = mysqli_query($con, $SqlEvents);
-
-  ?>
 
   <body>
     <title>Sibol-PINOY Calendar</title>
