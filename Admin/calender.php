@@ -8,7 +8,7 @@
   <!-- Header End -->
 
   <body>
-    <title>Sibol-PINOY Admin Inbox</title>
+    <title>Sibol-PINOY Calendar</title>
 
     <!-- top navigation bar -->
     <?php
