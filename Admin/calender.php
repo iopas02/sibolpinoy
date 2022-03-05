@@ -120,7 +120,7 @@ $(document).ready(function() {
       //Delete Event
       element.find(".closeon").on("click", function() {
 
-    var question = confirm("Deseas Borrar este Evento?");   
+    var question = confirm("Do you want to delete this event?");   
     if (question) {
 
       $("#calendar").fullCalendar("removeEvents", event._id);
@@ -160,15 +160,15 @@ $(document).ready(function() {
       });
   },
 
-  //Modificar Evento del Calendario 
+  //Modify Calendar Event
   eventClick:function(event){
-      var idEvento = event._id;
-      $('input[name=idEvento').val(idEvento);
-      $('input[name=evento').val(event.title);
-      $('input[name=fecha_inicio').val(event.start.format('DD-MM-YYYY'));
-      $('input[name=fecha_fin').val(event.end.format("DD-MM-YYYY"));
+      var idEvent = event._id;
+      $('input[name=idEvent').val(idEvent);
+      $('input[name=event').val(event.title);
+      $('input[name=start_date').val(event.start.format('DD-MM-YYYY'));
+      $('input[name=final_date').val(event.end.format("DD-MM-YYYY"));
 
-      $("#modalUpdateEvento").modal();
+      $("#modalUpdateEvent").modal();
     },
 
 
