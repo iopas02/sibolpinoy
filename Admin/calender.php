@@ -43,7 +43,16 @@
               <hr class="dropdown-divider bg-dark" />
           </div>
       </div>
+
       <div class="p-3" id='calendar'></div>
+
+      <!---THIS IS FOR MODAL---->
+      <?php  
+        include('layout.part/modalNewEventCalendar.php');
+        include('layout.part/modalUpdateEvent.php');
+      ?>
+      <!---THIS IS FOR MODAL END---->
+
     </main>
 
     <!-- Footer and JS Script Start Here -->
