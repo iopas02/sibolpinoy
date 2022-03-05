@@ -17,7 +17,9 @@
 
     <!-- Navbar Start -->
     <?php
+        $service = "active";
         require "includes/navbar.php";
+        unset($service);
     ?>
     <!-- Navbar End -->
 

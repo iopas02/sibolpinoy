@@ -17,7 +17,9 @@
 
     <!-- Navbar Start -->
     <?php
+        $about = "active";
         require "includes/navbar.php";
+        unset($about);
     ?>
     <!-- Navbar End -->
 
@@ -130,7 +132,7 @@
     <div class="container-fluid bg-white py-3">
         <div class="container">
             <div class="embed-responsive embed-responsive-16by9 wow fadeInUp" data-wow-delay="0.1s">
-                <iframe class="embed-responsive-item col-lg-12 col-sm-12 about-video" src="video/video_2.mp4" ></iframe>
+                <iframe class="embed-responsive-item col-lg-12 col-sm-12 about-video" src="video/video_2.mp4" sandbox></iframe>
             </div>
         </div>
     </div>

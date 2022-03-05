@@ -17,7 +17,9 @@
 
     <!-- Navbar Start -->
     <?php
+        $contact = "active";
         require "includes/navbar.php";
+        unset($contact);
     ?>
     <!-- Navbar End -->
 

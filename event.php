@@ -17,7 +17,9 @@
 
     <!-- Navbar Start -->
     <?php
+        $event = "active";
         require "includes/navbar.php";
+        unset($event);
     ?>
     <!-- Navbar End -->
 
