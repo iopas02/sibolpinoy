@@ -136,8 +136,6 @@
       require "layout.part/admin.footer.php";
     ?>
 
-    </script>
-
     <!-- Footer and JS Script End Here -->
 
 
