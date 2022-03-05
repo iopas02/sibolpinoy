@@ -9,6 +9,17 @@
 
   <body>
     <title>Sibol-PINOY Calendar</title>
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth'
+        });
+        calendar.render();
+      });
+
+    </script>
 
     <!-- top navigation bar -->
     <?php
@@ -16,8 +27,8 @@
     ?>
     <!-- top navigation bar -->
 
-
     <!-- THIS IS FOR SIDE NAV-BAR and OFF CANVA START HERE -->
+
     <?php
       require "layout.part/admin.side.navbar.php";
     ?>
@@ -25,7 +36,7 @@
     <!-- THIS IS FOR SIDE NAV-BAR and OFF CANVA END HERE -->
 
     <main class="mt-5 pt-3">
-
+      <div id='calendar'></div>
     </main>
 
     <!-- Footer and JS Script Start Here -->
