@@ -16,8 +16,7 @@
 
     <!-- for calendar Stylesheet -->
     <link href='fullcalendar/main.css' rel='stylesheet' />
-    <script src='fullcalendar/main.js'></script>
-
+    
     <!-- Template Stylesheet -->
     <link href="tyle/admin.style.css" rel="stylesheet">
 
