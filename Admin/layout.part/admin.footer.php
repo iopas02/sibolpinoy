@@ -8,7 +8,7 @@
    <script src="admin.js/bootstrap.min.js"></script>
 
    <script type="text/javascript" src="admin.js/moment.min.js"></script>	
-   <script type="text/javascript" src="admin.js/fullcalendar.min.js"></script>
+   
  
     <script src="admin.js/jquery.dataTables.min.js"></script>
     <script src="admin.js/dataTables.bootstrap5.min.js"></script>
