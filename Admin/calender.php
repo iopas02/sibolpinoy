@@ -124,7 +124,9 @@
           </div>
       </div>
 
-      <div class="p-3" id='calendar'></div>
+      <div class="container">
+        <div id="calendar"></div>
+      </div>
 
 
     </main>
