@@ -36,7 +36,7 @@
     <!-- THIS IS FOR SIDE NAV-BAR and OFF CANVA END HERE -->
 
     <main class="mt-5 pt-3">
-      <div id='calendar'></div>
+      <div class="p-3" id='calendar'></div>
     </main>
 
     <!-- Footer and JS Script Start Here -->
