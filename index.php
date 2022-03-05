@@ -17,7 +17,9 @@
 
     <!-- Navbar Start -->
     <?php
-        require "includes/index.navbar.php";
+        $index = "active";
+        require "includes/navbar.php";
+        unset($index);
     ?>
     <!-- Navbar End -->
 

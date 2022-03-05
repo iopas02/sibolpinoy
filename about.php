@@ -17,7 +17,9 @@
 
     <!-- Navbar Start -->
     <?php
+        $about = "active";
         require "includes/navbar.php";
+        unset($about);
     ?>
     <!-- Navbar End -->
 

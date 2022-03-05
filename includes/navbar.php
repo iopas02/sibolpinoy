@@ -7,11 +7,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="index.php" class="nav-item nav-link second-header active">Home</a>
-            <a href="about.php" class="nav-item nav-link second-header">About Us</a>
-            <a href="services.php" class="nav-item nav-link second-header">Services</a>
-            <a href="event.php" class="nav-item nav-link second-header">Events</a>
-            <a href="contact.php" class="nav-item nav-link second-header">Contact</a>
+            <a href="index.php" class="nav-item nav-link second-header <?= $index?>">Home</a>
+            <a href="about.php" class="nav-item nav-link second-header <?= $about?>">About Us</a>
+            <a href="services.php" class="nav-item nav-link second-header <?= $service?>">Services</a>
+            <a href="event.php" class="nav-item nav-link second-header <?= $event?>">Events</a>
+            <a href="contact.php" class="nav-item nav-link second-header <?= $contact?>">Contact</a>
         </div>
         <a href="consultation.php" class="btn py-4 text-white bg-yellow">Book Consultation<i class="fa fa-arrow-right ms-3 text-light"></i></a>
     </div>
