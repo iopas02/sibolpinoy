@@ -8,7 +8,7 @@
         </button>
       </div>
     <form name="formEventUpdate" id="formEventUpdate" action="UpdateEvent.php" class="form-horizontal" method="POST">
-        <input type="hidden" class="form-control" name="idEvento" id="idEvento">
+        <input type="hidden" class="form-control" name="idEvento" id="idEvent">
         <div class="form-group">
             <label for="event" class="col-sm-12 control-label">Name of the event</label>
             <div class="col-sm-10">

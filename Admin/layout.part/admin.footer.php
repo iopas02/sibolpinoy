@@ -6,7 +6,7 @@
    <script src ="admin.js/jquery-3.0.0.min.js"> </script>
    <script src="admin.js/popper.min.js"></script>
 
-   <script type="text/javascript" src="admin.js/moment.min.js"></script>	
+   <script type="text/javascript" src="admin.js/gitmoment.min.js"></script>	
 
    <script src="admin.js/bootstrap.bundle.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
