@@ -25,7 +25,25 @@
     <!-- THIS IS FOR SIDE NAV-BAR and OFF CANVA END HERE -->
 
     <main class="mt-5 pt-3">
-     
+        <div class="mt-5"></div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col msjs">
+                <!-- <?php
+                    include('msjs.php');
+                ?> -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                <h3 class="text-center" id="title">How to create an Events Calendar with PHP and MYSQL</h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="calendar"></div>
 
 
     </main>

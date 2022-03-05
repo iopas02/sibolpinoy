@@ -14,7 +14,10 @@
     <link rel="stylesheet" href="style/dataTables.bootstrap5.min.css" />
     <link rel="stylesheet" href="style/admin.style.css" />
 
+     <!-- For Calendar Template Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="style/fullcalendar.min.css">
+
     <!-- Template Stylesheet -->
-    <link href="tyle/admin.style.css" rel="stylesheet">
+    <link href="style/admin.style.css" rel="stylesheet">
 
   </head>
