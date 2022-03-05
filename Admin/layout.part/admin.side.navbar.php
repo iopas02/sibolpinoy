@@ -63,7 +63,7 @@
                     Interface and Events
                 </div>
                 <li>
-                    <a href="404.php" class="nav-link px-3 text-light text-normal">
+                    <a href="calender.php" class="nav-link px-3 text-light text-normal">
                             <span class="me-2"><i class="bi bi-calendar4-week"></i></span>
                             <span>Caledndar</span>
                     </a>
