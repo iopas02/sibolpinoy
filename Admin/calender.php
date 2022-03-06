@@ -124,13 +124,13 @@
               <h4 class="page-header">Calendar</h4>
               <hr class="dropdown-divider bg-dark" />
           </div>
-      </div>
+        </div>
 
-      <div class="container">
-        <div id="calendar"></div>
-      </div>
+        <div class="container" >
+          <div id="calendar" ></div>
+        </div>
 
-
+      </div> 
     </main>
 
     <!-- Footer and JS Script Start Here -->
