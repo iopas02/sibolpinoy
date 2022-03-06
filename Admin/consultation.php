@@ -106,49 +106,53 @@
         <div class="modal fade" id="exampleModalToggle" data-bs-backdrop="static" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalToggleLabel">Consultation Reservation</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Sender:</label>
-                            <input type="text" class="form-control" readonly id="recipient-name" value="Peter Pan">
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Email Address:</label>
-                            <input type="text" class="form-control" readonly id="recipient-name" value="peterpan@wonderland.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Subject:</label>
-                            <input type="text" class="form-control" readonly id="recipient-name" value="Business Consultation">
-                        </div>
-                        <div class="mb-3">
-                            <div class="">
-                                <label for="recipient-name" class="col-form-label">Compliance and Standards:</label>
-                                <input type="text" class="form-control" readonly id="recipient-name" value="Automotive Quality Management System Standard (IATF 16949:2016)">
-                                <input type="text" class="form-control" readonly iid="recipient-name" value="Food Safety Management System (ISO 22000:2005) & HACCP">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalToggleLabel">Consultation Reservation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <label for="recipient-name" class="col-form-label">Sender:</label>
+                                    <input type="text" class="form-control" readonly id="recipient-name" value="Peter Pan">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <label for="recipient-name" class="col-form-label">Email Address:</label>
+                                    <input type="text" class="form-control" readonly id="recipient-name" value="peterpan@wonderland.com">
+                                </div>
                             </div>
-                            <div class="">
-                                <label for="recipient-name" class="col-form-label">Performance Excellence:</label>
-                                <input type="text" class="form-control" readonly id="recipient-name" value="Leadership Excellence">
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="recipient-name" class="col-form-label">Subject:</label>
+                                    <input type="text" class="form-control mb-2" readonly id="recipient-name" value="Business Consultation">
+                                </div>
                             </div>
-                            <div class="">
-                                <label for="recipient-name" class="col-form-label">Productivity & Quality:</label>
-                                <input type="text" class="form-control" readonly id="recipient-name" value="P&Q Diagnosis">
-                                <input type="text" class="form-control" readonly id="recipient-name" value="5s">
+                            <div class="row mb-2">
+                                <div class="col-md-4">
+                                    <label for="recipient-name" class="col-form-label">Compliance and Standards:</label>
+                                    <input type="text" class="form-control mb-2" readonly id="recipient-name" value="Automotive Quality Management System Standard (IATF 16949:2016)">
+                                    <input type="text" class="form-control mb-2" readonly iid="recipient-name" value="Food Safety Management System (ISO 22000:2005) & HACCP">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="recipient-name" class="col-form-label">Performance Excellence:</label>
+                                    <input type="text" class="form-control" readonly id="recipient-name" value="Leadership Excellence">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="recipient-name" class="col-form-label">Productivity & Quality:</label>
+                                    <input type="text" class="form-control mb-2" readonly id="recipient-name" value="P&Q Diagnosis">
+                                    <input type="text" class="form-control mb-2" readonly id="recipient-name" value="5s">
+                                </div>
                             </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" readonly id="message-text" placeholder="Where na you? Dito na me.."></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Reply message</button>
-                </div>
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Message:</label>
+                                <textarea class="form-control" readonly id="message-text" placeholder="Where na you? Dito na me.."></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Reply message</button>
+                    </div>
                 </div>
             </div>
         </div>

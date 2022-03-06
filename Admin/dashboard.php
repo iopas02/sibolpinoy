@@ -140,7 +140,7 @@
 
       <!-- FIRST FOUR CARDS START HERE -->
       <div class="row">
-        <div class="col-md-3 mb-3">
+        <div class="col-md-3 mt-4">
           <div class="py-3 card-d">
             <div class="">
               <h2 class="px-4 py-2 text-dark card-text">Number of Visitor</h2>
@@ -150,7 +150,7 @@
           </div>
         </div>
 
-        <div class="col-md-3 mb-3">
+        <div class="col-md-3 mt-4">
           <div class="py-3 card-d">
             <div class="">
               <h2 class="px-4 py-2 text-dark card-text">Total Number of Email</h2>
@@ -160,7 +160,7 @@
           </div>
         </div>
 
-        <div class="col-md-3 mb-3">
+        <div class="col-md-3 mt-4">
           <div class="py-3 card-d">
             <div class="">
               <h2 class="px-4 py-2 text-dark card-text">Number of Clients</h2>
