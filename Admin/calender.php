@@ -1,12 +1,14 @@
 <!doctype html>
 <html lang="en">
   
+  <head>
   <!-- Header Start -->
   <?php
       require "layout.part/admin.header.php";
   ?>
-  <!-- Header End -->
 
+  <!-- Header End -->
+  </head>
   <body>
     <title>Sibol-PINOY Calendar</title>
 

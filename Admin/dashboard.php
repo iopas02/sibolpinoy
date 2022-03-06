@@ -140,13 +140,31 @@
         </div>
 
         <div class="col-md-3 mb-3">
-          <div class="py-3 card-d">
-            <div class="">
-              <h2 class="px-4 py-2 text-dark card-text">Number of Admin</h2>
-              <hr class="dropdown-divider bg-dark" />
-              <h5 class="px-4 py-1 count-text text-blue"><img class="svg-img" src="svg/person-video3.svg" alt=""><span> 1,234 </span></h5>
+        <div class="container">
+          <div class="row ">
+            <div class="col-lg-12 text-center bg-dark text-white page-header" style="border-top-right-radius: 45px;">
+              2022
+            </div>
+            <div class="col-md-4 bg-dark text-white" style="border-bottom-left-radius: 45px;">
+            <hr class="dropdown-divider bg-light" />
+                <div class="text-center py-5">
+                  <div class="count-text">06</div>
+                  <div class="user-text">Mar</div>
+                </div>
+            </div>
+            <div class="col-md-8">
+              <h3 class="page-header">Event for Today</h3>
+
+              <div class="card-text">
+                ISO 9001:2015 Requirements and Internal Quality Audit
+              </div>
+
+              <div class="pt-3 login-text">
+                <img src="svg/watch.svg" style="width: 18px; height: 18px;" alt="" /> 10:00 am
+              </div>
             </div>
           </div>
+        </div>
         </div>
 
       </div>
@@ -233,7 +251,64 @@
       </div>
       <!-- SECOND TWO CARDS END HERE -->
 
-      <!-- THIRD GRAPH CARDS START HERE -->
+      <div class="container-fluid bg-white py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h3 class="text-left text-dark px-3 user-text">Upcoming Events</h3>
+            </div>
+      
+            <div id="carouselExampleIndicators" class="carousel slide wow fadeInUp" data-wow-delay="0.2s" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" style="background-color: blue;" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" style="background-color: blue;" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row g-5">
+                            <div class="col-lg-6" style="min-height: 400px;">
+                                <div class="position-relative" >
+                                    <div class="testimonial-item text-center" >
+                                        <img class="img-fluid w-100" style="height: 345px" src="../img/event_1.jpg">
+                                    </div>
+                                </div>                     
+                            </div>
+                            <div class="col-lg-6">
+                                <h5 class="bg-white text-dark pe-3 secondary-font">Avail UP TO 50% OFF on any of the following Training-Workshops below:</h5>
+                                <h6 class="bg-white text-dark pe-3 second-header">𝐈𝐒𝐎 𝟗𝟎𝟎𝟏:𝟐𝟎𝟏𝟓 𝐑𝐞𝐪𝐮𝐢𝐫𝐞𝐦𝐞𝐧𝐭𝐬 𝐚𝐧𝐝 𝐈𝐧𝐭𝐞𝐫𝐧𝐚𝐥 𝐐𝐮𝐚𝐥𝐢𝐭𝐲 𝐀𝐮𝐝𝐢𝐭: March 5, 6, 12 & 13, 2022 | 9AM-5PM</h6>
+
+                                <p class="mb-4">Registration Rates:</p>
+                                <p class="mb-4">Regular Fee: P2,000.00</p>
+                                <p class="mb-4">Early Bird Discount (20% OFF): P1,600.00/Training if you register until March 1, 2022</p>
+                                <p class="mb-4">Student & Group Registration (Min. of 3 pax | 50% OFF): P1,000.00/Pax.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row g-5">
+                            <div class="col-lg-6" style="min-height: 400px;">
+                                <div class="position-relative">
+                                    <div class="testimonial-item text-center">
+                                        <img class="img-fluid w-100" style="height: 345px" src="../img/event_2.jpg">
+                                    </div>
+                                </div>                     
+                            </div>
+                            <div class="col-lg-6">
+                                <h5 class="bg-white text-dark pe-3 secondary-font">Avail UP TO 50% OFF on any of the following Training-Workshops below:</h5>
+                                <h6 class="bg-white text-dark pe-3 second-header">𝐒𝐭𝐫𝐚𝐭𝐞𝐠𝐢𝐜 𝐏𝐥𝐚𝐧𝐧𝐢𝐧𝐠 𝐚𝐧𝐝 𝐑𝐢𝐬𝐤-𝐁𝐚𝐬𝐞𝐝 𝐌𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭: March 7 - 11, 2022 | 5PM-9PM</h6>
+                                <p class="mb-4">Registration Rates:</p>
+                                <p class="mb-4">Regular Fee: P2,000.00</p>
+                                <p class="mb-4">Early Bird Discount (20% OFF): P1,600.00/Training if you register until March 1, 2022</p>
+                                <p class="mb-4">Student & Group Registration (Min. of 3 pax | 50% OFF): P1,000.00/Pax.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+      <!-- FOURTH GRAPH CARDS START HERE -->
       <div class="row">
         <div class="col-md-6 mb-3">
           <div class="card h-100">
@@ -260,7 +335,7 @@
           </div>
         </div>
       </div>
-        
+      
         
     </main>
 
