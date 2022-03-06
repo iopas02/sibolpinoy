@@ -13,7 +13,6 @@
     <title>Sibol-PINOY Calendar</title>
 
     <script>
-   
       $(document).ready(function() {
         var calendar = $('#calendar').fullCalendar({
         editable:true,
@@ -129,8 +128,6 @@
       <div class="container">
         <div id="calendar"></div>
       </div>
-
-
     </main>
 
     <!-- Footer and JS Script Start Here -->
