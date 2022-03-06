@@ -3,11 +3,84 @@
   
   <!-- Header Start -->
   <?php
-      require "layout.part/admin.header.php";
-      require "comptroller/datagraph.php";
+    require "layout.part/admin.header.php";  
   ?>
-  <!-- Header End -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['line']});
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(seminarChart);
+    google.charts.setOnLoadCallback(affilateChart);
 
+    function seminarChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Month', 'ISO 9001:2015 Requirments and Internal Quality Audit', 'Startegic Planning and Risk-Based Management', 'Building Organizational Resilience 101: Risk Management and Root Cause Analysis'],
+          ['Jan',  45, 25, 45],
+          ['Feb',  75, 25, 30],
+          ['Mar',  50, 35, 37],
+          ['Apr',  45, 45, 24],
+          ['May',  45, 21, 24],
+          ['Jun',  25, 35, 34],
+          ['jul',  37, 20, 45],
+          ['Aug',  47, 65, 35],
+          ['Sep',  45, 24, 65],
+          ['Oct',  27, 21, 21],
+          ['Nov',  37, 40, 25],
+          ['Dec',  37, 37, 37],
+        ]);
+
+
+    var options = {
+        chart: {
+        title: 'Seminar for Year 2021',
+        },
+        width: 600,
+        height: 350,
+        axes: {
+        x: {
+            0: {side: 'top'}
+        }
+        }
+    };
+
+    var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+    chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+
+    function affilateChart() {
+        
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Affiliation');
+        data.addColumn('number', 'PAX');
+        data.addRows([
+          ['Student', 130], 
+          ['IT', 53],
+          ['Entrepreneur', 73],
+          ['LAW Firm', 103],
+          ['Finance', 83],
+          ['Marketing', 73],
+          ['Government Sector', 93],
+          ['Education', 120]  
+        ]);
+
+
+        var options = {
+          title: 'Affiliation Pie Graph',
+          legend: 'side',
+          slices: {  0: {offset: 0.1},
+                    3: {offset: 0.3},
+                    7: {offset: 0.2}
+          },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+      
+  </script>
+  <!-- Header End -->
+  
   <body>
     <title>Sibol-PINOY Admin Dashboard</title>
 
@@ -87,7 +160,7 @@
             <div class="container">
                 <div class="container">
                     <div class="wow fadeInUp" data-wow-delay="0.1s">
-                        <h6 class="bg-white text-dark user-text">Services Images</h6>
+                        <h6 class="bg-white text-dark user-text">Services and Images</h6>
                     </div>
                     <div class="row g-4">
                         <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -166,7 +239,7 @@
           <div class="card h-100">
             <div class="card-header">
               <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
-              Area Chart Example
+              Seminar for Year 2021
             </div>
             <div class="card-body">
               <!-- <canvas class="chart" width="400" height="200"></canvas> -->
@@ -178,10 +251,11 @@
           <div class="card h-100">
             <div class="card-header">
               <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
-              Area Chart Example
+              Affiliation Graph
             </div>
             <div class="card-body">
-              <canvas class="chart" width="400" height="200"></canvas>
+              <!-- <canvas class="chart" width="400" height="200"></canvas> -->
+              <div id="piechart"  style="width: 600px; height: 400px;"></div>
             </div>
           </div>
         </div>
