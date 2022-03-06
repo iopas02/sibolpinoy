@@ -15,10 +15,10 @@
 
     <title>Sibol-PINOY Admin Login</title>
   </head>
-  <body>
+  <body">
 
     <!-- Admin LogIn Form Start -->
-    <section class="form my-4 mx-5">
+    <section class="form mx-5" >
         <div class="container container-position">
             <div class="row no-gutters">
                 <div class="col-lg-5">

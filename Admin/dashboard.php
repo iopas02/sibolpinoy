@@ -9,8 +9,12 @@
   <script type="text/javascript">
     google.charts.load('current', {'packages':['line']});
     google.charts.load("current", {packages:["corechart"]});
+    google.charts.load('current', {'packages':['bar']});
+      
     google.charts.setOnLoadCallback(seminarChart);
     google.charts.setOnLoadCallback(affilateChart);
+    google.charts.setOnLoadCallback(businessChart);
+    google.charts.setOnLoadCallback(technologicalChart);
 
     function seminarChart() {
         var data = google.visualization.arrayToDataTable([
@@ -21,18 +25,16 @@
           ['Apr',  45, 45, 24],
           ['May',  45, 21, 24],
           ['Jun',  25, 35, 34],
-          ['jul',  37, 20, 45],
+          ['Jul',  37, 20, 45],
           ['Aug',  47, 65, 35],
           ['Sep',  45, 24, 65],
           ['Oct',  27, 21, 21],
           ['Nov',  37, 40, 25],
           ['Dec',  37, 37, 37],
         ]);
-
-
     var options = {
         chart: {
-        title: 'Seminar for Year 2021',
+        title: 'Seminar on the Year 2021',
         },
         width: 600,
         height: 350,
@@ -42,9 +44,7 @@
         }
         }
     };
-
     var chart = new google.charts.Line(document.getElementById('line_top_x'));
-
     chart.draw(data, google.charts.Line.convertOptions(options));
     }
 
@@ -63,8 +63,6 @@
           ['Government Sector', 93],
           ['Education', 120]  
         ]);
-
-
         var options = {
           title: 'Affiliation Pie Graph',
           legend: 'side',
@@ -73,10 +71,43 @@
                     7: {offset: 0.2}
           },
         };
-
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
         chart.draw(data, options);
       }
+
+      function businessChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'utomotive Quality Management System Standard (IATF 16949:2016)', 'Energy Management System (ISO 50001:2011)', 'Environmental Management System (ISO 14001:2015)', 'Food Safety Management System (ISO 22000:2005) & HACCP', 'Food Safety Systems Certification (FSSC 22000)', 'Information Security Management System (ISO 27001:2013)', 'Occupational Health & Safety Management System (OHSAS 18001)/ISO 45001:2016)', 'Quality Management System (ISO 9001:2015)', 'Third-Party BE Assessment', 'Leadership Excellence', 'Strategic Planning', 'Customer-Focused Excellence', 'Knowledge Management', 'HR Excellence', 'Operations Excellence', 'P&Q Diagnosis', '5s', 'WIT', 'Lean Management', 'Labor-Management Cooperation'],
+          ['2021', 1000, 980, 111, 231, 234, 777, 245, 89, 345, 333, 499, 780, 450, 790, 890, 312, 212, 870, 111, 340],
+        ]);
+        var options = {
+          chart: {
+            title: 'Business Consultancy',
+            subtitle: 'Total Consultation for the year 2021',
+          },
+          legend: {position: 'none', textStyle: {color: 'black', fontSize: 8}},
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+
+      function technologicalChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Logo', 'Flyer', 'Design Services', 'Banner design', 'Ad Boxes design', 'Brochure', 'Web Content', 'Redesign Services', 'Content Upload', 'Technical Maintenance', 'Customer-Focused Excellence', 'Web Hosting', 'Web Statistics', ' Presentation Services', 'Transcription', 'Proofreading', 'Conceptual Design'],
+          ['2021', 1000, 400, 500, 333, 455, 654, 123, 111, 86, 35, 785, 231, 567, 444, 111, 890, 666],
+        ]);
+        var options = {
+          chart: {
+            title: 'Technological Consultation',
+            subtitle: 'Total Consultation for the year 2021',
+          },
+          legend: {position: 'none', textStyle: {color: 'black', fontSize: 8}},
+        };
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
       
   </script>
   <!-- Header End -->
@@ -230,7 +261,7 @@
 
         <div class="col-md-6 mb-3">
           <div class="card h-100">
-            <div class="container pt-3 bg-light" id="about">
+            <div class="container pt-3 pb-3 bg-light" id="about">
                 <div class="container">
                     <div class="row g-5">
                         <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -251,6 +282,7 @@
       </div>
       <!-- SECOND TWO CARDS END HERE -->
 
+      <!-- THIRD EVENT CARDS START HERE -->  
       <div class="container-fluid bg-white py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -305,8 +337,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    
+      </div>
+      <!-- THIRD EVENT CARDS END HERE -->
 
       <!-- FOURTH GRAPH CARDS START HERE -->
       <div class="row">
@@ -314,7 +346,7 @@
           <div class="card h-100">
             <div class="card-header">
               <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
-              Seminar for Year 2021
+              Seminar on the Year 2021
             </div>
             <div class="card-body">
               <!-- <canvas class="chart" width="400" height="200"></canvas> -->
@@ -335,8 +367,45 @@
           </div>
         </div>
       </div>
-      
-        
+      <!-- FOURTH GRAPH CARDS END HERE -->
+
+      <!-- FOURTH GRAPH CONSULTATION CARDS START HERE -->
+      <div class="row">
+          <div class="col-md-3 mb-3">
+            <div class="card bg-white p-1 text-white h-100">
+              <div id="barchart_material" style="width: 285px; height: 350px;"></div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <div class="card bg-white p-1 text-dark h-100">
+              <div id="columnchart_material" style="width: 285px; height: 350px;"></div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <div class="card bg-success text-white h-100">
+              <div class="card-body py-5">Success Card</div>
+              <div class="card-footer d-flex">
+                View Details
+                <span class="ms-auto">
+                  <i class="bi bi-chevron-right"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <div class="card bg-danger text-white h-100">
+              <div class="card-body py-5">Danger Card</div>
+              <div class="card-footer d-flex">
+                View Details
+                <span class="ms-auto">
+                  <i class="bi bi-chevron-right"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!-- FOURTH GRAPH CONSULTATION CARDS END HERE -->
+       
     </main>
 
     <!-- Footer and JS Script Start Here -->

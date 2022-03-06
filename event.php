@@ -53,7 +53,7 @@
                             <div class="col-lg-6" style="min-height: 400px;">
                                 <div class="position-relative" >
                                     <div class="testimonial-item text-center" >
-                                        <img class="img-fluid w-100 h-100" src="img/event_1.jpg">
+                                        <img class="img-fluid w-100" style="height: 345px" src="img/event_1.jpg">
                                     </div>
                                 </div>                     
                             </div>
@@ -61,10 +61,10 @@
                                 <h5 class="bg-white text-dark pe-3 secondary-font">Avail UP TO 50% OFF on any of the following Training-Workshops below:</h5>
                                 <h6 class="bg-white text-dark pe-3 second-header">𝐈𝐒𝐎 𝟗𝟎𝟎𝟏:𝟐𝟎𝟏𝟓 𝐑𝐞𝐪𝐮𝐢𝐫𝐞𝐦𝐞𝐧𝐭𝐬 𝐚𝐧𝐝 𝐈𝐧𝐭𝐞𝐫𝐧𝐚𝐥 𝐐𝐮𝐚𝐥𝐢𝐭𝐲 𝐀𝐮𝐝𝐢𝐭: March 5, 6, 12 & 13, 2022 | 9AM-5PM</h6>
 
-                                <p class="mb-4">Registration Rates:</p>
-                                <p class="mb-4">Regular Fee: P2,000.00</p>
-                                <p class="mb-4">Early Bird Discount (20% OFF): P1,600.00/Training if you register until March 1, 2022</p>
-                                <p class="mb-4">Student & Group Registration (Min. of 3 pax | 50% OFF): P1,000.00/Pax.</p>
+                                <p class="mb-2">Registration Rates:</p>
+                                <p class="mb-2">Regular Fee: P2,000.00</p>
+                                <p class="mb-2">Early Bird Discount (20% OFF): P1,600.00/Training if you register until March 1, 2022</p>
+                                <p class="mb-2">Student & Group Registration (Min. of 3 pax | 50% OFF): P1,000.00/Pax.</p>
                                 <a class="btn btn-dark py-3 px-5 mt-2" data-bs-toggle="modal" data-bs-target="#registration">For Registration</a>
                             </div>
                         </div>
@@ -74,17 +74,17 @@
                             <div class="col-lg-6" style="min-height: 400px;">
                                 <div class="position-relative">
                                     <div class="testimonial-item text-center">
-                                        <img class="img-fluid w-100 h-100" src="img/event_2.jpg">
+                                        <img class="img-fluid w-100" style="height: 345px" src="img/event_2.jpg">
                                     </div>
                                 </div>                     
                             </div>
                             <div class="col-lg-6">
                                 <h5 class="bg-white text-dark pe-3 secondary-font">Avail UP TO 50% OFF on any of the following Training-Workshops below:</h5>
                                 <h6 class="bg-white text-dark pe-3 second-header">𝐒𝐭𝐫𝐚𝐭𝐞𝐠𝐢𝐜 𝐏𝐥𝐚𝐧𝐧𝐢𝐧𝐠 𝐚𝐧𝐝 𝐑𝐢𝐬𝐤-𝐁𝐚𝐬𝐞𝐝 𝐌𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭: March 7 - 11, 2022 | 5PM-9PM</h6>
-                                <p class="mb-4">Registration Rates:</p>
-                                <p class="mb-4">Regular Fee: P2,000.00</p>
-                                <p class="mb-4">Early Bird Discount (20% OFF): P1,600.00/Training if you register until March 1, 2022</p>
-                                <p class="mb-4">Student & Group Registration (Min. of 3 pax | 50% OFF): P1,000.00/Pax.</p>
+                                <p class="mb-2">Registration Rates:</p>
+                                <p class="mb-2">Regular Fee: P2,000.00</p>
+                                <p class="mb-2">Early Bird Discount (20% OFF): P1,600.00/Training if you register until March 1, 2022</p>
+                                <p class="mb-2">Student & Group Registration (Min. of 3 pax | 50% OFF): P1,000.00/Pax.</p>
                                 <a class="btn btn-dark py-3 px-5 mt-2" data-bs-toggle="modal" data-bs-target="#registration">For Registration</a>
                             </div>
                         </div>
@@ -124,22 +124,22 @@
             </div>
             <div class="owl-carousel testimonial-carousel position-relative" >
                 <div class="testimonial-item text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <img class="p-2 mx-auto mb-3" src="img/past_event_1.png">
+                    <img class="p-2 mx-auto mb-3" styel="width: 150px; height:180px;" src="img/past_event_1.png">
                     <h5 class="mb-0 second-header">ISO 9001:2015 Requirements and Internal Quality Audit</h5>
                     <p>February 19, 20, 26 & 27, 2022 | 9AM-5PM </p>
                 </div>
                 <div class="testimonial-item text-center wow fadeInUp" data-wow-delay="0.2s">
-                    <img class=" p-2 mx-auto mb-3" src="img/past_event_2.png">
+                    <img class=" p-2 mx-auto mb-3" styel="width: 150px; height:180px;" src="img/past_event_2.png">
                     <h5 class="mb-0 second-header">Strategic Planning and Risk-Based Management</h5>
                     <p>February 21-25, 2022 | 5PM-9PM</p>
                 </div>
                 <div class="testimonial-item text-center wow fadeInUp" data-wow-delay="0.3s">
-                    <img class=" p-2 mx-auto mb-3" src="img/past_event_3.png">
+                    <img class=" p-2 mx-auto mb-3" styel="width: 150px; height:180px;" src="img/past_event_3.png">
                     <h5 class="mb-0 second-header">Building Organizational Resilience 101:Risk Management and Root Cause Analysis</h5>
                     <p>16 February 2022 from 5PM to 8PM.</p>
                 </div>
                 <div class="testimonial-item text-center wow fadeInUp" data-wow-delay="0.4s"> 
-                    <img class="p-2 mx-auto mb-3" src="img/past_event_4.png">
+                    <img class="p-2 mx-auto mb-3" styel="width: 150px; height:180px;" src="img/past_event_4.png">
                     <h5 class="mb-0 second-header">Building Organizational Resilience: Introducing Tools and Techniques in Risk Management and Root Cause Analysis</h5>
                     <p> January 16, 2022, 9AM - 12NN</p>
                 </div>
