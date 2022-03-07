@@ -66,7 +66,7 @@
                         <div class="accordion" id="businessConsultancy">
                             <div class="accrodion-item mb-1">
                                 <h5 class="accordion-header second-header" id="bc_header1">
-                                    <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#compliance" aris-expanded="true" aria-controls="compliance">
+                                    <button class="accordion-button text-light" style="background: darkblue;border-top-left-radius: 30px; border-bottom-right-radius: 30px" type="button" data-bs-toggle="collapse" data-bs-target="#compliance" aris-expanded="true" aria-controls="compliance">
                                         Compliance and Standards
                                     </button>
                                 </h5>
@@ -87,7 +87,7 @@
                             </div>
                             <div class="accrodion-item mb-1">
                                 <h5 class="accordion-header second-header" id="bc_header2">
-                                    <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#performance" aris-expanded="true" aria-controls="compliance">
+                                    <button class="accordion-button text-light" style="background: darkblue; border-top-left-radius: 30px; border-bottom-right-radius: 30px" type="button" data-bs-toggle="collapse" data-bs-target="#performance" aris-expanded="true" aria-controls="compliance">
                                         Performance Excellence
                                     </button>
                                 </h5>
@@ -108,7 +108,7 @@
                             </div>
                             <div class="accrodion-item mb-1">
                                 <h5 class="accordion-header second-header" id="bc_header3">
-                                    <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#productivity" aris-expanded="true" aria-controls="compliance">
+                                    <button class="accordion-button text-light" style="background: darkblue; border-top-left-radius: 30px; border-bottom-right-radius: 30px" type="button" data-bs-toggle="collapse" data-bs-target="#productivity" aris-expanded="true" aria-controls="compliance">
                                         Productivity & Quality
                                     </button>
                                 </h5>
@@ -127,7 +127,7 @@
                             </div>
                         </div>
                         <div class="text-center py-2">
-                            <button class="text-dark bg-yellow border-0 py-2 px-2" data-bs-toggle="modal" type="button" data-bs-target="#businessForm">Book Consultation</button>
+                            <button class="text-dark bg-yellow border-0 py-2 px-2" style="border-top-left-radius: 15px; border-bottom-right-radius: 15px" data-bs-toggle="modal" type="button" data-bs-target="#businessForm">Book Consultation</button>
                         </div>
                     </div>
                 </div>
@@ -153,7 +153,7 @@
                         <div class="accordion" id="technological">
                             <div class="accrodion-item mb-1">
                                 <h5 class="accordion-header second-header" id="ts_header1">
-                                    <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#graphics" aris-expanded="true" aria-controls="compliance">
+                                    <button class="accordion-button text-light" style="background: darkblue; border-top-left-radius: 30px; border-bottom-right-radius: 30px" type="button" data-bs-toggle="collapse" data-bs-target="#graphics" aris-expanded="true" aria-controls="compliance">
                                         Graphics Services
                                     </button>
                                 </h5>
@@ -172,7 +172,7 @@
                             </div>
                             <div class="accrodion-item mb-1">
                                 <h5 class="accordion-header second-header" id="ts_header2">
-                                    <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#webDesigning" aris-expanded="true" aria-controls="compliance">
+                                    <button class="accordion-button text-light" style="background: darkblue; border-top-left-radius: 30px; border-bottom-right-radius: 30px" type="button" data-bs-toggle="collapse" data-bs-target="#webDesigning" aris-expanded="true" aria-controls="compliance">
                                         Web Designing
                                     </button>
                                 </h5>
@@ -192,7 +192,7 @@
                             </div>
                             <div class="accrodion-item mb-1">
                                 <h5 class="accordion-header second-header" id="ts_header3">
-                                    <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#documentServices" aris-expanded="true" aria-controls="compliance">
+                                    <button class="accordion-button text-light" style="background: darkblue; border-top-left-radius: 30px; border-bottom-right-radius: 30px" type="button" data-bs-toggle="collapse" data-bs-target="#documentServices" aris-expanded="true" aria-controls="compliance">
                                         Document Services
                                     </button>
                                 </h5>
@@ -209,7 +209,7 @@
                             </div>
                         </div>
                         <div class="text-center py-2">
-                            <button class="text-dark bg-yellow border-0 py-2 px-2" data-bs-toggle="modal" type="button" data-bs-target="#technologyForm">Book Consultation</button>
+                            <button class="text-dark bg-yellow border-0 py-2 px-2" style="border-top-left-radius: 15px; border-bottom-right-radius: 15px" data-bs-toggle="modal" type="button" data-bs-target="#technologyForm">Book Consultation</button>
                         </div>
                     </div>
                 </div>
@@ -261,7 +261,7 @@
     <!-- Consultation Services End -->
 
     <!-- Question Form Start -->
-        <div class="container-fluid bg-white py-5" id="about">
+    <div class="container-fluid bg-white py-5" id="about">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="bg-white text-center text-dark px-3 secondary-font">Message Us</h6>
@@ -434,111 +434,111 @@
         <!-- Business Form Modal End -->
 
         <!--Technol0gy Form Modal Start -->
-           <div class="modal fade" data-bs-backdrop="static" id="technologyForm" tabindex="-1" role="dialog" aria-labelledby="registrationTitle" aria-hidden="true">
+        <div class="modal fade" data-bs-backdrop="static" id="technologyForm" tabindex="-1" role="dialog" aria-labelledby="registrationTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                <div class="modal-content">
-                    <div class="pt-3 text-center">
-                        <img class="__logo" src="img/logo.png" alt="">
+            <div class="modal-content">
+                <div class="pt-3 text-center">
+                    <img class="__logo" src="img/logo.png" alt="">
+                </div>
+                <div class="text-center">
+                    <h5 class="modal-title" id="registrationTitle">Technology Solution Form</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <form class="row g-3">
+                            <div class="col-md-6">
+                                <label for="" class="form-label">First Name</label>
+                                <input class="form-control form-control-sm" type="text" placeholder="eg. Juan">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="form-label">Last Name</label>
+                                <input class="form-control form-control-sm" type="text" placeholder="eg. Dela Cruz">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="form-label">Mobile Number</label>
+                                <input class="form-control form-control-sm" type="text" placeholder="eg. +62942*******">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="form-label">Email Address</label>
+                                <input class="form-control form-control-sm" type="email" placeholder="eg. xxxxx@gmail.com">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="inputState" class="form-label">Gender</label>
+                                <select id="inputState" class="form-select">
+                                    <option selected>Choose...</option>
+                                    <option>Female</option>
+                                    <option>Male</option>
+                                    <option>LGBTQ</option>
+                                </select>
+                            </div>
+                            <div class="form-check form-switch">
+                                <h6 class="py-2 second_header">Graphics Services</h6>
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Logo</label><br>
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Flyer</label><br>
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Design Services</label><br>
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Banner design</label><br>
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Ad Boxes design</label><br>
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Brochure</label><br>
+                            </div>
+                            <div class="form-check form-switch">
+                                <h6 class="py-2 second_header">Web Designing</h6>
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Web Content</label><br>
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Redesign Services</label><br>
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Content Upload</label><br>
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Technical Maintenance</label><br>
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Customer-Focused Excellence</label><br>
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Web Hosting</label><br>
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Web Statistics</label><br>
+                            </div>
+                            <div class="form-check form-switch">
+                                <h6 class="py-2 second_header">Document Services</h6>
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Presentation Services</label><br>
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Transcription</label><br>
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Proofreading</label><br>
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Conceptual Design</label><br>
+                            </div>
+                            <div class="mb-1">
+                                <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">
+                                    Check me out
+                                </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Book Me</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="text-center">
-                        <h5 class="modal-title" id="registrationTitle">Technology Solution Form</h5>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container">
-                            <form class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="" class="form-label">First Name</label>
-                                    <input class="form-control form-control-sm" type="text" placeholder="eg. Juan">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="" class="form-label">Last Name</label>
-                                    <input class="form-control form-control-sm" type="text" placeholder="eg. Dela Cruz">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="" class="form-label">Mobile Number</label>
-                                    <input class="form-control form-control-sm" type="text" placeholder="eg. +62942*******">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="" class="form-label">Email Address</label>
-                                    <input class="form-control form-control-sm" type="email" placeholder="eg. xxxxx@gmail.com">
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="inputState" class="form-label">Gender</label>
-                                    <select id="inputState" class="form-select">
-                                        <option selected>Choose...</option>
-                                        <option>Female</option>
-                                        <option>Male</option>
-                                        <option>LGBTQ</option>
-                                    </select>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <h6 class="py-2 second_header">Graphics Services</h6>
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Logo</label><br>
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Flyer</label><br>
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Design Services</label><br>
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Banner design</label><br>
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Ad Boxes design</label><br>
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Brochure</label><br>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <h6 class="py-2 second_header">Web Designing</h6>
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Web Content</label><br>
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Redesign Services</label><br>
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Content Upload</label><br>
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Technical Maintenance</label><br>
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Customer-Focused Excellence</label><br>
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Web Hosting</label><br>
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Web Statistics</label><br>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <h6 class="py-2 second_header">Document Services</h6>
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Presentation Services</label><br>
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Transcription</label><br>
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Proofreading</label><br>
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Conceptual Design</label><br>
-                                </div>
-                                <div class="mb-1">
-                                    <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                                    <label class="form-check-label" for="gridCheck">
-                                        Check me out
-                                    </label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Book Me</button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="container">
-                        </div>  
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn bg-blue text-light" data-bs-dismiss="modal">Close</button>
-                    </div>
+                    <div class="container">
+                    </div>  
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn bg-blue text-light" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
+        </div>
         </div>
         <!-- technology Form Modal End -->
 
