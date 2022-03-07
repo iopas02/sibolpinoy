@@ -154,7 +154,6 @@
                 </div>
             </div>
         </div>
-        <a class="btn btn-primary" data-bs-toggle="modal" href="#ComplianceandStandards" role="button">Open first modal</a>
 
         <!-- Modal End Here -->
 
