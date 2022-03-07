@@ -36,7 +36,7 @@
         chart: {
         title: 'Seminar on the Year 2021',
         },
-        width: 600,
+        width: 500,
         height: 350,
         axes: {
         x: {
@@ -362,7 +362,7 @@
             </div>
             <div class="card-body">
               <!-- <canvas class="chart" width="400" height="200"></canvas> -->
-              <div id="piechart"  style="width: 600px; height: 400px;"></div>
+              <div id="piechart"  style="width: 500px; height: 400px;"></div>
             </div>
           </div>
         </div>
