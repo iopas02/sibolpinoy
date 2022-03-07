@@ -26,15 +26,15 @@
                     </div> -->
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3 secondary-font">Navigate</h4>
+                    <h4 class="text-white mb-3 secondary-font"><b>Navigate</b></h4>
                     <a class="btn btn-link" href="">About Us</a>
                     <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Privacy Policy</a>
+                    <a class="btn btn-link" href="terms.php">Privacy Policy</a>
                     <a class="btn btn-link" href="terms.php">Terms & Condition</a>
                     <a class="btn btn-link" href="faqs.php">FAQs</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3 secondary-font">Contact</h4>
+                    <h4 class="text-white mb-3 secondary-font"><b>Contact</b></h4>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Philippines</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+63917 113 9078</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@sibolpinoy.com</p>
@@ -51,7 +51,7 @@
                 </div>
             
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3 secondary-font">Sibol News</h4>
+                    <h4 class="text-white mb-3 secondary-font"><b>Sibol News</b></h4>
                     <p>Stay up to date on the latest news from Sibol-Pinoy</p> <br>
 
                     <div class="position-relative mx-auto" style="max-width: 500px;">

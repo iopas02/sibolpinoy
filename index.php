@@ -225,7 +225,7 @@
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="py-2 second-header">Business Consultancy</h5>
+                            <h5 class="py-2 second-header">Business Consultancy</h5><br>
                             <p>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
                             their objectives. We just do not partner with our
                             clients, we engage and become one with them in
