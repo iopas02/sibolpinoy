@@ -36,7 +36,7 @@
         chart: {
         title: 'Seminar on the Year 2021',
         },
-        width: 500,
+        width: 600,
         height: 350,
         axes: {
         x: {
@@ -66,6 +66,7 @@
         var options = {
           title: 'Affiliation Pie Graph',
           legend: 'side',
+          width: 700,
           slices: {  0: {offset: 0.1},
                     3: {offset: 0.3},
                     7: {offset: 0.2}
