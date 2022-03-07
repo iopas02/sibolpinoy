@@ -3,6 +3,18 @@
     --blueColor: darkblue;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px rgba(119, 19, 201, 0.849);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--blueColor)
+}
+
 /*** background color ***/
 .bg-yellow{
     background-color: var(--yellowColor);

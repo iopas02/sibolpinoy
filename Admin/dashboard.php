@@ -369,7 +369,7 @@
       </div>
       <!-- FOURTH GRAPH CARDS END HERE -->
 
-      <!-- FOURTH GRAPH CONSULTATION CARDS START HERE -->
+      <!-- Fifth GRAPH CONSULTATION CARDS START HERE -->
       <div class="row">
           <div class="col-md-3 mb-3">
             <div class="card bg-white p-1 text-white h-100">
@@ -404,7 +404,7 @@
             </div>
           </div>
       </div>
-      <!-- FOURTH GRAPH CONSULTATION CARDS END HERE -->
+      <!-- Fifth GRAPH CONSULTATION CARDS END HERE -->
        
     </main>
 

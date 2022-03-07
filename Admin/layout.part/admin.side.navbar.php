@@ -71,53 +71,15 @@
                             <span class="me-2"><i class="bi bi-bar-chart"></i></span>
                             <span>Reports</span>
                     </a>
-                    <a class="nav-link px-3 sidebar-link text-light text-normal" data-bs-toggle="collapse" href="#services">
+                    <a href="services.php" class="nav-link px-3 sidebar-link text-light text-normal" >
                         <span class="me-2"><i class="bi bi-tags"></i></span>
-                        <span>Services</span>
-                        <span class="ms-auto">
-                            <span class="right-icon">
-                            <i class="bi bi-chevron-down"></i>
-                            </span>
-                        </span>
+                        <span>Services</span>            
                     </a>
-                    <div class="collapse" id="services">
-                    <ul class="navbar-nav ps-3">
-                        <li>
-                        <a href="404.php" class="nav-link px-3 text-normal">
-                            <span class="me-2"><i class="bi bi-plus"></i></span>
-                            <span>Add Services</span>
-                        </a>
-                        <a href="404.php" class="nav-link px-3 text-normal">
-                            <span class="me-2"><i class="bi bi-pen"></i></span>
-                            <span>Update Services</span>
-                        </a>
-                        </li>
-                    </ul>
-                    </div>
-
-                    <a class="nav-link px-3 sidebar-link text-light text-normal" data-bs-toggle="collapse" href="#events">
+                
+                    <a href="404.php" class="nav-link px-3 sidebar-link text-light text-normal">
                         <span class="me-2"><i class="bi bi-table"></i></span>
                         <span>Events</span>
-                        <span class="ms-auto">
-                            <span class="right-icon">
-                            <i class="bi bi-chevron-down"></i>
-                            </span>
-                        </span>
                     </a>
-                    <div class="collapse" id="events">
-                        <ul class="navbar-nav ps-3">
-                            <li>
-                            <a href="404.php" class="nav-link px-3 text-normal">
-                                <span class="me-2"><i class="bi bi-plus"></i></span>
-                                <span>Add Events</span>
-                            </a>
-                            <a href="404.php" class="nav-link px-3 text-normal">
-                                <span class="me-2"><i class="bi bi-pen"></i></span>
-                                <span>Update Events</span>
-                            </a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
             </ul>
         </nav>
