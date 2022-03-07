@@ -29,7 +29,7 @@
                     <h4 class="text-white mb-3 secondary-font">Navigate</h4>
                     <a class="btn btn-link" href="">About Us</a>
                     <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Privacy Policy</a>
+                    <a class="btn btn-link" href="terms.php">Privacy Policy</a>
                     <a class="btn btn-link" href="terms.php">Terms & Condition</a>
                     <a class="btn btn-link" href="faqs.php">FAQs</a>
                 </div>
