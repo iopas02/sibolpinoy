@@ -44,22 +44,32 @@
                             <table id="example" class="table table-striped data-table" style="width: 100%">
                                 <thead>
                                     <tr>
+                                        <th>C_Number</th>
                                         <th>Sender</th>
                                         <th>Subject</th>
+                                        <th>Status</th>
                                         <th>Date</th>
                                         <th>Action</th>
+                                        <th>Update</th>
                                         <th>Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                     <tr>
+                                        <td>1</td>
                                         <td>Peter Pan</td>
                                         <td>Business Consultation</td>
+                                        <td>Pending</td>
                                         <td>2:00 pm</td>
                                         <td>
                                             <button type="button" class="btn tooltip-test" title="Read" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
                                                 <i class="bi bi-bookmark"></i>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="update status">
+                                                <i class="bi bi-vector-pen"></i>
                                             </button>
                                         </td>
                                         <td>
@@ -70,12 +80,19 @@
                                     </tr>
 
                                     <tr>
+                                        <td>2</td>
                                         <td>Wendy But not Wendy's</td>
                                         <td>Technological Solution</td>
+                                        <td>Pending</td>
                                         <td>March 1</td>
                                         <td>
                                             <button type="button" class="btn tooltip-test" title="Read" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
                                                 <i class="bi bi-bookmark"></i>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Update Status">
+                                                <i class="bi bi-vector-pen"></i></i>
                                             </button>
                                         </td>
                                         <td>
