@@ -1,11 +1,12 @@
 <?php
 require "../connection.php";
 
-$sql = "SELECT profile.firstName, profile.lastName, login.username, login.level, login.status FROM login INNER JOIN profile ON login.loginId = profile.loginId ";
+$sql = "SELECT login.loginId, profile.firstName, profile.lastName, login.username, login.level, login.status FROM login INNER JOIN profile ON login.loginId = profile.loginId ";
 if($result = $conn->query($sql)){
     if($result->num_rows >= 1){
         while($row = $result->fetch_assoc()){  ?>
             <tr>
+                <td><?= $row["loginId"]?></td>
                 <td><?= $row["firstName"]?></td>
                 <td><?= $row["lastName"]?></td>
                 <td><?= $row["username"]?></td>
