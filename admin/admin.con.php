@@ -220,7 +220,7 @@ if(isset($_GET["error"])){
             </div>
         </div>
 
-        <div class="modal" id="editStatus" data-bs-backdrop="static" tabindex="-1" style="margin-top: 150px;">
+        <!-- <div class="modal" id="editStatus" data-bs-backdrop="static" tabindex="-1" style="margin-top: 150px;">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -229,7 +229,7 @@ if(isset($_GET["error"])){
                 </div>
                 <div class="modal-body">
                     <form action="" method="POST">
-                        <input type="hidden" value="" id="id" name="id">
+                        <input type="text" id="id" name="id">
                         <div class="row col-md-12">
                             <div class="col-md-12 mb-1">
                                 <h3 class="text-center">Are you sure you want to change the status of this user?</h3>  
@@ -237,7 +237,7 @@ if(isset($_GET["error"])){
                         </div>
                         <div class="text-right">
                             <button type="submit" class="btn btn-primary mt-2" name="new_admin">Change</button>
-                            <button type="submit" class="btn btn-dark mt-2" name="new_admin">Close</button>
+                            <button type="button" class="btn btn-dark mt-2" data-bs-dismiss="modal" >Close</button>
                         </div>  
                     </form>       
                 </div>
@@ -245,8 +245,25 @@ if(isset($_GET["error"])){
                 </div>
                 </div>
             </div>
-        </div>
-
+        </div> -->
+        <!-- modal start -->
+        <div class="modal fade" id="editStatus">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content mx-auto" style="max-width: 300px">                
+                        <div class="modal-body">
+                            <form action="" method="POST">
+                                    <input type="text" id="sid" name ="id">  
+                            <h2>Are you sure you want to change the status of this user?</h2>      
+                        </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success" name="statusButton">Yes</button>
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                                </div>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        <!-- modal end-->
         <!-- Modal End Here -->
 
     </main>
@@ -257,4 +274,22 @@ if(isset($_GET["error"])){
     ?>
     <!-- Footer and JS Script End Here -->
   </body>
+
+  <script>
+      $(document).ready(function(){
+        $('.statusButton').on('click', function(){
+            $('#editStatus').modal('show');
+
+            $tr = $(this).closest('tr');
+
+            var data= $tr.children("td").map(function(){
+                return $(this).text();
+            }).get();
+
+            console.log(data);
+
+            $('#sid').val(data[0]);
+        })
+        })
+  </script>
 </html>
