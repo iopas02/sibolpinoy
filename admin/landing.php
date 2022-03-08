@@ -2,16 +2,6 @@
 <html lang="en">
 <!-- Loading -->
 
-<<<<<<< HEAD
-<?php
-$alert = "";
-if(isset($_GET["success"])){
-    $success = $_GET["success"];
-    if($success == "login"){
-      $alert = "<div class='alert alert-success' role='alert'>Login successfully!</div>";
-    }
-}
-?>  
   <!-- Header Start -->
   <?php
     require "layout.part/admin.header.php";  
