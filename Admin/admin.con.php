@@ -35,41 +35,41 @@
 
         <div class="row">
             <div class="col-md-12 mb-3 px-4">
-                <form>
+                <form action="comptroller/admin.registration.php" method="POST">
                     <div class="row col-md-12">
                         <div class="col-md-4 mb-1">
                             <label for="first_name" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="first_name" aria-describedby="emailHelp" placeholder="eg. Juana">          
+                            <input type="text" class="form-control" id="first_name" name="first_name" aria-describedby="emailHelp" placeholder="eg. Juana" required>          
                         </div>
                         <div class="col-md-4 mb-1">
                             <label for="last_name" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="last_name" aria-describedby="emailHelp" placeholder="eg. Dela Cruz">              
+                            <input type="text" class="form-control" id="last_name" name="last_name" aria-describedby="emailHelp" placeholder="eg. Dela Cruz" required>              
                         </div>
                         <div class="col-md-4 mb-1">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="juana.delacruz@1234.com">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" name="email"  aria-describedby="emailHelp" placeholder="juana.delacruz@1234.com" required>
                         </div>
                     </div>
                     <div class="row col-md-12">
                         <div class="col-md-4 mb-1">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="XXXXXXXXXX"> 
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="XXXXXXXXXX" required> 
                         </div>
                         <div class="col-md-4 mb-1">
-                            <label for="exampleInputPassword2" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="XXXXXXXXXX">
+                            <label for="cpassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="XXXXXXXXXX" required>
                         </div>
                         <div class="col-md-2 mb-1">
-                            <label for="" class="form-label">Level</label>
-                            <select class="form-select" aria-label="Default select example">
+                            <label for="level" class="form-label">Level</label>
+                            <select class="form-select" aria-label="Default select example" d="level" name="level" required>
                                 <option selected>Select Level</option>
                                 <option value="1">0</option>
                                 <option value="2">1</option>
                             </select>
                         </div>
                         <div class="col-md-2 mb-1">
-                            <label for="exampleInputPassword2" class="form-label">Status</label>
-                            <select class="form-select" aria-label="Default select example">
+                            <label for="status" class="form-label">Status</label>
+                            <select class="form-select" aria-label="Default select example" id="status" name="status" required>
                                 <option selected>Select Status</option>
                                 <option value="1">Active</option>
                                 <option value="2">Inactive</option>
@@ -77,7 +77,7 @@
                         </div>
                     </div>
                 
-                    <button type="submit" class="btn btn-primary mt-2">Create New Admin</button>
+                    <button type="submit" class="btn btn-primary mt-2" name="new_admin">Create New Admin</button>
                 </form>    
             </div>
         </div>
