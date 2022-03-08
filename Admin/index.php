@@ -46,7 +46,7 @@ if(isset($_GET["error"])){
                     <div class="">
                         <h4 class="welcome-note text-center">Welcome To Login Form</h4>
                     </div>
-                    <form action="comptroller/login.php" method="POST">
+                    <form action="login.php" method="POST">
                         <div class="form-row my-3">
                             <div class="col-lg-7">
 
@@ -62,15 +62,12 @@ if(isset($_GET["error"])){
                                 <input id="admin-password" name="password" type="password" placeholder="Pass12345" class="form-control text-normal input-form">
                             </div>
                         </div>
-                        <div class="dropdown">
-                          <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
-                            Level
-                          </button>
-                          <ul class="dropdown-menu" name ="level">
-                            <li class="dropdown-item" value="0">Admin</li>
-                            <li class="dropdown-item" value="1">Superadmin</li>
-                            <!-- Gento muna haha -->
-                          </ul>
+                        <div class="dropdown col-md-3">
+                            <select class="form-select" aria-label="Default select example" id="level" name="level">
+                                <option selected>Select Level</option>
+                                <option value="0">Admin</option>
+                                <option value="1">Superadmin</option>
+                            </select>
                         </div>
                         <Br>
                         <div class="form-row">

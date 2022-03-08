@@ -1,7 +1,7 @@
 
   <?php
-    session_start();
-    require_once('comptroller/admin.dblink.php');
+    
+
   ?>
   <head>
     <!-- Required meta tags -->
