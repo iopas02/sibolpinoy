@@ -9,7 +9,6 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavBar" aria-controls="topNavBar" aria-expanded="false" aria-label="Toggle navigation" >
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <!--THIS IS FOR SEARCH BAR AND USER ICON START-->
         <div class="collapse navbar-collapse" id="topNavBar">
           <form class="d-flex ms-auto my-3 my-lg-0">
@@ -28,9 +27,9 @@
                 <i class="bi bi-person-fill"></i>
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-                <li><a class="dropdown-item" href="#">Change Password</a></li>
-                
+              <li><a class="dropdown-item" href="#">Change Password</a></li>
+              <hr>
+                <li><a class="dropdown-item" href="logout.php">Logout</a></li>                
               </ul>
             </li>
           </ul>
