@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2022 at 02:12 AM
+-- Generation Time: Mar 08, 2022 at 02:33 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -33,6 +33,7 @@ CREATE TABLE `login` (
   `password` varchar(255) NOT NULL,
   `level` varchar(64) NOT NULL,
   `profileId` int(11) NOT NULL,
+  `status` varchar(255) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
