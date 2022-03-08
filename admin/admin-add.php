@@ -32,7 +32,7 @@
             $password = $_POST["password"];
             $level = $_POST["level"];
             $status = $_POST["status"];
-            $sql = "INSERT INTO profile (firstName, lastName) VALUES('$firstName', '$lastName'";
+            $sql = "INSERT INTO profile (firstName, lastName) VALUES('$firstName', '$lastName')";
             if($conn->query($sql)){
                 $sql = "INSERT INTO login (username, password, level, status) VALUES ('$username', '$passw', '$level', '$status')";
                 if($conn->query($sql)){
