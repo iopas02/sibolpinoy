@@ -141,49 +141,9 @@ if(isset($_GET["error"])){
                                     </tr>
                                 </thead>
                                 <tbody>
-
-                                    <tr class="text-center">
-                                        <td>Juan</td>
-                                        <td>Dela Cruz</td>
-                                        <td>juan,delacruz@gmail.com</td>
-                                        <td>0</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success p-2 m-0 col-md-4" data-bs-toggle="modal" data-bs-target="#editStatus"><small>Active</small></button>
-                                            <button type="button" class="btn btn-danger p-2 m-0 col-md-4" data-bs-toggle="modal" data-bs-target="#editStatus"><small>Inactive</small></button>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn tooltip-test" title="EDIT" data-bs-toggle="modal" data-bs-target="#editProfile">
-                                                <i class="bi bi-pencil-square"></i>
-                                            </button>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="text-center">
-                                        <td>New</td>
-                                        <td>Admin</td>
-                                        <td>new.admin@gmail.com</td>
-                                        <td>1</td>
-                                        <td> 
-                                            <button type="button" class="btn btn-success p-2 m-0 col-md-4" data-bs-toggle="modal" data-bs-target="#editStatus"><small>Active</small></button>
-                                            <button type="button" class="btn btn-danger p-2 m-0 col-md-4" data-bs-toggle="modal" data-bs-target="#editStatus"><small>Inactive</small></button>                                        
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn tooltip-test" title="EDIT" data-bs-toggle="modal" data-bs-target="#editProfile">
-                                                <i class="bi bi-pencil-square"></i>
-                                            </button>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-
+                                    <?php
+                                        require "admin-table.php";
+                                    ?>
                                 </tbody>
                                 <tfoot>
                                     <tr>
