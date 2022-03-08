@@ -1,3 +1,4 @@
+<tbody>
 <?php
 require "../connection.php";
 
@@ -22,10 +23,10 @@ if($result = $conn->query($sql)){
                 <td>
                     <?php
                         if ($row["status"] == "active"){
-                            echo "<button type='button' class='btn btn-success p-2 m-0 col-md-4' data-bs-toggle='modal' data-bs-target='#editStatus'><small>Active</small></button>";
+                            echo "<button type='button' class='btn btn-success p-2 m-0 col-md-6' data-bs-toggle='modal' data-bs-target='#editStatus'><small>Active</small></button>";
                         }
                         else if($row["status"] == "inactive"){
-                            echo "<button type='button' class='btn btn-danger p-2 m-0 col-md-4' data-bs-toggle='modal' data-bs-target='#editStatus'><small>Inactive</small></button>";
+                            echo "<button type='button' class='btn btn-danger p-2 m-0 col-md-6' data-bs-toggle='modal' data-bs-target='#editStatus'><small>Inactive</small></button>";
                         }
                     ?>
                 </td>
@@ -48,3 +49,4 @@ if($result = $conn->query($sql)){
     }
 }
 ?>
+</tbody> 
