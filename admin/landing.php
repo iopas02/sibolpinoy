@@ -19,7 +19,6 @@
 </div>
 
 <?php
-session_start();
 $alert = "";
 if(isset($_GET["success"])){
     $success = $_GET["success"];
