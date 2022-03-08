@@ -63,16 +63,16 @@
                             <label for="level" class="form-label">Level</label>
                             <select class="form-select" aria-label="Default select example" d="level" name="level" required>
                                 <option selected>Select Level</option>
-                                <option value="1">0</option>
-                                <option value="2">1</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
                             </select>
                         </div>
                         <div class="col-md-2 mb-1">
                             <label for="status" class="form-label">Status</label>
                             <select class="form-select" aria-label="Default select example" id="status" name="status" required>
                                 <option selected>Select Status</option>
-                                <option value="1">Active</option>
-                                <option value="2">Inactive</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
                             </select>
                         </div>
                     </div>

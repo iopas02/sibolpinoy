@@ -28,22 +28,22 @@
                     <div class="">
                         <h4 class="welcome-note text-center">Welcome To Admin LogIn Form</h4>
                     </div>
-                    <form action="login.php" method="POST">
+                    <form action="comptroller/login.php" method="POST">
                         <div class="form-row my-3">
                             <div class="col-lg-7">
-                                <label for="admin-email" class="login-text">Email Address</label>
-                                <input id="admin-email" type="email" placeholder="eg. xxxxxx@gamil.com" class="form-control text-normal input-form">
+                                <label for="email" class="login-text">Email Address</label>
+                                <input id="email" name="email" type="email" placeholder="eg. xxxxxx@gamil.com" class="form-control text-normal input-form" required>
                             </div>
                         </div>
                         <div class="form-row my-3">
                             <div class="col-lg-7">
-                                <label for="admin-password" class="login-text">Password</label>
-                                <input id="admin-password" type="password" placeholder="Pass12345" class="form-control text-normal input-form">
+                                <label for="password" class="login-text">Password</label>
+                                <input id="password" password="password" type="password" placeholder="Pass12345" class="form-control text-normal input-form" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-lg-7 my-2">
-                                <a href="landing.php"><button type="button" class="btn-login login-text" >Login</button></a>
+                                <button type="submit" class="btn-login login-text" name="admin-login" >Login</button>
                             </div>
                         </div>
                         <a href="#" class="text-normal">Forgot Password</a>
