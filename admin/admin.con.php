@@ -109,8 +109,8 @@
                                         <td>juan,delacruz@gmail.com</td>
                                         <td>0</td>
                                         <td>
-                                            <button type="button" class="btn btn-success p-2 m-0 col-md-4"><small>Active</small></button>
-                                            <button type="button" class="btn btn-danger  p-2 m-0 col-md-4"><small>Inactive</small></button>
+                                            <button type="button" class="btn btn-success p-2 m-0 col-md-4" data-bs-toggle="modal" data-bs-target="#editStatus"><small>Active</small></button>
+                                            <button type="button" class="btn btn-danger p-2 m-0 col-md-4" data-bs-toggle="modal" data-bs-target="#editStatus"><small>Inactive</small></button>
                                         </td>
                                         <td>
                                             <button type="button" class="btn tooltip-test" title="EDIT" data-bs-toggle="modal" data-bs-target="#editProfile">
@@ -130,8 +130,8 @@
                                         <td>new.admin@gmail.com</td>
                                         <td>1</td>
                                         <td> 
-                                            <button type="button" class="btn btn-success p-2 m-0 col-md-4"><small>Active</small></button>
-                                            <button type="button" class="btn btn-danger  p-2 m-0 col-md-4"><small>Inactive</small></button>                                        
+                                            <button type="button" class="btn btn-success p-2 m-0 col-md-4" data-bs-toggle="modal" data-bs-target="#editStatus"><small>Active</small></button>
+                                            <button type="button" class="btn btn-danger p-2 m-0 col-md-4" data-bs-toggle="modal" data-bs-target="#editStatus"><small>Inactive</small></button>                                        
                                         </td>
                                         <td>
                                             <button type="button" class="btn tooltip-test" title="EDIT" data-bs-toggle="modal" data-bs-target="#editProfile">
@@ -214,6 +214,32 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="editStatus" data-bs-backdrop="static" tabindex="-1" style="margin-top: 150px;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Change Status</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="POST">
+                        <div class="row col-md-12">
+                            <div class="col-md-12 mb-1">
+                                <h3 class="text-center">Are you sure you want to change the status of this user?</h3>  
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary mt-2" name="new_admin">Change</button>
+                            <button type="submit" class="btn btn-dark mt-2" name="new_admin">Close</button>
+                        </div>  
+                    </form>       
+                </div>
+                <div class="modal-footer">
                 </div>
                 </div>
             </div>
