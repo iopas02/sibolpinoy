@@ -43,7 +43,7 @@
                         </div>
                         <div class="form-row">
                             <div class="col-lg-7 my-2">
-                                <a href="dashboard.php"><button type="button" class="btn-login login-text" >Login</button></a>
+                                <a href="landing.php"><button type="button" class="btn-login login-text" >Login</button></a>
                             </div>
                         </div>
                         <a href="#" class="text-normal">Forgot Password</a>
