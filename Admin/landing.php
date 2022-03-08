@@ -1,4 +1,5 @@
 <?php
+session_start();
 $alert = "";
 if(isset($_GET["success"])){
     $success = $_GET["success"];
@@ -6,7 +7,6 @@ if(isset($_GET["success"])){
       $alert = "<div class='alert alert-success' role='alert'>Login successfully!</div>";
     }
 }
-
 ?>
 <!doctype html>
 <html lang="en">
