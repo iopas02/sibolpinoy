@@ -11,6 +11,9 @@ if(isset($_GET["error"])){
     else if($error == "no_account"){
         $err_message = "Wrong username or password.";
     }
+    else if($error == "inactive"){
+        $err_message = "You are inactive. Please contact your superadmin.";
+    }
 }
 
 ?>
@@ -80,7 +83,7 @@ if(isset($_GET["error"])){
                                 <h5 class="text-danger"><?= $err_message ?></h5>
                             </div>
                         <?php 
-                            unset($error);    
+                            unset($_GET["error"]);    
                         }
                         ?>
                     

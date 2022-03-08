@@ -17,10 +17,19 @@ session_start();
             if($result = $conn->query($sql)){
                 if($result->num_rows == 1){
                     if($row = $result->fetch_assoc()){
-                        $_SESSION["username"] = $row["username"];
-                        $_SESSION["level"] = $row["level"];
-                        $_SESSION["status"] = $row["status"];
-                        header("location: landing.php?success=login");
+                        if($row["status"] == "active"){
+                            $_SESSION["username"] = $row["username"];
+                            $_SESSION["level"] = $row["level"];
+                            $_SESSION["status"] = $row["status"];
+                            //Set Refresh header using PHP.
+                            header( "refresh:3;url=landing.php" );
+
+                            //Print out some content for example purposes.
+                            echo 'Successful Login';
+                        }
+                        else if($row["status"] == "inactive"){
+                            header("location: index.php?error=inactive");
+                        }
                     }
                 }
                 else if($result->num_rows == 0){
