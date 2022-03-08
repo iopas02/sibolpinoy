@@ -251,13 +251,13 @@ if(isset($_GET["error"])){
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content mx-auto" style="max-width: 400px">                
                         <div class="modal-body">
-                            <form action="" method="POST">
+                            <form action="admin-status.php" method="POST">
                                     <input type="hidden" id="sid" name ="id">  
                             <h4>Are you sure you want to change the status of this user?</h4>     
                         </div>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-success" name="statusButton">Yes</button>
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                                    <button type="submit" class="btn btn-success" name="active">Active</button>
+                                    <button type="submit" class="btn btn-danger" name="inactive">Inactive</button>
                                 </div>
                             </form>
                     </div>
