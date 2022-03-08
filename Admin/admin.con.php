@@ -109,7 +109,12 @@
                                         <td>Dela Cruz</td>
                                         <td>juan,delacruz@gmail.com</td>
                                         <td>0</td>
-                                        <td>Active</td>
+                                        <td>
+                                        <div class="form-check form-switch">
+                                                active
+                                                <input class="form-check-input bg-success" type="checkbox" id="flexSwitchCheckDefault" value="active" >
+                                            </div> 
+                                        </td>
                                         <td>
                                             <button type="button" class="btn tooltip-test" title="Read" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
                                                 <i class="bi bi-bookmark"></i>
@@ -124,10 +129,15 @@
 
                                     <tr>
                                         <td>New</td>
-                                        <td>Admin/td>
+                                        <td>Admin</td>
                                         <td>new.admin@gmail.com</td>
                                         <td>1</td>
-                                        <td>Active</td>
+                                        <td>
+                                            <div class="form-check form-switch">
+                                                active
+                                                <input class="form-check-input bg-success" type="checkbox" id="flexSwitchCheckDefault" value="active" >
+                                            </div>    
+                                        </td>
                                         <td>
                                             <button type="button" class="btn tooltip-test" title="Read" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
                                                 <i class="bi bi-bookmark"></i>
@@ -146,7 +156,7 @@
                                         <th>Sender</th>
                                         <th>Subject</th>
                                         <th>Date</th>
-                                        <th>Action</th>
+                                        <th>action</th>
                                         <th>Delete</th>
                                     </tr>
                                 </tfoot>
