@@ -164,7 +164,7 @@ if(isset($_GET["error"])){
         </div>
 
         <!-- Modal Start Here -->
-        <div class="modal" id="editAdmin" data-bs-backdrop="static"  tabindex="-1">
+        <div class="modal" id="editProfile" data-bs-backdrop="static"  tabindex="-1">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -172,7 +172,7 @@ if(isset($_GET["error"])){
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="admin-edit.php" method="POST">
+                    <form action="" method="POST">
                         <div class="row col-md-12">
                             <div class="col-md-6 mb-1">
                                 <label for="first_name" class="form-label">First Name</label>
@@ -197,12 +197,22 @@ if(isset($_GET["error"])){
                                 </select>
                             </div>
                         </div>
+                        <div class="row col-md-12">
+                            <div class="col-md-6 mb-1">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="XXXXXXXXXX" required> 
+                            </div>
+                            <div class="col-md-6 mb-1">
+                                <label for="cpassword" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="XXXXXXXXXX" required>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-success mt-2" name="new_admin">Edit Admin</button>
+                        </div>  
+                    </form>       
                 </div>
                 <div class="modal-footer">
-                    
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editPassword">Change password</button>
-                        <button type="submit" class="btn btn-success" name="new_admin">Save</button>
-                    </form>       
                     <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                 </div>
                 </div>
