@@ -31,14 +31,14 @@
                     <form action="login.php" method="POST">
                         <div class="form-row my-3">
                             <div class="col-lg-7">
-                                <label for="admin-email" class="login-text">Email Address</label>
-                                <input id="admin-email" type="email" placeholder="eg. xxxxxx@gamil.com" class="form-control text-normal input-form">
+                                <label for="admin-email" class="login-text">Username</label>
+                                <input id="admin-email" name="username" type="text" placeholder="username" class="form-control text-normal input-form">
                             </div>
                         </div>
                         <div class="form-row my-3">
                             <div class="col-lg-7">
                                 <label for="admin-password" class="login-text">Password</label>
-                                <input id="admin-password" type="password" placeholder="Pass12345" class="form-control text-normal input-form">
+                                <input id="admin-password" name="password" type="password" placeholder="Pass12345" class="form-control text-normal input-form">
                             </div>
                         </div>
                         <div class="form-row">
