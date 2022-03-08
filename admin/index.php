@@ -70,7 +70,7 @@ if(isset($_GET["error"])){
                         </div>
                         <div class="dropdown col-md-3">
                             <select class="form-select" aria-label="Default select example" id="level" name="level">
-                                <option selected>Select Level</option>
+                                <option selected value="">Select Level</option>
                                 <option value="0">Admin</option>
                                 <option value="1">Superadmin</option>
                             </select>
