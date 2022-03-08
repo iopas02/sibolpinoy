@@ -287,5 +287,16 @@ transform: rotate(180deg);
         opacity: 0;
     }
 }
-
+.loading{
+    position: absolute;
+    padding-top: 10px;
+}
 /*end loading*/
+.welcome{
+    text-align: center;
+    padding-top: 415px;
+    padding-left: 15px;
+    text:color;blue;
+    text-decoration: none;
+
+}
