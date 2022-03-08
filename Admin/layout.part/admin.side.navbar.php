@@ -23,7 +23,7 @@
                     <?php
                         if(isset($_SESSION["level"])){
                             $check_level = $_SESSION["level"];                        
-                            if($check_level == '0'){
+                            if($check_level == '1'){
                                 echo ' <a href="admin.con.php" class="nav-link px-3 text-light text-normal">
                                             <span class="me-2"><i class="bi bi-people"></i></span>
                                             <span>Admin</span>
