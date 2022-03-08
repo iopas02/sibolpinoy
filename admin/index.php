@@ -14,6 +14,9 @@ if(isset($_GET["error"])){
     else if($error == "inactive"){
         $err_message = "You are inactive. Please contact your superadmin.";
     }
+    else if($error == "level_null"){
+        $err_message = "Please pick a level.";
+    }
 }
 
 ?>

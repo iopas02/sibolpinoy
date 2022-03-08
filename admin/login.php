@@ -6,8 +6,11 @@ session_start();
         if(!isset($_POST["username"]) || $_POST["username"] == null){
             header("location: index.php?error=username_null");
         }
-        else if(!isset($_POST["username"]) || $_POST["username"] == null){
+        else if(!isset($_POST["password"]) || $_POST["password"] == null){
             header("location: index.php?error=password_null");
+        }
+        else if(!isset($_POST["level"]) || $_POST["level"] == null){
+            header("location: index.php?error=level_null");
         }
         else{
             $username = $_POST["username"];
