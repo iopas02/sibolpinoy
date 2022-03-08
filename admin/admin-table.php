@@ -1,4 +1,4 @@
-
+<tbody>
 <?php
 require "../connection.php";
 
@@ -25,10 +25,10 @@ if($result = $conn->query($sql)){
                     <?php
                         $id = $row["loginId"];
                         if ($row["status"] == "active"){
-                            echo "<button type='button' class='btn btn-success p-2 m-0 col-md-6 statusButton' ><small>Active</small></button>";
+                            echo "<button type='button' class='btn btn-success p-2 m-0 col-md-6 statusButton'><small>Active</small></button>";
                         }
                         else if($row["status"] == "inactive"){
-                            echo "<button type='button' class='btn btn-danger p-2 m-0 col-md-6' data-bs-toggle='modal' data-bs-target='#editStatus'><small>Inactive</small></button>";
+                            echo "<button type='button' class='btn btn-danger p-2 m-0 col-md-6 statusButton'><small>Inactive</small></button>";
                         }
                     ?>
                 </td>
@@ -49,3 +49,4 @@ if($result = $conn->query($sql)){
     }
 }
 ?>
+</tbody> 

@@ -249,11 +249,11 @@ if(isset($_GET["error"])){
         <!-- modal start -->
         <div class="modal fade" id="editStatus">
                 <div class="modal-dialog modal-lg">
-                    <div class="modal-content mx-auto" style="max-width: 300px">                
+                    <div class="modal-content mx-auto" style="max-width: 400px">                
                         <div class="modal-body">
                             <form action="" method="POST">
-                                    <input type="text" id="sid" name ="id">  
-                            <h2>Are you sure you want to change the status of this user?</h2>      
+                                    <input type="hidden" id="sid" name ="id">  
+                            <h4>Are you sure you want to change the status of this user?</h4>     
                         </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-success" name="statusButton">Yes</button>
@@ -287,6 +287,7 @@ if(isset($_GET["error"])){
             }).get();
 
             console.log(data);
+
 
             $('#sid').val(data[0]);
         })
