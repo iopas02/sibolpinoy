@@ -14,9 +14,9 @@
     <!--THIS IS FOR SEARCH BAR AND USER ICON START-->
     
     <div class="collapse navbar-collapse col-md-4 text-right" id="topNavBar">
-      <div class="dropdown col-md-5">
-        <a class="text-white dropdown-togglet" style="text-decoration:none;" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="bi bi-person-circle"> </i> <span> JuanDalaCruz </span> <i class="bi bi-caret-down"></i>
+      <div class="dropdown">
+        <a class="text-white dropdown-togglet col-md-4" style="text-decoration:none;" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+         <i class="bi bi-person-circle"></i> <span> JuanDalaCruz </span> <i class="bi bi-caret-down"></i>
         </a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <li><a class="dropdown-item" href="#">Change Password</a></li>
