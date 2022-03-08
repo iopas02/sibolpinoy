@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-lg-5 form-postion">
                     <div class="">
-                        <h4 class="welcome-note text-center">Welcome To Admin LogIn Form</h4>
+                        <h4 class="welcome-note text-center">Welcome To LogIn Form</h4>
                     </div>
                     <form action="login.php" method="POST">
                         <div class="form-row my-3">
