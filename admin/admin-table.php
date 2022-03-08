@@ -36,7 +36,7 @@ if($result = $conn->query($sql)){
                     <button type="button" class="btn tooltip-test" title="EDIT" data-bs-toggle="modal" data-bs-target="#editProfile">
                         <i class="bi bi-pencil-square"></i>
                     </button>
-                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
+                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete" ata-bs-toggle="modal" data-bs-target="#deleteProfile">
                         <i class="bi bi-trash"></i>
                     </button>
                 </td>
