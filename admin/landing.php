@@ -12,9 +12,10 @@
     </head>
     <body>
 <div class="loader_bg">
-    <div class="loader">
-      <h1>loading</h1>
-    </div>
+    <div class="loader"></div>
+     <div class="welcome">
+        <p>Loading ...</p>
+      </div>
 </div>
 
 <?php
