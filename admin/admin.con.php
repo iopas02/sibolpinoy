@@ -173,27 +173,27 @@ if(isset($_GET["error"])){
                 </div>
                 <div class="modal-body">
                     <form action="admin-edit.php" method="POST">
+                        <input type="hidden" id="sid" name="id">
                         <div class="row col-md-12">
                             <div class="col-md-6 mb-1">
-                                <label for="first_name" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="first_name" name="first_name" aria-describedby="emailHelp" placeholder="eg. Juana" required>          
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="fn" name="firstName" aria-describedby="emailHelp">          
                             </div>
                             <div class="col-md-6 mb-1">
-                                <label for="last_name" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="last_name" name="last_name" aria-describedby="emailHelp" placeholder="eg. Dela Cruz" required>              
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="ln" name="lastName" aria-describedby="emailHelp" >              
                             </div>
                         </div>
                         <div class="row col-md-12">
                             <div class="col-md-8 mb-1">
-                                <label for="email" class="form-label">Username</label>
-                                <input type="email" class="form-control" id="email" name="email"  aria-describedby="emailHelp" placeholder="eg. juanaDelaCruz" required>
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="un" name="username"  aria-describedby="emailHelp" >
                             </div>
                             <div class="col-md-4 mb-1">
                                 <label for="level" class="form-label">Level</label>
-                                <select class="form-select" aria-label="Default select example" id="level" name="level" required>
-                                    <option selected>Select Level</option>
-                                    <option value="0">Admin</option>
-                                    <option value="1">Super Admin</option>
+                                <select class="form-select" aria-label="Default select example" id="lev" name="level" >
+                                    <option value="0">admin</option>
+                                    <option value="1">superadmin</option>
                                 </select>
                             </div>
                         </div>
@@ -201,7 +201,7 @@ if(isset($_GET["error"])){
                 <div class="modal-footer">
                     
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editAdminPassword" data-bs-dismiss="modal">Change password</button>
-                        <button type="submit" class="btn btn-success" name="new_admin">Save</button>
+                        <button type="submit" class="btn btn-success" name="update">Save</button>
                     </form>       
                     <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                 </div>
@@ -312,5 +312,25 @@ if(isset($_GET["error"])){
             $('#sid').val(data[0]);
         })
         })
+        $(document).ready(function(){
+        $('.editBtn').on('click', function(){
+
+            $tr = $(this).closest('tr');
+
+            var data= $tr.children("td").map(function(){
+                return $(this).text();
+            }).get();
+
+            console.log(data);
+
+
+            $('#sid').val(data[0]);
+            $('#fn').val(data[1]);
+            $('#ln').val(data[2]);
+            $('#un').val(data[3]);
+            $('#lev').val(data[4]);
+        })
+        })
+        
   </script>
 </html>
