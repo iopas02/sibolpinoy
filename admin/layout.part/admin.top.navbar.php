@@ -26,9 +26,10 @@
               <i class="bi bi-3x bi-person-fill"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-              <hr>
               <li><a class="dropdown-item" href="#">Change Password</a></li>
+              <hr>
+              <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+              
             </ul>
           </li>
           
