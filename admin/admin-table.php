@@ -8,6 +8,10 @@ if($result = $conn->query($sql)){
         while($row = $result->fetch_assoc()){  ?>
             <tr>
                 <td><?= $row["loginId"]?></td>
+                <td style="display:none"><?= $row["firstName"]?></td>
+                <td style="display:none"><?= $row["lastName"]?></td>
+                <td style="display:none"><?= $row["username"]?></td>
+                <td style="display:none"><?= $row["level"]?></td>
                 <td><?= $row["firstName"]?></td>
                 <td><?= $row["lastName"]?></td>
                 <td><?= $row["username"]?></td>
@@ -33,7 +37,7 @@ if($result = $conn->query($sql)){
                     ?>
                 </td>
                 <td class="text-center">
-                    <button type="button" class="btn tooltip-test" title="EDIT" data-bs-toggle="modal" data-bs-target="#editAdmin">
+                    <button type="button" class="btn tooltip-test editBtn" title="EDIT" data-bs-toggle="modal" data-bs-target="#editAdmin">
                         <i class="bi bi-pencil-square"></i>
                     </button>
                     <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete" ata-bs-toggle="modal" data-bs-target="#deleteProfile">
