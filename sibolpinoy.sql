@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2022 at 02:12 AM
+-- Generation Time: Mar 08, 2022 at 02:39 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -33,6 +33,7 @@ CREATE TABLE `login` (
   `password` varchar(255) NOT NULL,
   `level` varchar(64) NOT NULL,
   `profileId` int(11) NOT NULL,
+  `status` varchar(255) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -43,7 +44,7 @@ CREATE TABLE `login` (
 --
 
 CREATE TABLE `profile` (
-  `id` int(11) NOT NULL,
+  `profileId` int(11) NOT NULL,
   `firstName` varchar(255) NOT NULL,
   `lastName` varchar(255) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -64,7 +65,7 @@ ALTER TABLE `login`
 -- Indexes for table `profile`
 --
 ALTER TABLE `profile`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`profileId`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -80,7 +81,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `profileId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -90,7 +91,7 @@ ALTER TABLE `profile`
 -- Constraints for table `login`
 --
 ALTER TABLE `login`
-  ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`profileId`) REFERENCES `profile` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`profileId`) REFERENCES `profile` (`profileId`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
