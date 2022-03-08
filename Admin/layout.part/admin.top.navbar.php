@@ -19,6 +19,7 @@
               </button>
             </div>
           </form>
+
          
           <li class="nav-item dropdown" style="list-style: none;">
             <a class="nav-link dropdown-toggle ms-1 bg-blue" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -26,7 +27,8 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
               <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-              <li><a class="dropdown-item" href="#">Change Password</a></li>            
+              <li><a class="dropdown-item" href="#">Change Password</a></li>
+              
             </ul>
           </li>
           
