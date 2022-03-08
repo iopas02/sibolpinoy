@@ -31,7 +31,12 @@ if(isset($_GET["error"])){
 ?>
 <!doctype html>
 <html lang="en">
-  
+    <div class='loader_bg'>
+        <div class='welcome'>
+            <h2>Loading...</h2>
+        </div>
+        <div class='loader mt-5'></div>
+    </div>
   <!-- Header Start -->
   <?php
       require "layout.part/admin.header.php";
