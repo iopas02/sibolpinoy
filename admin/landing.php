@@ -1,33 +1,7 @@
 <!doctype html>
 <html lang="en">
 <!-- Loading -->
-<!-- Header Start -->
-  <head>
-          <meta charset="UTF-8">
-          <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-          <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Admin Dashboard</title>
-        <link rel="stylesheet" type="text/css" href="style/admin.style.css"/>
-    </head>
-    <body>
-<div class="loader_bg">
-    <div class="loader"></div>
-     <div class="welcome">
-        <p>Loading ...</p>
-      </div>
-</div>
 
-<?php
-session_start();
-$alert = "";
-if(isset($_GET["success"])){
-    $success = $_GET["success"];
-    if($success == "login"){
-      $alert = "<div class='alert alert-success' role='alert'>Login successfully!</div>";
-    }
-}
-?>  
   <!-- Header Start -->
   <?php
     require "layout.part/admin.header.php";  
@@ -141,7 +115,12 @@ if(isset($_GET["success"])){
   <!-- Header End -->
   
   <body>
-    <title>Sibol-PINOY Admin Dashboard</title>
+      <div class='loader_bg'>
+          <div class='welcome'>
+              <h2>Loading...</h2>
+          </div>
+          <div class='loader mt-5'></div>
+      </div>
 
     <!-- top navigation bar -->
     <?php

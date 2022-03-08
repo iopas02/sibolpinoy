@@ -25,10 +25,10 @@ session_start();
                             $_SESSION["level"] = $row["level"];
                             $_SESSION["status"] = $row["status"];
                             //Set Refresh header using PHP.
-                            header( "refresh:3;url=landing.php" );
-
+                            //header( "refresh:3;url=landing.php" );
+                            header("location:landing.php");
                             //Print out some content for example purposes.
-                            echo 'Successful Login';
+                            //echo 'Successful Login';
                         }
                         else if($row["status"] == "inactive"){
                             header("location: index.php?error=inactive");
