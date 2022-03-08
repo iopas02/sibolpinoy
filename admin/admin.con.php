@@ -23,6 +23,9 @@ if(isset($_GET["error"])){
     else if($error == "passwordNotEqual"){
         $err_message = "Password not equal.";
     }
+    else if($error == "username_exist"){
+        $err_message = "Username is already existing.";
+    }
 }
 
 ?>

@@ -1,9 +1,11 @@
 <?php
     require "../connection.php";
+    require "layout.part/admin.header.php";
 
     if(isset($_POST["submit"])){
         $passw = trim($_POST["password"]);
         $passw2 = trim($_POST["cpassword"]);
+        $username = $_POST["username"];
         if(!isset($_POST["firstName"]) || $_POST["firstName"] == null){
             header("location: admin.con.php?error=firstName_null");
         }
@@ -25,25 +27,54 @@
         else if($passw != $passw2){
             header("location: admin.con.php?error=passwordNotEqual");
         }
+        
         else{
             $firstName = $_POST["firstName"];
             $lastName = $_POST["lastName"];
-            $username = $_POST["username"];
-            $password = $_POST["password"];
             $level = $_POST["level"];
             $status = $_POST["status"];
-            $sql = "INSERT INTO profile (firstName, lastName) VALUES('$firstName', '$lastName')";
-            if($conn->query($sql)){
-                $sql = "INSERT INTO login (username, password, level, status) VALUES ('$username', '$passw', '$level', '$status')";
-                if($conn->query($sql)){
-
+            $date = date("Y-m-d H:i:s");
+            $sql = "SELECT * FROM login WHERE username = '$username'";
+            //check username duplicate
+            if($result= $conn->query($sql)){
+                if($result->num_rows == 0){     
+                    $sql = "INSERT INTO login (username, password, level, status, dateAdded) VALUES ('$username', '$passw', '$level', '$status' , '$date')";
+                    //adding login table
+                    if($conn->query($sql)){
+                        $sql = "SELECT loginId FROM login WHERE username = '$username'";
+                        //selecting id of login
+                        if($result = $conn->query($sql)){
+                            if($result->num_rows == 1){
+                                $row = $result->fetch_assoc();
+                                $id = $row["loginId"];
+                                $sql = "INSERT INTO profile (loginId, firstName, lastName, dateAdded) VALUES ($id, '$firstName', '$lastName', '$date')";
+                                //adding profile table
+                                if($conn->query($sql)){
+                                    header( "refresh:3;url=admin.con.php" );
+                                    echo "  <div class='loader_bg'>
+                                                <div class='welcome'>
+                                                    <h2>Successfully added! Redirecting to dashboard...</h2>
+                                                </div>
+                                                <div class='loader mt-5'></div>
+                                            </div>
+                                        ";
+                                }
+                                else{
+                                    echo "error profile add";
+                                }      
+                            }
+                            else{
+                                echo "no id found";
+                            }
+                        }          
+                    }
+                    else{
+                        echo "error sql";
+                    }
                 }
                 else{
-
-                }                
-            }
-            else{
-
+                    header("location: admin.con.php?error=username_exist");
+                }
             }
         }
 
