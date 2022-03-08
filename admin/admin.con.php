@@ -132,11 +132,11 @@ if(isset($_GET["error"])){
                             <table id="example" class="table table-striped data-table" style="width: 100%">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">First Name</th>
-                                        <th class="text-center">Last Name</th>
-                                        <th class="text-center">Username</th>
-                                        <th class="text-center">Level</th>
-                                        <th class="text-center">Status</th>
+                                        <th >First Name</th>
+                                        <th >Last Name</th>
+                                        <th >Username</th>
+                                        <th >Level</th>
+                                        <th >Status</th>
                                         <th class="text-center" colspan="2">Action</th>
                                     </tr>
                                 </thead>
@@ -147,11 +147,11 @@ if(isset($_GET["error"])){
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th class="text-center" >First Name</th>
-                                        <th class="text-center" >Last Name</th>
-                                        <th class="text-center" >Username</th>
-                                        <th class="text-center" >Level</th>
-                                        <th class="text-center" >Status</th>
+                                        <th >First Name</th>
+                                        <th >Last Name</th>
+                                        <th  >Username</th>
+                                        <th  >Level</th>
+                                        <th  >Status</th>
                                         <th class="text-center" colspan="2">Action</th>
                                     </tr>
                                 </tfoot>

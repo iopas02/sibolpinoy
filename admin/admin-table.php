@@ -5,7 +5,7 @@ $sql = "SELECT profile.firstName, profile.lastName, login.username, login.level,
 if($result = $conn->query($sql)){
     if($result->num_rows >= 1){
         while($row = $result->fetch_assoc()){  ?>
-            <tr class="text-center">
+            <tr>
                 <td><?= $row["firstName"]?></td>
                 <td><?= $row["lastName"]?></td>
                 <td><?= $row["username"]?></td>
@@ -29,12 +29,10 @@ if($result = $conn->query($sql)){
                         }
                     ?>
                 </td>
-                <td>
+                <td class="text-center">
                     <button type="button" class="btn tooltip-test" title="EDIT" data-bs-toggle="modal" data-bs-target="#editProfile">
                         <i class="bi bi-pencil-square"></i>
                     </button>
-                </td>
-                <td>
                     <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
                         <i class="bi bi-trash"></i>
                     </button>
