@@ -54,7 +54,7 @@ if(isset($_GET["error"])){
                             <div class="col-lg-7">
 
                                 <label for="admin-email" class="login-text">Username</label>
-                                <input id="admin-email" name="username" type="text" placeholder="username" class="form-control text-normal input-form">
+                                <input id="admin-email" name="username" type="text" placeholder="Enter username" class="form-control text-normal input-form">
                             </div>
                         </div>
                         <div class="form-row my-3">
@@ -62,7 +62,7 @@ if(isset($_GET["error"])){
 
                             
                                 <label for="admin-password" class="login-text">Password</label>
-                                <input id="admin-password" name="password" type="password" placeholder="Pass12345" class="form-control text-normal input-form">
+                                <input id="admin-password" name="password" type="password" placeholder="Enter password" class="form-control text-normal input-form">
                             </div>
                         </div>
                         <div class="dropdown col-md-3">
