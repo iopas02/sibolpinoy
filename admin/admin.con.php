@@ -1,3 +1,31 @@
+<?php
+$err_message = "";
+if(isset($_GET["error"])){
+    $error = $_GET["error"];
+    if($error == "username_null"){
+        $err_message = "Username field empty.";
+    }
+    else if($error == "password_null"){
+        $err_message = "Password field empty.";
+    }
+    else if($error == "firstName_null"){
+        $err_message = "First Name field empty.";
+    }
+    else if($error == "lastName_null"){
+        $err_message = "Last Name field empty.";
+    }
+    else if($error == "level_null"){
+        $err_message = "Please pick a level.";
+    }
+    else if($error == "status_null"){
+        $err_message = "Please pick a status.";
+    }
+    else if($error == "passwordNotEqual"){
+        $err_message = "Password not equal.";
+    }
+}
+
+?>
 <!doctype html>
 <html lang="en">
   
@@ -39,29 +67,29 @@
                     <div class="row col-md-12">
                         <div class="col-md-4 mb-1">
                             <label for="first_name" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="first_name" name="first_name" aria-describedby="emailHelp" placeholder="eg. Juana" required>          
+                            <input type="text" class="form-control" id="first_name" name="first_name" aria-describedby="emailHelp" placeholder="eg. Juana">          
                         </div>
                         <div class="col-md-4 mb-1">
                             <label for="last_name" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="last_name" name="last_name" aria-describedby="emailHelp" placeholder="eg. Dela Cruz" required>              
+                            <input type="text" class="form-control" id="last_name" name="last_name" aria-describedby="emailHelp" placeholder="eg. Dela Cruz">              
                         </div>
                         <div class="col-md-4 mb-1">
                             <label for="email" class="form-label">Username</label>
-                            <input type="email" class="form-control" id="email" name="email"  aria-describedby="emailHelp" placeholder="eg. juannaDelaCruz" required>
+                            <input type="email" class="form-control" id="email" name="email"  aria-describedby="emailHelp" placeholder="eg. juannaDelaCruz">
                         </div>
                     </div>
                     <div class="row col-md-12">
                         <div class="col-md-4 mb-1">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="XXXXXXXXXX" required> 
+                            <input type="password" class="form-control" id="password" name="password" placeholder="XXXXXXXXXX"> 
                         </div>
                         <div class="col-md-4 mb-1">
                             <label for="cpassword" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="XXXXXXXXXX" required>
+                            <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="XXXXXXXXXX">
                         </div>
                         <div class="col-md-2 mb-1">
                             <label for="level" class="form-label">Level</label>
-                            <select class="form-select" aria-label="Default select example" id="level" name="level" required>
+                            <select class="form-select" aria-label="Default select example" id="level" name="level">
                                 <option selected>Select Level</option>
                                 <option value="0">Admin</option>
                                 <option value="1">Super Admin</option>
@@ -69,7 +97,7 @@
                         </div>
                         <div class="col-md-2 mb-1">
                             <label for="status" class="form-label">Status</label>
-                            <select class="form-select" aria-label="Default select example" id="status" name="status" required>
+                            <select class="form-select" aria-label="Default select example" id="status" name="status">
                                 <option selected>Select Status</option>
                                 <option value="active">Active</option>
                                 <option value="inactive">Inactive</option>
@@ -78,6 +106,14 @@
                     </div>
                 
                     <button type="submit" class="btn btn-primary mt-2" name="new_admin">Create New Admin</button>
+                    <?php if(isset($err_message)){?>
+                            <div class="form-group">
+                                <h5 class="text-danger"><?= $err_message ?></h5>
+                            </div>
+                        <?php 
+                            unset($_GET["error"]);    
+                        }
+                        ?>
                 </form>    
             </div>
         </div>
