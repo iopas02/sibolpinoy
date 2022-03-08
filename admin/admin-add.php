@@ -2,8 +2,8 @@
     require "../connection.php";
 
     if(isset($_POST["submit"])){
-        $passw = $_POST["password"];
-        $passw2 = $_POST["cpassword"];
+        $passw = trim($_POST["password"]);
+        $passw2 = trim($_POST["cpassword"]);
         if(!isset($_POST["firstName"]) || $_POST["firstName"] == null){
             header("location: admin.con.php?error=firstName_null");
         }
@@ -22,7 +22,7 @@
         else if(!isset($_POST["status"]) || $_POST["status"] == null){
             header("location: admin.con.php?error=status_null");
         }
-        else if($passw == $passw2){
+        else if($passw != $passw2){
             header("location: admin.con.php?error=passwordNotEqual");
         }
         else{
@@ -36,7 +36,7 @@
             if($conn->query($sql)){
                 $sql = "INSERT INTO login (username, password, level, status) VALUES ('$username', '$passw', '$level', '$status')";
                 if($conn->query($sql)){
-                    
+
                 }
                 else{
 
