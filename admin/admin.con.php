@@ -63,7 +63,7 @@ if(isset($_GET["error"])){
 
         <div class="row">
             <div class="col-md-12 mb-3 px-4">
-                <form action="" method="POST">
+                <form action="admin-add.php" method="POST">
                     <div class="row col-md-12">
                         <div class="col-md-4 mb-1">
                             <label for="first_name" class="form-label">First Name</label>
