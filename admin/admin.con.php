@@ -132,7 +132,7 @@ if(isset($_GET["error"])){
                             <table id="example" class="table table-striped data-table" style="width: 100%">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">Firts Name</th>
+                                        <th class="text-center">First Name</th>
                                         <th class="text-center">Last Name</th>
                                         <th class="text-center">Username</th>
                                         <th class="text-center">Level</th>
@@ -147,7 +147,7 @@ if(isset($_GET["error"])){
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>Firts Name</th>
+                                        <th>First Name</th>
                                         <th>Last Name</th>
                                         <th>Username</th>
                                         <th>Level</th>
