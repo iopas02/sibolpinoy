@@ -19,7 +19,7 @@
           <i class="bi bi-person-circle"></i> <span> <?= $username ?> </span>
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Change Password</a></li>
+          <li><a class="dropdown-item" href="#">Account</a></li>
             <hr>
             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
         </ul>
