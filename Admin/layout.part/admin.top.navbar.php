@@ -19,21 +19,17 @@
               </button>
             </div>
           </form>
-
+         
+          <li class="nav-item dropdown" style="list-style: none;">
+            <a class="nav-link dropdown-toggle ms-1 bg-blue" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-3x bi-person-fill"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+              <li><a class="dropdown-item" href="#">Change Password</a></li>            
+            </ul>
+          </li>
           
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
-      
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle ms-1 bg-blue" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-person-fill"></i>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-                <li><a class="dropdown-item" href="#">Change Password</a></li>
-                
-              </ul>
-            </li>
-          </ul>
 
         </div>
         <!--THIS IS FOR SEARCH BAR AND USER ICON END-->
