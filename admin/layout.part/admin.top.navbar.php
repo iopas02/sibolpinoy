@@ -19,7 +19,7 @@
           <i class="bi bi-person-circle"></i> <span> <?= $username ?> </span>
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Account</a></li>
+            <li><button class="dropdown-item btn" data-bs-toggle="modal" data-bs-target="#accountModal">Account</button></li>
             <hr>
             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
         </ul>
