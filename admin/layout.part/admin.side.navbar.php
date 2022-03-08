@@ -1,6 +1,3 @@
-<?php
-  session_start();
-?>
 <div class="offcanvas offcanvas-start sidebar-nav pt-5 bg-blue" tabindex="-1" id="sidebar">
     <div class="offcanvas-body p-0">
 
