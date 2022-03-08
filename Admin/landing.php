@@ -1,3 +1,13 @@
+<?php
+if(isset($_GET["success"])){
+    $success = $_GET["success"];
+    if($success == "login"){
+      $alert = "<div class='alert alert-success' role='alert'>Login successfully!</div>";
+      echo $alert;
+    }
+}
+
+?>
 <!doctype html>
 <html lang="en">
   
