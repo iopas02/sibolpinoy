@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2022 at 02:39 AM
+-- Generation Time: Mar 08, 2022 at 11:19 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -28,14 +28,22 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `login` (
-  `id` int(11) NOT NULL,
+  `loginId` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `level` varchar(64) NOT NULL,
-  `profileId` int(11) NOT NULL,
   `status` varchar(255) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `dateAdded` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`loginId`, `username`, `password`, `level`, `status`, `dateAdded`) VALUES
+(8, 'admin1', 'admin1', '0', 'active', '0000-00-00'),
+(10, 'sadmin1', 'sadmin1', '1', 'active', '2022-03-08'),
+(13, 'admin2', 'admin2', '0', 'active', '2022-03-08');
 
 -- --------------------------------------------------------
 
@@ -44,11 +52,21 @@ CREATE TABLE `login` (
 --
 
 CREATE TABLE `profile` (
-  `profileId` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  `loginId` int(11) NOT NULL,
   `firstName` varchar(255) NOT NULL,
   `lastName` varchar(255) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `dateAdded` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `profile`
+--
+
+INSERT INTO `profile` (`id`, `loginId`, `firstName`, `lastName`, `dateAdded`) VALUES
+(4, 8, 'Jason', 'Orioste', '0000-00-00'),
+(5, 10, 'Kenneth', 'Punzalan', '2022-03-08'),
+(8, 13, 'Charles', 'Abuzo', '2022-03-08');
 
 --
 -- Indexes for dumped tables
@@ -58,14 +76,14 @@ CREATE TABLE `profile` (
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `profileId` (`profileId`);
+  ADD PRIMARY KEY (`loginId`);
 
 --
 -- Indexes for table `profile`
 --
 ALTER TABLE `profile`
-  ADD PRIMARY KEY (`profileId`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `loginId` (`loginId`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -75,23 +93,23 @@ ALTER TABLE `profile`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `loginId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `profileId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `login`
+-- Constraints for table `profile`
 --
-ALTER TABLE `login`
-  ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`profileId`) REFERENCES `profile` (`profileId`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `profile`
+  ADD CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`loginId`) REFERENCES `login` (`loginId`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
