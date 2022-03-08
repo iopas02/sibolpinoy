@@ -201,7 +201,7 @@ if(isset($_GET["error"])){
                 <div class="modal-footer">
                     
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editPassword">Change password</button>
-                        <button type="submit" class="btn btn-success" name="new_admin">Edit</button>
+                        <button type="submit" class="btn btn-success" name="new_admin">Save</button>
                     </form>       
                     <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                 </div>
