@@ -223,9 +223,8 @@ if(isset($_GET["error"])){
             </div>
         </div>
 
-<<<<<<< HEAD
+<
 
-=======
         <!--THIS IS FOR MODAL Edit password start-->
         <div class="modal" id="editAdminPassword" tabindex="-1">
         <div class="modal-dialog modal-lg">
@@ -256,7 +255,7 @@ if(isset($_GET["error"])){
         </div>
         </div>
         <!--THIS IS FOR MODAL Edit Profile END-->
->>>>>>> 7bf7dc45bbf20ea68e07b4a91b237c7069b27a80
+
 
         <!-- <div class="modal" id="editStatus" data-bs-backdrop="static" tabindex="-1" style="margin-top: 150px;">
             <div class="modal-dialog">
