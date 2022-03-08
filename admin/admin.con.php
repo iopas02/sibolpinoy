@@ -75,7 +75,7 @@ if(isset($_GET["error"])){
                         </div>
                         <div class="col-md-4 mb-1">
                             <label for="email" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="email" name="email"  aria-describedby="emailHelp" placeholder="Enter Username">
+                            <input type="text" class="form-control" id="email" name="username"  aria-describedby="emailHelp" placeholder="Enter Username">
                         </div>
                     </div>
                     <div class="row col-md-12">
