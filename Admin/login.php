@@ -12,7 +12,7 @@
             $username = $_POST["username"];
             $password = $_POST["password"];
             $level = $_POST["level"];
-            $sql = "SELECT * FROM login where username = '$username' AND password = '$password' AND level = $level";
+            $sql = "SELECT * FROM login where username = '$username' AND password = '$password' AND level = '$level'";
             if($result = $conn->query($sql)){
                 if($result->num_rows == 1){
                     if($row = $result->fetch_assoc()){
