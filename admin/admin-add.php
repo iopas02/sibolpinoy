@@ -36,7 +36,7 @@
             if($conn->query($sql)){
                 $sql = "INSERT INTO login (username, password, level, status) VALUES ('$username', '$passw', '$level', '$status')";
                 if($conn->query($sql)){
-
+                    
                 }
                 else{
 
