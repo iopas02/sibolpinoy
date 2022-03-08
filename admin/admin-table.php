@@ -1,4 +1,4 @@
-<tbody>
+
 <?php
 require "../connection.php";
 
@@ -48,4 +48,3 @@ if($result = $conn->query($sql)){
     }
 }
 ?>
-</tbody> 
