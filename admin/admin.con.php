@@ -249,7 +249,7 @@ if(isset($_GET["error"])){
         </div> -->
         
         <!--delete modal start -->
-        <div class="modal fade" id="deleteProfile" data-bs-backdrop="static">
+        <div class="modal fade" id="deleteProfile" data-bs-backdrop="modal static" >
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -266,9 +266,9 @@ if(isset($_GET["error"])){
             </div>
             </div>
             <div class="modal fade" id="deleteProfile2" data-bs-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                <div class="modal-header">
+                    <div class="modal-header">
                     <h5 class="modal-title" id="">Modal 2</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
