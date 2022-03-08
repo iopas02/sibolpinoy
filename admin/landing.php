@@ -27,10 +27,7 @@ if(isset($_GET["success"])){
       $alert = "<div class='alert alert-success' role='alert'>Login successfully!</div>";
     }
 }
-?>
-<!doctype html>
-<html lang="en">
-  
+?>  
   <!-- Header Start -->
   <?php
     require "layout.part/admin.header.php";  
@@ -38,7 +35,7 @@ if(isset($_GET["success"])){
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     google.charts.load('current', {'packages':['line']});
-    google.charts.load("current", {packages:["corechart"]});
+    google.charts.load("current", {'packages':["corechart"]});
     google.charts.load('current', {'packages':['bar']});
       
     google.charts.setOnLoadCallback(seminarChart);
