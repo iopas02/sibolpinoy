@@ -31,56 +31,56 @@
 </nav>
 
 <!--THIS IS FOR MODAL Edit Profile start-->
-<div class="modal" id="editProfile" data-bs-backdrop="static"  tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Edit Profile</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+ <div class="modal" id="editAdmin" data-bs-backdrop="static"  tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Admin Edit Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="admin-edit.php" method="POST">
+                        <div class="row col-md-12">
+                            <div class="col-md-6 mb-1">
+                                <label for="first_name" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="first_name" name="first_name" aria-describedby="emailHelp" placeholder="eg. Juana" required>          
+                            </div>
+                            <div class="col-md-6 mb-1">
+                                <label for="last_name" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="last_name" name="last_name" aria-describedby="emailHelp" placeholder="eg. Dela Cruz" required>              
+                            </div>
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="col-md-8 mb-1">
+                                <label for="email" class="form-label">Username</label>
+                                <input type="email" class="form-control" id="email" name="email"  aria-describedby="emailHelp" placeholder="eg. juanaDelaCruz" required>
+                            </div>
+                            <div class="col-md-4 mb-1">
+                                <label for="level" class="form-label">Level</label>
+                                <select class="form-select" aria-label="Default select example" id="level" name="level" required>
+                                    <option selected>Select Level</option>
+                                    <option value="0">Admin</option>
+                                    <option value="1">Super Admin</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="col-md-6 mb-1">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="XXXXXXXXXX" required> 
+                            </div>
+                            <div class="col-md-6 mb-1">
+                                <label for="cpassword" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="XXXXXXXXXX" required>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" name="new_admin">Edit</button>
+                    </form>       
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                </div>
+                </div>
             </div>
-            <div class="modal-body">
-                <form action="" method="POST">
-                    <div class="row col-md-12">
-                        <div class="col-md-6 mb-1">
-                            <label for="first_name" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="first_name" name="first_name" aria-describedby="emailHelp" placeholder="eg. Juana" required>          
-                        </div>
-                        <div class="col-md-6 mb-1">
-                            <label for="last_name" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="last_name" name="last_name" aria-describedby="emailHelp" placeholder="eg. Dela Cruz" required>              
-                        </div>
-                    </div>
-                    <div class="row col-md-12">
-                        <div class="col-md-8 mb-1">
-                            <label for="email" class="form-label">Username</label>
-                            <input type="email" class="form-control" id="email" name="email"  aria-describedby="emailHelp" placeholder="eg. juanaDelaCruz" required>
-                        </div>
-                        <div class="col-md-4 mb-1">
-                            <label for="level" class="form-label">Level</label>
-                            <select class="form-select" aria-label="Default select example" id="level" name="level" required>
-                                <option selected>Select Level</option>
-                                <option value="0">Admin</option>
-                                <option value="1">Super Admin</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row col-md-12">
-                        <div class="col-md-6 mb-1">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="XXXXXXXXXX" required> 
-                        </div>
-                        <div class="col-md-6 mb-1">
-                            <label for="cpassword" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="XXXXXXXXXX" required>
-                        </div>
-                    </div>
-                    <div class="text-right">
-                        <button type="submit" class="btn btn-success mt-2" name="new_admin">Edit Admin</button>
-                        <button type="button" class="btn btn-dark mt-3" data-bs-dismiss="modal">Close</button>
-                    </div>  
-                </form>       
-            </div> 
         </div>
-    </div>
-</div>
 <!--THIS IS FOR MODAL Edit Profile END-->
