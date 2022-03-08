@@ -53,10 +53,18 @@ if(isset($_GET["error"])){
     ?>
 
     <!-- THIS IS FOR SIDE NAV-BAR and OFF CANVA END HERE -->
-
     <main class="mt-5 pt-3">
         <div class="container-fluid p-4">
+            
             <div class="row">
+            <?php if(isset($err_message)){?>
+                <div class="form-group">
+                    <h5 class="text-danger"><?= $err_message ?></h5>
+                </div>
+            <?php 
+                unset($err_message);    
+            }
+            ?>
             <div class="col-md-12 my-2">
                 <h4 class="page-header">Admin Controller</h4>
                 <hr class="dropdown-divider bg-dark" />
@@ -108,14 +116,6 @@ if(isset($_GET["error"])){
                     </div>
                 
                     <button type="submit" class="btn btn-primary mt-2" name="submit">Create New Admin</button>
-                    <?php if(isset($err_message)){?>
-                            <div class="form-group">
-                                <h5 class="text-danger"><?= $err_message ?></h5>
-                            </div>
-                        <?php 
-                            unset($_GET["error"]);    
-                        }
-                        ?>
                 </form>    
             </div>
         </div>
@@ -272,7 +272,7 @@ if(isset($_GET["error"])){
                     <div class="modal-content mx-auto" style="max-width: 400px">                
                         <div class="modal-body">
                             <form action="admin-status.php" method="POST">
-                                    <input type="hidden" id="sid" name ="id">  
+                                    <input type="hidden" id="stid" name ="id">  
                             <h4>Are you sure you want to change the status of this user?</h4>     
                         </div>
                                 <div class="modal-footer">
@@ -309,7 +309,7 @@ if(isset($_GET["error"])){
             console.log(data);
 
 
-            $('#sid').val(data[0]);
+            $('#stid').val(data[0]);
         })
         })
         $(document).ready(function(){
