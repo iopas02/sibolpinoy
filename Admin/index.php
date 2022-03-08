@@ -1,3 +1,21 @@
+<?php
+$err_message = "";
+if(isset($_GET["error"])){
+    $error = $_GET["error"];
+    if($error == "username_null"){
+        $err_message = "Username field empty.";
+    }
+    else if($error == "password_null"){
+        $err_message = "Password field empty.";
+    }
+    else if($error == "no_account"){
+        $err_message = "Wrong username or password.";
+    }
+}
+
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -26,26 +44,49 @@
                 </div>
                 <div class="col-lg-5 form-postion">
                     <div class="">
-                        <h4 class="welcome-note text-center">Welcome To Admin LogIn Form</h4>
+                        <h4 class="welcome-note text-center">Welcome To Login Form</h4>
                     </div>
                     <form action="comptroller/login.php" method="POST">
                         <div class="form-row my-3">
                             <div class="col-lg-7">
-                                <label for="email" class="login-text">Email Address</label>
-                                <input id="email" name="email" type="email" placeholder="eg. xxxxxx@gamil.com" class="form-control text-normal input-form" required>
+
+                                <label for="admin-email" class="login-text">Username</label>
+                                <input id="admin-email" name="username" type="text" placeholder="username" class="form-control text-normal input-form">
                             </div>
                         </div>
                         <div class="form-row my-3">
                             <div class="col-lg-7">
-                                <label for="password" class="login-text">Password</label>
-                                <input id="password" password="password" type="password" placeholder="Pass12345" class="form-control text-normal input-form" required>
+
+                            
+                                <label for="admin-password" class="login-text">Password</label>
+                                <input id="admin-password" name="password" type="password" placeholder="Pass12345" class="form-control text-normal input-form">
                             </div>
                         </div>
+                        <div class="dropdown">
+                          <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                            Level
+                          </button>
+                          <ul class="dropdown-menu" name ="level">
+                            <li class="dropdown-item" value="0">Admin</li>
+                            <li class="dropdown-item" value="1">Superadmin</li>
+                            <!-- Gento muna haha -->
+                          </ul>
+                        </div>
+                        <Br>
                         <div class="form-row">
                             <div class="col-lg-7 my-2">
-                                <button type="submit" class="btn-login login-text" name="admin-login" >Login</button>
+                                <button type="submit" name="submit" class="btn-login login-text" >Login</button>
                             </div>
                         </div>
+                        <?php if(isset($err_message)){?>
+                            <div class="form-group">
+                                <h5 class="text-danger"><?= $err_message ?></h5>
+                            </div>
+                        <?php 
+                            unset($error);    
+                        }
+                        ?>
+                    
                         <a href="#" class="text-normal">Forgot Password</a>
                     </form>
                 </div>

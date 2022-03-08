@@ -61,10 +61,10 @@
                         </div>
                         <div class="col-md-2 mb-1">
                             <label for="level" class="form-label">Level</label>
-                            <select class="form-select" aria-label="Default select example" d="level" name="level" required>
+                            <select class="form-select" aria-label="Default select example" id="level" name="level" required>
                                 <option selected>Select Level</option>
-                                <option value="0">0</option>
-                                <option value="1">1</option>
+                                <option value="0">Admin</option>
+                                <option value="1">Super Admin</option>
                             </select>
                         </div>
                         <div class="col-md-2 mb-1">

@@ -20,6 +20,16 @@
                         <span class="me-2"><i class="bi bi-speedometer2"></i></span>
                         <span>Dashboard</span>
                     </a>
+                    <?php
+                        $check_level = $_SESSION['level'];
+                        
+                        if($check_level == '1'){
+                            echo ' <a href="admin.con.php" class="nav-link px-3 text-light text-normal">
+                                        <span class="me-2"><i class="bi bi-people"></i></span>
+                                        <span>Admin</span>
+                                    </a>';
+                        }
+                    ?>
                     <a href="404.php" class="nav-link px-3 text-light text-normal">
                         <span class="me-2"><i class="bi bi-people"></i></span>
                         <span>Clients</span>
