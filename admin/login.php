@@ -24,11 +24,21 @@ session_start();
                             $_SESSION["username"] = $row["username"];
                             $_SESSION["level"] = $row["level"];
                             $_SESSION["status"] = $row["status"];
-                            //Set Refresh header using PHP.
-                            //header( "refresh:3;url=landing.php" );
-                            header("location:landing.php");
-                            //Print out some content for example purposes.
-                            //echo 'Successful Login';
+                            $id = $row["loginId"];
+                            $sql ="SELECT firstName, lastName FROM profile WHERE loginId = $id";
+                            if($result = $conn->query($sql)){
+                                if($result->num_rows == 1){
+                                    if($row = $result->fetch_assoc()){
+                                        $_SESSION["firstName"] = $row["firstName"];
+                                        $_SESSION["lastName"] = $row["lastName"];
+                                        //Set Refresh header using PHP.
+                                        //header( "refresh:3;url=landing.php" );
+                                        header("location:landing.php");
+                                        //Print out some content for example purposes.
+                                        //echo 'Successful Login';
+                                    }
+                                }
+                            }
                         }
                         else if($row["status"] == "inactive"){
                             header("location: index.php?error=inactive");

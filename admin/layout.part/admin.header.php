@@ -1,5 +1,10 @@
 <?php
-    session_start();
+session_start();
+    $firstName = $lastName = "";
+    if(isset($_SESSION["firstName"]) && isset($_SESSION["lastName"])){
+        $firstName = $_SESSION["firstName"];
+        $lastName = $_SESSION["lastName"];
+    }
 ?>
   <head>
     <!-- Required meta tags -->

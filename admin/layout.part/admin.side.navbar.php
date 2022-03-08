@@ -1,10 +1,12 @@
+
+
 <div class="offcanvas offcanvas-start sidebar-nav pt-5 bg-blue" tabindex="-1" id="sidebar">
     <div class="offcanvas-body p-0">
 
         <div class="container text-center">
             <div class="text-white">
             <h4 class="text-normal">Welcome!</h4>
-            <h2 class="user-text">Juan Dela Cruz</h2>
+            <h2 class="user-text"><?= $firstName . " " . $lastName?></h2>
             <h6 class="text-muted text-small">Admin</h6>
             </div>
         </div>
