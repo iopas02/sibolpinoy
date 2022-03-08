@@ -197,18 +197,10 @@ if(isset($_GET["error"])){
                                 </select>
                             </div>
                         </div>
-                        <div class="row col-md-12">
-                            <div class="col-md-6 mb-1">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="XXXXXXXXXX" required> 
-                            </div>
-                            <div class="col-md-6 mb-1">
-                                <label for="cpassword" class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="XXXXXXXXXX" required>
-                            </div>
-                        </div>
                 </div>
                 <div class="modal-footer">
+                    
+                <button type="button" class="btn btn-primary pr-5" data-bs-toggle="modal" data-bs-target="#editPassword">Change password</button>
                         <button type="submit" class="btn btn-success" name="new_admin">Edit</button>
                     </form>       
                     <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
