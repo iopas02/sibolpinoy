@@ -207,7 +207,9 @@
                                 <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="XXXXXXXXXX" required>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success mt-2" name="new_admin">Edit Admin</button>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-success mt-2" name="new_admin">Edit Admin</button>
+                        </div>  
                     </form>       
                 </div>
                 <div class="modal-footer">
