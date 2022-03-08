@@ -67,7 +67,7 @@
         var options = {
           title: 'Affiliation Pie Graph',
           legend: 'side',
-          width: 700,
+          width: 600,
           slices: {  0: {offset: 0.1},
                     3: {offset: 0.3},
                     7: {offset: 0.2}
