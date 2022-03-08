@@ -67,11 +67,11 @@ if(isset($_GET["error"])){
                     <div class="row col-md-12">
                         <div class="col-md-4 mb-1">
                             <label for="first_name" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="first_name" name="first_name" aria-describedby="emailHelp" placeholder="Enter First Name">          
+                            <input type="text" class="form-control" id="first_name" name="firstName" aria-describedby="emailHelp" placeholder="Enter First Name">          
                         </div>
                         <div class="col-md-4 mb-1">
                             <label for="last_name" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="last_name" name="last_name" aria-describedby="emailHelp" placeholder="Enter Last Name">              
+                            <input type="text" class="form-control" id="last_name" name="lastName" aria-describedby="emailHelp" placeholder="Enter Last Name">              
                         </div>
                         <div class="col-md-4 mb-1">
                             <label for="email" class="form-label">Username</label>
