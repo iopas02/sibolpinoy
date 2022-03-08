@@ -148,6 +148,7 @@ if(isset($_GET["error"])){
                                 </tbody>
                                 <tfoot>
                                     <tr>
+                                        <th >Id</th>
                                         <th >First Name</th>
                                         <th >Last Name</th>
                                         <th  >Username</th>
