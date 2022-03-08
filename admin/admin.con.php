@@ -147,10 +147,10 @@ if(isset($_GET["error"])){
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
-                                        <th>Level</th>
+                                        <th class="text-center" >First Name</th>
+                                        <th class="text-center" >Last Name</th>
+                                        <th class="text-center" >Username</th>
+                                        <th class="text-center" >Level</th>
                                         <th class="text-center" >Status</th>
                                         <th class="text-center" colspan="2">Action</th>
                                     </tr>
