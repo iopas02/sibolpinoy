@@ -132,11 +132,12 @@ if(isset($_GET["error"])){
                             <table id="example" class="table table-striped data-table" style="width: 100%">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">First Name</th>
-                                        <th class="text-center">Last Name</th>
-                                        <th class="text-center">Username</th>
-                                        <th class="text-center">Level</th>
-                                        <th class="text-center">Status</th>
+                                        <th >Id</th>
+                                        <th >First Name</th>
+                                        <th >Last Name</th>
+                                        <th >Username</th>
+                                        <th >Level</th>
+                                        <th >Status</th>
                                         <th class="text-center" colspan="2">Action</th>
                                     </tr>
                                 </thead>
@@ -147,11 +148,12 @@ if(isset($_GET["error"])){
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th class="text-center" >First Name</th>
-                                        <th class="text-center" >Last Name</th>
-                                        <th class="text-center" >Username</th>
-                                        <th class="text-center" >Level</th>
-                                        <th class="text-center" >Status</th>
+                                        <th >Id</th>
+                                        <th >First Name</th>
+                                        <th >Last Name</th>
+                                        <th  >Username</th>
+                                        <th  >Level</th>
+                                        <th  >Status</th>
                                         <th class="text-center" colspan="2">Action</th>
                                     </tr>
                                 </tfoot>
@@ -227,6 +229,7 @@ if(isset($_GET["error"])){
                 </div>
                 <div class="modal-body">
                     <form action="" method="POST">
+                        <input type="hidden" value="" id="id" name="id">
                         <div class="row col-md-12">
                             <div class="col-md-12 mb-1">
                                 <h3 class="text-center">Are you sure you want to change the status of this user?</h3>  
