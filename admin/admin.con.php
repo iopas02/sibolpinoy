@@ -105,7 +105,7 @@ if(isset($_GET["error"])){
                         </div>
                     </div>
                 
-                    <button type="submit" class="btn btn-primary mt-2" name="new_admin">Create New Admin</button>
+                    <button type="submit" class="btn btn-primary mt-2" name="submit">Create New Admin</button>
                     <?php if(isset($err_message)){?>
                             <div class="form-group">
                                 <h5 class="text-danger"><?= $err_message ?></h5>
