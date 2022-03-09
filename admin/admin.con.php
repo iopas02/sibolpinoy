@@ -211,63 +211,34 @@ if(isset($_GET["error"])){
 
         <!--THIS IS FOR MODAL Edit password start-->
         <div class="modal" id="editAdminPassword" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Edit Admin password</h5>
-                <button type="button" class="btn-close"data-bs-toggle="modal" data-bs-target="#editAdmin"  data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="admin-edit-password.php" method="POST">
-                    <input type="hidden" id="ssid" name="id">
-                    <div class="row col-md-12">
-                        <div class="col-md-6 mb-1">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" aria-describedby="emailHelp" placeholder="Enter Password">          
-                        </div>
-                        <div class="col-md-6 mb-1">
-                            <label for="cpassword" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="cpassword" name="cpassword" aria-describedby="emailHelp" placeholder="Enter Confirm Password">              
-                        </div>
-                    </div>
-            </div>
-            <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" name="editPassword">Save</button>
-                </form>       
-                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editAdmin" data-bs-dismiss="modal">Close</button>
-            </div>
-            </div>
-        </div>
-        </div>
-        <!--THIS IS FOR MODAL Edit Profile END-->
-
-        <!-- <div class="modal" id="editStatus" data-bs-backdrop="static" tabindex="-1" style="margin-top: 150px;">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Change Status</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title">Edit Admin password</h5>
+                    <button type="button" class="btn-close"data-bs-toggle="modal" data-bs-target="#editAdmin"  data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="POST">
-                        <input type="text" id="id" name="id">
+                    <form action="admin-edit-password.php" method="POST">
+                        <input type="hidden" id="ssid" name="id">
                         <div class="row col-md-12">
-                            <div class="col-md-12 mb-1">
-                                <h3 class="text-center">Are you sure you want to change the status of this user?</h3>  
+                            <div class="col-md-6 mb-1">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" aria-describedby="emailHelp" placeholder="Enter Password">          
+                            </div>
+                            <div class="col-md-6 mb-1">
+                                <label for="cpassword" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="cpassword" name="cpassword" aria-describedby="emailHelp" placeholder="Enter Confirm Password">              
                             </div>
                         </div>
-                        <div class="text-right">
-                            <button type="submit" class="btn btn-primary mt-2" name="new_admin">Change</button>
-                            <button type="button" class="btn btn-dark mt-2" data-bs-dismiss="modal" >Close</button>
-                        </div>  
-                    </form>       
                 </div>
                 <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" name="editPassword">Save</button>
+                    </form>       
+                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editAdmin" data-bs-dismiss="modal">Close</button>
                 </div>
                 </div>
             </div>
-        </div> -->
-        <!-- modal start -->
+        </div>
         <div class="modal fade" id="editStatus">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content mx-auto" style="max-width: 400px">                
@@ -286,7 +257,6 @@ if(isset($_GET["error"])){
             </div>
         <!-- modal end-->
         <!-- Modal End Here -->
-
     </main>
 
     <!-- Footer and JS Script Start Here -->
@@ -297,41 +267,41 @@ if(isset($_GET["error"])){
   </body>
 
   <script>
-      $(document).ready(function(){
-        $('.statusButton').on('click', function(){
-            $('#editStatus').modal('show');
+        $(document).ready(function(){
+            $('.statusButton').on('click', function(){
+                $('#editStatus').modal('show');
 
-            $tr = $(this).closest('tr');
+                $tr = $(this).closest('tr');
 
-            var data= $tr.children("td").map(function(){
-                return $(this).text();
-            }).get();
+                var data= $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
 
-            console.log(data);
+                console.log(data);
 
 
-            $('#stid').val(data[0]);
-        })
+                $('#stid').val(data[0]);
+            })
         })
         $(document).ready(function(){
-        $('.editBtn').on('click', function(){
+            $('.editBtn').on('click', function(){
 
-            $tr = $(this).closest('tr');
+                $tr = $(this).closest('tr');
 
-            var data= $tr.children("td").map(function(){
-                return $(this).text();
-            }).get();
+                var data= $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
 
-            console.log(data);
+                console.log(data);
 
 
-            $('#sid').val(data[0]);
-            $('#ssid').val(data[0]);
-            $('#fn').val(data[1]);
-            $('#ln').val(data[2]);
-            $('#un').val(data[3]);
-            $('#lev').val(data[4]);
-        })
+                $('#sid').val(data[0]);
+                $('#ssid').val(data[0]);
+                $('#fn').val(data[1]);
+                $('#ln').val(data[2]);
+                $('#un').val(data[3]);
+                $('#lev').val(data[4]);
+            })
         })
         
   </script>

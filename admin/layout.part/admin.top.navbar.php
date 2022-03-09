@@ -67,7 +67,7 @@
       </div>
       <div class="modal-footer">
           
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal"  data-bs-dismiss="modal" data-bs-target="#editPassword">Change password</button>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal"  data-bs-dismiss="modal" data-bs-target="#editProfilePassword">Change password</button>
               <button type="submit" class="btn btn-success" name="new_admin">Save</button>
           </form>       
           <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
@@ -78,7 +78,7 @@
 <!--THIS IS FOR MODAL Edit Profile END-->
 
 <!--THIS IS FOR MODAL Edit password start-->
-<div class="modal" id="editPassword" tabindex="-1">
+<div class="modal" id="editProfilePassword" tabindex="-1">
   <div class="modal-dialog modal-lg">
       <div class="modal-content">
       <div class="modal-header">
