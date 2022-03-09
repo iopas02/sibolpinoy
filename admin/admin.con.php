@@ -218,7 +218,8 @@ if(isset($_GET["error"])){
                 <button type="button" class="btn-close"data-bs-toggle="modal" data-bs-target="#editAdmin"  data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="admin-edit.php" method="POST">
+                <form action="admin-edit-password.php" method="POST">
+                    <input type="hidden" id="ssid" name="id">
                     <div class="row col-md-12">
                         <div class="col-md-6 mb-1">
                             <label for="password" class="form-label">Password</label>
@@ -231,7 +232,7 @@ if(isset($_GET["error"])){
                     </div>
             </div>
             <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" name="editPass">Save</button>
+                    <button type="submit" class="btn btn-success" name="editPassword">Save</button>
                 </form>       
                 <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editAdmin" data-bs-dismiss="modal">Close</button>
             </div>
@@ -325,6 +326,7 @@ if(isset($_GET["error"])){
 
 
             $('#sid').val(data[0]);
+            $('#ssid').val(data[0]);
             $('#fn').val(data[1]);
             $('#ln').val(data[2]);
             $('#un').val(data[3]);
