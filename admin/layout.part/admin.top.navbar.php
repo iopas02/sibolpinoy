@@ -3,21 +3,20 @@
   $username = $firstName = $lastName = $level = $readonly = "";
   if(isset($_SESSION["username"]) && isset($_SESSION["level"])){
     $level = $_SESSION["level"];
-    $username = $_SESSION["username"];
+    $musername = $_SESSION["username"];
     if(levelCheck($level) == "admin"){
       $readonly = "readonly";
     }
     $sql = "SELECT login.loginId, profile.firstName, profile.lastName, login.username, login.level FROM login INNER JOIN profile ON 
-                login.loginId = profile.loginId WHERE username = '$username'";
+                login.loginId = profile.loginId WHERE login.username = '$musername'";
     if($result = $conn->query($sql)){
       if($result->num_rows == 1){
         if($row = $result->fetch_assoc()){
           $id = $row["loginId"];
           $firstName = $row["firstName"];
           $lastName = $row["lastName"];
-          $username = $row["username"];
+          $rusername = $row["username"];
           $level = $row["level"];
-
         }
       }
     }
@@ -42,7 +41,7 @@
     <div class="collapse navbar-collapse col-md-4" id="topNavBar">
       <div class="btn-group border-0 dropstart">
         <button type="button" class="btn text-white dropdown-toggle border-0" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="bi bi-person-circle"></i> <span> <?= $username ?> </span>
+          <i class="bi bi-person-circle"></i> <span> <?= $rusername ?> </span>
         </button>
         <ul class="dropdown-menu">
             <li><button class="dropdown-item btn" data-bs-toggle="modal" data-bs-target="#editProfile">Account</button></li>
@@ -79,7 +78,7 @@
             <div class="row col-md-12">
                 <div class="col-md-8 mb-1">
                     <label for="email" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="email" name="username"  aria-describedby="emailHelp" value="<?= $username?>" <?= $readonly?>>
+                    <input type="text" class="form-control" id="email" name="username"  aria-describedby="emailHelp" value="<?= $rusername?>" <?= $readonly?>>
                 </div>
                 <div class="col-md-4 mb-1">
                     <label for="email" class="form-label">Level</label>

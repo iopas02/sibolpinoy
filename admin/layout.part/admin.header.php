@@ -1,14 +1,5 @@
 <?php
 session_start();
-  function levelCheck($lev){
-    if($lev == "0"){
-      $lev = "admin";
-    }
-    else if($lev == "1"){
-      $lev = "superadmin";
-    }
-    echo $lev;
-  }
 
     $firstName = $lastName = $level ="";
     if(isset($_SESSION["firstName"]) && isset($_SESSION["lastName"]) && isset($_SESSION["level"]) && isset($_SESSION["username"])){
@@ -48,3 +39,16 @@ session_start();
   </head>
   
 
+
+<?php
+// functions
+function levelCheck($lev){
+    if($lev == "0"){
+      $lev = "admin";
+    }
+    else if($lev == "1"){
+      $lev = "superadmin";
+    }
+    echo $lev;
+  }
+?>

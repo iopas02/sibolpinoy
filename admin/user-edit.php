@@ -3,77 +3,69 @@
     require "layout.part/admin.header.php";
 
     if(isset($_POST["update"])){
+        $username = $_POST["username"];
         if(!isset($_POST["firstName"]) || $_POST["firstName"] == null){
-            header("location: landing.php?error=firstName_null");
+            header("location: admin.con.php?error=firstName_null");
         }
         else if(!isset($_POST["lastName"]) || $_POST["lastName"] == null){
-            header("location: landing.php?error=lastName_null");
+            header("location: admin.con.php?error=lastName_null");
         }
         else if(!isset($_POST["username"]) || $_POST["username"] == null){
-            header("location: landing.php?error=username_null");
+            header("location: admin.con.php?error=username_null");
         }
         else{
-            $id = $_POST["id"];
+            $id = $_SESSION["id"];
             $firstName = $_POST["firstName"];
             $lastName = $_POST["lastName"];
-            $level = $_POST["level"];
             $username = $_POST["username"];
-            $sql = "SELECT * FROM login WHERE username = '$username'";
+            $sql = "SELECT * FROM login WHERE username = '$username' AND loginId = $id";
             if($result = $conn->query($sql)){
                 if($result->num_rows == 1){
-                    if($row = $result->fetch_assoc()){
-                        if($id == $row["loginId"]){
-                            $sql = "UPDATE login SET username= '$username' ,level='$level' WHERE loginId = '$id'";
-                            //check username duplicate
-                            if($conn->query($sql)){   
-                                $sql = "UPDATE profile SET firstName = '$firstName', lastName = '$lastName' WHERE loginId = '$id'";
-                                //adding login table
-                                if($conn->query($sql)){
-                                    header( "refresh:3;url=admin.con.php" );
-                                    echo "  <div class='loader_bg'>
-                                                <div class='welcome'>
-                                                    <h2>Successfully Updated User! Redirecting to dashboard...</h2>
-                                                </div>
-                                                <div class='loader mt-5'></div>
+                    $sql = "UPDATE profile SET firstName = '$firstName', lastName = '$lastName' WHERE loginId = '$id'";
+                    //updating profile table
+                    if($conn->query($sql)){
+                        $_SESSION["firstName"] = $firstName;
+                        $_SESSION["lastName"] = $lastName;
+                        header( "refresh:3;url=admin.con.php?sameuser" );
+                        echo "  <div class='loader_bg'>
+                                    <div class='welcome'>
+                                        <h2>Successfully Updated User! Redirecting to dashboard...</h2>
+                                    </div>
+                                    <div class='loader mt-5'></div>
+                                </div>
+                            ";     
+                    }
+                    else{
+                        echo "error sql";
+                    }
+                }
+                else if($result->num_rows == 0){
+                    $sql = "SELECT * FROM login WHERE username = '$username'";
+                    if($result = $conn->query($sql)){
+                        if($result->num_rows == 0){
+                            $sql = "UPDATE profile INNER JOIN login ON login.loginId = profile.loginId  SET profile.firstName = '$firstName', profile.lastName = '$lastName' ,login.username = '$username'
+                                    WHERE profile.loginId= $id";
+                            if($conn->query($sql)){
+                                $_SESSION["firstName"] = $firstName;
+                                $_SESSION["lastName"] = $lastName;
+                                $_SESSION["username"] = $username;
+                                header( "refresh:3;url=admin.con.php?number2" );
+                                echo "  <div class='loader_bg'>
+                                            <div class='welcome'>
+                                                <h2>Successfully Updated User! Redirecting to dashboard...</h2>
                                             </div>
-                                        ";     
-                                }
-                                else{
-                                    echo "error sql";
-                                }
+                                            <div class='loader mt-5'></div>
+                                        </div>
+                                    "; 
+                            }
+                            else{
+                                echo "sql error";
                             }
                         }
                         else{
                             header("location: admin.con.php?error=username_exist");
                         }
                     }
-                    else{
-                        echo "nothing fetched.";
-                    }
-                }
-                else if($result->num_rows == 0){
-                    $sql = "UPDATE login SET username= '$username' ,level='$level' WHERE loginId = '$id'";
-                    //check username duplicate
-                    if($conn->query($sql)){   
-                        $sql = "UPDATE profile SET firstName = '$firstName', lastName = '$lastName' WHERE loginId = '$id'";
-                        //adding login table
-                        if($conn->query($sql)){
-                            header( "refresh:3;url=admin.con.php" );
-                            echo "  <div class='loader_bg'>
-                                        <div class='welcome'>
-                                            <h2>Successfully Updated User! Redirecting to dashboard...</h2>
-                                        </div>
-                                        <div class='loader mt-5'></div>
-                                    </div>
-                                ";     
-                        }
-                        else{
-                            echo "error sql";
-                        }
-                    }
-                }
-                else{
-                    echo "no existing";
                 }
             }
             else{
