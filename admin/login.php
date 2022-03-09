@@ -9,13 +9,9 @@ session_start();
         else if(!isset($_POST["password"]) || $_POST["password"] == null){
             header("location: index.php?error=password_null");
         }
-        else if(!isset($_POST["level"]) || $_POST["level"] == null){
-            header("location: index.php?error=level_null");
-        }
         else{
             $username = $_POST["username"];
             $password = $_POST["password"];
-            $level = $_POST["level"];
             $sql = "SELECT * FROM login where username = '$username' AND password = '$password'";
             if($result = $conn->query($sql)){
                 if($result->num_rows == 1){

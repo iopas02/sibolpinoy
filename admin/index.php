@@ -68,14 +68,6 @@ if(isset($_GET["error"])){
                                 <input id="admin-password" name="password" type="password" placeholder="Enter password" class="form-control text-normal input-form">
                             </div>
                         </div>
-                        <div class="dropdown col-md-3">
-                            <select class="form-select" aria-label="Default select example" id="level" name="level">
-                                <option selected value="">Select Level</option>
-                                <option value="0">Admin</option>
-                                <option value="1">Superadmin</option>
-                            </select>
-                        </div>
-                        <Br>
                         <div class="form-row">
                             <div class="col-lg-7 my-2">
                                 <button type="submit" name="submit" class="btn-login login-text" >Login</button>

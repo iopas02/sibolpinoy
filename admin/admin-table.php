@@ -7,13 +7,13 @@ if($result = $conn->query($sql)){
     if($result->num_rows >= 1){
         while($row = $result->fetch_assoc()){  ?>
             <tr>   
-                <td>
+                <td class="text-center">
                     <?php 
                         $currentUser = $_SESSION["username"];
                         if($currentUser == $row["username"]){ 
                             $disabled = "disabled";
                             ?>
-                            <span class="border border-danger text-danger">You</span>
+                            <span class="border border-danger text-danger rounded-3 p-1">You</span>
                         <?php } 
                     
                     ?>

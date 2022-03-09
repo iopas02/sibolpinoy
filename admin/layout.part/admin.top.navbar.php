@@ -95,7 +95,7 @@
             <div class="row py-3 col-md-12">
               <hr class="dropdown-divider bg-dark" />
               <div class="col-md-4">
-                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editPassword" data-bs-dismiss="modal">Change password</button>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editPassword">Change password</button>
               </div>
               <div class="col-md-8 d-grid gap-1 d-md-flex justify-content-md-end">
                   <button type="submit" class="btn btn-success" name="update">Save</button>    
@@ -116,25 +116,25 @@
       <div class="modal-content">
       <div class="modal-header">
           <h5 class="modal-title">Edit password</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#editProfile" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-          <form action="admin-edit.php" method="POST">
+          <form action="user-edit-password.php" method="POST">
               <div class="row col-md-12">
                   <div class="col-md-6 mb-1">
-                      <label for="password" class="form-label">Password</label>
-                      <input type="password" class="form-control" id="password" name="password" aria-describedby="emailHelp" placeholder="Enter Password">          
+                      <label for="password" class="form-label">New Password</label>
+                      <input type="password" class="form-control" id="password" name="password" aria-describedby="emailHelp" placeholder="Enter New Password">          
                   </div>
                   <div class="col-md-6 mb-1">
                       <label for="cpassword" class="form-label">Confirm Password</label>
-                      <input type="text" class="form-control" id="cpassword" name="cpassword" aria-describedby="emailHelp" placeholder="Enter Confirm Password">              
+                      <input type="password" class="form-control" id="cpassword" name="cpassword" aria-describedby="emailHelp" placeholder="Enter Confirm Password">              
                   </div>
               </div>
       </div>
       <div class="modal-footer">
-              <button type="submit" class="btn btn-success" name="editPass">Save</button>
+              <button type="submit" class="btn btn-success" name="editPassword">Save</button>
           </form>       
-          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editProfile" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editProfile" >Close</button>
       </div>
       </div>
   </div>

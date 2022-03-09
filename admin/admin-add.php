@@ -3,8 +3,7 @@
     require "layout.part/admin.header.php";
 
     if(isset($_POST["submit"])){
-        $passw = trim($_POST["password"]);
-        $passw2 = trim($_POST["cpassword"]);
+        $passw = "SPMC123";
         $username = $_POST["username"];
         if(!isset($_POST["firstName"]) || $_POST["firstName"] == null){
             header("location: admin.con.php?error=firstName_null");
@@ -15,17 +14,11 @@
         else if(!isset($_POST["username"]) || $_POST["username"] == null){
             header("location: admin.con.php?error=username_null");
         }
-        else if(!isset($_POST["password"]) || $_POST["password"] == null){
-            header("location: admin.con.php?error=password_null");
-        }
         else if(!isset($_POST["level"]) || $_POST["level"] == null){
             header("location: admin.con.php?error=level_null");
         }
         else if(!isset($_POST["status"]) || $_POST["status"] == null){
             header("location: admin.con.php?error=status_null");
-        }
-        else if($passw != $passw2){
-            header("location: admin.con.php?error=passwordNotEqual");
         }
         
         else{

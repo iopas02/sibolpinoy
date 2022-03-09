@@ -84,29 +84,21 @@ if(isset($_GET["error"])){
             <div class="col-md-12 mb-3 px-4">
                 <form action="admin-add.php" method="POST">
                     <div class="row col-md-12">
-                        <div class="col-md-4 mb-1">
+                        <div class="col-md-6 mb-1">
                             <label for="first_name" class="form-label">First Name</label>
                             <input type="text" class="form-control" id="first_name" name="firstName" aria-describedby="emailHelp" placeholder="Enter First Name">          
                         </div>
-                        <div class="col-md-4 mb-1">
+                        <div class="col-md-6 mb-1">
                             <label for="last_name" class="form-label">Last Name</label>
                             <input type="text" class="form-control" id="last_name" name="lastName" aria-describedby="emailHelp" placeholder="Enter Last Name">              
                         </div>
-                        <div class="col-md-4 mb-1">
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="col-md-6 mb-1">
                             <label for="email" class="form-label">Username</label>
                             <input type="text" class="form-control" id="email" name="username"  aria-describedby="emailHelp" placeholder="Enter Username">
                         </div>
-                    </div>
-                    <div class="row col-md-12">
-                        <div class="col-md-4 mb-1">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password"> 
-                        </div>
-                        <div class="col-md-4 mb-1">
-                            <label for="cpassword" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="Enter Confirm Password">
-                        </div>
-                        <div class="col-md-2 mb-1">
+                        <div class="col-md-3 mb-1">
                             <label for="level" class="form-label">Level</label>
                             <select class="form-select" aria-label="Default select example" id="level" name="level">
                                 <option selected>Select Level</option>
@@ -114,7 +106,7 @@ if(isset($_GET["error"])){
                                 <option value="1">Super Admin</option>
                             </select>
                         </div>
-                        <div class="col-md-2 mb-1">
+                        <div class="col-md-3 mb-1">
                             <label for="status" class="form-label">Status</label>
                             <select class="form-select" aria-label="Default select example" id="status" name="status">
                                 <option selected>Select Status</option>
@@ -123,8 +115,9 @@ if(isset($_GET["error"])){
                             </select>
                         </div>
                     </div>
-                
-                    <button type="submit" class="btn btn-primary mt-2" name="submit">Create New Admin</button>
+                    <br>
+                    <p>Note: Default password is "<strong class="text-primary">SPMC123</strong>"</p>
+                    <button type="submit" class="btn btn-primary mt-1" name="submit">Create New Admin</button>
                 </form>    
             </div>
         </div>
@@ -180,49 +173,49 @@ if(isset($_GET["error"])){
         <div class="modal" id="editAdmin" style="margin-top:125px" data-bs-backdrop="static" tabindex="-1">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Admin Edit Profile</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="admin-edit.php" method="POST">
-                        <input type="hidden" id="sid" name="id">
-                        <div class="row col-md-12">
-                            <div class="col-md-6 mb-1">
-                                <label for="firstName" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="fn" name="firstName" aria-describedby="emailHelp">          
-                            </div>
-                            <div class="col-md-6 mb-1">
-                                <label for="lastName" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="ln" name="lastName" aria-describedby="emailHelp" >              
-                            </div>
-                        </div>
-                        <div class="row col-md-12">
-                            <div class="col-md-8 mb-1">
-                                <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="un" name="username"  aria-describedby="emailHelp" >
-                            </div>
-                            <div class="col-md-4 mb-1">
-                                <label for="level" aria-label="Default select example" class="form-label">Level</label>
-                                <select class="form-select" id="lev" name="level">
-                                    <option value="0">admin</option>
-                                    <option value="1">superadmin</option>
-                                </select>
-                            </div>
-                        </div>
-            </div>
-                            <div class="row py-3 col-md-12">
-                                <hr class="dropdown-divider bg-dark" />
-                                <div class="col-md-4">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editAdminPassword" data-bs-dismiss="modal">Change password</button>
+                    <div class="modal-header">
+                        <h5 class="modal-title">Admin Edit Profile</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="admin-edit.php" method="POST">
+                            <input type="hidden" id="sid" name="id">
+                            <div class="row col-md-12">
+                                <div class="col-md-6 mb-1">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="fn" name="firstName" aria-describedby="emailHelp">          
                                 </div>
-                                <div class="col-md-8 d-grid gap-1 d-md-flex justify-content-md-end">
-                                    <button type="submit" class="btn btn-success" name="update">Save</button>    
-                                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                <div class="col-md-6 mb-1">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="ln" name="lastName" aria-describedby="emailHelp" >              
                                 </div>
                             </div>
-                        </div>    
-                    </form>
+                            <div class="row col-md-12">
+                                <div class="col-md-8 mb-1">
+                                    <label for="username" class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="un" name="username"  aria-describedby="emailHelp" >
+                                </div>
+                                <div class="col-md-4 mb-1">
+                                    <label for="level" aria-label="Default select example" class="form-label">Level</label>
+                                    <select class="form-select" id="lev" name="level">
+                                        <option value="0">admin</option>
+                                        <option value="1">superadmin</option>
+                                    </select>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="row py-3 col-md-12">
+                    <hr class="dropdown-divider bg-dark" />
+                                    <div class="col-md-4">
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#editAdminPassword">Reset password</button>
+                                    </div>
+                                    <div class="col-md-8 d-grid gap-1 d-md-flex justify-content-md-end">
+                                        <button type="submit" class="btn btn-success" name="update">Save</button>    
+                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>    
+                        </form>
                 </div>    
             </div>
         </div>
@@ -233,7 +226,7 @@ if(isset($_GET["error"])){
                         <div class="modal-body">
                             <form action="admin-status.php" method="POST">
                                     <input type="hidden" id="statuser" name ="username">  
-                            <h4>Are you sure you want to change the status of this user?</h4>     
+                            <h5>Are you sure you want to change the status of this user?</h5>     
                         </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-success" name="active">Active</button>
@@ -246,31 +239,24 @@ if(isset($_GET["error"])){
          <!--Modal End Here -->
 
         <!--THIS IS FOR MODAL Edit password start-->
-        <div class="modal" id="editAdminPassword" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+        <div class="modal fade" id="editAdminPassword" tabindex="-1">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content" style="max-width: 400px">
                     <div class="modal-header">
-                        <h5 class="modal-title">Edit Admin password</h5>
-                        <button type="button" class="btn-close"data-bs-toggle="modal" data-bs-target="#editAdmin"  data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title">Reset password</h5>
+                        <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#editAdmin" aria-label="Close"></button>
                     </div>
                 <div class="modal-body">
                     <form action="admin-edit-password.php" method="POST">
                         <input type="hidden" id="ssid" name="id">
-                            <div class="row col-md-12">
-                                <div class="col-md-6 mb-1">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="password" name="password" aria-describedby="emailHelp" placeholder="Enter Password">          
-                                </div>
-                                <div class="col-md-6 mb-1">
-                                    <label for="cpassword" class="form-label">Confirm Password</label>
-                                    <input type="password" class="form-control" id="cpassword" name="cpassword" aria-describedby="emailHelp" placeholder="Enter Confirm Password">              
-                                </div>
-                            </div>
+                            <h5>Are you sure you want to <strong class="text-danger">reset</strong> the password of this user?</h5>   
+                            <br>
+                            <h5>Default password: SPMC123</h5>
                         </div>
                       <div class="modal-footer">
                         <button type="submit" class="btn btn-success" name="editPassword">Save</button>
                     </form>       
-                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editAdmin" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editAdmin">Close</button>
                 </div>
                 </div>
             </div>
