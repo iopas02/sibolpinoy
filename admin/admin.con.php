@@ -32,6 +32,9 @@ if(isset($_GET["error"])){
     else if($error == "error_self_delete"){
         $err_message = "You can not delete yourself.";
     }
+    else if($error == "error_self_status"){
+        $err_message = "You can not set your own status.";
+    }
 }
 
 ?>
@@ -289,7 +292,7 @@ if(isset($_GET["error"])){
                     <div class="modal-content mx-auto" style="max-width: 400px">                
                         <div class="modal-body">
                             <form action="admin-status.php" method="POST">
-                                    <input type="hidden" id="stid" name ="id">  
+                                    <input type="hidden" id="statuser" name ="username">  
                             <h4>Are you sure you want to change the status of this user?</h4>     
                         </div>
                                 <div class="modal-footer">
@@ -399,7 +402,7 @@ if(isset($_GET["error"])){
                 console.log(data);
 
 
-                $('#stid').val(data[0]);
+                $('#statuser').val(data[3]);
             })
         })
         $(document).ready(function(){
