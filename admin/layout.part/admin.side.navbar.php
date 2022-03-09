@@ -115,7 +115,7 @@
                                 if(isset($_SESSION["level"])){
                                     $check_level = $_SESSION["level"];                        
                                     if($check_level == '1'){
-                                        echo ' <a href="#" class="nav-link px-2 text-normal">
+                                        echo ' <a href="user.archieve.php" class="nav-link px-2 text-normal">
                                         <span class="me-2"><i class="bi bi-person-dash"></i></span>
                                         <span>Users</span>
                                     </a>';
@@ -124,19 +124,19 @@
                             ?>    
                             </li>
                             <li>
-                            <a href="#" class="nav-link px-2 text-normal">
+                            <a href="404.php" class="nav-link px-2 text-normal">
                                 <span class="me-2"><i class="bi bi-clipboard-check"></i></span>
                                 <span>Consultation request</span>
                             </a>
                             </li>
                             <li>
-                            <a href="#" class="nav-link px-2 text-normal">
+                            <a href="404.php" class="nav-link px-2 text-normal">
                                 <span class="me-2"><i class="bi bi-calendar-check"></i></span>
                                 <span>Event Reservation</span>
                             </a>
                             </li>
                             <li>
-                            <a href="#" class="nav-link px-2 text-normal">
+                            <a href="404.php" class="nav-link px-2 text-normal">
                                 <span class="me-2"><i class="bi bi-envelope"></i></span>
                                 <span>Message</span>
                             </a>
