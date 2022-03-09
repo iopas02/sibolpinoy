@@ -164,7 +164,7 @@ if(isset($_GET["error"])){
         </div>
 
         <!-- Modal Start Here -->
-        <div class="modal" id="editAdmin" data-bs-backdrop="static"  tabindex="-1">
+        <div class="modal" id="editAdmin" style="margin-top:125px" data-bs-backdrop="static" tabindex="-1">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -197,47 +197,52 @@ if(isset($_GET["error"])){
                                 </select>
                             </div>
                         </div>
-                </div>
-                <div class="modal-footer">
-                    
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editAdminPassword" data-bs-dismiss="modal">Change password</button>
-                        <button type="submit" class="btn btn-success" name="update">Save</button>
-                    </form>       
-                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-                </div>
-                </div>
+            </div>
+                            <div class="row py-3 col-md-12">
+                                <hr class="dropdown-divider bg-dark" />
+                                <div class="col-md-4">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editAdminPassword" data-bs-dismiss="modal">Change password</button>
+                                </div>
+                                <div class="col-md-8 d-grid gap-1 d-md-flex justify-content-md-end">
+                                    <button type="submit" class="btn btn-success" name="update">Save</button>    
+                                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>    
+                    </form>
+                </div>    
             </div>
         </div>
 
         <!--THIS IS FOR MODAL Edit password start-->
         <div class="modal" id="editAdminPassword" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Edit Admin password</h5>
-                <button type="button" class="btn-close"data-bs-toggle="modal" data-bs-target="#editAdmin"  data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="admin-edit-password.php" method="POST">
-                    <input type="hidden" id="ssid" name="id">
-                    <div class="row col-md-12">
-                        <div class="col-md-6 mb-1">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" aria-describedby="emailHelp" placeholder="Enter Password">          
-                        </div>
-                        <div class="col-md-6 mb-1">
-                            <label for="cpassword" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="cpassword" name="cpassword" aria-describedby="emailHelp" placeholder="Enter Confirm Password">              
-                        </div>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Admin password</h5>
+                        <button type="button" class="btn-close"data-bs-toggle="modal" data-bs-target="#editAdmin"  data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                <div class="modal-body">
+                    <form action="admin-edit-password.php" method="POST">
+                        <input type="hidden" id="ssid" name="id">
+                            <div class="row col-md-12">
+                                <div class="col-md-6 mb-1">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password" aria-describedby="emailHelp" placeholder="Enter Password">          
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <label for="cpassword" class="form-label">Confirm Password</label>
+                                    <input type="password" class="form-control" id="cpassword" name="cpassword" aria-describedby="emailHelp" placeholder="Enter Confirm Password">              
+                                </div>
+                            </div>
+                        </div>
+                      <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" name="editPassword">Save</button>
+                    </form>       
+                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editAdmin" data-bs-dismiss="modal">Close</button>
+                </div>
+                </div>
             </div>
-            <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" name="editPassword">Save</button>
-                </form>       
-                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editAdmin" data-bs-dismiss="modal">Close</button>
-            </div>
-            </div>
-        </div>
         </div>
         <!--THIS IS FOR MODAL Edit Profile END-->
 

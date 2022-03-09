@@ -8,7 +8,7 @@
   <!-- Header End -->
 
   <body>
-    <title>Sibol-PINOY Services Page</title>
+    <title>Sibol-PINOY Services Page</title>            
 
     <!-- top navigation bar -->
     <?php

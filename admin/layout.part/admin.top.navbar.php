@@ -33,48 +33,53 @@
 <!--THIS IS FOR MODAL Edit Profile start-->
 <div class="modal" id="editProfile" tabindex="-1">
   <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-      <div class="modal-header">
-          <h5 class="modal-title">Edit Profile</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Edit Profile</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
           <form action="admin-edit.php" method="POST">
-              <div class="row col-md-12">
-                  <div class="col-md-6 mb-1">
-                      <label for="first_name" class="form-label">First Name</label>
-                      <input type="text" class="form-control" id="first_name" name="first_name" aria-describedby="emailHelp" placeholder="eg. Juana" required>          
-                  </div>
-                  <div class="col-md-6 mb-1">
-                      <label for="last_name" class="form-label">Last Name</label>
-                      <input type="text" class="form-control" id="last_name" name="last_name" aria-describedby="emailHelp" placeholder="eg. Dela Cruz" required>              
-                  </div>
+            <div class="row col-md-12">
+                <div class="col-md-6 mb-1">
+                    <label for="first_name" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" aria-describedby="emailHelp" placeholder="eg. Juana" required>          
+                </div>
+                <div class="col-md-6 mb-1">
+                    <label for="last_name" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" aria-describedby="emailHelp" placeholder="eg. Dela Cruz" required>              
+                </div>
+            </div>
+            <div class="row col-md-12">
+                <div class="col-md-8 mb-1">
+                    <label for="email" class="form-label">Username</label>
+                    <input type="email" class="form-control" id="email" name="email"  aria-describedby="emailHelp" placeholder="eg. juanaDelaCruz" required>
+                </div>
+                <div class="col-md-4 mb-1">
+                    <label for="level" class="form-label">Level</label>
+                    <select class="form-select" aria-label="Default select example" id="level" name="level" required>
+                        <option selected>Select Level</option>
+                        <option value="0">Admin</option>
+                        <option value="1">Super Admin</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row py-3 col-md-12">
+              <hr class="dropdown-divider bg-dark" />
+              <div class="col-md-4">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editAdminPassword" data-bs-dismiss="modal">Change password</button>
               </div>
-              <div class="row col-md-12">
-                  <div class="col-md-8 mb-1">
-                      <label for="email" class="form-label">Username</label>
-                      <input type="email" class="form-control" id="email" name="email"  aria-describedby="emailHelp" placeholder="eg. juanaDelaCruz" required>
-                  </div>
-                  <div class="col-md-4 mb-1">
-                      <label for="level" class="form-label">Level</label>
-                      <select class="form-select" aria-label="Default select example" id="level" name="level" required>
-                          <option selected>Select Level</option>
-                          <option value="0">Admin</option>
-                          <option value="1">Super Admin</option>
-                      </select>
-                  </div>
+              <div class="col-md-8 d-grid gap-1 d-md-flex justify-content-md-end">
+                  <button type="submit" class="btn btn-success" name="update">Save</button>    
+                  <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
               </div>
-      </div>
-      <div class="modal-footer">
-          
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal"  data-bs-dismiss="modal" data-bs-target="#editPassword">Change password</button>
-              <button type="submit" class="btn btn-success" name="new_admin">Save</button>
-          </form>       
-          <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-      </div>
-      </div>
+            </div>
+        </form> 
+      </div>  
+    </div>
   </div>
 </div>
+
 <!--THIS IS FOR MODAL Edit Profile END-->
 
 <!--THIS IS FOR MODAL Edit password start-->
