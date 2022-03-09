@@ -239,7 +239,7 @@ if(isset($_GET["error"])){
          <!--Modal End Here -->
 
         <!--THIS IS FOR MODAL Edit password start-->
-        <div class="modal fade" id="editAdminPassword" tabindex="-1">
+        <div class="modal fade"  data-bs-backdrop="static" id="editAdminPassword" tabindex="-1">
             <div class="modal-dialog modal-md">
                 <div class="modal-content" style="max-width: 400px">
                     <div class="modal-header">
@@ -251,7 +251,7 @@ if(isset($_GET["error"])){
                         <input type="hidden" id="ssid" name="id">
                             <h5>Are you sure you want to <strong class="text-danger">reset</strong> the password of this user?</h5>   
                             <br>
-                            <h5>Default password: SPMC123</h5>
+                            <h5>Default password: <strong class="text-primary">SPMC123</strong></h5>
                         </div>
                       <div class="modal-footer">
                         <button type="submit" class="btn btn-success" name="editPassword">Save</button>

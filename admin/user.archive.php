@@ -28,7 +28,7 @@
         <div class="container-fluid p-4">
             <div class="row">
             <div class="col-md-12 my-2">
-                <h4 class="page-header">Inbox</h4>
+                <h4 class="page-header">User Archive</h4>
                 <hr class="dropdown-divider bg-dark" />
             </div>
         </div>
