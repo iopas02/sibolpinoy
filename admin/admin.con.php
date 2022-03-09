@@ -227,7 +227,7 @@ if(isset($_GET["error"])){
                         </div>
                         <div class="col-md-6 mb-1">
                             <label for="cpassword" class="form-label">Confirm Password</label>
-                            <input type="text" class="form-control" id="cpassword" name="cpassword" aria-describedby="emailHelp" placeholder="Enter Confirm Password">              
+                            <input type="password" class="form-control" id="cpassword" name="cpassword" aria-describedby="emailHelp" placeholder="Enter Confirm Password">              
                         </div>
                     </div>
             </div>
