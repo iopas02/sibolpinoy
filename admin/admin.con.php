@@ -137,6 +137,7 @@ if(isset($_GET["error"])){
                                         <th >Username</th>
                                         <th >Level</th>
                                         <th >Status</th>
+                                        <th> Date Added </th>
                                         <th class="text-center" colspan="2">Action</th>
                                     </tr>
                                 </thead>
@@ -153,6 +154,7 @@ if(isset($_GET["error"])){
                                         <th  >Username</th>
                                         <th  >Level</th>
                                         <th  >Status</th>
+                                        <th> Date Added </th>
                                         <th class="text-center" colspan="2">Action</th>
                                     </tr>
                                 </tfoot>
@@ -275,6 +277,7 @@ if(isset($_GET["error"])){
                 </div>
             </div>
         </div>
+        <!-- status modal -->
             <div class="modal fade" id="editStatus">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content mx-auto" style="max-width: 400px">                
@@ -323,6 +326,49 @@ if(isset($_GET["error"])){
                 </div>
             </div>
         </div>
+        <!--THIS IS FOR MODAL DELETE user start-->
+        <div class="modal" id="deleteUser" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delete User</h5>
+                        <button type="button" class="btn-close"  data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                <div class="modal-body">
+                    <form action="admin-delete.php" method="POST">
+                        <input type="hidden" id="delId" name="loginId">
+                        <input type="hidden" id="delprofid" name="profileId">
+                            <div class="row col-md-12">
+                                <div class="col-md-6 mb-1">
+                                    <label for="delfn" class="form-label">First Name:</label>
+                                    <input type="text" class="form-control" id="delfn" name="firstName" aria-describedby="emailHelp" readonly>              
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <label for="delln" class="form-label">Last Name:</label>
+                                    <input type="text" class="form-control" id="delln" name="lastName" aria-describedby="emailHelp" readonly>              
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <label for="delun" class="form-label">Username:</label>
+                                    <input type="text" class="form-control" id="delun" name="username" aria-describedby="emailHelp" readonly>              
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <label for="dellev" class="form-label">Level:</label>
+                                    <input type="text" class="form-control" id="dellev" name="level" aria-describedby="emailHelp" readonly>              
+                                </div>
+                                <div class="col-md-12 mb-1">
+                                    <label for="reason" class="form-label">Reason:</label>
+                                    <textarea type="password" class="form-control" id="reason" name="reason" aria-describedby="emailHelp" style="height: 100px">Enter reason...</textarea>              
+                                </div>
+                            </div>
+                        </div>
+                      <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger" name="deleteUser">Delete</button>
+                    </form>       
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- Footer and JS Script Start Here -->
@@ -367,6 +413,28 @@ if(isset($_GET["error"])){
                 $('#ln').val(data[2]);
                 $('#un').val(data[3]);
                 $('#lev').val(data[4]);
+            })
+        })
+
+        $(document).ready(function(){
+            $('.delBtn').on('click', function(){
+
+                $tr = $(this).closest('tr');
+
+                var data= $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+
+                $('#delId').val(data[0]);
+                $('#delfn').val(data[1]);
+                $('#delln').val(data[2]);
+                $('#delun').val(data[3]);
+                $('#dellev').val(data[4]);
+                $('#delprofid').val(data[5]);
+                $('#deldate').val(data[6]);
             })
         })
         

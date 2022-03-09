@@ -2,7 +2,7 @@
 <?php
 require "../connection.php";
 
-$sql = "SELECT login.loginId, profile.firstName, profile.lastName, login.username, login.level, login.status FROM login INNER JOIN profile ON login.loginId = profile.loginId ";
+$sql = "SELECT login.dateAdded, profile.id, login.loginId, profile.firstName, profile.lastName, login.username, login.level, login.status FROM login INNER JOIN profile ON login.loginId = profile.loginId ";
 if($result = $conn->query($sql)){
     if($result->num_rows >= 1){
         while($row = $result->fetch_assoc()){  ?>
@@ -11,7 +11,16 @@ if($result = $conn->query($sql)){
                 <td style="display:none"><?= $row["firstName"]?></td>
                 <td style="display:none"><?= $row["lastName"]?></td>
                 <td style="display:none"><?= $row["username"]?></td>
-                <td style="display:none"><?= $row["level"]?></td>
+                <td style="display:none"><?php 
+                        if ($row["level"] == "0"){
+                            echo "admin";
+                        }
+                        else if($row["level"] == "1"){
+                            echo "superadmin";
+                        }
+                    ?></td>
+                <td style="display:none"><?= $row["id"]?></td>
+                <td style="display:none"><?= $row["dateAdded"]?></td>
                 <td><?= $row["firstName"]?></td>
                 <td><?= $row["lastName"]?></td>
                 <td><?= $row["username"]?></td>
@@ -25,6 +34,7 @@ if($result = $conn->query($sql)){
                         }
                     ?>
                 </td>
+                <td><?= $row["dateAdded"]?></td>
                 <td>
                     <?php
                         $id = $row["loginId"];
@@ -40,7 +50,7 @@ if($result = $conn->query($sql)){
                     <button type="button" class="btn tooltip-test editBtn" title="EDIT" data-bs-toggle="modal" data-bs-target="#editAdmin">
                         <i class="bi bi-pencil-square"></i>
                     </button>
-                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete" ata-bs-toggle="modal" data-bs-target="#deleteProfile">
+                    <button type="button" class="btn tooltip-test delBtn" title="DELETE" data-bs-toggle="modal" data-bs-placement="bottom" data-bs-target="#deleteUser">
                         <i class="bi bi-trash"></i>
                     </button>
                 </td>
