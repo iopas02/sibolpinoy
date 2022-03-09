@@ -115,7 +115,7 @@
                                 if(isset($_SESSION["level"])){
                                     $check_level = $_SESSION["level"];                        
                                     if($check_level == '1'){
-                                        echo ' <a href="user.archieve.php" class="nav-link px-2 text-normal">
+                                        echo ' <a href="user.archive.php" class="nav-link px-2 text-normal">
                                         <span class="me-2"><i class="bi bi-person-dash"></i></span>
                                         <span>Users</span>
                                     </a>';
