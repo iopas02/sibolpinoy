@@ -148,62 +148,90 @@
 
       <!-- FIRST FOUR CARDS START HERE -->
       <div class="row">
-        <div class="col-md-3 mt-4">
-          <div class="py-3 card-d">
-            <div class="">
-              <h2 class="px-4 py-2 text-dark card-text">Number of Visitor</h2>
-              <hr class="dropdown-divider bg-dark" />
-              <h5 class="px-4 py-1 count-text text-blue"><img class="svg-img" src="svg/clock-history.svg" alt=""><span> 1,234 </span></h5>
+
+      <div class="col-md-3 mt-4">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-center py-2 bg-coloured text-white" >
+                Number of Visitors
+              </div>
+              <div class="col-md-6 bg-coloured text-white">
+              <hr class="dropdown-divider bg-light" />
+                  <div class="text-center py-3">
+                    <img class="svg-img" src="svg/visitors.png" alt="">
+                  </div>
+              </div>
+              <div class="col-md-6">
+                <h3 class="text-center pt-5 count-text">1,234 </h3>
+              </div>
             </div>
           </div>
         </div>
 
         <div class="col-md-3 mt-4">
-          <div class="py-3 card-d">
-            <div class="">
-              <h2 class="px-4 py-2 text-dark card-text">Total Number of Email</h2>
-              <hr class="dropdown-divider bg-dark" />
-              <h5 class="px-4 py-1 count-text text-blue"><img class="svg-img" src="svg/envelope-open.svg" alt=""><span> 1,234 </span></h5>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-center py-2 bg-coloured text-white" >
+                Total Number of Emails
+              </div>
+              <div class="col-md-6 bg-coloured text-white">
+              <hr class="dropdown-divider bg-light" />
+                  <div class="text-center py-3">
+                    <img class="svg-img" src="svg/envelope.png" alt="">
+                  </div>
+              </div>
+              <div class="col-md-6">
+                <h3 class="text-center pt-5 count-text">1,234 </h3>
+              </div>
             </div>
           </div>
         </div>
 
         <div class="col-md-3 mt-4">
-          <div class="py-3 card-d">
-            <div class="">
-              <h2 class="px-4 py-2 text-dark card-text">Number of Clients</h2>
-              <hr class="dropdown-divider bg-dark" />
-              <h5 class="px-4 py-1 count-text text-blue"><img class="svg-img" src="svg/people-fill.svg" alt=""><span> 1,234 </span></h5>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-center py-2 bg-coloured text-white" >
+                Number of Clients
+              </div>
+              <div class="col-md-6 bg-coloured text-white">
+              <hr class="dropdown-divider bg-light" />
+                  <div class="text-center py-3">
+                    <img class="svg-img" src="svg/user.png" alt="">
+                  </div>
+              </div>
+              <div class="col-md-6">
+                <h3 class="text-center pt-5 count-text">1,234 </h3>
+              </div>
             </div>
           </div>
         </div>
 
         <div class="col-md-3 mb-3">
-        <div class="container">
-          <div class="row ">
-            <div class="col-lg-12 text-center bg-dark text-white page-header" style="border-top-right-radius: 45px;">
-              2022
-            </div>
-            <div class="col-md-4 bg-dark text-white" style="border-bottom-left-radius: 45px;">
-            <hr class="dropdown-divider bg-light" />
-                <div class="text-center py-5">
-                  <div class="count-text">06</div>
-                  <div class="user-text">Mar</div>
-                </div>
-            </div>
-            <div class="col-md-8">
-              <h3 class="page-header">Event for Today</h3>
-
-              <div class="card-text">
-                ISO 9001:2015 Requirements and Internal Quality Audit
+          <div class="container">
+            <div class="row ">
+              <div class="col-lg-12 text-center bg-coloured text-white page-header" style="border-top-right-radius: 45px;">
+                2022
               </div>
+              <div class="col-md-4 bg-coloured text-white" style="border-bottom-left-radius: 45px;">
+              <hr class="dropdown-divider bg-light" />
+                  <div class="text-center py-5">
+                    <div class="count-text">06</div>
+                    <div class="user-text">Mar</div>
+                  </div>
+              </div>
+              <div class="col-md-8">
+                <h3 class="page-header">Event for Today</h3>
 
-              <div class="pt-3 login-text">
-                <img src="svg/watch.svg" style="width: 18px; height: 18px;" alt="" /> 10:00 am
+                <div class="card-text">
+                  ISO 9001:2015 Requirements and Internal Quality Audit
+                </div>
+
+                <div class="pt-3 login-text">
+                  <img src="svg/watch.svg" style="width: 18px; height: 18px;" alt="" /> 10:00 am
+                </div>
               </div>
             </div>
           </div>
-        </div>
         </div>
 
       </div>
