@@ -1,3 +1,29 @@
+<?php
+  require "../connection.php";
+  $username = $firstName = $lastName = $level = $readonly = "";
+  if(isset($_SESSION["username"]) && isset($_SESSION["level"])){
+    $level = $_SESSION["level"];
+    $username = $_SESSION["username"];
+    if(levelCheck($level) == "admin"){
+      $readonly = "readonly";
+    }
+    $sql = "SELECT login.loginId, profile.firstName, profile.lastName, login.username, login.level FROM login INNER JOIN profile ON 
+                login.loginId = profile.loginId WHERE username = '$username'";
+    if($result = $conn->query($sql)){
+      if($result->num_rows == 1){
+        if($row = $result->fetch_assoc()){
+          $id = $row["loginId"];
+          $firstName = $row["firstName"];
+          $lastName = $row["lastName"];
+          $username = $row["username"];
+          $level = $row["level"];
+
+        }
+      }
+    }
+
+  }
+?>
 <nav class="navbar navbar-expand-lg navbar-dark px-3 fixed-top bg-coloured">
   <div class="container-fluid">
    
@@ -39,35 +65,31 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="admin-edit.php" method="POST">
+          <form action="user-edit.php" method="POST">
             <div class="row col-md-12">
                 <div class="col-md-6 mb-1">
                     <label for="first_name" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="first_name" name="first_name" aria-describedby="emailHelp" placeholder="eg. Juana" required>          
+                    <input type="text" class="form-control" id="first_name" name="firstName" aria-describedby="emailHelp" value="<?= $firstName?>">          
                 </div>
                 <div class="col-md-6 mb-1">
                     <label for="last_name" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="last_name" name="last_name" aria-describedby="emailHelp" placeholder="eg. Dela Cruz" required>              
+                    <input type="text" class="form-control" id="last_name" name="lastName" aria-describedby="emailHelp" value="<?= $lastName?>">              
                 </div>
             </div>
             <div class="row col-md-12">
                 <div class="col-md-8 mb-1">
                     <label for="email" class="form-label">Username</label>
-                    <input type="email" class="form-control" id="email" name="email"  aria-describedby="emailHelp" placeholder="eg. juanaDelaCruz" required>
+                    <input type="text" class="form-control" id="email" name="username"  aria-describedby="emailHelp" value="<?= $username?>" <?= $readonly?>>
                 </div>
                 <div class="col-md-4 mb-1">
-                    <label for="level" class="form-label">Level</label>
-                    <select class="form-select" aria-label="Default select example" id="level" name="level" required>
-                        <option selected>Select Level</option>
-                        <option value="0">Admin</option>
-                        <option value="1">Super Admin</option>
-                    </select>
+                    <label for="email" class="form-label">Level</label>
+                    <input type="text" class="form-control" id="email"  aria-describedby="emailHelp" value="<?= levelCheck($level)?>" readonly>
                 </div>
             </div>
             <div class="row py-3 col-md-12">
               <hr class="dropdown-divider bg-dark" />
               <div class="col-md-4">
-                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editAdminPassword" data-bs-dismiss="modal">Change password</button>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editPassword" data-bs-dismiss="modal">Change password</button>
               </div>
               <div class="col-md-8 d-grid gap-1 d-md-flex justify-content-md-end">
                   <button type="submit" class="btn btn-success" name="update">Save</button>    
@@ -83,7 +105,7 @@
 <!--THIS IS FOR MODAL Edit Profile END-->
 
 <!--THIS IS FOR MODAL Edit password start-->
-<div class="modal" id="editProfilePassword" tabindex="-1">
+<div class="modal" id="editPassword" tabindex="-1">
   <div class="modal-dialog modal-lg">
       <div class="modal-content">
       <div class="modal-header">

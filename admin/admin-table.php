@@ -11,7 +11,7 @@ if($result = $conn->query($sql)){
                     <?php 
                         $currentUser = $_SESSION["username"];
                         if($currentUser == $row["username"]){ ?>
-                            <span class="border border-danger text-danger">You</span>
+                            <span class="border border-danger text-danger">Me</span>
                         <?php } 
                     
                     ?>
@@ -21,12 +21,8 @@ if($result = $conn->query($sql)){
                 <td style="display:none"><?= $row["lastName"]?></td>
                 <td style="display:none"><?= $row["username"]?></td>
                 <td style="display:none"><?php 
-                        if ($row["level"] == "0"){
-                            echo "admin";
-                        }
-                        else if($row["level"] == "1"){
-                            echo "superadmin";
-                        }
+                        $level = $row["level"];
+                        levelCheck($level);
                     ?></td>
                 <td style="display:none"><?= $row["id"]?></td>
                 <td style="display:none"><?= $row["dateAdded"]?></td>
@@ -35,12 +31,14 @@ if($result = $conn->query($sql)){
                 <td><?= $row["username"]?></td>
                 <td>
                     <?php 
-                        if ($row["level"] == "0"){
-                            echo "admin";
-                        }
-                        else if($row["level"] == "1"){
-                            echo "superadmin";
-                        }
+                        // if ($row["level"] == "0"){
+                        //     echo "admin";
+                        // }
+                        // else if($row["level"] == "1"){
+                        //     echo "superadmin";
+                        // }
+                        $level = $row["level"];
+                        levelCheck($level);
                     ?>
                 </td>
                 <td>

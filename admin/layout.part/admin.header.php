@@ -1,17 +1,21 @@
 <?php
 session_start();
+  function levelCheck($lev){
+    if($lev == "0"){
+      $lev = "admin";
+    }
+    else if($lev == "1"){
+      $lev = "superadmin";
+    }
+    echo $lev;
+  }
+
     $firstName = $lastName = $level ="";
     if(isset($_SESSION["firstName"]) && isset($_SESSION["lastName"]) && isset($_SESSION["level"]) && isset($_SESSION["username"])){
         $firstName = $_SESSION["firstName"];
         $lastName = $_SESSION["lastName"];
         $username = $_SESSION["username"];
         $level = $_SESSION["level"];
-        if($level == 0){
-          $level = "admin";
-        }
-        else if($level == 1){
-          $level = "superadmin";
-        }
     }
 ?>
   <head>

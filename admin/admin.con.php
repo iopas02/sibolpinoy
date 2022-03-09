@@ -203,8 +203,8 @@ if(isset($_GET["error"])){
                                 <input type="text" class="form-control" id="un" name="username"  aria-describedby="emailHelp" >
                             </div>
                             <div class="col-md-4 mb-1">
-                                <label for="level" class="form-label">Level</label>
-                                <select class="form-select" aria-label="Default select example" id="lev" name="level" >
+                                <label for="level" aria-label="Default select example" class="form-label">Level</label>
+                                <select class="form-select" id="lev" name="level">
                                     <option value="0">admin</option>
                                     <option value="1">superadmin</option>
                                 </select>
@@ -224,68 +224,6 @@ if(isset($_GET["error"])){
                         </div>    
                     </form>
                 </div>    
-            </div>
-        </div>
-
-        <!--THIS IS FOR MODAL Edit password start-->
-        <div class="modal" id="editAdminPassword" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Edit Admin password</h5>
-                        <button type="button" class="btn-close"data-bs-toggle="modal" data-bs-target="#editAdmin"  data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                <div class="modal-body">
-                    <form action="admin-edit-password.php" method="POST">
-                        <input type="hidden" id="ssid" name="id">
-                            <div class="row col-md-12">
-                                <div class="col-md-6 mb-1">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="password" name="password" aria-describedby="emailHelp" placeholder="Enter Password">          
-                                </div>
-                                <div class="col-md-6 mb-1">
-                                    <label for="cpassword" class="form-label">Confirm Password</label>
-                                    <input type="password" class="form-control" id="cpassword" name="cpassword" aria-describedby="emailHelp" placeholder="Enter Confirm Password">              
-                                </div>
-                            </div>
-                        </div>
-                      <div class="modal-footer">
-                        <button type="submit" class="btn btn-success" name="editPassword">Save</button>
-                    </form>       
-                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editAdmin" data-bs-dismiss="modal">Close</button>
-                </div>
-                </div>
-            </div>
-        </div>
-        <!--THIS IS FOR MODAL Edit Profile END-->
-
-         <div class="modal" id="editAdmin" data-bs-backdrop="static" tabindex="-1" style="margin-top: 150px;">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Edit Admin password</h5>
-                    <button type="button" class="btn-close"data-bs-toggle="modal" data-bs-target="#editAdmin"  data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="admin-edit-password.php" method="POST">
-                        <input type="hidden" id="ssid" name="id">
-                        <div class="row col-md-12">
-                            <div class="col-md-6 mb-1">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" aria-describedby="emailHelp" placeholder="Enter Password">          
-                            </div>
-                            <div class="col-md-6 mb-1">
-                                <label for="cpassword" class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control" id="cpassword" name="cpassword" aria-describedby="emailHelp" placeholder="Enter Confirm Password">              
-                            </div>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                        <button type="submit" class="btn btn-success" name="editPassword">Save</button>
-                    </form>       
-                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editAdmin" data-bs-dismiss="modal">Close</button>
-                </div>
-                </div>
             </div>
         </div>
         <!-- status modal -->

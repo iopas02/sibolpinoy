@@ -7,7 +7,7 @@
             <div class="text-white">
             <h4 class="text-normal">Welcome!</h4>
             <h2 class="user-text"><?= $firstName . " " . $lastName?></h2>
-            <h6 class="text-muted text-small"><?= $level ?></h6>
+            <h6 class="text-muted text-small"><?= levelCheck($level) ?></h6>
             </div>
         </div>
 
