@@ -105,10 +105,13 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
+                                        <th>C_Number</th>
                                         <th>Sender</th>
                                         <th>Subject</th>
+                                        <th>Status</th>
                                         <th>Date</th>
                                         <th>Action</th>
+                                        <th>Update</th>
                                         <th>Delete</th>
                                     </tr>
                                 </tfoot>
