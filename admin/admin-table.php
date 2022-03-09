@@ -11,7 +11,7 @@ if($result = $conn->query($sql)){
                     <?php 
                         $currentUser = $_SESSION["username"];
                         if($currentUser == $row["username"]){ ?>
-                            <span class="border border-danger text-danger">Me</span>
+                            <span class="border border-danger text-danger">You</span>
                         <?php } 
                     
                     ?>
