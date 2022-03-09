@@ -26,6 +26,9 @@ if(isset($_GET["error"])){
     else if($error == "username_exist"){
         $err_message = "Username is already existing.";
     }
+    else if($error == "reason_null"){
+        $err_message = "Reason Field is empty.";
+    }
 }
 
 ?>
@@ -338,6 +341,7 @@ if(isset($_GET["error"])){
                     <form action="admin-delete.php" method="POST">
                         <input type="hidden" id="delId" name="loginId">
                         <input type="hidden" id="delprofid" name="profileId">
+                        <input type="hidden" id="deldate" name="dateAdded">
                             <div class="row col-md-12">
                                 <div class="col-md-6 mb-1">
                                     <label for="delfn" class="form-label">First Name:</label>
@@ -357,7 +361,7 @@ if(isset($_GET["error"])){
                                 </div>
                                 <div class="col-md-12 mb-1">
                                     <label for="reason" class="form-label">Reason:</label>
-                                    <textarea type="password" class="form-control" id="reason" name="reason" aria-describedby="emailHelp" style="height: 100px">Enter reason...</textarea>              
+                                    <textarea type="password" class="form-control" id="reason" name="reason" aria-describedby="emailHelp" style="height: 100px"></textarea>              
                                 </div>
                             </div>
                         </div>
