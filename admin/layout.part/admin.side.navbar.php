@@ -1,6 +1,6 @@
 
 
-<div class="offcanvas offcanvas-start sidebar-nav py-5 bg-blue" id="sidebar">
+<div class="offcanvas offcanvas-start sidebar-nav py-5 bg-coloured" id="sidebar">
     <div class="offcanvas-body p-0">
 
         <div class="container text-center">

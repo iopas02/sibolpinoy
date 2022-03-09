@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark px-3 fixed-top bg-blue">
+<nav class="navbar navbar-expand-lg navbar-dark px-3 fixed-top bg-coloured">
   <div class="container-fluid">
    
     <div class="col-md-11"  >
