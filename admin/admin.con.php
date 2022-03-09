@@ -217,8 +217,6 @@ if(isset($_GET["error"])){
         <!--THIS IS FOR MODAL Edit password start-->
         <div class="modal" id="editAdminPassword" tabindex="-1">
             <div class="modal-dialog modal-lg">
-<<<<<<< HEAD
-=======
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Edit Admin password</h5>
@@ -248,9 +246,8 @@ if(isset($_GET["error"])){
         </div>
         <!--THIS IS FOR MODAL Edit Profile END-->
 
-        <!-- <div class="modal" id="editStatus" data-bs-backdrop="static" tabindex="-1" style="margin-top: 150px;">
+         <div class="modal" id="editAdmin" data-bs-backdrop="static" tabindex="-1" style="margin-top: 150px;">
             <div class="modal-dialog">
->>>>>>> 13e092b7cffe5d35b576b6d95af29b07bbe63883
                 <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Edit Admin password</h5>
@@ -278,7 +275,7 @@ if(isset($_GET["error"])){
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="editStatus">
+            <div class="modal fade" id="editStatus">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content mx-auto" style="max-width: 400px">                
                         <div class="modal-body">
@@ -294,8 +291,38 @@ if(isset($_GET["error"])){
                     </div>
                 </div>
             </div>
-        <!-- modal end-->
-        <!-- Modal End Here -->
+         <!--Modal End Here -->
+
+        <!--THIS IS FOR MODAL Edit password start-->
+        <div class="modal" id="editAdminPassword" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Admin password</h5>
+                        <button type="button" class="btn-close"data-bs-toggle="modal" data-bs-target="#editAdmin"  data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                <div class="modal-body">
+                    <form action="admin-edit-password.php" method="POST">
+                        <input type="hidden" id="ssid" name="id">
+                            <div class="row col-md-12">
+                                <div class="col-md-6 mb-1">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password" aria-describedby="emailHelp" placeholder="Enter Password">          
+                                </div>
+                                <div class="col-md-6 mb-1">
+                                    <label for="cpassword" class="form-label">Confirm Password</label>
+                                    <input type="password" class="form-control" id="cpassword" name="cpassword" aria-describedby="emailHelp" placeholder="Enter Confirm Password">              
+                                </div>
+                            </div>
+                        </div>
+                      <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" name="editPassword">Save</button>
+                    </form>       
+                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editAdmin" data-bs-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- Footer and JS Script Start Here -->
