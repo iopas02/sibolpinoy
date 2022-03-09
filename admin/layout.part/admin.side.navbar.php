@@ -27,7 +27,7 @@
                             $check_level = $_SESSION["level"];                        
                             if($check_level == '1'){
                                 echo ' <a href="admin.con.php" class="nav-link px-3 text-light text-normal">
-                                            <span class="me-2"><i class="bi bi-people"></i></span>
+                                            <span class="me-2"><i class="bi bi-person-bounding-box"></i>/span>
                                             <span>Manage admin</span>
                                         </a>';
                             }
@@ -70,6 +70,50 @@
                             </svg></i></span>
                             <span>Sent</span>
                         </a>
+                        <a class="nav-link px-3  text-light text-normal" data-bs-toggle="collapse" href="#layouts">
+                            <span class="me-2"><i class="bi bi-archive"></i></span>
+                            <span>Archive</span>
+                            <span class="ms-auto">
+                                <span class="right-icon">
+                                <i class="bi bi-chevron-down"></i>
+                                </span>
+                            </span>
+                        </a>
+                        <div class="collapse" id="layouts">
+                            <ul class="navbar-nav ps-3">
+                                <li>
+                                <?php
+                                    if(isset($_SESSION["level"])){
+                                        $check_level = $_SESSION["level"];                        
+                                        if($check_level == '1'){
+                                            echo ' <a href="#" class="nav-link px-2 text-normal">
+                                            <span class="me-2"><i class="bi bi-person-dash"></i></span>
+                                            <span>Users</span>
+                                        </a>';
+                                        }
+                                    }
+                                ?>    
+                                </li>
+                                <li>
+                                <a href="#" class="nav-link px-2 text-normal">
+                                    <span class="me-2"><i class="bi bi-clipboard-check"></i></span>
+                                    <span>Consultation request</span>
+                                </a>
+                                </li>
+                                <li>
+                                <a href="#" class="nav-link px-2 text-normal">
+                                    <span class="me-2"><i class="bi bi-calendar-check"></i></span>
+                                    <span>Event Reservation</span>
+                                </a>
+                                </li>
+                                <li>
+                                <a href="#" class="nav-link px-2 text-normal">
+                                    <span class="me-2"><i class="bi bi-envelope"></i></span>
+                                    <span>Message</span>
+                                </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                 <hr class="dropdown-divider bg-light" />
                 <div class="text-muted small fw-bold text-uppercase px-3">
