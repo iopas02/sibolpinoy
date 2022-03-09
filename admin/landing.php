@@ -115,6 +115,7 @@
   <!-- Header End -->
   
   <body>
+  <title>Sibol-PINOY Admin Dashboard</title>
       <div class='loader_bg'>
           <div class='welcome'>
               <h2>Loading...</h2>

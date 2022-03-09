@@ -8,7 +8,7 @@
   <!-- Header End -->
 
   <body>
-    <title>Sibol-PINOY Admin Inbox</title>
+    <title>Sibol-PINOY 404 page</title>
 
     <!-- top navigation bar -->
     <?php
