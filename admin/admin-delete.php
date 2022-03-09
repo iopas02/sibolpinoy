@@ -3,13 +3,13 @@
     require "layout.part/admin.header.php";
 
     if(isset($_POST["deleteUser"])){
-        $password = $_POST["loginId"];
-        $cpassword = $_POST["profileId"];
-        $password = $_POST["firstName"];
-        $cpassword = $_POST["lastName"];
-        $password = $_POST["level"];
-        $cpassword = $_POST["reason"];
-        $cpassword = $_POST["cpassword"];
+        $loginId = $_POST["loginId"];
+        $profileId = $_POST["profileId"];
+        $firstName = $_POST["firstName"];
+        $lastName = $_POST["lastName"];
+        $level = $_POST["level"];
+        $reason = $_POST["reason"];
+        $dateAdded = $_POST["dateAdded"];
         if(!isset($_POST["password"]) || $_POST["password"] == null){
             header("location: admin.con.php?error=password_null");
         }
