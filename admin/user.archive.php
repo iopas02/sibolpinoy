@@ -37,7 +37,7 @@
             <div class="col-md-12 mb-3">
                 <div class="card">
                     <div class="card-header">
-                        <span><i class="bi bi-person-dash"></i></span> User Archieve
+                        <span><i class="bi bi-person-dash"></i></span> User Archive
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

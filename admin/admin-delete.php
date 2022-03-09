@@ -12,8 +12,12 @@
         $reason = $_POST["reason"];
         $dateAdded = $_POST["dateAdded"];
         $dateDeleted = date("Y-m-d H:i:s");
+        $sessionUsername = $_SESSION["username"];
         if(!isset($_POST["reason"]) || $_POST["reason"] == null){
             header("location: admin.con.php?error=reason_null");
+        }
+        else if($sessionUsername == $username){
+            header("location: admin.con.php?error=error_self_delete");
         }
         else{
             $sql = "INSERT INTO archiveuser (loginId, profileId, firstName, lastName, username, level, reason, dateAdded, dateDeleted)

@@ -29,6 +29,9 @@ if(isset($_GET["error"])){
     else if($error == "reason_null"){
         $err_message = "Reason Field is empty.";
     }
+    else if($error == "error_self_delete"){
+        $err_message = "You can not delete yourself.";
+    }
 }
 
 ?>
