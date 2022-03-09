@@ -34,7 +34,6 @@ if($result = $conn->query($sql)){
                         }
                     ?>
                 </td>
-                <td><?= $row["dateAdded"]?></td>
                 <td>
                     <?php
                         $id = $row["loginId"];
@@ -46,6 +45,7 @@ if($result = $conn->query($sql)){
                         }
                     ?>
                 </td>
+                <td><?= date("jS F, Y", strtotime($row["dateAdded"])) ?></td>
                 <td class="text-center">
                     <button type="button" class="btn tooltip-test editBtn" title="EDIT" data-bs-toggle="modal" data-bs-target="#editAdmin">
                         <i class="bi bi-pencil-square"></i>
