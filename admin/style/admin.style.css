@@ -63,6 +63,7 @@ body{
     font-weight: 400;
 }
 
+
 .text-blue{
     color: var(--blueColor);
 }
@@ -157,6 +158,18 @@ body{
     font-family: var(--roboto);
     font-size: 18px;
     font-weight: 400;
+}
+
+.welcome-text{
+    font-family: var(--roboto);
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.tag-text{
+    font-family: var(--roboto);
+    font-size: 18px;
+    font-weight: 300;
 }
 
 .__logo {

@@ -46,7 +46,7 @@
     <div class="collapse navbar-collapse justify-content-md-end" id="topNavBar">
 
       <div class="btn-group border-0 dropstart">
-        <button type="button" class="btn text-white dropdown-toggle border-0" data-bs-toggle="dropdown" aria-expanded="false">
+        <button type="button" class="btn text-white dropdown-toggle border-0 tag-text" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="bi bi-person-circle"></i> <span> <?= $username ?> </span>
         </button>
         <ul class="dropdown-menu">
