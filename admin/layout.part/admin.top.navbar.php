@@ -46,8 +46,8 @@
 
       <div class="btn-group border-0 dropstart">
 
-        <button type="button" class="btn text-white dropdown-toggle border-0 tag-text" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="bi bi-person-circle"></i> <span> <?= $username ?> </span>
+        <button type="button" class="btn text-white dropdown-toggle border-0" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-person-circle"></i> <span> <?= $rusername ?> </span>
         </button>
         <ul class="dropdown-menu">
             <li><button class="dropdown-item btn" data-bs-toggle="modal" data-bs-target="#editProfile">Account</button></li>
