@@ -1,6 +1,6 @@
 <?php
 
-if(isset$_POST["sendMBtn"]){
+if(isset($_POST["sendMBtn"])){
     $name = $_POST["fname"];
     $email = $_POST["email"];
     $subject2 = $_POST["subject"];
@@ -177,7 +177,7 @@ $message = "hello";
 $headers = "From: info@sibolpinoy.com \r\n";
 $headers .= "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$mail_sent = mail($to, $subject, $message, $headers);
+$mail_sent = mail($to, $subject, $message2, $headers);
     if($mail_sent==true)
     {
         echo "mail sent";
