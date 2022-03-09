@@ -126,9 +126,6 @@
     <!-- top navigation bar -->
     <?php
       require "layout.part/admin.top.navbar.php";
-      
-      echo $alert;
-      unset($sucess);
     ?>
     <!-- top navigation bar -->
 

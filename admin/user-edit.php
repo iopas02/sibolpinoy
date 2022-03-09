@@ -26,14 +26,7 @@
                     if($conn->query($sql)){
                         $_SESSION["firstName"] = $firstName;
                         $_SESSION["lastName"] = $lastName;
-                        header( "refresh:3;url=admin.con.php?sameuser" );
-                        echo "  <div class='loader_bg'>
-                                    <div class='welcome'>
-                                        <h2>Successfully Updated User! Redirecting to dashboard...</h2>
-                                    </div>
-                                    <div class='loader mt-5'></div>
-                                </div>
-                            ";     
+                        header( "location: landing.php" );  
                     }
                     else{
                         echo "error sql";
@@ -49,14 +42,7 @@
                                 $_SESSION["firstName"] = $firstName;
                                 $_SESSION["lastName"] = $lastName;
                                 $_SESSION["username"] = $username;
-                                header( "refresh:3;url=admin.con.php?number2" );
-                                echo "  <div class='loader_bg'>
-                                            <div class='welcome'>
-                                                <h2>Successfully Updated User! Redirecting to dashboard...</h2>
-                                            </div>
-                                            <div class='loader mt-5'></div>
-                                        </div>
-                                    "; 
+                                header( "location: landing.php" );
                             }
                             else{
                                 echo "sql error";

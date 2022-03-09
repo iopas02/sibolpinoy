@@ -4,7 +4,7 @@
   if(isset($_SESSION["username"]) && isset($_SESSION["level"])){
     $level = $_SESSION["level"];
     $musername = $_SESSION["username"];
-    if(levelCheck($level) == "admin"){
+    if($level == "0"){
       $readonly = "readonly";
     }
     $sql = "SELECT login.loginId, profile.firstName, profile.lastName, login.username, login.level FROM login INNER JOIN profile ON 
