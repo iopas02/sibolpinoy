@@ -140,6 +140,7 @@ if(isset($_GET["error"])){
                             <table id="example" class="table table-striped data-table" style="width: 100%">
                                 <thead>
                                     <tr>
+                                        <th ></th>
                                         <th >Id</th>
                                         <th >First Name</th>
                                         <th >Last Name</th>
@@ -157,6 +158,7 @@ if(isset($_GET["error"])){
                                 </tbody>
                                 <tfoot>
                                     <tr>
+                                        <th ></th>
                                         <th >Id</th>
                                         <th >First Name</th>
                                         <th >Last Name</th>
@@ -402,7 +404,7 @@ if(isset($_GET["error"])){
                 console.log(data);
 
 
-                $('#statuser').val(data[3]);
+                $('#statuser').val(data[4]);
             })
         })
         $(document).ready(function(){
@@ -417,12 +419,12 @@ if(isset($_GET["error"])){
                 console.log(data);
 
 
-                $('#sid').val(data[0]);
-                $('#ssid').val(data[0]);
-                $('#fn').val(data[1]);
-                $('#ln').val(data[2]);
-                $('#un').val(data[3]);
-                $('#lev').val(data[4]);
+                $('#sid').val(data[1]);
+                $('#ssid').val(data[1]);
+                $('#fn').val(data[2]);
+                $('#ln').val(data[3]);
+                $('#un').val(data[4]);
+                $('#lev').val(data[5]);
             })
         })
 
@@ -438,13 +440,13 @@ if(isset($_GET["error"])){
                 console.log(data);
 
 
-                $('#delId').val(data[0]);
-                $('#delfn').val(data[1]);
-                $('#delln').val(data[2]);
-                $('#delun').val(data[3]);
-                $('#dellev').val(data[4]);
-                $('#delprofid').val(data[5]);
-                $('#deldate').val(data[6]);
+                $('#delId').val(data[1]);
+                $('#delfn').val(data[2]);
+                $('#delln').val(data[3]);
+                $('#delun').val(data[4]);
+                $('#dellev').val(data[5]);
+                $('#delprofid').val(data[6]);
+                $('#deldate').val(data[7]);
             })
         })
         

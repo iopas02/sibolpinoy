@@ -6,7 +6,16 @@ $sql = "SELECT login.dateAdded, profile.id, login.loginId, profile.firstName, pr
 if($result = $conn->query($sql)){
     if($result->num_rows >= 1){
         while($row = $result->fetch_assoc()){  ?>
-            <tr>
+            <tr>   
+                <td>
+                    <?php 
+                        $currentUser = $_SESSION["username"];
+                        if($currentUser == $row["username"]){ ?>
+                            <span class="border border-danger text-danger">You</span>
+                        <?php } 
+                    
+                    ?>
+                </td>
                 <td><?= $row["loginId"]?></td>
                 <td style="display:none"><?= $row["firstName"]?></td>
                 <td style="display:none"><?= $row["lastName"]?></td>
