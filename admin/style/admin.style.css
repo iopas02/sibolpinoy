@@ -312,5 +312,6 @@ transform: rotate(180deg);
     padding-left: 15px;
     color:rgb(0, 0, 0);
     text-decoration: none;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
 
