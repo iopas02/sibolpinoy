@@ -1,3 +1,22 @@
+<?php
+    require('./connection.php');
+    date_default_timezone_set("Asia/Manila");
+    $visitor = $_SERVER['REMOTE_ADDR'];
+    $date = date("Y-m-d H:i:s");
+    
+    if(!empty($visitor)){
+        // echo $visitor;
+        $check_visitor = "SELECT `visitorsIP` FROM `visitors` WHERE visitorsIP=$visitor";
+        $visitor_query = mysqli_query($conn, $check_visitor);
+        if($visitor_query > 0 ){
+            exit();
+        }else{
+            $new_visitor = "INSERT INTO `visitors` (`visitorsIP`,`date_visited`) VALUES ('$visitor', '$date')";
+            mysqli_query($conn, $new_visitor);
+        }
+    }
+       
+?>
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
