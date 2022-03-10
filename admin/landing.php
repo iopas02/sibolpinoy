@@ -118,7 +118,8 @@
   <title>Sibol-PINOY Admin Dashboard</title>
       <div class='loader_bg'>
           <div class='welcome'>
-              <h2>Loading...</h2>
+          <br><br>    
+          <p>Loading...</p>
           </div>
           <div class='loader mt-5'></div>
       </div>
@@ -462,5 +463,7 @@
     $('.loader_bg').fadeToggle();
     }, 1500);
     </script>
+
+    
   </body>
 </html>
