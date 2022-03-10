@@ -163,7 +163,14 @@
                   </div>
               </div>
               <div class="col-md-6">
-                <h3 class="text-center pt-4 count-text">1,234 </h3>
+                <?php
+                  $count_visitors = "SELECT * FROM `visitors`";
+                  $query_results = mysqli_query($conn, $count_visitors);
+                  if($query_results){
+                    $total_visitors = mysqli_num_rows($query_results);
+                  }
+                ?>
+                <h3 class="text-center pt-4 count-text"><?= $total_visitors ?></h3>
               </div>
             </div>
           </div>
