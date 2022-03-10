@@ -22,7 +22,7 @@
           center:'title',
           right:'month,agendaWeek,agendaDay'
         },
-        events: 'load.php',
+        events: 'comptroller/load.php',
         selectable:true,
         selectHelper:true,
         select: function(start, end, allDay)
@@ -33,7 +33,7 @@
           var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
           var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
           $.ajax({
-            url:"insert.php",
+            url:"comptroller/insert.php",
             type:"POST",
             data:{title:title, start:start, end:end},
             success:function()
@@ -45,6 +45,7 @@
           }
         },
         editable:true,
+        
         eventResize:function(event)
         {
           var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
@@ -52,7 +53,7 @@
           var title = event.title;
           var id = event.id;
           $.ajax({
-          url:"update.php",
+          url:"comptroller/update.php",
           type:"POST",
           data:{title:title, start:start, end:end, id:id},
           success:function(){
@@ -69,7 +70,7 @@
           var title = event.title;
           var id = event.id;
           $.ajax({
-          url:"update.php",
+          url:"comptroller/update.php",
           type:"POST",
           data:{title:title, start:start, end:end, id:id},
           success:function()
@@ -86,7 +87,7 @@
           {
           var id = event.id;
           $.ajax({
-            url:"delete.php",
+            url:"comptroller/delete.php",
             type:"POST",
             data:{id:id},
             success:function()
