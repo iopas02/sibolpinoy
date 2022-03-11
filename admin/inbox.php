@@ -75,7 +75,7 @@
                                                 <td hidden><?= $email['message']?></td>
                                                 <td><?= date('M d Y H:i',  strtotime($email['date_mailed'])) ?></td>
                                                 <td>
-                                                    <button type="button" class="btn tooltip-test" id="read" title="Read" data-bs-toggle="modal" data-bs-target="#readMessage">
+                                                    <button type="button" class="btn tooltip-test read"  title="Read">
                                                         <i class="bi bi-bookmark"></i>
                                                     </button>
                                                 </td>
@@ -127,85 +127,47 @@
         </div>
 
         <!-- Modal Start Here -->
-        <div class="modal fade" id="readMessage" data-bs-backdrop="static" aria-hidden="true" aria-labelledby="ereadMessageabel" tabindex="-1">
+
+        <div class="modal fade" id="readEmail" data-bs-backdrop="static">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="readMessageLabel">New message</h5>
+                    <h5 class="modal-title">New message</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                        <div class="row col-md-12">
-                            <input type="text" class="form-control" hidden name="emailID" id="emailID">        
-                            <div class="col-md-6 mb-3">
-                                <label for="sender_name" class="col-form-label">Sender:</label>
-                                <input type="text" class="form-control" readonly name="sender_name" id="sender_name">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="sender_email" name="sender_email" class="col-form-label">Email Address:</label>
-                                <input type="text" class="form-control" readonly name="sender_email" id="sender_email" >
-                            </div>
+                    <div class="row col-md-12">
+                        <input type="text" class="form-control" hidden name="emailID" id="emailID">        
+                        <div class="col-md-6 mb-3">
+                            <label for="sender_name" class="col-form-label">Sender:</label>
+                            <input type="text" class="form-control" readonly name="sender_name" id="sender_name">
                         </div>
-                        <div class="row col-md-12">
-                            <div class="mb-3">
-                                <label for="subject" class="col-form-label">Subject:</label>
-                                <input type="text" class="form-control" readonly name="subject" id="subject">
-                            </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="sender_email" name="sender_email" class="col-form-label">Email Address:</label>
+                            <input type="text" class="form-control" readonly name="sender_email" id="sender_email" >
                         </div>
-                        <div class="row col-md-12">
-                            <div class="mb-3">
-                                <label for="message" class="col-form-label">Message:</label>
-                                <textarea class="form-control" rows="5" readonly name="message" id="message"></textarea>
-                            </div>
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="mb-3">
+                            <label for="subject" class="col-form-label">Subject:</label>
+                            <input type="text" class="form-control" readonly name="subject" id="subject">
                         </div>
-                       
-                    </form>
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="mb-3">
+                            <label for="message" class="col-form-label">Message:</label>
+                            <textarea class="form-control" rows="5" readonly name="message" id="message"></textarea>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Reply message</button>
-                </div>
-                </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Reply message</button>
+                    </div>
+                </div>                
             </div>
+
         </div>
-        <div class="modal fade" id="exampleModalToggle2" data-bs-backdrop="static" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalToggleLabel2">Compose Message Form</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Recipient Email Address:</label>
-                            <input type="text" class="form-control" id="recipient-name" >
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Sender Email Address:</label>
-                            <input type="text" class="form-control" id="recipient-name" >
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Subject:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="message-text" ></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <input type="file" class="form-control" id="recipient-name" placeholder="attach you files here">
-                        </div>
-                        <button type="button" class="btn bg-blue text-white" data-bs-dismiss="modal">Send Message</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-                </div>
-            </div>
-        </div>
+
         <!-- Modal End Here -->
 
     </main>
@@ -216,7 +178,8 @@
     ?>
      <script>
         $(document).ready(function(){
-            $('#read').on('click', function(){
+            $('.read').on('click', function(){
+                $('#readEmail').modal('show');
                
                 $tr = $(this).closest('tr');
 
@@ -231,7 +194,6 @@
                 $('#sender_email').val(data[2]);
                 $('#subject').val(data[3]);
                 $('#message').val(data[4]);
-                // $('#lev').val(data[5]);
             })
         })
   
