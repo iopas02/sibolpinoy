@@ -140,7 +140,8 @@ if(isset($_GET["error"])){
                                         <th >Username</th>
                                         <th >Level</th>
                                         <th >Status</th>
-                                        <th> Date Added </th>
+                                        <th>Date Added</th>
+                                        <th>Last Logged in</th>
                                         <th class="text-center" colspan="2">Action</th>
                                     </tr>
                                 </thead>
@@ -157,8 +158,9 @@ if(isset($_GET["error"])){
                                         <th >Last Name</th>
                                         <th  >Username</th>
                                         <th  >Level</th>
-                                        <th  >Status</th>
-                                        <th> Date Added </th>
+                                        <th >Status</th>
+                                        <th>Date Added </th>
+                                        <th>Last Logged in</th>
                                         <th class="text-center" colspan="2">Action</th>
                                     </tr>
                                 </tfoot>

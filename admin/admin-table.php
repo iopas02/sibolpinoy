@@ -2,7 +2,7 @@
 <?php
 require "../connection.php";
 $disabled = "";
-$sql = "SELECT login.dateAdded, profile.id, login.loginId, profile.firstName, profile.lastName, login.username, login.level, login.status FROM login INNER JOIN profile ON login.loginId = profile.loginId ";
+$sql = "SELECT login.lastLoginDate, login.dateAdded, profile.id, login.loginId, profile.firstName, profile.lastName, login.username, login.level, login.status FROM login INNER JOIN profile ON login.loginId = profile.loginId ";
 if($result = $conn->query($sql)){
     if($result->num_rows >= 1){
         while($row = $result->fetch_assoc()){  ?>
@@ -46,6 +46,12 @@ if($result = $conn->query($sql)){
                     ?>
                 </td>
                 <td><?= date("F d, Y", strtotime($row["dateAdded"])) ?></td>
+                <td>
+                    <?php
+                        $time = strtotime($row["lastLoginDate"]);
+                        echo relativeTime($time);
+                    ?>
+                 </td>
                 <td class="text-center">
                     <button type="button" class="btn tooltip-test editBtn" title="EDIT" data-bs-toggle="modal" data-bs-target="#editAdmin" <?= $disabled ?>>
                         <i class="bi bi-pencil-square"></i>

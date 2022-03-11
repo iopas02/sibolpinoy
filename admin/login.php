@@ -28,11 +28,16 @@ session_start();
                                     if($row = $result->fetch_assoc()){
                                         $_SESSION["firstName"] = $row["firstName"];
                                         $_SESSION["lastName"] = $row["lastName"];
-                                        //Set Refresh header using PHP.
-                                        //header( "refresh:3;url=landing.php" );
-                                        header("location:landing.php");
-                                        //Print out some content for example purposes.
-                                        //echo 'Successful Login';
+                                        date_default_timezone_set('Asia/Manila');
+                                        $date = date("Y-m-d H:i:s");;
+                                        $sql = "UPDATE login SET lastLoginDate = '$date' WHERE loginId = $id";
+                                        if($conn->query($sql)){
+                                            //Set Refresh header using PHP.
+                                            //header( "refresh:3;url=landing.php" );
+                                            header("location:landing.php");
+                                            //Print out some content for example purposes.
+                                            //echo 'Successful Login';
+                                        }
                                     }
                                 }
                             }
