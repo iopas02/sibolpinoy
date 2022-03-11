@@ -25,16 +25,19 @@
     <!-- THIS IS FOR SIDE NAV-BAR and OFF CANVA END HERE -->
 
     <main class="mt-5 pt-3">
-        <div class="container-fluid p-4">
-            <div class="row">
-            <div class="col-md-12 my-2">
-                <h4 class="page-header">Services Categories</h4>
-                <hr class="dropdown-divider bg-dark" />
+    
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container-fluid border-bottom border-3 border-dark mb-2">
+                <a class="navbar-brand" href="services.tools.php">Services Tools</a>
+                
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="services.php">Services View</a>
+                </div>
             </div>
-        </div>
-
+        </nav>
+    
         <!-- FOURTH GRAPH CARDS START HERE -->
-        <div class="row">
+        <div class="row col-md-12">
             <div class="col-md-6 mb-3">
                 <div class="card h-100">
                     <div class="card-body">
@@ -61,21 +64,66 @@
                         </div>
                         <div class="row col-md-12">
                             <div class="accordion" id="businessConsultancy">
-                            <label for="business_comsultancy_description" class="col-form-label">Business Consultancy Categories:</label>
-                                <div class="mb-1">
-                                    <button class="col-md-12 text-left btn text-dark bg-light" data-bs-toggle="modal" data-bs-target="#ComplianceandStandards" type="button">
-                                        Compliance and Standards
-                                    </button>
+                                <div class="accrodion-item mb-1">
+                                    <h5 class="accordion-header second-header" id="bc_header1">
+                                        <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#compliance" aris-expanded="true" aria-controls="compliance">
+                                            Compliance and Standards
+                                        </button>
+                                    </h5>
+                                    <div class="accordion-collapse collapse" id="compliance">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Automotive Quality Management System Standard (IATF 16949:2016)</li>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Energy Management System (ISO 50001:2011)</li>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Environmental Management System (ISO 14001:2015)</li>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Food Safety Management System (ISO 22000:2005) & HACCP</li>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Food Safety Systems Certification (FSSC 22000)</li>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Information Security Management System (ISO 27001:2013)</li>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Occupational Health & Safety Management System (OHSAS 18001)/ISO 45001:2016)</li>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Quality Management System (ISO 9001:2015)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="mb-1">
-                                    <button class="col-md-12 text-left btn text-dark bg-light" type="button">
-                                        Performance Excellence
-                                    </button>
+                                <div class="accrodion-item mb-1">
+                                    <h5 class="accordion-header second-header" id="bc_header2">
+                                        <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#performance" aris-expanded="true" aria-controls="compliance">
+                                            Performance Excellence
+                                        </button>
+                                    </h5>
+                                    <div class="accordion-collapse collapse" id="performance">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Business Excellence Self-Assessment</li>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Third-Party BE Assessment</li>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Leadership Excellence</li>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Strategic Planning</li>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Customer-Focused Excellence</li>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Knowledge Management</li>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>HR Excellence</li>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Operations Excellence</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="mb-1">
-                                    <button class="col-md-12 text-left btn text-dark bg-light" type="button" >
-                                        Productivity & Quality
-                                    </button>
+                                <div class="accrodion-item mb-1">
+                                    <h5 class="accordion-header second-header" id="bc_header3">
+                                        <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#productivity" aris-expanded="true" aria-controls="compliance">
+                                            Productivity & Quality
+                                        </button>
+                                    </h5>
+                                    <div class="accordion-collapse collapse" id="productivity">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>P&Q Diagnosis</li>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>5s</li>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>SS</li>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>WIT</li>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Lean Management</li>
+                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Labor-Management Cooperation</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -104,8 +152,9 @@
         </div>
         <!-- FOURTH GRAPH CARDS END HERE -->
 
+
         <!-- Modal Start Here -->
-        <div class="modal fade" id="ComplianceandStandards" aria-hidden="true" aria-labelledby="ComplianceandStandardsLabel" tabindex="-1">
+        <!-- <div class="modal fade" id="ComplianceandStandards" aria-hidden="true" aria-labelledby="ComplianceandStandardsLabel" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -153,7 +202,7 @@
                 </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Modal End Here -->
 

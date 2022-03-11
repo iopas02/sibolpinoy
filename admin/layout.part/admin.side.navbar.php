@@ -105,7 +105,7 @@
                             <span class="me-2"><i class="bi bi-bar-chart"></i></span>
                             <span>Reports</span>
                     </a>
-                    <a href="services.php" class="nav-link px-3 sidebar-link text-light text-normal" >
+                    <a href="services.tools.php" class="nav-link px-3 sidebar-link text-light text-normal" >
                         <span class="me-2"><i class="bi bi-tags"></i></span>
                         <span>Services</span>            
                     </a>
