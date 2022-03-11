@@ -41,7 +41,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="example" class="table table-striped data-table" style="width: 100%">
+                            <table id="datatableid" class="table table-striped data-table" style="width: 100%">
                                 <thead>
                                     <tr>
                                         <th>Sender</th>
@@ -52,8 +52,44 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                    $inbox_mail = "SELECT * FROM `email` ";
+                                    $inbox_mail_result = mysqli_query($conn, $inbox_mail);
+                                    if(mysqli_num_rows($inbox_mail_result) > 0 ){
+                                        foreach($inbox_mail_result as $email){
+                                            ?>
+                                            <tr <?= 
+                                                $status = $email['status'];
+                                                
+                                                if($status == 'New'){
+                                                   echo ' class="card-text" ';
+                                                }else {
+                                                    echo ' class="" ';
+                                                }
+                                            
+                                            ?>> 
+                                                <td hidden><?= $email['emailID']?></td>   
+                                                <td><?= $email['sender_name']?></td>
+                                                <td><?= $email['subject']?></td>
+                                                <td><?= date('M d Y H:i',  strtotime($email['date_mailed'])) ?></td>
+                                                <td>
+                                                    <button type="button" class="btn tooltip-test" title="Read" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                                                        <i class="bi bi-bookmark"></i>
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+                                    }
 
-                                    <tr>
+                                    ?>
+
+                                    <!-- <tr>
                                         <td>Mrs. Maria Fully Grace</td>
                                         <td>Strategic Planning and Risk-Based Management</td>
                                         <td>12:00 pm</td>
@@ -67,23 +103,7 @@
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Mr. Don Paquito </td>
-                                        <td>ISO 9001:2015 Requirments and Internal Quality Audit</td>
-                                        <td>March 3</td>
-                                        <td>
-                                            <button type="button" class="btn tooltip-test" title="Read" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-                                                <i class="bi bi-bookmark"></i>
-                                            </button>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
+                                    </tr> -->
 
                                 </tbody>
                                 <tfoot>
@@ -182,6 +202,7 @@
     <?php
       require "layout.part/admin.footer.php";
     ?>
+
     <!-- Footer and JS Script End Here -->
   </body>
 </html>
