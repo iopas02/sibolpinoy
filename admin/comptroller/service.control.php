@@ -28,7 +28,7 @@ if(isset($_POST['create_services'])){
             $image_upload_path = '../upload/'.$new_image_name ;
             move_uploaded_file($tmp_name, $image_upload_path );
 
-            $insert_services = "INSERT INTO `services`(`service_title`, `image`, `service_desc`, `date_aupload`) VALUES ('$service_title','$new_image_name','$service_desc','$date')";
+            $insert_services = "INSERT INTO `services`(`service_title`, `image`, `service_desc`, `date_upload`) VALUES ('$service_title','$new_image_name','$service_desc','$date')";
 
             $insert_services_result = mysqli_query($conn, $insert_services );
             if(!$insert_services_result){

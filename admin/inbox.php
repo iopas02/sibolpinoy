@@ -260,24 +260,6 @@
                 $('#message').val(data[4]);
             })
 
-            // $('#read').on('click', function(){
-            //     $tr = $(this).closest('tr');
-
-            //     var data= $tr.children("td").map(function(){
-            //         return $(this).text();
-            //     }).get();
-
-            //     console.log(data);
-
-            //     var emailID = $('#emailID').val(data[0]);
-            //     var newStats = "Read";
-
-            //     $.ajax({
-            //         url:"comptroller/update.php",
-            //         type:"POST",
-            //         data:{emailID:emailID , status:newStats},
-            //     })
-            // })
         })
     </script>
     <!-- Footer and JS Script End Here -->

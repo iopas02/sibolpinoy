@@ -47,6 +47,10 @@
             <div class="row col-md-12 mb-2">
                 <form action="comptroller/service.control.php" method="POST" enctype="multipart/form-data">
                     <div class="row col-md-12">
+                        <div class="col-md-1 m-2">
+                            <label for="service_id" class="form-label">Servive ID</label>
+                            <input class="form-control" type="text" readonly id="service_id" name="service_id">
+                        </div>
                         <div class="col-md-4 m-2">
                             <label for="image" class="form-label">Insert Image</label>
                             <input class="form-control" type="file" id="image" name="image">
@@ -64,7 +68,7 @@
                     </div>
                     <div class="row col-md-12">
                         <button type="submit" name="create_services" class="btn bg-coloured text-white col-md-3 my-2 mx-4" >
-                            Create Services
+                        <i class="bi bi-folder-plus"></i> Create Services
                         </button>
                     </div>
                 </form>
@@ -76,6 +80,70 @@
         <div class="row col-md-12 mt-3">
             <div class="row col-md-12 px-5">
                 <h5>Services Table</h5>
+            </div>
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="datatableid" class="table data-table" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Image</th>
+                                <th>Description</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $Service_reload = "SELECT * FROM `services` ";
+                            $Service_reload_result = mysqli_query($conn, $Service_reload);
+                            if(mysqli_num_rows($Service_reload_result) > 0 ){
+                                foreach($Service_reload_result as $services){
+                                    ?>
+                                    <tr >  
+                                        <td><?= $services['servicesID']?></td>
+                                        <td><?= $services['service_title']?></td>
+                                        <td><img src="./upload/<?= $services['image']?>" class="h-100 w-100" alt="">  </td>
+                                        <td><?= $services['service_desc']?></td>
+                                        <td><?= date('M d Y',  strtotime($services['date_upload'])) ?></td>
+                                    </tr>
+                                    <?php
+                                }
+                            }else{
+                                echo "No Services Created";
+                            }
+
+                            ?>
+
+                            <!-- <tr>
+                                <td>Mrs. Maria Fully Grace</td>
+                                <td>Strategic Planning and Risk-Based Management</td>
+                                <td>12:00 pm</td>
+                                <td>
+                                    <button type="button" class="btn tooltip-test" title="Read" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                                        <i class="bi bi-bookmark"></i>
+                                    </button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </td>
+                            </tr> -->
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Image</th>
+                                <th>Description</th>
+                                <th>Upload</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
         </div>
     <!-- THIS IS SERVICES TABLE END HERE -->
