@@ -75,7 +75,7 @@
                                                 <td hidden><?= $email['message']?></td>
                                                 <td><?= date('M d Y H:i',  strtotime($email['date_mailed'])) ?></td>
                                                 <td>
-                                                    <button type="button" class="btn tooltip-test read"  title="Read">
+                                                    <button type="button" class="btn tooltip-test read" id="read" title="Read">
                                                         <i class="bi bi-bookmark"></i>
                                                     </button>
                                                 </td>
@@ -131,35 +131,38 @@
         <div class="modal fade" id="readEmail" data-bs-backdrop="static">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">New message</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row col-md-12">
-                        <input type="text" class="form-control" hidden name="emailID" id="emailID">        
-                        <div class="col-md-6 mb-3">
-                            <label for="sender_name" class="col-form-label">Sender:</label>
-                            <input type="text" class="form-control" readonly name="sender_name" id="sender_name">
+
+                    <form action="comptroller/update.php" method="POST"> 
+                        <div class="modal-header">
+                            <h5 class="modal-title">New message</h5>
+                            <button type="submit" name="cstatus" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="sender_email" name="sender_email" class="col-form-label">Email Address:</label>
-                            <input type="text" class="form-control" readonly name="sender_email" id="sender_email" >
+                        <div class="modal-body">  
+                            <div class="row col-md-12">
+                                <input type="text" class="form-control" hidden name="emailID" id="emailID">        
+                                <div class="col-md-6 mb-3">
+                                    <label for="sender_name" class="col-form-label">Sender:</label>
+                                    <input type="text" class="form-control" readonly name="sender_name" id="sender_name">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="sender_email" name="sender_email" class="col-form-label">Email Address:</label>
+                                    <input type="text" class="form-control" readonly name="sender_email" id="sender_email" >
+                                </div>
+                            </div>
+                            <div class="row col-md-12">
+                                <div class="mb-3">
+                                    <label for="subject" class="col-form-label">Subject:</label>
+                                    <input type="text" class="form-control" readonly name="subject" id="subject">
+                                </div>
+                            </div>
+                            <div class="row col-md-12">
+                                <div class="mb-3">
+                                    <label for="message" class="col-form-label">Message:</label>
+                                    <textarea class="form-control" rows="5" readonly name="message" id="message"></textarea>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row col-md-12">
-                        <div class="mb-3">
-                            <label for="subject" class="col-form-label">Subject:</label>
-                            <input type="text" class="form-control" readonly name="subject" id="subject">
-                        </div>
-                    </div>
-                    <div class="row col-md-12">
-                        <div class="mb-3">
-                            <label for="message" class="col-form-label">Message:</label>
-                            <textarea class="form-control" rows="5" readonly name="message" id="message"></textarea>
-                        </div>
-                    </div>
-                </div>
+                    </form> 
                     <div class="modal-footer">
                         <button class="btn btn-primary" data-bs-target="#replyMessage" data-bs-toggle="modal" data-bs-dismiss="modal">Reply message</button>
                     </div>
@@ -256,9 +259,27 @@
                 $('#follow_subject').val(data[3]);
                 $('#message').val(data[4]);
             })
+
+            // $('#read').on('click', function(){
+            //     $tr = $(this).closest('tr');
+
+            //     var data= $tr.children("td").map(function(){
+            //         return $(this).text();
+            //     }).get();
+
+            //     console.log(data);
+
+            //     var emailID = $('#emailID').val(data[0]);
+            //     var newStats = "Read";
+
+            //     $.ajax({
+            //         url:"comptroller/update.php",
+            //         type:"POST",
+            //         data:{emailID:emailID , status:newStats},
+            //     })
+            // })
         })
-  
-  </script>
+    </script>
     <!-- Footer and JS Script End Here -->
   </body>
 </html>
