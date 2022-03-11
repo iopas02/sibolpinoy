@@ -39,11 +39,11 @@
                     <h5>Create Services</h5>
             </div>
             <div class="row col-md-12">
-                <form action="comptroller/service.control.php" method="POST">
+                <form action="comptroller/service.control.php" method="POST" enctype="multipart/form-data">
                     <div class="row col-md-12">
                         <div class="col-md-4 m-2">
-                            <label for="formFile" class="form-label">Insert Image</label>
-                            <input class="form-control" type="file" id="formFile" name="formFile">
+                            <label for="image" class="form-label">Insert Image</label>
+                            <input class="form-control" type="file" id="image" name="image">
                         </div>
                         <div class="col-md-6 m-2">
                             <label for="service_title" class="form-label">Sevice Title</label>
