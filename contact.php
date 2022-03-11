@@ -102,12 +102,6 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" hidden class="form-control" id="subject" name="smpc_email" Value="treszeta28@gmail.com">
-                                    <input type="text" hidden class="form-control" id="subject" name="type" Value="new">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
                                     <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 150px"></textarea>
                                     <label for="message">Message</label>
                                 </div>
