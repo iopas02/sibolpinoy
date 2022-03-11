@@ -117,7 +117,7 @@ if(isset($_GET["error"])){
                     </div>
                     <br>
                     <p>Note: Default password is "<strong class="text-primary">SPMC123</strong>"</p>
-                    <button type="submit" class="btn btn-primary mt-1" name="submit">Create New Admin</button>
+                    <button type="submit" class="btn bg-coloured text-white mt-1" name="submit">Create New Admin</button>
                 </form>    
             </div>
         </div>

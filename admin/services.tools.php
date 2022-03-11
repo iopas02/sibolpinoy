@@ -25,6 +25,8 @@
     <!-- THIS IS FOR SIDE NAV-BAR and OFF CANVA END HERE -->
 
     <main class="mt-5 pt-3">
+
+    <!-- THIS IS FOR SUB NAV-BAR FOR SERVICES TOOLS START HERE -->
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <div class="container-fluid border-bottom border-3 border-dark mb-2">
                 <a class="navbar-brand" href="services.tools.php">Services Tools</a>
@@ -34,11 +36,15 @@
                 </div>
             </div>
         </nav>
-        <div class="row col-md-12">
+    <!-- THIS IS FOR SUB NAV-BAR FOR SERVICES TOOLS END HERE -->
+
+
+    <!-- THIS IS CREATE NEW SERVICES FORM START HERE -->
+        <div class="row col-md-12 border-bottom border-1 border-dark mb-2">
             <div class="row col-md-12 px-5">
                     <h5>Create Services</h5>
             </div>
-            <div class="row col-md-12">
+            <div class="row col-md-12 mb-2">
                 <form action="comptroller/service.control.php" method="POST" enctype="multipart/form-data">
                     <div class="row col-md-12">
                         <div class="col-md-4 m-2">
@@ -64,6 +70,16 @@
                 </form>
             </div> 
         </div>
+    <!-- THIS IS CREATE NEW SERVICES FORM END HERE -->
+
+    <!-- THIS IS SERVICES TABLE START HERE -->
+        <div class="row col-md-12 mt-3">
+            <div class="row col-md-12 px-5">
+                <h5>Services Table</h5>
+            </div>
+        </div>
+    <!-- THIS IS SERVICES TABLE END HERE -->
+
     
     </main>
 
