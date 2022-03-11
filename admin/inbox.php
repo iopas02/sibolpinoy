@@ -62,7 +62,7 @@
                                                 $status = $email['status'];
                                                 
                                                 if($status == 'New'){
-                                                   echo ' class="card-text" ';
+                                                   echo ' class="mail-text" ';
                                                 }else {
                                                     echo ' class="" ';
                                                 }

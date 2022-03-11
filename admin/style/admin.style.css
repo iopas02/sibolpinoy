@@ -173,6 +173,12 @@ body{
     font-weight: 300;
 }
 
+.mail-text{
+    font-family: var(--roboto);
+    font-size: 16px;
+    font-weight: 500;
+}
+
 .__logo {
     width: 45px;
     height: 45px;
