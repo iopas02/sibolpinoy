@@ -111,7 +111,7 @@
 <!--THIS IS FOR MODAL Edit Profile END-->
 
 <!--THIS IS FOR MODAL Edit password start-->
-<div class="modal" data-bs-backdrop="static" id="editPassword" tabindex="-1">
+<div class="modal" gdata-bs-backdrop="static" id="editPassword" tabindex="-1">
   <div class="modal-dialog modal-lg">
       <div class="modal-content">
       <div class="modal-header">

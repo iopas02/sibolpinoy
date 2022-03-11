@@ -26,6 +26,7 @@
             $lastName = $_POST["lastName"];
             $level = $_POST["level"];
             $status = $_POST["status"];
+            date_default_timezone_set('Asia/Manila');
             $date = date("Y-m-d H:i:s");
             $sql = "SELECT * FROM login WHERE username = '$username'";
             //check username duplicate
