@@ -157,8 +157,8 @@ body{
 
 .card-text{
     font-family: var(--roboto);
-    font-size: 18px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .welcome-text{
@@ -171,12 +171,6 @@ body{
     font-family: var(--roboto);
     font-size: 18px;
     font-weight: 300;
-}
-
-.mail-text{
-    font-family: var(--roboto);
-    font-size: 16px;
-    font-weight: 500;
 }
 
 .__logo {

@@ -62,7 +62,7 @@
                                                 $status = $email['status'];
                                                 
                                                 if($status == 'New'){
-                                                   echo ' class="mail-text" ';
+                                                   echo ' class="card-text" ';
                                                 }else {
                                                     echo ' class="" ';
                                                 }
@@ -129,7 +129,7 @@
         <!-- Modal Start Here -->
 
         <div class="modal fade" id="readEmail" data-bs-backdrop="static">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">New message</h5>
@@ -161,11 +161,69 @@
                     </div>
                 </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Reply message</button>
+                        <button class="btn btn-primary" data-bs-target="#replyMessage" data-bs-toggle="modal" data-bs-dismiss="modal">Reply message</button>
                     </div>
                 </div>                
             </div>
-
+        </div>
+        <div class="modal fade" id="replyMessage" aria-hidden="true"  tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Compose Email</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row col-md-12">
+                            <div class="col-md-6 mb-2">
+                                <label for="sender_email" name="sender_email" class="col-form-label">Recipient Name:</label>
+                                <input type="text" class="form-control" readonly name="recipient_name" id="s_name" >
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <label for="sender_email" name="sender_email" class="col-form-label">Recipient Email Address:</label>
+                                <input type="text" class="form-control" readonly name="recipient_email" id="s_email" >
+                            </div>
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="col-md-12 mb-3">
+                                <label for="sender_email" name="sender_email" class="col-form-label">Subject:</label>
+                                <input type="text" class="form-control" readonly name="subject" id="follow_subject" >
+                            </div>
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="form-floating col-md-6 mb-2 px-2">
+                                <input type="email" class="form-control" id="floatingInput" name="sender" placeholder="Sender Name:">
+                                <label for="floatingInput">Sender Name</label>
+                            </div>
+                            <div class="form-floating col-md-6 mb-2 px-2">
+                                <input type="email" class="form-control" id="floatingInput" name="sender" placeholder="name@example.com">
+                                <label for="floatingInput">Email address</label>
+                            </div>
+                            <div class="form-floating col-md-12 mb-2 px-2">
+                                <input type="email" class="form-control" id="floatingPassword" name="cc" placeholder="cc:">
+                                <label for="floatingPassword">cc:</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3">
+                                <label for="message" class="col-form-label">Message:</label>
+                                <textarea class="form-control" rows="5" name="message" id="message"></textarea>
+                            </div>
+                        </div>
+                        <div class="row col-md-12">
+                            <button class="btn col-md-4 text-white bg-coloured" type="submit" name="send_reply">
+                                Send Message
+                            </button>
+                        </div>      
+                    </form>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#readEmail" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>
+                </div>
+                </div>
+            </div>
         </div>
 
         <!-- Modal End Here -->
@@ -191,8 +249,11 @@
 
                 $('#emailID').val(data[0]);
                 $('#sender_name').val(data[1]);
+                $('#s_name').val(data[1]);
                 $('#sender_email').val(data[2]);
+                $('#s_email').val(data[2]);
                 $('#subject').val(data[3]);
+                $('#follow_subject').val(data[3]);
                 $('#message').val(data[4]);
             })
         })
