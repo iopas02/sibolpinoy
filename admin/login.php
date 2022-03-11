@@ -29,7 +29,7 @@ session_start();
                                         $_SESSION["firstName"] = $row["firstName"];
                                         $_SESSION["lastName"] = $row["lastName"];
                                         date_default_timezone_set('Asia/Manila');
-                                        $date = date("Y-m-d H:i:s");;
+                                        $date = date("Y-m-d g:i:s");;
                                         $sql = "UPDATE login SET lastLoginDate = '$date' WHERE loginId = $id";
                                         if($conn->query($sql)){
                                             //Set Refresh header using PHP.
