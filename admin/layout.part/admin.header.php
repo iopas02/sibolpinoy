@@ -51,7 +51,7 @@ function levelCheck($lev){
     }
     echo $lev;
   }
-
+  date_default_timezone_set('Asia/Manila');
   function relativeTime($time, $short = false){
     $SECOND = 1;
     $MINUTE = 60 * $SECOND;
