@@ -79,17 +79,18 @@
                         tabindex="0"></iframe>
                 </div> -->
                 <div class="col-lg-8 col-md-12 wow fadeInUp" data-wow-delay="0.3s">
-                    <form action="mail.php" method="POST">
+                 
+                    <form action="controllers/mail.php" method="POST">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" name="fname" placeholder="Your Name">
+                                    <input type="text" class="form-control" id="name" name="cname" placeholder="Your Name">
                                     <label for="name">Your Name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Your Email">
+                                    <input type="email" class="form-control" id="email" name="cemail" placeholder="Your Email">
                                     <label for="email">Your Email</label>
                                 </div>
                             </div>
@@ -101,12 +102,18 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
+                                    <input type="text" hidden class="form-control" id="subject" name="smpc_email" Value="treszeta28@gmail.com">
+                                    <input type="text" hidden class="form-control" id="subject" name="type" Value="new">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
                                     <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 150px"></textarea>
                                     <label for="message">Message</label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn w-100 py-3 text-light bg-blue" type="submit" name="sendMBtn" >Send Message</button>
+                                <button class="btn w-100 py-3 text-light bg-blue" type="submit" name="email_submit" >Send Message</button>
                             </div>
                         </div>
                     </form>
