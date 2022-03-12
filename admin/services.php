@@ -26,15 +26,11 @@
 
     <main class="mt-5 pt-3">
     
-        <nav class="navbar navbar-expand-lg navbar-light bg-white">
-            <div class="container-fluid border-bottom border-3 border-dark mb-2">
-                <a class="navbar-brand" href="services.tools.php">Services Tools</a>
-                
-                <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="services.php">Services View</a>
-                </div>
-            </div>
-        </nav>
+        <!-- THIS IS FOR SUB NAV-BAR FOR SERVICES TOOLS START HERE -->
+        <?php
+            require "layout.part/services.subnav.php";
+        ?>
+        <!-- THIS IS FOR SUB NAV-BAR FOR SERVICES TOOLS END HERE -->
     
         <!-- FOURTH GRAPH CARDS START HERE -->
         <div class="row col-md-12">

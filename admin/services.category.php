@@ -35,44 +35,88 @@
     <!-- THIS IS CREATE NEW SERVICES FORM START HERE -->
         <div class="row col-md-12 border-bottom border-1 border-dark mb-2">
             <div class="row col-md-12 px-5">
-                    <h5>Create Services</h5>
+                    <h5>Category Services</h5>
             </div>
+
             <div class="row col-md-12 mb-2">
-                <form action="comptroller/service.control.php" method="POST" enctype="multipart/form-data">
-                    <div class="row col-md-12">
-                        <div class="col-md-2 m-2">
-                            <label for="service_uniID" class="form-label service_uniID">uniID</label>
-                            <input class="form-control" type="text" readonly id="service_uniID" name="service_uniID">
-                        </div>
-                        <div class="col-md-3     m-2">
-                            <label for="image" class="form-label">Insert Image</label>
-                            <input class="form-control" type="file" id="image" name="image">
-                        </div>
-                        <div class="col-md-6 m-2">
-                            <label for="status" class="form-label">Sevice Title</label>
-                            <input type="text" class="form-control" id="service_title" name="service_title" placeholder="Sevice Title">
-                            <input type="text" hidden class="form-control" id="status" name="status" value="Active" >
-                        </div>
+                <div class="col-md-3">
+                    <div class="input-group col-md-12 m-2">
+                        <form action="" method="GET">
+                            <label for="service_uniID" class="form-label service_uniID">Category UniID</label>
+                            <div class="input-group">
+                                <select class="form-select" name="service-uniID" value="<?php if(isset($_GET['service-uniID'])){echo $_GET['search']; } ?>" >
+                                    <option selected>Find Service uniID</option>
+                                    <?php
+                                        $uniDI_query = "SELECT * FROM `services` ";
+                                        $uniID_query_run = mysqli_query($conn, $uniDI_query);
+                                        
+                                        foreach($uniID_query_run as $service_uniID) {
+                                            ?>      
+                                                <option><?=$service_uniID['service_uniID'] ?></option>
+                                            <?php
+                                        }
+                                    ?>
+                                </select>
+                                <button class="btn bg-coloured text-white edit" type="submit"><i class="bi bi-binoculars"></i></button>
+                            </div>
+                        </form>                        
                     </div>
-                    <div class="row col-md-12">
-                        <div class="col-md-11 m-2">
-                            <label for="service_desc" class="col-form-label">Description:</label>
-                            <textarea class="form-control" id="service_desc" name="service_desc" rows="5" placeholder="Type services Description"></textarea>
-                        </div>
-                    </div>
-                    <div class="row col-md-12">
-                        <div class="col-md-6">
-                            <button type="submit" name="create_services" class="btn bg-coloured text-white my-2" >
-                            <i class="bi bi-folder-plus"></i> Create Services
-                            </button>
-                        </div>
-                        <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button  type="submit" name="edit_services" class="btn bg-coloured text-white my-2" "><i class="bi bi-vector-pen"></i> Update</button>
-                            <button  type="submit" name="delete_services" class="btn bg-coloured text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div> 
+
+            <form action="">
+                <div class="row col-md-12 mb-2" >
+                    <div class="col-md-6">
+                        <?php
+                            $serv_uniID ='';
+                            $Service_title = '';
+                            if(isset($_GET['service-uniID'])){
+                                $service_uniID = $_GET['service-uniID'];
+
+                                $get_service_query = "SELECT * FROM `services` WHERE `service_uniID`='$service_uniID' ";
+                                $get_service_query_run = mysqli_query($conn, $get_service_query);
+                                                
+                                while($row = mysqli_fetch_assoc($get_service_query_run)){
+                                    $serv_uniID = $row['service_uniID'];
+                                    $Service_title = $row['service_title'];
+                                }
+                            }
+                        ?>
+                        <label for="status" class="form-label">Service uniID</label>
+                        <input type="text" class="form-control" id="service_title" readonly name="service_title" value="<?= $serv_uniID ?>"> 
+                    </div>
+                    <div class="col-md-6 ">
+                        <label for="status" class="form-label">Service Title</label>
+                        <input type="text" class="form-control" id="service_title" readonly name="service_title" value="<?= $Service_title ?>">  
+                    </div>   
+                </div>   
+            
+                <div class="row col-md-12 mb-2">
+                    <div class="col-md-4">
+                        <label for="service_uniID" class="form-label service_uniID">Category UniID</label>
+                        <input class="form-control" type="text" readonly id="service_uniID" name="service_uniID">
+                    </div>
+                    <div class="col-md-8">
+                        <label for="service_uniID" class="form-label service_uniID">Category Title</label>
+                        <input class="form-control" type="text" id="service_uniID" name="service_uniID">
+                    </div>
+                </div>
+
+
+                <div class="row col-md-12">
+                    <div class="col-md-6">
+                        <button type="submit" name="create_services" class="btn bg-coloured text-white my-2" >
+                        <i class="bi bi-folder-plus"></i> Create Services
+                        </button>
+                    </div>
+                    <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button  type="submit" name="edit_services" class="btn bg-coloured text-white my-2" "><i class="bi bi-vector-pen"></i> Update</button>
+                        <button  type="submit" name="delete_services" class="btn bg-coloured text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
+                    </div>
+                </div>
+
+            </form>
+            
         </div>
     <!-- THIS IS CREATE NEW SERVICES FORM END HERE -->
 
