@@ -64,7 +64,7 @@
                 </div>
             </div> 
 
-            <form action="">
+            <form action="comptroller/service.control.php" method="POST">
                 <div class="row col-md-12 mb-2" >
                     <div class="col-md-6">
                         <?php
@@ -82,30 +82,31 @@
                                 }
                             }
                         ?>
-                        <label for="status" class="form-label">Service uniID</label>
-                        <input type="text" class="form-control" id="service_title" readonly name="service_title" value="<?= $serv_uniID ?>"> 
+                        <label for="service_uniID" class="form-label">Service uniID</label>
+                        <input type="text" class="form-control" id="service_uniID" readonly name="service_uniID" value="<?= $serv_uniID ?>"> 
                     </div>
                     <div class="col-md-6 ">
-                        <label for="status" class="form-label">Service Title</label>
+                        <label for="service_title" class="form-label">Service Title</label>
                         <input type="text" class="form-control" id="service_title" readonly name="service_title" value="<?= $Service_title ?>">  
                     </div>   
                 </div>   
             
                 <div class="row col-md-12 mb-2">
                     <div class="col-md-4">
-                        <label for="service_uniID" class="form-label service_uniID">Category UniID</label>
-                        <input class="form-control" type="text" readonly id="service_uniID" name="service_uniID">
+                        <label for="category_uniID" class="form-label service_uniID">Category UniID</label>
+                        <input class="form-control" type="text" readonly id="category_uniID" name="category_uniID">
                     </div>
                     <div class="col-md-8">
-                        <label for="service_uniID" class="form-label service_uniID">Category Title</label>
-                        <input class="form-control" type="text" id="service_uniID" name="service_uniID">
+                        <label for="category_title" class="form-label service_uniID">Category Title</label>
+                        <input class="form-control" type="text" id="category_title" name="category_title">
+                        <input class="form-control" hidden type="text" id="status" name="status" value="Active">
                     </div>
                 </div>
 
 
                 <div class="row col-md-12">
                     <div class="col-md-6">
-                        <button type="submit" name="create_services" class="btn bg-coloured text-white my-2" >
+                        <button type="submit" name="create_category" class="btn bg-coloured text-white my-2" >
                         <i class="bi bi-folder-plus"></i> Create Services
                         </button>
                     </div>
