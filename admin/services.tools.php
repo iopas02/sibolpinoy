@@ -51,7 +51,7 @@
                             <label for="service_uniID class="form-label">uniID</label>
                             <input class="form-control" type="text" readonly id="service_uniID" name="service_uniID">
                         </div>
-                        <div class="col-md-3 m-2">
+                        <div class="col-md-3     m-2">
                             <label for="image" class="form-label">Insert Image</label>
                             <input class="form-control" type="file" id="image" name="image">
                         </div>
