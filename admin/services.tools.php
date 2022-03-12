@@ -67,9 +67,15 @@
                         </div>
                     </div>
                     <div class="row col-md-12">
-                        <button type="submit" name="create_services" class="btn bg-coloured text-white col-md-3 my-2 mx-4" >
-                        <i class="bi bi-folder-plus"></i> Create Services
-                        </button>
+                        <div class="col-md-6">
+                            <button type="submit" name="create_services" class="btn bg-coloured text-white my-2" >
+                            <i class="bi bi-folder-plus"></i> Create Services
+                            </button>
+                        </div>
+                        <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button  type="submit" name="edit_services" class="btn bg-coloured text-white my-2" "><i class="bi bi-vector-pen"></i> Update</button>
+                            <button  type="submit" name="delete_services" class="btn bg-coloured text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
+                        </div>
                     </div>
                 </form>
             </div> 
@@ -92,6 +98,7 @@
                                 <th>Image</th>
                                 <th>Description</th>
                                 <th>Date</th>
+                                <th>Updated</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -108,8 +115,9 @@
                                         <td><img src="./upload/<?= $services['image']?>" class="h-100 w-100" alt="">  </td>
                                         <td><?= $services['service_desc']?></td>
                                         <td><?= date('M d Y',  strtotime($services['date_upload'])) ?></td>
+                                        <td><?= date('M d Y',  strtotime($services['date_update'])) ?></td>
                                         <td>
-                                            <button type="button" class="btn tooltip-test" title="Read" id="read">
+                                            <button type="button" class="btn tooltip-test read" title="Read" id="read">
                                                 <i class="bi bi-arrow-repeat"></i>
                                                 Read
                                             </button>
@@ -144,7 +152,8 @@
                                 <th>Title</th>
                                 <th>Image</th>
                                 <th>Description</th>
-                                <th>Upload</th>
+                                <th>Date</th>
+                                <th>Updated</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
@@ -163,7 +172,7 @@
     ?>
     <script>
         $(document).ready(function(){
-            $('#read').on('click', function(){
+            $('.read').on('click', function(){
                 
                
                 $tr = $(this).closest('tr');
