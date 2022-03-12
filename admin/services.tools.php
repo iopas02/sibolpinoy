@@ -47,11 +47,11 @@
             <div class="row col-md-12 mb-2">
                 <form action="comptroller/service.control.php" method="POST" enctype="multipart/form-data">
                     <div class="row col-md-12">
-                        <div class="col-md-1 m-2">
-                            <label for="service_id" class="form-label">Servive ID</label>
-                            <input class="form-control" type="text" readonly id="service_id" name="service_id">
+                        <div class="col-md-2 m-2">
+                            <label for="service_uniID class="form-label">uniID</label>
+                            <input class="form-control" type="text" readonly id="service_uniID" name="service_uniID">
                         </div>
-                        <div class="col-md-4 m-2">
+                        <div class="col-md-3 m-2">
                             <label for="image" class="form-label">Insert Image</label>
                             <input class="form-control" type="file" id="image" name="image">
                         </div>
@@ -92,6 +92,7 @@
                                 <th>Image</th>
                                 <th>Description</th>
                                 <th>Date</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -102,16 +103,20 @@
                                 foreach($Service_reload_result as $services){
                                     ?>
                                     <tr >  
-                                        <td><?= $services['servicesID']?></td>
+                                        <td><?= $services['service_uniID']?></td>
                                         <td><?= $services['service_title']?></td>
                                         <td><img src="./upload/<?= $services['image']?>" class="h-100 w-100" alt="">  </td>
                                         <td><?= $services['service_desc']?></td>
                                         <td><?= date('M d Y',  strtotime($services['date_upload'])) ?></td>
+                                        <td>
+                                            <button type="button" class="btn tooltip-test" title="Read" id="read">
+                                                <i class="bi bi-arrow-repeat"></i>
+                                                Read
+                                            </button>
+                                        </td>
                                     </tr>
                                     <?php
                                 }
-                            }else{
-                                echo "No Services Created";
                             }
 
                             ?>
@@ -140,6 +145,7 @@
                                 <th>Image</th>
                                 <th>Description</th>
                                 <th>Upload</th>
+                                <th>Action</th>
                             </tr>
                         </tfoot>
                     </table>
@@ -155,6 +161,28 @@
     <?php
       require "layout.part/admin.footer.php";
     ?>
+    <script>
+        $(document).ready(function(){
+            $('#read').on('click', function(){
+                
+               
+                $tr = $(this).closest('tr');
+
+                var data= $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                $('#service_uniID').val(data[0]);
+                $('#service_title').val(data[1]);
+                // $('#image').val(data[2]);
+                $('#service_desc').val(data[3]);
+           
+            })
+
+        })
+    </script>
     <!-- Footer and JS Script End Here -->
   </body>
 </html>
