@@ -49,15 +49,16 @@
                     <div class="row col-md-12">
                         <div class="col-md-2 m-2">
                             <label for="service_uniID" class="form-label service_uniID">uniID</label>
-                            <input class="form-control" type="text" readonly id="service_uniID name="service_uniID">
+                            <input class="form-control" type="text" readonly id="service_uniID" name="service_uniID">
                         </div>
                         <div class="col-md-3     m-2">
                             <label for="image" class="form-label">Insert Image</label>
                             <input class="form-control" type="file" id="image" name="image">
                         </div>
                         <div class="col-md-6 m-2">
-                            <label for="service_title" class="form-label">Sevice Title</label>
+                            <label for="status" class="form-label">Sevice Title</label>
                             <input type="text" class="form-control" id="service_title" name="service_title" placeholder="Sevice Title">
+                            <input type="text" hidden class="form-control" id="status" name="status" value="Active" >
                         </div>
                     </div>
                     <div class="row col-md-12">
@@ -113,7 +114,12 @@
                                     <tr >  
                                         <td><?= $services['service_uniID']?></td>
                                         <td><?= $services['service_title']?></td>
-                                        <td><img src="./upload/<?= $services['image']?>" class="h-100 w-100" alt="">  </td>
+                                        <td>
+                                            <button type="button" class="btn tooltip-test imgs" title="UPDATE IMAGE" id="imgs">
+                                                <img src="./upload/<?= $services['image']?>" class="h-100 w-100">
+                                            </button>
+                                            <input hidden value="<?= $services['image']?>">
+                                        </td>
                                         <td><?= $services['service_desc']?></td>
                                         <td><?= $status = $services['status'];
                                                 if($status == 'Active'){
@@ -124,7 +130,7 @@
                                                     $font = "I";
                                                 }
                                             ?>
-                                            <button type="button" class="tooltip-test <?= $stats ?>" title="Status" id="status">
+                                            <button type="button" class="<?= $stats ?> tooltip-test status" title="Status" id="status">
                                             <?= $font ?>
                                             </button>
                                             
@@ -132,7 +138,7 @@
                                         <td><?= date('M d Y',  strtotime($services['date_upload'])) ?></td>
                                         <td><?= date('M d Y',  strtotime($services['date_update'])) ?></td>
                                         <td>
-                                            <button type="button" class="btn tooltip-test read" title="READ" id="read">
+                                            <button type="button" class="stats-white tooltip-test read" title="READ" id="read">
                                                 <i class="bi bi-arrow-repeat"></i>
                                             </button>
                                         </td>
@@ -178,7 +184,7 @@
         </div>
     <!-- THIS IS SERVICES TABLE END HERE -->
 
-
+    <!-- THIS IS FOR EDIT MODAL START HERE -->                        
         <div class="modal fade" id="editStatus" data-bs-backdrop="static">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
@@ -186,35 +192,64 @@
                         <h5 class="modal-title">Update Service Status</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>   
-                        <div class="modal-body">
-                            <form action="">
-                                <div class="row col-md-12">
-                                    <div class="col-md-3">
-                                        <label for="uniID" class="col-form-label">uniID</label>
-                                        <input type="text" class="form-control" readonly name="uniID" id="uniID">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="title" class="col-form-label">Title</label>
-                                        <input type="text" class="form-control" readonly name="title" id="title">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label for="title" class="col-form-label">Status</label>
-                                        <select class="form-select" name="status">
-                                            <option selected value="Active">Active</option>
-                                            <option value="Inactive">Inactive</option>
-                                        </select>
-                                    </div>
-                                    <div class="my-3 d-grid gap-2 d-md-flex justify-content-md-end">
-                                        <button class="btn bg-coloured text-white" type="submit"><i class="bi bi-vector-pen"></i> Update Status</button>
-                                    </div>
-                                </div>    
-                            </form>      
-                        </div>
-
+                    <div class="modal-body">
+                        <form action="comptroller/service.control.php" method="POST">
+                            <div class="row col-md-12">
+                                <div class="col-md-3">
+                                    <label for="uniID" class="col-form-label">uniID</label>
+                                    <input type="text" class="form-control" readonly name="uniID" id="uniID">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="title" class="col-form-label">Title</label>
+                                    <input type="text" class="form-control" readonly name="title" id="title">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="stats" class="col-form-label">Status</label>
+                                    <select class="form-select" name="stats">
+                                        <option selected value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                    </select>
+                                </div>
+                                <div class="my-3 d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button class="btn bg-coloured text-white" type="submit" name="update_stats" ><i class="bi bi-vector-pen"></i> Update Status</button>
+                                </div>
+                            </div>    
+                        </form>     
+                    </div>
                 </div>                
             </div>
         </div>
 
+        <div class="modal fade" id="editImage" data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Update Image</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>   
+                    <div class="modal-body">
+                        <form action="comptroller/service.control.php" method="POST" enctype="multipart/form-data">
+                            <div class="row col-sm-12 px-2">
+                                <label for="sunid" class="col-form-label">uniID</label>
+                                <input type="text" class="form-control" readonly name="sunid" id="sunid">
+                            </div>
+                            <div class="row col-sm-12 px-2">
+                                <label for="stitle" class="col-form-label">Title</label>
+                                <input type="text" class="form-control" readonly name="stitle" id="stitle">
+                            </div>
+                            <div class="row col-sm-12 px-2">
+                                <label for="uimg" class="col-form-label">Update Image</label>
+                                <input type="file" class="form-control" name="uimg" id="uimg">
+                            </div>
+                            <div class="my-3 d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button class="btn bg-coloured text-white" type="submit" name="update_image" ><i class="bi bi-vector-pen"></i> Update Image</button>
+                            </div>
+                        </form>     
+                    </div>
+                </div>                
+            </div>
+        </div>
+    <!-- THIS IS FOR EDIT MODAL END HERE -->                         
     
     </main>
 
@@ -244,7 +279,7 @@
         })
 
         $(document).ready(function(){
-            $('#status').on('click', function(){
+            $('.status').on('click', function(){
                 $('#editStatus').modal('show');
 
                 $tr = $(this).closest('tr');
@@ -256,6 +291,22 @@
                 console.log(data);
                 $('#uniID').val(data[0]);
                 $('#title').val(data[1]);
+            })
+        })
+
+        $(document).ready(function(){
+            $('.imgs').on('click', function(){
+                $('#editImage').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data= $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+                $('#sunid').val(data[0]);
+                $('#stitle').val(data[1]);
             })
         })
         

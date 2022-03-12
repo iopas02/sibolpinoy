@@ -317,6 +317,7 @@ transform: rotate(180deg);
 
 /*services toggle*/
 .stats-blue{
+    border: 0;
     background-color: #023047;
     box-shadow: 5px 0px 12px #023047;
     color: #FFF;
@@ -325,9 +326,19 @@ transform: rotate(180deg);
 }
 
 .stats-orange{
+    border: 0;
     background-color: #fd5d00;
     box-shadow: 5px 0px 12px #fd5d00;
     color: #FFF;
+    padding: 10px 15px;
+    border-radius: 75%;
+}
+
+.stats-white{
+    border: 0;
+    background-color: #fff;
+    box-shadow: 5px 0px 12px #023047;
+    font-size: 16px;
     padding: 10px 15px;
     border-radius: 75%;
 }
