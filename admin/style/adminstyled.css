@@ -315,3 +315,19 @@ transform: rotate(180deg);
     font-family: "Lucida Console", "Courier New", monospace;
 }
 
+/*services toggle*/
+.stats-blue{
+    background-color: #023047;
+    box-shadow: 5px 0px 12px #023047;
+    color: #FFF;
+    padding: 10px 15px;
+    border-radius: 75%;
+}
+
+.stats-orange{
+    background-color: #fd5d00;
+    box-shadow: 5px 0px 12px #fd5d00;
+    color: #FFF;
+    padding: 10px 15px;
+    border-radius: 75%;
+}
