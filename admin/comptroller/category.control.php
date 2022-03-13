@@ -59,7 +59,7 @@ if(isset($_POST['edit_category'])){
 
     if($_POST['category_uniID'] && $_POST['category_title']  !=''){  
 
-    date_default_timezone_set("Asia/Manila");
+        date_default_timezone_set("Asia/Manila");
 
         $category_uniID = mysqli_real_escape_string($conn, $_POST['category_uniID']);
         $category_title = mysqli_real_escape_string($conn, $_POST['category_title']);
@@ -92,7 +92,7 @@ if(isset($_POST['edit_category'])){
                 
             }else{
                 header("Location: ../services.category.php?error=category_not_exist");
-                exit();;
+                exit();
             }
         }
 
@@ -101,4 +101,43 @@ if(isset($_POST['edit_category'])){
         exit();
     }  
      
+}
+
+if(isset($_POST['cat_update_stats'])){
+
+    date_default_timezone_set("Asia/Manila");
+
+    $cat_uniID = mysqli_real_escape_string($conn, $_POST['cat_uniID']);
+    $stats = mysqli_real_escape_string($conn, $_POST['stats']);
+    
+    $date = date("Y-m-d H:i:s");
+
+    $cat_uniID_query = "SELECT `category_uniID` FROM `services_category` WHERE `category_uniID`= ?";
+    $stmt = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt, $cat_uniID_query)) {
+        header("Location: ../services.category.php?error=sql_error");
+        exit();
+    }else {
+        mysqli_stmt_bind_param($stmt, "s", $cat_uniID);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_store_result($stmt);
+        $resultcheck = mysqli_stmt_num_rows($stmt);
+
+        if($resultcheck > 0) {
+
+            $update_stats = "UPDATE `services_category` SET `status`='$stats', `date_update`='$date' WHERE `category_uniID`='$cat_uniID' ";
+            $update_query_result = mysqli_query($conn,$update_stats);
+
+            if($update_query_result){
+                header("Location: ../services.category.php?success=update_status_successfully");
+                exit();
+            }else{
+                header("Location: ../services.category.php?error=sql_error");
+                exit();
+            }
+        }else{
+            header("Location: ../services.category.php?error=category_not_exist");
+            exit();
+        }
+    }
 }

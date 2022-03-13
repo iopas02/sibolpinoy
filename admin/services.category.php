@@ -227,15 +227,15 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>   
                     <div class="modal-body">
-                        <form action="comptroller/service.control.php" method="POST">
+                        <form action="comptroller/category.control.php" method="POST">
                             <div class="row col-md-12">
                                 <div class="col-md-3">
-                                    <label for="uniID" class="col-form-label">uniID</label>
-                                    <input type="text" class="form-control" readonly name="uniID" id="uniID">
+                                    <label for="cat_uniID" class="col-form-label">Category uniID</label>
+                                    <input type="text" class="form-control" readonly name="cat_uniID" id="cat_uniID">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="title" class="col-form-label">Title</label>
-                                    <input type="text" class="form-control" readonly name="title" id="title">
+                                    <label for="cat_title" class="col-form-label">Category Title</label>
+                                    <input type="text" class="form-control" readonly name="cat_title" id="cat_title">
                                 </div>
                                 <div class="col-md-3">
                                     <label for="stats" class="col-form-label">Status</label>
@@ -245,7 +245,7 @@
                                     </select>
                                 </div>
                                 <div class="my-3 d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <button class="btn bg-coloured text-white" type="submit" name="update_stats" ><i class="bi bi-vector-pen"></i> Update Status</button>
+                                    <button class="btn bg-coloured text-white" type="submit" name="cat_update_stats" ><i class="bi bi-vector-pen"></i> Update Status</button>
                                 </div>
                             </div>    
                         </form>     
@@ -254,7 +254,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="editImage" data-bs-backdrop="static">
+        <!-- <div class="modal fade" id="editImage" data-bs-backdrop="static">
             <div class="modal-dialog modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -282,7 +282,7 @@
                     </div>
                 </div>                
             </div>
-        </div>
+        </div> -->
     <!-- THIS IS FOR EDIT MODAL END HERE -->                         
     
     </main>
@@ -312,21 +312,21 @@
 
         })
 
-        // $(document).ready(function(){
-        //     $('.status').on('click', function(){
-        //         $('#editStatus').modal('show');
+        $(document).ready(function(){
+            $('.status').on('click', function(){
+                $('#editStatus').modal('show');
 
-        //         $tr = $(this).closest('tr');
+                $tr = $(this).closest('tr');
 
-        //         var data= $tr.children("td").map(function(){
-        //             return $(this).text();
-        //         }).get();
+                var data= $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
 
-        //         console.log(data);
-        //         $('#uniID').val(data[0]);
-        //         $('#title').val(data[1]);
-        //     })
-        // })
+                console.log(data);
+                $('#cat_uniID').val(data[0]);
+                $('#cat_title').val(data[3]);
+            })
+        })
 
         // $(document).ready(function(){
         //     $('.imgs').on('click', function(){

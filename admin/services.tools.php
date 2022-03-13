@@ -224,11 +224,11 @@
                     <div class="modal-body">
                         <form action="comptroller/service.control.php" method="POST" enctype="multipart/form-data">
                             <div class="row col-sm-12 px-2">
-                                <label for="sunid" class="col-form-label">uniID</label>
+                                <label for="sunid" class="col-form-label">Service uniID</label>
                                 <input type="text" class="form-control" readonly name="sunid" id="sunid">
                             </div>
                             <div class="row col-sm-12 px-2">
-                                <label for="stitle" class="col-form-label">Title</label>
+                                <label for="stitle" class="col-form-label">Service Title</label>
                                 <input type="text" class="form-control" readonly name="stitle" id="stitle">
                             </div>
                             <div class="row col-sm-12 px-2">
