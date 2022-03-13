@@ -145,6 +145,8 @@
                         <thead>
                             <tr>
                                 <th>Sub_Cat_ID</th>
+                                <th hidden>service_ID</th>
+                                <th hidden>cataegory_ID</th>
                                 <th>Service Title</th>
                                 <th>Category title</th>
                                 <th>Sub-Category title</th>
@@ -156,7 +158,7 @@
                         </thead>
                         <tbody>
                             <?php
-                            $sub_cat_reload = "SELECT tb1.sub_cat_uniID, tb2.service_title, tb3.category_title, tb1.sub_cat_title, tb1.status, tb1.date_upload, tb1.date_update FROM ((services_sub_category tb1 INNER JOIN services tb2 ON tb1.service_uniID = tb2.service_uniID) INNER JOIN services_category tb3 ON tb1.category_uniID = tb3.category_uniID)" ;
+                            $sub_cat_reload = "SELECT tb1.sub_cat_uniID, tb1.service_uniID, tb1.category_uniID, tb2.service_title, tb3.category_title, tb1.sub_cat_title, tb1.status, tb1.date_upload, tb1.date_update FROM ((services_sub_category tb1 INNER JOIN services tb2 ON tb1.service_uniID = tb2.service_uniID) INNER JOIN services_category tb3 ON tb1.category_uniID = tb3.category_uniID)" ;
 
                             $sub_cat_reload_result = mysqli_query($conn, $sub_cat_reload);
                             if(mysqli_num_rows($sub_cat_reload_result) > 0 ){
@@ -164,6 +166,8 @@
                                     ?>
                                     <tr >  
                                         <td><?= $sub_cat['sub_cat_uniID']?></td>
+                                        <td hidden><?= $sub_cat['service_uniID']?></td>
+                                        <td hidden><?= $sub_cat['category_uniID']?></td>
                                         <td><?= $sub_cat['service_title']?></td>
                                         <td><?= $sub_cat['category_title']?></td>
                                         <td><?= $sub_cat['sub_cat_title']?></td>
@@ -216,6 +220,8 @@
                         <tfoot>
                             <tr>
                                 <th>Sub_Cat_ID</th>
+                                <th hidden>service_ID</th>
+                                <th hidden>cataegory_ID</th>
                                 <th>Service Title</th>
                                 <th>Category title</th>
                                 <th>Sub-Category title</th>
@@ -243,12 +249,12 @@
                         <form action="comptroller/category.control.php" method="POST">
                             <div class="row col-md-12">
                                 <div class="col-md-3">
-                                    <label for="cat_uniID" class="col-form-label">Category uniID</label>
-                                    <input type="text" class="form-control" readonly name="cat_uniID" id="cat_uniID">
+                                    <label for="subcat_uniID" class="col-form-label">Sub-Category uniID</label>
+                                    <input type="text" class="form-control" readonly name="subcat_uniID" id="subcat_uniID">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="cat_title" class="col-form-label">Category Title</label>
-                                    <input type="text" class="form-control" readonly name="cat_title" id="cat_title">
+                                    <label for="subcat_title" class="col-form-label">Sub-Category Title</label>
+                                    <input type="text" class="form-control" readonly name="subcat_title" id="subcat_title">
                                 </div>
                                 <div class="col-md-3">
                                     <label for="stats" class="col-form-label">Status</label>
@@ -258,7 +264,7 @@
                                     </select>
                                 </div>
                                 <div class="my-3 d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <button class="btn bg-coloured text-white" type="submit" name="cat_update_stats" ><i class="bi bi-vector-pen"></i> Update Status</button>
+                                    <button class="btn bg-coloured text-white" type="submit" name="sub_cat_update_stats" ><i class="bi bi-vector-pen"></i> Update Status</button>
                                 </div>
                             </div>    
                         </form>     
@@ -316,10 +322,12 @@
 
                 console.log(data);
 
-                $('#category_uniID').val(data[0]);
+                $('#sub_cat_uniID').val(data[0]);
                 $('#service_uniID').val(data[1]);
-                $('#service_title').val(data[2]);
-                $('#category_title').val(data[3]);
+                $('#category_uniID').val(data[2]);
+                $('#service_title').val(data[3]);
+                $('#category_title').val(data[4]);
+                $('#sub_cat_title').val(data[5]);
            
             })
 
@@ -336,8 +344,8 @@
                 }).get();
 
                 console.log(data);
-                $('#cat_uniID').val(data[0]);
-                $('#cat_title').val(data[3]);
+                $('#subcat_uniID').val(data[0]);
+                $('#subcat_title').val(data[5]);
             })
         })
 

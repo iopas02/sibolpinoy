@@ -135,6 +135,7 @@ if(isset($_POST['cat_update_stats'])){
                 header("Location: ../services.category.php?error=sql_error");
                 exit();
             }
+
         }else{
             header("Location: ../services.category.php?error=category_not_exist");
             exit();
@@ -194,4 +195,89 @@ if(isset($_POST['create_sub_cat'])){
         header("Location: ../services.sub.cat.php?error=empty_fields");
         exit();
     }  
+}
+
+if(isset($_POST['edit_sub_cat'])){
+    date_default_timezone_set("Asia/Manila");
+
+    $sub_cat_uniID = mysqli_real_escape_string($conn, $_POST['sub_cat_uniID']);
+    $sub_cat_title = mysqli_real_escape_string($conn, $_POST['sub_cat_title']);
+    $date = date("Y-m-d H:i:s");
+    
+    if($_POST['sub_cat_uniID'] && $_POST['sub_cat_title']  !=''){
+        
+        $sub_cat_uniID_query = "SELECT `sub_cat_uniID` FROM `services_sub_category` WHERE `sub_cat_uniID`=?";
+        $stmt = mysqli_stmt_init($conn);
+        if(!mysqli_stmt_prepare($stmt, $sub_cat_uniID_query)) {
+            header("Location: ../services.sub.cat.php?error=sql_error");
+            exit();
+        }else {
+            mysqli_stmt_bind_param($stmt, "s", $sub_cat_uniID);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_store_result($stmt);
+            $resultcheck = mysqli_stmt_num_rows($stmt);
+    
+            if($resultcheck > 0) {
+                
+                $sub_cat_update_query = "UPDATE `services_sub_category` SET `sub_cat_title`='$sub_cat_title', `date_update`='$date' WHERE `sub_cat_uniID`='$sub_cat_uniID' ";
+                $sub_cat_update_query_result = mysqli_query($conn, $sub_cat_update_query);
+
+                if(!$sub_cat_update_query_result){
+                    header("Location: ../services.sub.cat.php?error=sql_error");
+                    exit();
+                }else{
+                    header("Location: ../services.sub.cat.php?success=sub_category_update_successfully");
+                    exit();
+                }
+
+
+            }else{
+                header("Location: ../services.sub.cat.php?error=sub_categoty_is_not_exist");
+                exit();
+            }
+        }
+
+    }else{
+        header("Location: ../services.sub.cat.php?error=empty_fields");
+        exit();
+    }
+}
+
+if(isset($_POST['sub_cat_update_stats'])){
+    date_default_timezone_set("Asia/Manila");
+
+    $subcat_uniID = mysqli_real_escape_string($conn, $_POST['subcat_uniID']);
+    $stats = mysqli_real_escape_string($conn, $_POST['stats']);
+    
+    $date = date("Y-m-d H:i:s");
+
+    $sub_cat_uniID_query = "SELECT `sub_cat_uniID` FROM `services_sub_category` WHERE `sub_cat_uniID`=?";
+    $stmt = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt, $sub_cat_uniID_query)) {
+        header("Location: ../services.sub.cat.php?error=sql_error");
+        exit();
+    }else {
+        mysqli_stmt_bind_param($stmt, "s", $subcat_uniID);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_store_result($stmt);
+        $resultcheck = mysqli_stmt_num_rows($stmt);
+
+        if($resultcheck > 0){
+
+            $update_stats = "UPDATE `services_sub_category` SET `status`='$stats', `date_update`='$date' WHERE `sub_cat_uniID`='$subcat_uniID' ";
+            $update_query_result = mysqli_query($conn,$update_stats);
+
+            if($update_query_result){
+                header("Location: ../services.sub.cat.php?success=update_status_successfully");
+                exit();
+            }else{
+                header("Location: ../services.sub.cat.php?error=sql_error");
+                exit();
+            }
+
+        }else{
+            header("Location: ../services.sub.cat.php?error=sub_categoty_is_not_exist");
+            exit();
+        } 
+    }    
 }
