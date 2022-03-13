@@ -129,8 +129,21 @@ if(isset($_POST['cat_update_stats'])){
             $update_query_result = mysqli_query($conn,$update_stats);
 
             if($update_query_result){
-                header("Location: ../services.category.php?success=update_status_successfully");
-                exit();
+
+                $update_sub_catstats = "UPDATE `services_sub_category` SET `status`='$stats', `date_update`='$date' WHERE `category_uniID`='$cat_uniID' ";
+                $update_sub_catquery_result = mysqli_query($conn, $update_sub_catstats);
+
+                if($update_sub_catquery_result){
+                    
+                    header("Location: ../services.category.php?success=update_status_successfully");
+                    exit();
+
+                }else{
+                    header("Location: ../services.category.php?error=sub_cat_error");
+                    exit();
+                }    
+
+
             }else{
                 header("Location: ../services.category.php?error=sql_error");
                 exit();
