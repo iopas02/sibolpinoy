@@ -35,24 +35,24 @@
     <!-- THIS IS CREATE NEW SERVICES FORM START HERE -->
         <div class="row col-md-12 border-bottom border-1 border-dark mb-2">
             <div class="row col-md-12 px-5">
-                    <h5>Category Services</h5>
+                    <h5>Sub-Category Services</h5>
             </div>
 
             <div class="row col-md-12 mb-2">
                 <div class="col-md-3">
                     <div class="input-group col-md-12 m-2">
                         <form action="" method="GET">
-                            <label for="service_uniID" class="form-label service_uniID">Service UniID</label>
+                            <label for="service_uniID" class="form-label service_uniID">Category UniID</label>
                             <div class="input-group">
-                                <select class="form-select" name="service-uniID" value="<?php if(isset($_GET['service-uniID'])){echo $_GET['search']; } ?>" >
-                                    <option selected>Find Service uniID</option>
+                                <select class="form-select" name="cat-uniID" value="<?php if(isset($_GET['cat-uniID'])){echo $_GET['search']; } ?>" >
+                                    <option selected>Find Category uniID</option>
                                     <?php
-                                        $uniDI_query = "SELECT * FROM `services` ";
-                                        $uniID_query_run = mysqli_query($conn, $uniDI_query);
+                                        $cat_uniDI_query = "SELECT * FROM `services_category` ";
+                                        $cat_uniID_query_run = mysqli_query($conn, $cat_uniDI_query);
                                         
-                                        foreach($uniID_query_run as $service_uniID) {
+                                        foreach($cat_uniID_query_run as $cat_service_uniID) {
                                             ?>      
-                                                <option><?=$service_uniID['service_uniID'] ?></option>
+                                                <option><?=$cat_service_uniID['category_uniID'] ?></option>
                                             <?php
                                         }
                                     ?>
@@ -68,17 +68,18 @@
                 <div class="row col-md-12 mb-2" >
                     <div class="col-md-4">
                         <?php
-                            $serv_uniID ='';
-                            $Service_title = '';
-                            if(isset($_GET['service-uniID'])){
-                                $service_uniID = $_GET['service-uniID'];
+                            $serv_uniID = $cat_uniID = $Service_title = $cat_title ='';
+                            if(isset($_GET['cat-uniID'])){
+                                $cat_uniID = $_GET['cat-uniID'];
 
-                                $get_service_query = "SELECT * FROM `services` WHERE `service_uniID`='$service_uniID' ";
-                                $get_service_query_run = mysqli_query($conn, $get_service_query);
+                                $get_cat_query = "SELECT tb1.category_uniID, tb2.service_uniID, tb2.service_title, tb1.category_title, tb1.status, tb1.date_upload, tb1.date_update FROM services_category tb1 INNER JOIN services tb2 ON tb1.service_uniID = tb2.service_uniID WHERE category_uniID = '$cat_uniID' ";
+                                $get_cat_query_run = mysqli_query($conn, $get_cat_query);
                                                 
-                                while($row = mysqli_fetch_assoc($get_service_query_run)){
+                                while($row = mysqli_fetch_assoc($get_cat_query_run)){
+                                    $cat_uniID =$row['category_uniID'];
                                     $serv_uniID = $row['service_uniID'];
                                     $Service_title = $row['service_title'];
+                                    $cat_title = $row['category_title'];
                                 }
                             }
                         ?>
@@ -94,11 +95,22 @@
                 <div class="row col-md-12 mb-2">
                     <div class="col-md-4">
                         <label for="category_uniID" class="form-label service_uniID">Category UniID</label>
-                        <input class="form-control" type="text" readonly id="category_uniID" name="category_uniID">
+                        <input class="form-control" type="text" readonly id="category_uniID" name="category_uniID" value="<?= $cat_uniID ?> ">
                     </div>
                     <div class="col-md-8">
                         <label for="category_title" class="form-label service_uniID">Category Title</label>
-                        <input class="form-control" type="text" id="category_title" name="category_title">
+                        <input class="form-control" type="text" readonly id="category_title" name="category_title" value="<?= $cat_title ?>" >
+                    </div>
+                </div>
+
+                <div class="row col-md-12 mb-2">
+                    <div class="col-md-4">
+                        <label for="sub_cat_uniID" class="form-label service_uniID">Sub-Category UniID</label>
+                        <input class="form-control" type="text" readonly id="sub_cat_uniID" name="sub_cat_uniID">
+                    </div>
+                    <div class="col-md-8">
+                        <label for="sub_cat_title" class="form-label service_uniID">Sub-Category Title</label>
+                        <input class="form-control" type="text" id="sub_cat_title" name="sub_cat_title">
                         <input class="form-control" hidden type="text" id="status" name="status" value="Active">
                     </div>
                 </div>
@@ -106,12 +118,12 @@
 
                 <div class="row col-md-12">
                     <div class="col-md-6">
-                        <button type="submit" name="create_category" class="btn bg-coloured text-white my-2" >
+                        <button type="submit" name="create_sub_cat" class="btn bg-coloured text-white my-2" >
                         <i class="bi bi-folder-plus"></i> Create Services
                         </button>
                     </div>
                     <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button  type="submit" name="edit_category" class="btn bg-coloured text-white my-2" "><i class="bi bi-vector-pen"></i> Update</button>
+                        <button  type="submit" name="edit_sub_cat" class="btn bg-coloured text-white my-2" "><i class="bi bi-vector-pen"></i> Update</button>
                         <button  type="submit" name="delete_category" class="btn bg-coloured text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
                     </div>
                 </div>
@@ -124,7 +136,7 @@
     <!-- THIS IS SERVICES TABLE START HERE -->
         <div class="row col-md-12 mt-3">
             <div class="row col-md-12 px-5">
-                <h5>Category Services Table</h5>
+                <h5>Sub-Category Services Table</h5>
             </div>
 
             <div class="card-body">

@@ -5,6 +5,7 @@
             
             <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="services.category.php">Services Category Tool</a>
+                <a class="nav-link active" aria-current="page" href="services.sub.cat.php">Services Sub-Category Tool</a>
                 <a class="nav-link active" aria-current="page" href="services.php">Services View</a>
             </div>
         </div>
