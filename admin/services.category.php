@@ -64,7 +64,7 @@
                 </div>
             </div> 
 
-            <form action="comptroller/service.control.php" method="POST">
+            <form action="comptroller/category.control.php" method="POST">
                 <div class="row col-md-12 mb-2" >
                     <div class="col-md-6">
                         <?php
@@ -132,34 +132,29 @@
                     <table id="datatableid" class="table data-table" style="width: 100%">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Title</th>
-                                <th>Image</th>
-                                <th>Description</th>
+                                <th>Cat_ID</th>
+                                <th hidden>Serv_ID</th>
+                                <th>Service Title</th>
+                                <th>Category_title</th>
                                 <th>Status</th>
                                 <th>Date</th>
-                                <th>Updated</th>
+                                <th>Update</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $Service_reload = "SELECT * FROM `services` ";
-                            $Service_reload_result = mysqli_query($conn, $Service_reload);
-                            if(mysqli_num_rows($Service_reload_result) > 0 ){
-                                foreach($Service_reload_result as $services){
+                            $category_reload = "SELECT tb1.category_uniID, tb2.service_uniID, tb2.service_title, tb1.category_title, tb1.status, tb1.date_upload, tb1.date_update FROM services_category tb1 INNER JOIN services tb2 ON tb1.service_uniID = tb2.service_uniID";
+                            $category_reload_result = mysqli_query($conn, $category_reload);
+                            if(mysqli_num_rows($category_reload_result) > 0 ){
+                                foreach($category_reload_result as $category){
                                     ?>
                                     <tr >  
-                                        <td><?= $services['service_uniID']?></td>
-                                        <td><?= $services['service_title']?></td>
-                                        <td>
-                                            <button type="button" class="btn tooltip-test imgs" title="UPDATE IMAGE" id="imgs">
-                                                <img src="./upload/<?= $services['image']?>" class="h-100 w-100">
-                                            </button>
-                                            <input hidden value="<?= $services['image']?>">
-                                        </td>
-                                        <td><?= $services['service_desc']?></td>
-                                        <td><?= $status = $services['status'];
+                                        <td><?= $category['category_uniID']?></td>
+                                        <td hidden><?= $category['service_uniID']?></td>
+                                        <td><?= $category['service_title']?></td>
+                                        <td><?= $category['category_title']?></td>
+                                            <?= $status = $category['status'];
                                                 if($status == 'Active'){
                                                     $stats = "stats-orange";
                                                     $font = "A"; 
@@ -168,13 +163,14 @@
                                                     $font = "I";
                                                 }
                                             ?>
+                                        <td>
                                             <button type="button" class="<?= $stats ?> tooltip-test status" title="Status" id="status">
                                             <?= $font ?>
                                             </button>
                                             
                                         </td>
-                                        <td><?= date('M d Y',  strtotime($services['date_upload'])) ?></td>
-                                        <td><?= date('M d Y',  strtotime($services['date_update'])) ?></td>
+                                        <td><?= date('M d Y',  strtotime($category['date_upload'])) ?></td>
+                                        <td><?= date('M d Y',  strtotime($category['date_update'])) ?></td>
                                         <td>
                                             <button type="button" class="stats-white tooltip-test read" title="READ" id="read">
                                                 <i class="bi bi-arrow-repeat"></i>
@@ -206,13 +202,13 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>ID</th>
-                                <th>Title</th>
-                                <th>Image</th>
-                                <th>Description</th>
+                                <th>Cat_ID</th>
+                                <th hidden>Serv_ID</th>
+                                <th>Service Title</th>
+                                <th>Category_title</th>
                                 <th>Status</th>
                                 <th>Date</th>
-                                <th>Updated</th>
+                                <th>Update</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>

@@ -114,7 +114,7 @@
                                             <input hidden value="<?= $services['image']?>">
                                         </td>
                                         <td><?= $services['service_desc']?></td>
-                                        <td><?= $status = $services['status'];
+                                            <?= $status = $services['status'];
                                                 if($status == 'Active'){
                                                     $stats = "stats-orange";
                                                     $font = "A"; 
@@ -123,6 +123,7 @@
                                                     $font = "I";
                                                 }
                                             ?>
+                                        <td>
                                             <button type="button" class="<?= $stats ?> tooltip-test status" title="Status" id="status">
                                             <?= $font ?>
                                             </button>
