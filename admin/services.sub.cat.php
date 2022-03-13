@@ -119,7 +119,7 @@
                 <div class="row col-md-12">
                     <div class="col-md-6">
                         <button type="submit" name="create_sub_cat" class="btn bg-coloured text-white my-2" >
-                        <i class="bi bi-folder-plus"></i> Create Services
+                        <i class="bi bi-folder-plus"></i> Create Sub-Category
                         </button>
                     </div>
                     <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
@@ -144,10 +144,10 @@
                     <table id="datatableid" class="table data-table" style="width: 100%">
                         <thead>
                             <tr>
-                                <th>Cat_ID</th>
-                                <th hidden>Serv_ID</th>
+                                <th>Sub_Cat_ID</th>
                                 <th>Service Title</th>
-                                <th>Category_title</th>
+                                <th>Category title</th>
+                                <th>Sub-Category title</th>
                                 <th>Status</th>
                                 <th>Date</th>
                                 <th>Update</th>
@@ -156,17 +156,18 @@
                         </thead>
                         <tbody>
                             <?php
-                            $category_reload = "SELECT tb1.category_uniID, tb2.service_uniID, tb2.service_title, tb1.category_title, tb1.status, tb1.date_upload, tb1.date_update FROM services_category tb1 INNER JOIN services tb2 ON tb1.service_uniID = tb2.service_uniID";
-                            $category_reload_result = mysqli_query($conn, $category_reload);
-                            if(mysqli_num_rows($category_reload_result) > 0 ){
-                                foreach($category_reload_result as $category){
+                            $sub_cat_reload = "SELECT tb1.sub_cat_uniID, tb2.service_title, tb3.category_title, tb1.sub_cat_title, tb1.status, tb1.date_upload, tb1.date_update FROM ((services_sub_category tb1 INNER JOIN services tb2 ON tb1.service_uniID = tb2.service_uniID) INNER JOIN services_category tb3 ON tb1.category_uniID = tb3.category_uniID)" ;
+
+                            $sub_cat_reload_result = mysqli_query($conn, $sub_cat_reload);
+                            if(mysqli_num_rows($sub_cat_reload_result) > 0 ){
+                                foreach($sub_cat_reload_result as $sub_cat){
                                     ?>
                                     <tr >  
-                                        <td><?= $category['category_uniID']?></td>
-                                        <td hidden><?= $category['service_uniID']?></td>
-                                        <td><?= $category['service_title']?></td>
-                                        <td><?= $category['category_title']?></td>
-                                            <?= $status = $category['status'];
+                                        <td><?= $sub_cat['sub_cat_uniID']?></td>
+                                        <td><?= $sub_cat['service_title']?></td>
+                                        <td><?= $sub_cat['category_title']?></td>
+                                        <td><?= $sub_cat['sub_cat_title']?></td>
+                                            <?= $status = $sub_cat['status'];
                                                 if($status == 'Active'){
                                                     $stats = "stats-orange";
                                                     $font = "A"; 
@@ -181,8 +182,8 @@
                                             </button>
                                             
                                         </td>
-                                        <td><?= date('M d Y',  strtotime($category['date_upload'])) ?></td>
-                                        <td><?= date('M d Y',  strtotime($category['date_update'])) ?></td>
+                                        <td><?= date('M d Y',  strtotime($sub_cat['date_upload'])) ?></td>
+                                        <td><?= date('M d Y',  strtotime($sub_cat['date_update'])) ?></td>
                                         <td>
                                             <button type="button" class="stats-white tooltip-test read" title="READ" id="read">
                                                 <i class="bi bi-arrow-repeat"></i>
@@ -214,10 +215,10 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Cat_ID</th>
-                                <th hidden>Serv_ID</th>
+                                <th>Sub_Cat_ID</th>
                                 <th>Service Title</th>
-                                <th>Category_title</th>
+                                <th>Category title</th>
+                                <th>Sub-Category title</th>
                                 <th>Status</th>
                                 <th>Date</th>
                                 <th>Update</th>

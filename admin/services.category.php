@@ -107,7 +107,7 @@
                 <div class="row col-md-12">
                     <div class="col-md-6">
                         <button type="submit" name="create_category" class="btn bg-coloured text-white my-2" >
-                        <i class="bi bi-folder-plus"></i> Create Services
+                        <i class="bi bi-folder-plus"></i> Create Services Category
                         </button>
                     </div>
                     <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
@@ -135,7 +135,7 @@
                                 <th>Cat_ID</th>
                                 <th hidden>Serv_ID</th>
                                 <th>Service Title</th>
-                                <th>Category_title</th>
+                                <th>Category title</th>
                                 <th>Status</th>
                                 <th>Date</th>
                                 <th>Update</th>
@@ -205,7 +205,7 @@
                                 <th>Cat_ID</th>
                                 <th hidden>Serv_ID</th>
                                 <th>Service Title</th>
-                                <th>Category_title</th>
+                                <th>Category title</th>
                                 <th>Status</th>
                                 <th>Date</th>
                                 <th>Update</th>

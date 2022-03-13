@@ -141,3 +141,57 @@ if(isset($_POST['cat_update_stats'])){
         }
     }
 }
+
+
+if(isset($_POST['create_sub_cat'])){
+    if($_POST['service_uniID'] && $_POST['category_uniID'] && $_POST['sub_cat_title']  !=''){
+        date_default_timezone_set("Asia/Manila");
+
+        $service_uniID = mysqli_real_escape_string($conn, $_POST['service_uniID']);
+        $category_uniID = mysqli_real_escape_string($conn, $_POST['category_uniID']);
+        $sub_cat_title = mysqli_real_escape_string($conn, $_POST['sub_cat_title']);
+        $status = mysqli_real_escape_string($conn, $_POST['status']);
+        $date = date("Y-m-d H:i:s");
+
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+        // Output: 54esmdr0qfg
+        $random_num = substr(str_shuffle($permitted_chars), 0, 7);
+        
+        $year = date("Y");
+        $sub_cat_uniID = $year."-".$random_num;
+
+        $sub_cat_uniID_query = "SELECT `sub_cat_uniID` FROM `services_sub_category` WHERE `sub_cat_uniID`=?";
+        $stmt = mysqli_stmt_init($conn);
+        if(!mysqli_stmt_prepare($stmt, $sub_cat_uniID_query)) {
+            header("Location: ../services.sub.cat.php?error=sql_error");
+            exit();
+        }else {
+            mysqli_stmt_bind_param($stmt, "s", $sub_cat_uniID);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_store_result($stmt);
+            $resultcheck = mysqli_stmt_num_rows($stmt);
+    
+            if($resultcheck > 0) {
+                header("Location: ../services.sub.cat.php?error=category_uniID_is_already_been_exist");
+                exit();
+            }else{
+                
+                $insert_sub_cat = "INSERT INTO `services_sub_category`(`sub_cat_uniID`, `service_uniID`, `category_uniID`, `sub_cat_title`, `status`, `date_upload`, `date_update`) VALUES ('$sub_cat_uniID', '$service_uniID', '$category_uniID', '$sub_cat_title', '$status','$date','$date')";
+
+                $insert_sub_cat_result = mysqli_query($conn, $insert_sub_cat);
+
+                if(!$insert_sub_cat_result){
+                    header("Location: ../services.sub.cat.php?error=sql_error");
+                    exit();
+                }else{
+                    header("Location: ../services.sub.cat.php?success=new_services_sub_category_upload");
+                    exit();
+                }
+            }
+        } 
+
+    }else{
+        header("Location: ../services.sub.cat.php?error=empty_fields");
+        exit();
+    }  
+}
