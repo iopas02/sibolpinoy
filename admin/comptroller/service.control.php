@@ -77,43 +77,50 @@ if(isset($_POST['create_services'])){
 
 if(isset($_POST['edit_services'])){
 
-    date_default_timezone_set("Asia/Manila");
+    if($_POST['service_title'] && $_POST['service_desc'] !=''){
 
-    $uniID = mysqli_real_escape_string($conn, $_POST['service_uniID']);
-    $update_title = mysqli_real_escape_string($conn, $_POST['service_title']);
-    $update_desc = mysqli_real_escape_string($conn, $_POST['service_desc']);
+        date_default_timezone_set("Asia/Manila");
 
-    $update_date = date("Y-m-d H:i:s");
+        $uniID = mysqli_real_escape_string($conn, $_POST['service_uniID']);
+        $update_title = mysqli_real_escape_string($conn, $_POST['service_title']);
+        $update_desc = mysqli_real_escape_string($conn, $_POST['service_desc']);
 
-    $service_query = "SELECT `service_uniID` FROM `services` WHERE `service_uniID`=?";
-    $stmt = mysqli_stmt_init($conn);
-    if(!mysqli_stmt_prepare($stmt, $service_query)) {
-        header("Location: ../services.tools.php?error=sql_error");
-        exit();
-    }else {
-        mysqli_stmt_bind_param($stmt, "s", $uniID);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_store_result($stmt);
-        $resultcheck = mysqli_stmt_num_rows($stmt);
-        if($resultcheck > 0) {
-            
-            $update_query = "UPDATE `services` SET `service_title`='$update_title', `service_desc`='$update_desc' WHERE `service_uniID`='$uniID' ";
+        $update_date = date("Y-m-d H:i:s");
 
-            $update_query_result = mysqli_query($conn, $update_query);
+        $service_query = "SELECT `service_uniID` FROM `services` WHERE `service_uniID`=?";
+        $stmt = mysqli_stmt_init($conn);
+        if(!mysqli_stmt_prepare($stmt, $service_query)) {
+            header("Location: ../services.tools.php?error=sql_error");
+            exit();
+        }else {
+            mysqli_stmt_bind_param($stmt, "s", $uniID);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_store_result($stmt);
+            $resultcheck = mysqli_stmt_num_rows($stmt);
+            if($resultcheck > 0) {
+                
+                $update_query = "UPDATE `services` SET `service_title`='$update_title', `service_desc`='$update_desc' WHERE `service_uniID`='$uniID' ";
 
-            if($update_query_result){
-                header("Location: ../services.tools.php?success=update_services_successfully");
-                exit();
+                $update_query_result = mysqli_query($conn, $update_query);
+
+                if($update_query_result){
+                    header("Location: ../services.tools.php?success=update_services_successfully");
+                    exit();
+                }else{
+                    header("Location: ../services.tools.php?error=sql_error");
+                    exit();
+                }
+
             }else{
-                header("Location: ../services.tools.php?error=sql_error");
+                header("Location: ../services.tools.php?services_not_exist");
                 exit();
             }
-
-        }else{
-            header("Location: ../services.tools.php?services_not_exist");
-            exit();
         }
-    }    
+    }else{
+        header("Location: ../services.tools.php?error=empty_fields");
+        exit();
+    }  
+        
     
 }
 

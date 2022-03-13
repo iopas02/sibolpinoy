@@ -53,3 +53,52 @@ if(isset($_POST['create_category'])){
         exit();
     }  
 }
+
+
+if(isset($_POST['edit_category'])){
+
+    if($_POST['category_uniID'] && $_POST['category_title']  !=''){  
+
+    date_default_timezone_set("Asia/Manila");
+
+        $category_uniID = mysqli_real_escape_string($conn, $_POST['category_uniID']);
+        $category_title = mysqli_real_escape_string($conn, $_POST['category_title']);
+        $date = date("Y-m-d H:i:s");
+
+        $cat_uniID_query = "SELECT `category_uniID` FROM `services_category` WHERE `category_uniID`= ?";
+        $stmt = mysqli_stmt_init($conn);
+        if(!mysqli_stmt_prepare($stmt, $cat_uniID_query)) {
+            header("Location: ../services.category.php?error=sql_error");
+            exit();
+        }else {
+            mysqli_stmt_bind_param($stmt, "s", $category_uniID);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_store_result($stmt);
+            $resultcheck = mysqli_stmt_num_rows($stmt);
+
+            if($resultcheck > 0) {
+
+                $cat_update_query = "UPDATE `services_category` SET `category_title`='$category_title',`date_update`=' $date ' WHERE `category_uniID`='$category_uniID ' ";
+
+                $cat_update_query_result = mysqli_query($conn, $cat_update_query);
+
+                if(!$cat_update_query_result){
+                    header("Location: ../services.category.php?error=sql_error");
+                    exit();
+                }else{
+                    header("Location: ../services.category.php?success=category_update_successfully");
+                    exit();
+                }
+                
+            }else{
+                header("Location: ../services.category.php?error=category_not_exist");
+                exit();;
+            }
+        }
+
+    }else{
+        header("Location: ../services.category.php?error=empty_fields");
+        exit();
+    }  
+     
+}

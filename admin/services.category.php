@@ -42,7 +42,7 @@
                 <div class="col-md-3">
                     <div class="input-group col-md-12 m-2">
                         <form action="" method="GET">
-                            <label for="service_uniID" class="form-label service_uniID">Category UniID</label>
+                            <label for="service_uniID" class="form-label service_uniID">Service UniID</label>
                             <div class="input-group">
                                 <select class="form-select" name="service-uniID" value="<?php if(isset($_GET['service-uniID'])){echo $_GET['search']; } ?>" >
                                     <option selected>Find Service uniID</option>
@@ -111,8 +111,8 @@
                         </button>
                     </div>
                     <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button  type="submit" name="edit_services" class="btn bg-coloured text-white my-2" "><i class="bi bi-vector-pen"></i> Update</button>
-                        <button  type="submit" name="delete_services" class="btn bg-coloured text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
+                        <button  type="submit" name="edit_category" class="btn bg-coloured text-white my-2" "><i class="bi bi-vector-pen"></i> Update</button>
+                        <button  type="submit" name="delete_category" class="btn bg-coloured text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
                     </div>
                 </div>
 
@@ -303,46 +303,46 @@
 
                 console.log(data);
 
-                $('#service_uniID').val(data[0]);
-                $('#service_title').val(data[1]);
-                // $('#image').val(data[2]);
-                $('#service_desc').val(data[3]);
+                $('#category_uniID').val(data[0]);
+                $('#service_uniID').val(data[1]);
+                $('#service_title').val(data[2]);
+                $('#category_title').val(data[3]);
            
             })
 
         })
 
-        $(document).ready(function(){
-            $('.status').on('click', function(){
-                $('#editStatus').modal('show');
+        // $(document).ready(function(){
+        //     $('.status').on('click', function(){
+        //         $('#editStatus').modal('show');
 
-                $tr = $(this).closest('tr');
+        //         $tr = $(this).closest('tr');
 
-                var data= $tr.children("td").map(function(){
-                    return $(this).text();
-                }).get();
+        //         var data= $tr.children("td").map(function(){
+        //             return $(this).text();
+        //         }).get();
 
-                console.log(data);
-                $('#uniID').val(data[0]);
-                $('#title').val(data[1]);
-            })
-        })
+        //         console.log(data);
+        //         $('#uniID').val(data[0]);
+        //         $('#title').val(data[1]);
+        //     })
+        // })
 
-        $(document).ready(function(){
-            $('.imgs').on('click', function(){
-                $('#editImage').modal('show');
+        // $(document).ready(function(){
+        //     $('.imgs').on('click', function(){
+        //         $('#editImage').modal('show');
 
-                $tr = $(this).closest('tr');
+        //         $tr = $(this).closest('tr');
 
-                var data= $tr.children("td").map(function(){
-                    return $(this).text();
-                }).get();
+        //         var data= $tr.children("td").map(function(){
+        //             return $(this).text();
+        //         }).get();
 
-                console.log(data);
-                $('#sunid').val(data[0]);
-                $('#stitle').val(data[1]);
-            })
-        })
+        //         console.log(data);
+        //         $('#sunid').val(data[0]);
+        //         $('#stitle').val(data[1]);
+        //     })
+        // })
         
       
     </script>
