@@ -34,117 +34,92 @@
     
         <!-- FOURTH GRAPH CARDS START HERE -->
         <div class="row col-md-12">
-            <div class="col-md-6 mb-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="row col-md-12">
-                            <button class="bg-white border-0">
-                                <img src="../img/business-consultancy.jpg" class="h-100 w-100" alt="">    
-                            </button>
-                        </div>
-                        <div class="row col-md-12">
-                            <div class="row col-md-12">
-                                <div class="col-md-4">
-                                    <label for="business_comsultancy_title" class="col-form-label">Service ID:</label>
-                                    <input type="text" class="form-control" id="business_comsultancy_title" readonly value="1">
-                                </div>
-                                <div class="col-md-8">
-                                    <label for="business_comsultancy_title" class="col-form-label">Title:</label>
-                                    <input type="text" class="form-control" id="business_comsultancy_title" readonly value="Business Consultancy">
-                                </div>  
-                            </div>
-                            <div class="mb-3">
-                                <label for="business_comsultancy_description" class="col-form-label">Description:</label>
-                                <textarea class="form-control" id="business_comsultancy_description" rows="5" readonly placeholder="In Sibol-Pinoy , we boast of our world class approach in helping organizations achieve their objectives. We just do not partner with our clients, we engage and become one with them in their journey to quality improvement"></textarea>
-                            </div>
-                        </div>
-                        <div class="row col-md-12">
-                            <div class="accordion" id="businessConsultancy">
-                                <div class="accrodion-item mb-1">
-                                    <h5 class="accordion-header second-header" id="bc_header1">
-                                        <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#compliance" aris-expanded="true" aria-controls="compliance">
-                                            Compliance and Standards
-                                        </button>
-                                    </h5>
-                                    <div class="accordion-collapse collapse" id="compliance">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Automotive Quality Management System Standard (IATF 16949:2016)</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Energy Management System (ISO 50001:2011)</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Environmental Management System (ISO 14001:2015)</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Food Safety Management System (ISO 22000:2005) & HACCP</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Food Safety Systems Certification (FSSC 22000)</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Information Security Management System (ISO 27001:2013)</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Occupational Health & Safety Management System (OHSAS 18001)/ISO 45001:2016)</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Quality Management System (ISO 9001:2015)</li>
-                                            </ul>
+            <?php
+                $services_reload_query = "SELECT * FROM `services` ";
+                $services_reload_query_result = mysqli_query($conn, $services_reload_query );
+                if(mysqli_num_rows($services_reload_query_result) > 0 ){
+                    foreach($services_reload_query_result as $service){
+                        ?>
+                            <div class="col-md-6 mb-3">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <div class="row col-md-12">
+                                            <button class="bg-white border-0">
+                                            <img src="./upload/<?= $service['image']?>" class="h-100 w-100">    
+                                            </button>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="accrodion-item mb-1">
-                                    <h5 class="accordion-header second-header" id="bc_header2">
-                                        <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#performance" aris-expanded="true" aria-controls="compliance">
-                                            Performance Excellence
-                                        </button>
-                                    </h5>
-                                    <div class="accordion-collapse collapse" id="performance">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Business Excellence Self-Assessment</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Third-Party BE Assessment</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Leadership Excellence</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Strategic Planning</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Customer-Focused Excellence</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Knowledge Management</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>HR Excellence</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Operations Excellence</li>
-                                            </ul>
+                                        <div class="row col-md-12">
+                                            <div class="row col-md-12">
+                                                <div class="col-md-4">
+                                                    <label for="business_comsultancy_title" class="col-form-label">Service ID:</label>
+                                                    <input type="text" class="form-control" id="business_comsultancy_title" readonly value="<?= $service['service_uniID'] ?>">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <label for="business_comsultancy_title" class="col-form-label">Title:</label>
+                                                    <input type="text" class="form-control" id="business_comsultancy_title" readonly value="<?= $service['service_title'] ?>">
+                                                </div>  
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="business_comsultancy_description" class="col-form-label">Description:</label>
+                                                <textarea class="form-control" id="business_comsultancy_description" rows="5" readonly placeholder="<?= $service['service_desc'] ?>"></textarea>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="accrodion-item mb-1">
-                                    <h5 class="accordion-header second-header" id="bc_header3">
-                                        <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#productivity" aris-expanded="true" aria-controls="compliance">
-                                            Productivity & Quality
-                                        </button>
-                                    </h5>
-                                    <div class="accordion-collapse collapse" id="productivity">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>P&Q Diagnosis</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>5s</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>SS</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>WIT</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Lean Management</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Labor-Management Cooperation</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row col-md-12 p-2">
-                            <div class="col-md-6">
-                            <button type="button" class="btn bg-primary text-white"><i class="bi bi-pen-fill"></i> Edit</button>
-                            <button type="button" class="btn bg-danger text-white"><i class="bi bi-trash"></i> Delete</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
+                                        <div class="row col-md-12">
+                                            <div class="accordion" id="businessConsultancy">
+                                                <?php
+                                                    $service_uniDI = $service['service_uniID'];
+                                                    $service_category_query = "SELECT * FROM `services_category` WHERE `service_uniID` = '$service_uniDI '";
 
-                <div class="card h-100">
-                    <div class="card-header">
-                    <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
-                    Affiliation Graph
-                    </div>
-                    <div class="card-body">
-                    <!-- <canvas class="chart" width="400" height="200"></canvas> -->
-                    <div id="piechart"  style="width: 600px; height: 400px;"></div>
-                    </div>
-                </div>
-            </div>
+                                                    $service_category_query_result = mysqli_query($conn, $service_category_query);
+                                                    if(mysqli_num_rows($service_category_query_result) > 0 ){
+                                                        foreach($service_category_query_result as $category_services){ 
+                                                            ?>
+                                                                <div class="accrodion-item mb-1">
+                                                                    <h5 class="accordion-header second-header" id="<?=$category_services['category_title'] ?>">
+                                                                        <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#compliance" aris-expanded="true" aria-controls="compliance">
+                                                                            <?=$category_services['category_title'] ?>
+                                                                        </button>
+                                                                    </h5>
+                                                                    <div class="accordion-collapse collapse" id="compliance">
+                                                                        <div class="accordion-body">
+                                                                            <ul>
+                                                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Automotive Quality Management System Standard (IATF 16949:2016)</li>
+                                                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Energy Management System (ISO 50001:2011)</li>
+                                                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Environmental Management System (ISO 14001:2015)</li>
+                                                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Food Safety Management System (ISO 22000:2005) & HACCP</li>
+                                                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Food Safety Systems Certification (FSSC 22000)</li>
+                                                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Information Security Management System (ISO 27001:2013)</li>
+                                                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Occupational Health & Safety Management System (OHSAS 18001)/ISO 45001:2016)</li>
+                                                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Quality Management System (ISO 9001:2015)</li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            <?php
+                                                        }
+                                                    }
+                                                ?>
+                                         
+                                            </div>
+                                        </div>
+                                        <div class="row col-md-12 p-2">
+                                            <div class="col-md-6">
+                                            <button type="button" class="btn bg-primary text-white"><i class="bi bi-pen-fill"></i> Edit</button>
+                                            <button type="button" class="btn bg-danger text-white"><i class="bi bi-trash"></i> Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <?php
+                    }
+                }            
+            ?>
+           
+           
+
         </div>
         <!-- FOURTH GRAPH CARDS END HERE -->
 
