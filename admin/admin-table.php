@@ -22,7 +22,7 @@ if($result = $conn->query($sql)){
                 <td style="display:none"><?= $row["firstName"]?></td>
                 <td style="display:none"><?= $row["lastName"]?></td>
                 <td style="display:none"><?= $row["username"]?></td>
-                <td style="display:none"><?= $row["level"]?></td>
+                <td style="display:none"><?= levelCheck($row["level"]) ?></td>
                 <td style="display:none"><?= $row["id"]?></td>
                 <td style="display:none"><?= $row["dateAdded"]?></td>
                 <td><?= $row["firstName"]?></td>

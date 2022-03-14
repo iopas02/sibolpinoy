@@ -21,6 +21,12 @@
             $firstName = $_POST["firstName"];
             $lastName = $_POST["lastName"];
             $level = $_POST["level"];
+            if($level == "admin"){
+                $level = "0";
+            }
+            else if($level == "superadmin"){
+                $level = "1";
+            }
             $username = $_POST["username"];
             $sql = "SELECT * FROM login WHERE username = '$username'";
             if($result = $conn->query($sql)){

@@ -28,11 +28,12 @@
             $status = $_POST["status"];
             date_default_timezone_set('Asia/Manila');
             $date = date("Y-m-d H:i:s");
+            $by = $_SESSION["username"];
             $sql = "SELECT * FROM login WHERE username = '$username'";
             //check username duplicate
             if($result= $conn->query($sql)){
                 if($result->num_rows == 0){     
-                    $sql = "INSERT INTO login (username, password, level, status, dateAdded) VALUES ('$username', '$passw', '$level', '$status' , '$date')";
+                    $sql = "INSERT INTO login (username, password, level, status, dateAdded, createdBy ) VALUES ('$username', '$passw', '$level', '$status' , '$date', '$by')";
                     //adding login table
                     if($conn->query($sql)){
                         $sql = "SELECT loginId FROM login WHERE username = '$username'";

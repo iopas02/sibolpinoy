@@ -200,8 +200,8 @@ if(isset($_GET["error"])){
                                 <div class="col-md-4 mb-1">
                                     <label for="level" aria-label="Default select example" class="form-label">Level</label>
                                     <select class="form-select" id="lev" name="level">
-                                        <option value="0">admin</option>
-                                        <option value="1">superadmin</option>
+                                        <option value="admin">admin</option>
+                                        <option value="superadmin">superadmin</option>
                                     </select>
                                 </div>
                             </div>
@@ -364,7 +364,6 @@ if(isset($_GET["error"])){
                 }).get();
 
                 console.log(data);
-
 
                 $('#delId').val(data[1]);
                 $('#delfn').val(data[2]);
