@@ -94,11 +94,18 @@
                                                                 
                                                                 >
                                                                     <h5 class="accordion-header second-header" id="<?=$category_services['category_title'] ?>">
-                                                                        <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#compliance" aris-expanded="true">
+                                                                        <?php
+                                                                            $str = $category_services['category_title'];
+                                                                            $new_str = str_replace(' ', '', $str);
+                                                                        ?>
+                                                                        <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $new_str ?>" aris-expanded="true">
                                                                             <?=$category_services['category_title'] ?>
                                                                         </button>
                                                                     </h5>
                                                                     <?php
+                                                                        $str = $category_services['category_title'];
+                                                                        $new_str = str_replace(' ', '', $str);
+
                                                                         $cat_uniDI = $category_services['category_uniID'];
                                                                         $sub_cat_query = "SELECT * FROM `services_sub_category` WHERE `category_uniID`='$cat_uniDI' ";
 
@@ -106,7 +113,7 @@
                                                                         if(mysqli_num_rows($sub_cat_query_run) > 0 ){
                                                                             foreach($sub_cat_query_run as $sub_cat){
                                                                                 ?>
-                                                                                <div class="accordion-collapse collapse" id="compliance">
+                                                                                <div class="accordion-collapse collapse" id="<?= $new_str ?>">
                                                                                     <div class="accordion-body">
                                                                                         <ul>
                                                                                             <li style="list-style-type: none;"><i class="bi bi-dot"></i> <?= $sub_cat['sub_cat_title']?></li>
@@ -126,12 +133,6 @@
                                                     }
                                                 ?>
                                          
-                                            </div>
-                                        </div>
-                                        <div class="row col-md-12 p-2">
-                                            <div class="col-md-6">
-                                            <button type="button" class="btn bg-primary text-white"><i class="bi bi-pen-fill"></i> Edit</button>
-                                            <button type="button" class="btn bg-danger text-white"><i class="bi bi-trash"></i> Delete</button>
                                             </div>
                                         </div>
                                     </div>
