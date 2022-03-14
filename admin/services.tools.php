@@ -60,6 +60,17 @@
                             <textarea class="form-control" id="service_desc" name="service_desc" rows="5" placeholder="Type services Description"></textarea>
                         </div>
                     </div>
+                    <div class="row col-md-12" hidden>
+                        <div class="col-md-2 m-2">
+                            <label for="service_uniID" class="form-label service_uniID">Ceated By</label>
+                            <input class="form-control" type="text" readonly id="service_uniID" name="service_uniID" value="<?=$id?>">
+                        </div>
+                
+                        <div class="col-md-2 m-2">
+                            <label for="status" class="form-label">level</label>
+                            <input type="text" class="form-control" id="service_title" name="service_title" value="<?= $level ?>">
+                        </div>
+                    </div>
                     <div class="row col-md-12">
                         <div class="col-md-6">
                             <button type="submit" name="create_services" class="btn bg-coloured text-white my-2" >

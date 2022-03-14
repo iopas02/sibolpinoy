@@ -43,9 +43,12 @@
                         <div class="table-responsive">
                             <table id="datatableid" class="table table-striped data-table" style="width: 100%">
                                 <thead>
-                                    <tr>
+                                    <tr> 
+                                        <th hidden>Email ID</th>
                                         <th>Sender</th>
+                                        <th hidden>Sender Email</th>
                                         <th>Subject</th>
+                                        <th hidden>Message</th>
                                         <th>Date</th>
                                         <th>Action</th>
                                         <th>Delete</th>
@@ -112,8 +115,11 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
+                                        <th hidden>Email ID</th>
                                         <th>Sender</th>
+                                        <th hidden>Sender Email</th>
                                         <th>Subject</th>
+                                        <th hidden>Message</th>
                                         <th>Date</th>
                                         <th>Action</th>
                                         <th>Delete</th>
@@ -172,12 +178,13 @@
         <div class="modal fade" id="replyMessage" aria-hidden="true"  tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Compose Email</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
+                <form action="comptroller/update.php" method="POST">                    
+                    <div class="modal-header">
+                        <h5 class="modal-title">Compose Email</h5>
+                        <button type="submit" name="cstatus" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
                         <div class="row col-md-12">
                             <div class="col-md-6 mb-2">
                                 <label for="sender_email" name="sender_email" class="col-form-label">Recipient Name:</label>
@@ -218,10 +225,11 @@
                             <button class="btn col-md-4 text-white bg-coloured" type="submit" name="send_reply">
                                 Send Message
                             </button>
-                        </div>      
-                    </form>
+                        </div>
+                    </div>          
+                </form>
+                        
                     
-                </div>
                 <div class="modal-footer">
                     <button class="btn btn-primary" data-bs-target="#readEmail" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>
                 </div>
