@@ -160,7 +160,7 @@ function levelCheck($lev){
     else
     {
         $years = floor  ($before / 60 / 60 / 24 / 30 / 12);
-        return $years <= 1 ? "one year ago" : $years." years ago";
+        return $years <= 1 ? "one year ago" : "NA";
     }
 
     return "$time";
