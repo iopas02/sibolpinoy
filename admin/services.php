@@ -39,8 +39,17 @@
                 $services_reload_query_result = mysqli_query($conn, $services_reload_query );
                 if(mysqli_num_rows($services_reload_query_result) > 0 ){
                     foreach($services_reload_query_result as $service){
-                        ?>
-                            <div class="col-md-6 mb-3">
+                        ?>  
+                           
+                            <div class="col-md-6 mb-3" 
+                            <?php
+                                if($service['status'] != 'Active'){
+                                    echo 'hidden';
+                                }else{
+                                    echo '';
+                                }
+                            ?>
+                             >
                                 <div class="card h-100">
                                     <div class="card-body">
                                         <div class="row col-md-12">
