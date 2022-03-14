@@ -165,7 +165,7 @@
                                         <td><?= date('M d Y',  strtotime($services['date_upload'])) ?></td>
                                         <td><?= date('M d Y',  strtotime($services['date_update'])) ?></td>
                                         <td>
-                                        <button type="button" class="border-0 bg-white p-2" data-bs-toggle="popover" title="Last Admin Log" data-bs-content="<?= $services['action']?> by <?= $services['username']?>"><i class="bi bi-exclamation-circle"></i></button>
+                                            <button type="button" class="border-0 bg-white p-2" data-bs-toggle="popover" title="Last Admin Log" data-bs-content="<?= $services['action']?> by <?= $services['username']?>"><i class="bi bi-exclamation-circle"></i></button>
                                         </td>
                                         <td>
                                             <button type="button" class="stats-white tooltip-test read" title="READ" id="read">
