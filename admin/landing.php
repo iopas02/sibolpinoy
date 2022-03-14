@@ -319,6 +319,7 @@
                             <h6 class="text-dark pe-3 secondary-font">We Celebrate on this Month</h6>
                             <h1 class="header-font">Happy Mother's Day</h1>
                             <h5 class="second-header">A simple Message and Celebration From Sibol-Pinoy</h5>
+                            
                         </div>
                         <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s"  >
                             <div class="position-relative h-50">
