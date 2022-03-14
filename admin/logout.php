@@ -4,7 +4,7 @@ session_destroy();
 header( "refresh:3;url=index.php" );
 echo "  <div class='loader_bg'>
             <div class='welcome'>
-                <h2>Successfully Logged out! Redirecting to login...</h2>
+                <p>Successfully Logged out! Redirecting to login...</p>
             </div>
             <div class='loader mt-5'></div>
         </div>
