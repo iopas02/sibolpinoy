@@ -76,24 +76,31 @@
                                                             ?>
                                                                 <div class="accrodion-item mb-1">
                                                                     <h5 class="accordion-header second-header" id="<?=$category_services['category_title'] ?>">
-                                                                        <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#compliance" aris-expanded="true" aria-controls="compliance">
+                                                                        <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#compliance" aris-expanded="true">
                                                                             <?=$category_services['category_title'] ?>
                                                                         </button>
                                                                     </h5>
-                                                                    <div class="accordion-collapse collapse" id="compliance">
-                                                                        <div class="accordion-body">
-                                                                            <ul>
-                                                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Automotive Quality Management System Standard (IATF 16949:2016)</li>
-                                                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Energy Management System (ISO 50001:2011)</li>
-                                                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Environmental Management System (ISO 14001:2015)</li>
-                                                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Food Safety Management System (ISO 22000:2005) & HACCP</li>
-                                                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Food Safety Systems Certification (FSSC 22000)</li>
-                                                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Information Security Management System (ISO 27001:2013)</li>
-                                                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Occupational Health & Safety Management System (OHSAS 18001)/ISO 45001:2016)</li>
-                                                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Quality Management System (ISO 9001:2015)</li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
+                                                                    <?php
+                                                                        $cat_uniDI = $category_services['category_uniID'];
+                                                                        $sub_cat_query = "SELECT * FROM `services_sub_category` WHERE `category_uniID`='$cat_uniDI' ";
+
+                                                                        $sub_cat_query_run = mysqli_query($conn, $sub_cat_query);
+                                                                        if(mysqli_num_rows($sub_cat_query_run) > 0 ){
+                                                                            foreach($sub_cat_query_run as $sub_cat){
+                                                                                ?>
+                                                                                <div class="accordion-collapse collapse" id="compliance">
+                                                                                    <div class="accordion-body">
+                                                                                        <ul>
+                                                                                            <li style="list-style-type: none;"><i class="bi bi-dot"></i> <?= $sub_cat['sub_cat_title']?></li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <?php
+                                                                            }
+                                                                        }    
+                                                                    ?>
+                                                                   
                                                                 </div>
 
                                                             <?php
