@@ -30,13 +30,17 @@ session_start();
                                         $_SESSION["lastName"] = $row["lastName"];
                                         date_default_timezone_set('Asia/Manila');
                                         $date = date("Y-m-d H:i:s");;
+                                        $by = $_SESSION["username"];
                                         $sql = "UPDATE login SET lastLoginDate = '$date' WHERE loginId = $id";
                                         if($conn->query($sql)){
-                                            //Set Refresh header using PHP.
-                                            //header( "refresh:3;url=landing.php" );
-                                            header("location:landing.php");
-                                            //Print out some content for example purposes.
-                                            //echo 'Successful Login';
+                                            $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($id, 'login', '$by', '$date')";
+                                            if($conn->query($sql)){
+                                                //Set Refresh header using PHP.
+                                                //header( "refresh:3;url=landing.php" );
+                                                header("location:landing.php");
+                                                //Print out some content for example purposes.
+                                                //echo 'Successful Login';
+                                            }
                                         }
                                     }
                                 }
