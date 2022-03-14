@@ -14,14 +14,21 @@
         if($username != $currentUser){
             $sql = "UPDATE login SET status = '$status' WHERE username = '$username'";
             if($conn->query($sql)){
-                header( "refresh:3;url=admin.con.php" );
-                                        echo "  <div class='loader_bg'>
-                                                    <div class='welcome'>
-                                                        <h2>Successfully changed status! Redirecting to dashboard...</h2>
+                $id = $_SESSION["id"];
+                $by = $_SESSION["username"];
+                date_default_timezone_set('Asia/Manila');
+                $date = date("Y-m-d H:i:s");
+                $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($id, 'update', '$by', '$date')";
+                if($conn->query($sql)){
+                    header( "refresh:3;url=admin.con.php" );
+                                            echo "  <div class='loader_bg'>
+                                                        <div class='welcome'>
+                                                            <h2>Successfully changed status! Redirecting to dashboard...</h2>
+                                                        </div>
+                                                        <div class='loader mt-5'></div>
                                                     </div>
-                                                    <div class='loader mt-5'></div>
-                                                </div>
-                                            ";
+                                                ";
+                }
             }
             else{
                 echo "error sql";
