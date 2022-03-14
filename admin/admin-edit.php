@@ -21,6 +21,8 @@
             $firstName = $_POST["firstName"];
             $lastName = $_POST["lastName"];
             $level = $_POST["level"];
+            date_default_timezone_set('Asia/Manila');
+            $date = date("Y-m-d H:i:s");
             if($level == "admin"){
                 $level = "0";
             }
@@ -28,6 +30,7 @@
                 $level = "1";
             }
             $username = $_POST["username"];
+            $by = $_SESSION["username"];
             $sql = "SELECT * FROM login WHERE username = '$username'";
             if($result = $conn->query($sql)){
                 if($result->num_rows == 1){
@@ -39,14 +42,17 @@
                                 $sql = "UPDATE profile SET firstName = '$firstName', lastName = '$lastName' WHERE loginId = '$id'";
                                 //adding login table
                                 if($conn->query($sql)){
-                                    header( "refresh:3;url=admin.con.php" );
-                                    echo "  <div class='loader_bg'>
-                                                <div class='welcome'>
-                                                    <h2>Successfully Updated User! Redirecting to dashboard...</h2>
+                                    $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($id, 'update', '$by', '$date')";
+                                    if($conn->query($sql)){
+                                        header( "refresh:3;url=admin.con.php" );
+                                        echo "  <div class='loader_bg'>
+                                                    <div class='welcome'>
+                                                        <h2>Successfully Updated User! Redirecting to dashboard...</h2>
+                                                    </div>
+                                                    <div class='loader mt-5'></div>
                                                 </div>
-                                                <div class='loader mt-5'></div>
-                                            </div>
-                                        ";     
+                                            ";     
+                                    }
                                 }
                                 else{
                                     echo "error sql";

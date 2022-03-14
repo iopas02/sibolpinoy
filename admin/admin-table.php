@@ -2,7 +2,7 @@
 <?php
 require "../connection.php";
 $disabled = "";
-$sql = "SELECT login.createdBy, login.lastLoginDate, login.dateAdded, profile.id, login.loginId, profile.firstName, profile.lastName, login.username, login.level, login.status FROM login INNER JOIN profile ON login.loginId = profile.loginId ";
+$sql = "SELECT adminlog.actionBy,adminlog.action, login.lastLoginDate, login.dateAdded, profile.id, login.loginId, profile.firstName, profile.lastName, login.username, login.level, login.status FROM login INNER JOIN profile ON login.loginId = profile.loginId INNER JOIN adminlog ON login.loginId = adminlog.loginId ";
 if($result = $conn->query($sql)){
     if($result->num_rows >= 1){
         while($row = $result->fetch_assoc()){  ?>
@@ -53,7 +53,7 @@ if($result = $conn->query($sql)){
                     ?>
                 </td>
                 <td>
-                        <?= $row["createdBy"] ?>
+                        <?= $row["actionBy"] ?>
                 </td>
                 <td class="text-center">
                     <button type="button" class="btn tooltip-test editBtn" title="EDIT" data-bs-toggle="modal" data-bs-target="#editAdmin" <?= $disabled ?>>

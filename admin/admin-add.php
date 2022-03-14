@@ -33,7 +33,7 @@
             //check username duplicate
             if($result= $conn->query($sql)){
                 if($result->num_rows == 0){     
-                    $sql = "INSERT INTO login (username, password, level, status, dateAdded, createdBy ) VALUES ('$username', '$passw', '$level', '$status' , '$date', '$by')";
+                    $sql = "INSERT INTO login (username, password, level, status, dateAdded ) VALUES ('$username', '$passw', '$level', '$status' , '$date')";
                     //adding login table
                     if($conn->query($sql)){
                         $sql = "SELECT loginId FROM login WHERE username = '$username'";
@@ -45,14 +45,17 @@
                                 $sql = "INSERT INTO profile (loginId, firstName, lastName, dateAdded) VALUES ($id, '$firstName', '$lastName', '$date')";
                                 //adding profile table
                                 if($conn->query($sql)){
-                                    header( "refresh:3;url=admin.con.php" );
-                                    echo "  <div class='loader_bg'>
-                                                <div class='welcome'>
-                                                    <h2>Successfully added! Redirecting to dashboard...</h2>
+                                    $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($id, 'create', '$by', '$date')";
+                                    if($conn->query($sql)){
+                                        header( "refresh:3;url=admin.con.php" );
+                                        echo "  <div class='loader_bg'>
+                                                    <div class='welcome'>
+                                                        <h2>Successfully added! Redirecting to dashboard...</h2>
+                                                    </div>
+                                                    <div class='loader mt-5'></div>
                                                 </div>
-                                                <div class='loader mt-5'></div>
-                                            </div>
-                                        ";
+                                            ";
+                                    }
                                 }
                                 else{
                                     echo "error profile add";
