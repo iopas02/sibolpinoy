@@ -115,6 +115,33 @@
                     </div>
                 </div>
 
+            <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
+                <div class="row col-md-12" hidden>
+                    <div class="col-md-2 m-2">
+                        <label for="user_id" class="form-label service_uniID">Ceated By</label>
+                        <input class="form-control" type="text" readonly id="user_id" name="user_id" value="<?=$id?>">
+                    </div>
+                    <div class="col-md-2 m-2">
+                        <label for="username" class="form-label">User Name</label>
+                        <input type="text" class="form-control" id="username" name="username" value="<?= $rusername ?>">
+                    </div>
+                    <div class="col-md-2 m-2">
+                        <label for="user_level" class="form-label">level</label>
+                        <input type="text" class="form-control" id="user_level" name="user_level" value="<?= $level ?>">
+                    </div>
+                    <div class="col-md-2 m-2">
+                        <label for="create_sub_cat_service" class="form-label">Action 1</label>
+                        <input type="text" class="form-control" id="create_sub_cat_service" name="create_sub_cat_service" value="create sub-category services">
+
+                        <label for="update_sub_cat_service" class="form-label">Action 2</label>
+                        <input type="text" class="form-control" id="update_sub_cat_service" name="update_sub_cat_service" value="update sub-category services">
+
+                        <label for="delete_sub_cat_service" class="form-label">Action 3</label>
+                        <input type="text" class="form-control" id="delete_sub_cat_service" name="delete_sub_cat_service" value="delete sub-category services">
+                    </div>
+                </div>
+            <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
+
 
                 <div class="row col-md-12">
                     <div class="col-md-6">
@@ -151,14 +178,17 @@
                                 <th>Category title</th>
                                 <th>Sub-Category title</th>
                                 <th>Status</th>
+                                <th hidden>Username</th>
+                                <th hidden>Action</th>
                                 <th>Date</th>
                                 <th>Update</th>
+                                <th>Log</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $sub_cat_reload = "SELECT tb1.sub_cat_uniID, tb1.service_uniID, tb1.category_uniID, tb2.service_title, tb3.category_title, tb1.sub_cat_title, tb1.status, tb1.date_upload, tb1.date_update FROM ((services_sub_category tb1 INNER JOIN services tb2 ON tb1.service_uniID = tb2.service_uniID) INNER JOIN services_category tb3 ON tb1.category_uniID = tb3.category_uniID)" ;
+                            $sub_cat_reload = "SELECT tb1.sub_cat_uniID, tb1.service_uniID, tb1.category_uniID, tb2.service_title, tb3.category_title, tb1.sub_cat_title, tb1.status, tb4.username, tb1.action, tb1.date_upload, tb1.date_update FROM (((services_sub_category tb1 INNER JOIN services tb2 ON tb1.service_uniID = tb2.service_uniID) INNER JOIN services_category tb3 ON tb1.category_uniID = tb3.category_uniID) INNER JOIN login tb4 ON tb1.loginId = tb4.loginId)" ;
 
                             $sub_cat_reload_result = mysqli_query($conn, $sub_cat_reload);
                             if(mysqli_num_rows($sub_cat_reload_result) > 0 ){
@@ -171,6 +201,8 @@
                                         <td><?= $sub_cat['service_title']?></td>
                                         <td><?= $sub_cat['category_title']?></td>
                                         <td><?= $sub_cat['sub_cat_title']?></td>
+                                        <td hidden><?= $sub_cat['username']?></td>
+                                        <td hidden><?= $sub_cat['action']?></td>
                                             <?= $status = $sub_cat['status'];
                                                 if($status == 'Active'){
                                                     $stats = "stats-orange";
@@ -188,6 +220,9 @@
                                         </td>
                                         <td><?= date('M d Y',  strtotime($sub_cat['date_upload'])) ?></td>
                                         <td><?= date('M d Y',  strtotime($sub_cat['date_update'])) ?></td>
+                                        <td>
+                                            <button type="button" class="border-0 bg-white p-2" data-bs-toggle="popover" title="Last Admin Log" data-bs-content="<?= $sub_cat['action']?> by <?= $sub_cat['username']?>"><i class="bi bi-exclamation-circle"></i></button>
+                                        </td>
                                         <td>
                                             <button type="button" class="stats-white tooltip-test read" title="READ" id="read">
                                                 <i class="bi bi-arrow-repeat"></i>
@@ -219,15 +254,18 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Sub_Cat_ID</th>
+                            <th>Sub_Cat_ID</th>
                                 <th hidden>service_ID</th>
                                 <th hidden>cataegory_ID</th>
                                 <th>Service Title</th>
                                 <th>Category title</th>
                                 <th>Sub-Category title</th>
                                 <th>Status</th>
+                                <th hidden>Username</th>
+                                <th hidden>Action</th>
                                 <th>Date</th>
                                 <th>Update</th>
+                                <th>Log</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
@@ -263,6 +301,29 @@
                                         <option value="Inactive">Inactive</option>
                                     </select>
                                 </div>
+
+                    <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
+                                <div class="row col-md-12" hidden>
+                                    <div class="col-md-2 m-2">
+                                        <label for="user_id" class="form-label service_uniID">Ceated By</label>
+                                        <input class="form-control" type="text" readonly id="user_id" name="user_id" value="<?=$id?>">
+                                    </div>
+                                    <div class="col-md-2 m-2">
+                                        <label for="username" class="form-label">User Name</label>
+                                        <input type="text" class="form-control" id="username" name="username" value="<?= $rusername ?>">
+                                    </div>
+                                    <div class="col-md-2 m-2">
+                                        <label for="user_level" class="form-label">level</label>
+                                        <input type="text" class="form-control" id="user_level" name="user_level" value="<?= $level ?>">
+                                    </div>
+                                    <div class="col-md-2 m-2">
+                                        <label for="update_sub_cat_stats" class="form-label">Action 1</label>
+                                        <input type="text" class="form-control" id="update_sub_cat_stats" name="update_sub_cat_stats" value="update sub-category status">
+
+                                    </div>
+                                </div>
+                    <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
+
                                 <div class="my-3 d-grid gap-2 d-md-flex justify-content-md-end">
                                     <button class="btn bg-coloured text-white" type="submit" name="sub_cat_update_stats" ><i class="bi bi-vector-pen"></i> Update Status</button>
                                 </div>
@@ -349,22 +410,10 @@
             })
         })
 
-        // $(document).ready(function(){
-        //     $('.imgs').on('click', function(){
-        //         $('#editImage').modal('show');
-
-        //         $tr = $(this).closest('tr');
-
-        //         var data= $tr.children("td").map(function(){
-        //             return $(this).text();
-        //         }).get();
-
-        //         console.log(data);
-        //         $('#sunid').val(data[0]);
-        //         $('#stitle').val(data[1]);
-        //     })
-        // })
-        
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
       
     </script>
     <!-- Footer and JS Script End Here -->
