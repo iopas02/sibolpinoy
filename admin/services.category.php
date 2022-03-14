@@ -103,6 +103,33 @@
                     </div>
                 </div>
 
+            <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
+                <div class="row col-md-12" hidden>
+                    <div class="col-md-2 m-2">
+                        <label for="user_id" class="form-label service_uniID">Ceated By</label>
+                        <input class="form-control" type="text" readonly id="user_id" name="user_id" value="<?=$id?>">
+                    </div>
+                    <div class="col-md-2 m-2">
+                        <label for="username" class="form-label">User Name</label>
+                        <input type="text" class="form-control" id="username" name="username" value="<?= $rusername ?>">
+                    </div>
+                    <div class="col-md-2 m-2">
+                        <label for="user_level" class="form-label">level</label>
+                        <input type="text" class="form-control" id="user_level" name="user_level" value="<?= $level ?>">
+                    </div>
+                    <div class="col-md-2 m-2">
+                        <label for="create_cat_service" class="form-label">Action 1</label>
+                        <input type="text" class="form-control" id="create_cat_service" name="create_cat_service" value="create category services">
+
+                        <label for="update_cat_service" class="form-label">Action 2</label>
+                        <input type="text" class="form-control" id="update_cat_service" name="update_cat_service" value="update category services">
+
+                        <label for="delete_cat_service" class="form-label">Action 3</label>
+                        <input type="text" class="form-control" id="delete_cat_service" name="delete_cat_service" value="delete category services">
+                    </div>
+                </div>
+            <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
+
 
                 <div class="row col-md-12">
                     <div class="col-md-6">
@@ -137,14 +164,17 @@
                                 <th>Service Title</th>
                                 <th>Category title</th>
                                 <th>Status</th>
+                                <th hidden>Username</th>
+                                <th hidden>Action</th>
                                 <th>Date</th>
                                 <th>Update</th>
+                                <th>Log</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $category_reload = "SELECT tb1.category_uniID, tb2.service_uniID, tb2.service_title, tb1.category_title, tb1.status, tb1.date_upload, tb1.date_update FROM services_category tb1 INNER JOIN services tb2 ON tb1.service_uniID = tb2.service_uniID";
+                            $category_reload = "SELECT tb1.category_uniID, tb2.service_uniID, tb2.service_title, tb1.category_title, tb1.status, tb3.username, tb1.action, tb1.date_upload, tb1.date_update FROM ((services_category tb1 INNER JOIN services tb2 ON tb1.service_uniID = tb2.service_uniID) INNER JOIN login tb3 ON tb1.loginId = tb3.loginId)";
                             $category_reload_result = mysqli_query($conn, $category_reload);
                             if(mysqli_num_rows($category_reload_result) > 0 ){
                                 foreach($category_reload_result as $category){
@@ -169,8 +199,13 @@
                                             </button>
                                             
                                         </td>
+                                        <td hidden><?= $category['username']?></td>
+                                        <td hidden><?= $category['action']?></td>
                                         <td><?= date('M d Y',  strtotime($category['date_upload'])) ?></td>
                                         <td><?= date('M d Y',  strtotime($category['date_update'])) ?></td>
+                                        <td>
+                                            <button type="button" class="border-0 bg-white p-2" data-bs-toggle="popover" title="Last Admin Log" data-bs-content="<?= $category['action']?> by <?= $category['username']?>"><i class="bi bi-exclamation-circle"></i></button>
+                                        </td>
                                         <td>
                                             <button type="button" class="stats-white tooltip-test read" title="READ" id="read">
                                                 <i class="bi bi-arrow-repeat"></i>
@@ -207,8 +242,11 @@
                                 <th>Service Title</th>
                                 <th>Category title</th>
                                 <th>Status</th>
+                                <th hidden>Username</th>
+                                <th hidden>Action</th>
                                 <th>Date</th>
                                 <th>Update</th>
+                                <th>Log</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
@@ -244,6 +282,29 @@
                                         <option value="Inactive">Inactive</option>
                                     </select>
                                 </div>
+
+                <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
+                                <div class="row col-md-12" >
+                                    <div class="col-md-2 m-2">
+                                        <label for="user_id" class="form-label service_uniID">Ceated By</label>
+                                        <input class="form-control" type="text" readonly id="user_id" name="user_id" value="<?=$id?>">
+                                    </div>
+                                    <div class="col-md-2 m-2">
+                                        <label for="username" class="form-label">User Name</label>
+                                        <input type="text" class="form-control" id="username" name="username" value="<?= $rusername ?>">
+                                    </div>
+                                    <div class="col-md-2 m-2">
+                                        <label for="user_level" class="form-label">level</label>
+                                        <input type="text" class="form-control" id="user_level" name="user_level" value="<?= $level ?>">
+                                    </div>
+                                    <div class="col-md-2 m-2">
+                                        <label for="update_stats" class="form-label">Action 1</label>
+                                        <input type="text" class="form-control" id="update_stats" name="update_stats" value="update category status">
+
+                                    </div>
+                                </div>
+            <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
+
                                 <div class="my-3 d-grid gap-2 d-md-flex justify-content-md-end">
                                     <button class="btn bg-coloured text-white" type="submit" name="cat_update_stats" ><i class="bi bi-vector-pen"></i> Update Status</button>
                                 </div>
@@ -328,22 +389,10 @@
             })
         })
 
-        // $(document).ready(function(){
-        //     $('.imgs').on('click', function(){
-        //         $('#editImage').modal('show');
-
-        //         $tr = $(this).closest('tr');
-
-        //         var data= $tr.children("td").map(function(){
-        //             return $(this).text();
-        //         }).get();
-
-        //         console.log(data);
-        //         $('#sunid').val(data[0]);
-        //         $('#stitle').val(data[1]);
-        //     })
-        // })
-        
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
       
     </script>
     <!-- Footer and JS Script End Here -->

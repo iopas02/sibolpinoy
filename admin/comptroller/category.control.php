@@ -10,6 +10,12 @@ if(isset($_POST['create_category'])){
         $service_uniID = mysqli_real_escape_string($conn, $_POST['service_uniID']);
         $category_title = mysqli_real_escape_string($conn, $_POST['category_title']);
         $status = mysqli_real_escape_string($conn, $_POST['status']);
+
+        $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
+        $username = mysqli_real_escape_string($conn, $_POST['username']);
+        $user_level = mysqli_real_escape_string($conn, $_POST['user_level']);
+        $create_cat_service = mysqli_real_escape_string($conn, $_POST['create_cat_service']);
+
         $date = date("Y-m-d H:i:s");
 
         $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
@@ -34,7 +40,7 @@ if(isset($_POST['create_category'])){
                 header("Location: ../services.category.php?error=category_uniID_is_already_been_exist");
                 exit();
             }else {
-                $insert_category = "INSERT INTO `services_category`(`category_uniID`, `service_uniID`, `category_title`, `status`, `date_upload`, `date_update`) VALUES ('$cat_uniID','$service_uniID', '$category_title','$status', '$date', '$date')";
+                $insert_category = "INSERT INTO `services_category`(`category_uniID`, `service_uniID`, `category_title`, `status`, `loginId`, `action`, `date_upload`, `date_update`) VALUES ('$cat_uniID','$service_uniID', '$category_title','$status', '$user_id', '$create_cat_service', '$date', '$date')";
 
                 $insert_category_result = mysqli_query($conn, $insert_category);
 
@@ -42,8 +48,17 @@ if(isset($_POST['create_category'])){
                     header("Location: ../services.category.php?error=sql_error");
                     exit();
                 }else{
-                    header("Location: ../services.category.php?success=new_services_category_upload");
-                    exit();
+                    
+                    $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$user_id', '$create_cat_service','$username', '$date')";
+
+                    $create_adminlog_result = mysqli_query($conn, $create_adminlog);
+                    if(!$create_adminlog_result){
+                        header("Location: ../services.tools.php?error=adminlog_error");
+                        exit(); 
+                    }else{
+                        header("Location: ../services.category.php?success=new_services_category_upload");
+                        exit();
+                    }
                 }
             }
         }
@@ -63,7 +78,13 @@ if(isset($_POST['edit_category'])){
 
         $category_uniID = mysqli_real_escape_string($conn, $_POST['category_uniID']);
         $category_title = mysqli_real_escape_string($conn, $_POST['category_title']);
-        $date = date("Y-m-d H:i:s");
+
+        $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
+        $username = mysqli_real_escape_string($conn, $_POST['username']);
+        $user_level = mysqli_real_escape_string($conn, $_POST['user_level']);
+        $update_cat_service = mysqli_real_escape_string($conn, $_POST['update_cat_service']);
+
+        $update_date = date("Y-m-d H:i:s");
 
         $cat_uniID_query = "SELECT `category_uniID` FROM `services_category` WHERE `category_uniID`= ?";
         $stmt = mysqli_stmt_init($conn);
@@ -78,7 +99,7 @@ if(isset($_POST['edit_category'])){
 
             if($resultcheck > 0) {
 
-                $cat_update_query = "UPDATE `services_category` SET `category_title`='$category_title',`date_update`=' $date ' WHERE `category_uniID`='$category_uniID ' ";
+                $cat_update_query = "UPDATE `services_category` SET `category_title`='$category_title', `loginId`='$user_id',`action`='$update_cat_service', `date_update`='$update_date' WHERE `category_uniID`='$category_uniID' ";
 
                 $cat_update_query_result = mysqli_query($conn, $cat_update_query);
 
@@ -86,8 +107,18 @@ if(isset($_POST['edit_category'])){
                     header("Location: ../services.category.php?error=sql_error");
                     exit();
                 }else{
-                    header("Location: ../services.category.php?success=category_update_successfully");
-                    exit();
+                    
+                    $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$user_id', '$update_cat_service','$username', '$update_date')";
+
+                    $create_adminlog_result = mysqli_query($conn, $create_adminlog);
+                    if(!$create_adminlog_result){
+                        header("Location: ../services.tools.php?error=adminlog_error");
+                        exit(); 
+                    }else{
+                        header("Location: ../services.category.php?success=category_update_successfully");
+                        exit();
+                    }
+                    
                 }
                 
             }else{
@@ -109,8 +140,13 @@ if(isset($_POST['cat_update_stats'])){
 
     $cat_uniID = mysqli_real_escape_string($conn, $_POST['cat_uniID']);
     $stats = mysqli_real_escape_string($conn, $_POST['stats']);
+
+    $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $user_level = mysqli_real_escape_string($conn, $_POST['user_level']);
+    $update_status = mysqli_real_escape_string($conn, $_POST['update_stats']);
     
-    $date = date("Y-m-d H:i:s");
+    $update_date = date("Y-m-d H:i:s");
 
     $cat_uniID_query = "SELECT `category_uniID` FROM `services_category` WHERE `category_uniID`= ?";
     $stmt = mysqli_stmt_init($conn);
@@ -125,18 +161,26 @@ if(isset($_POST['cat_update_stats'])){
 
         if($resultcheck > 0) {
 
-            $update_stats = "UPDATE `services_category` SET `status`='$stats', `date_update`='$date' WHERE `category_uniID`='$cat_uniID' ";
+            $update_stats = "UPDATE `services_category` SET `status`='$stats', `loginId`='$user_id',`action`='$update_status', `date_update`='$update_date' WHERE `category_uniID`='$cat_uniID' ";
             $update_query_result = mysqli_query($conn,$update_stats);
 
             if($update_query_result){
 
-                $update_sub_catstats = "UPDATE `services_sub_category` SET `status`='$stats', `date_update`='$date' WHERE `category_uniID`='$cat_uniID' ";
+                $update_sub_catstats = "UPDATE `services_sub_category` SET `status`='$stats', `loginId`='$user_id', `action`='$update_status', `date_update`='$update_date' WHERE `category_uniID`='$cat_uniID' ";
                 $update_sub_catquery_result = mysqli_query($conn, $update_sub_catstats);
 
                 if($update_sub_catquery_result){
                     
-                    header("Location: ../services.category.php?success=update_status_successfully");
-                    exit();
+                    $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$user_id', '$update_status','$username', '$update_date')";
+
+                    $create_adminlog_result = mysqli_query($conn, $create_adminlog);
+                    if(!$create_adminlog_result){
+                        header("Location: ../services.tools.php?error=adminlog_error");
+                        exit(); 
+                    }else{
+                        header("Location: ../services.category.php?success=update_status_successfully");
+                        exit();
+                    }
 
                 }else{
                     header("Location: ../services.category.php?error=sub_cat_error");
