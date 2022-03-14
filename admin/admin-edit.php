@@ -42,7 +42,7 @@
                                 $sql = "UPDATE profile SET firstName = '$firstName', lastName = '$lastName' WHERE loginId = '$id'";
                                 //adding login table
                                 if($conn->query($sql)){
-                                    $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($id, 'update', '$by', '$date')";
+                                    $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($id, 'updated account', '$by', '$date')";
                                     if($conn->query($sql)){
                                         header( "refresh:3;url=admin.con.php" );
                                         echo "  <div class='loader_bg'>

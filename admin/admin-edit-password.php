@@ -11,7 +11,7 @@
             $by = $_SESSION["username"];
             date_default_timezone_set('Asia/Manila');
             $date = date("Y-m-d H:i:s");
-            $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($id, 'update', '$by', '$date')";
+            $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($id, 'updated account', '$by', '$date')";
             if($conn->query($sql)){
                 header( "refresh:3;url=admin.con.php" );
                 echo "  <div class='loader_bg'>

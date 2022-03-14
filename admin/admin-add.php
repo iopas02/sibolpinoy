@@ -45,7 +45,7 @@
                                 $sql = "INSERT INTO profile (loginId, firstName, lastName, dateAdded) VALUES ($id, '$firstName', '$lastName', '$date')";
                                 //adding profile table
                                 if($conn->query($sql)){
-                                    $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($id, 'create', '$by', '$date')";
+                                    $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($id, 'created account', '$by', '$date')";
                                     if($conn->query($sql)){
                                         header( "refresh:3;url=admin.con.php" );
                                         echo "  <div class='loader_bg'>

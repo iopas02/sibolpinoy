@@ -28,7 +28,7 @@
                     $by = $_SESSION["username"];
                     date_default_timezone_set('Asia/Manila');
                     $date = date("Y-m-d H:i:s");
-                    $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($loginId, 'delete', '$by', '$date')";
+                    $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($loginId, 'deleted account', '$by', '$date')";
                     if($conn->query($sql)){
                         header( "refresh:3;url=admin.con.php" );
                         echo "  <div class='loader_bg'>

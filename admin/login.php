@@ -33,7 +33,7 @@ session_start();
                                         $by = $_SESSION["username"];
                                         $sql = "UPDATE login SET lastLoginDate = '$date' WHERE loginId = $id";
                                         if($conn->query($sql)){
-                                            $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($id, 'login', '$by', '$date')";
+                                            $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($id, 'logged in', '$by', '$date')";
                                             if($conn->query($sql)){
                                                 //Set Refresh header using PHP.
                                                 //header( "refresh:3;url=landing.php" );
