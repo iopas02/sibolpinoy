@@ -1,7 +1,8 @@
 <?php
     require "../connection.php";
     require "layout.part/admin.header.php";
-
+    date_default_timezone_set('Asia/Manila');
+    $date = date("Y-m-d H:i:s");
     if(isset($_POST["update"])){
         $username = $_POST["username"];
         if(!isset($_POST["firstName"]) || $_POST["firstName"] == null){
@@ -26,7 +27,26 @@
                     if($conn->query($sql)){
                         $_SESSION["firstName"] = $firstName;
                         $_SESSION["lastName"] = $lastName;
-                        header( "location: landing.php" );  
+                        
+                        $by = $_SESSION["username"];
+                        $sql = "UPDATE profile SET firstName = '$firstName', lastName = '$lastName' WHERE loginId = '$id'";
+                        //adding login table
+                        if($conn->query($sql)){
+                            $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($id, 'update', '$by', '$date')";
+                            if($conn->query($sql)){
+                                header( "refresh:3;url=admin.con.php" );
+                                echo "  <div class='loader_bg'>
+                                            <div class='welcome'>
+                                                <h2>Successfully Updated User! Redirecting to dashboard...</h2>
+                                            </div>
+                                            <div class='loader mt-5'></div>
+                                        </div>
+                                    ";     
+                            }
+                        }
+                        else{
+                            echo "error sql";
+                        } 
                     }
                     else{
                         echo "error sql";
@@ -42,7 +62,25 @@
                                 $_SESSION["firstName"] = $firstName;
                                 $_SESSION["lastName"] = $lastName;
                                 $_SESSION["username"] = $username;
-                                header( "location: landing.php" );
+                                $by = $_SESSION["username"];
+                                $sql = "UPDATE profile SET firstName = '$firstName', lastName = '$lastName' WHERE loginId = '$id'";
+                                //adding login table
+                                if($conn->query($sql)){
+                                    $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($id, 'update', '$by', '$date')";
+                                    if($conn->query($sql)){
+                                        header( "refresh:3;url=admin.con.php" );
+                                        echo "  <div class='loader_bg'>
+                                                    <div class='welcome'>
+                                                        <h2>Successfully Updated User! Redirecting to dashboard...</h2>
+                                                    </div>
+                                                    <div class='loader mt-5'></div>
+                                                </div>
+                                            ";     
+                                    }
+                                }
+                                else{
+                                    echo "error sql";
+                                }
                             }
                             else{
                                 echo "sql error";
