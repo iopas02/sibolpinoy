@@ -38,10 +38,10 @@ if($result = $conn->query($sql)){
                     <?php
                         $id = $row["loginId"];
                         if ($row["status"] == "active"){
-                            echo "<button type='button' class='btn btn-success p-2 m-0 col-md-8 statusButton' $disabled><small>Active</small></button>";
+                            echo "<button type='button' class='btn btn-success p-2 m-0 col-md-10 statusButton' $disabled><small>Active</small></button>";
                         }
                         else if($row["status"] == "inactive"){
-                            echo "<button type='button' class='btn btn-danger p-2 m-0 col-md-8 statusButton' $disabled><small>Inactive</small></button>";
+                            echo "<button type='button' class='btn btn-danger p-2 m-0 col-md-10 statusButton' $disabled><small>Inactive</small></button>";
                         }
                     ?>
                 </td>
