@@ -332,7 +332,6 @@
                                     <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                                     <!-- Edit -->
-                                    
                                     <button type="button" class="btn btn-primary">Edit</button> 
                                     <!-- Add -->
                                     <button type="button" class="btn btn-success">Add</button> 
