@@ -32,7 +32,7 @@
         ?>
         <!-- THIS IS FOR SUB NAV-BAR FOR SERVICES TOOLS END HERE -->
     
-        <!-- FOURTH GRAPH CARDS START HERE -->
+        <!-- SERVICES CARDS START HERE -->
         <div class="row col-md-12">
             <?php
                 $services_reload_query = "SELECT * FROM `services` ";
@@ -83,7 +83,16 @@
                                                     if(mysqli_num_rows($service_category_query_result) > 0 ){
                                                         foreach($service_category_query_result as $category_services){ 
                                                             ?>
-                                                                <div class="accrodion-item mb-1">
+                                                                <div class="accrodion-item mb-1" 
+                                                                <?php
+                                                                    if($category_services['status'] != 'Active'){
+                                                                        echo 'hidden';
+                                                                    }else{
+                                                                        echo '';
+                                                                    }
+                                                                ?>
+                                                                
+                                                                >
                                                                     <h5 class="accordion-header second-header" id="<?=$category_services['category_title'] ?>">
                                                                         <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#compliance" aris-expanded="true">
                                                                             <?=$category_services['category_title'] ?>
@@ -137,61 +146,8 @@
            
 
         </div>
-        <!-- FOURTH GRAPH CARDS END HERE -->
+        <!-- SERVICES CARDS END HERE -->
 
-
-        <!-- Modal Start Here -->
-        <!-- <div class="modal fade" id="ComplianceandStandards" aria-hidden="true" aria-labelledby="ComplianceandStandardsLabel" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="ComplianceandStandardsLabel">Compliance and Standards list</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <ul>
-                        <li style="list-style-type: none;"><i class="bi bi-arrow-return-right"></i> Automotive Quality Management System Standard (IATF 16949:2016)</li>
-                        <li style="list-style-type: none;"><i class="bi bi-arrow-return-right"></i>
-                        Energy Management System (ISO 50001:2011)</li>
-                        <li style="list-style-type: none;"><i class="bi bi-arrow-return-right"></i>
-                        Environmental Management System (ISO 14001:2015)</li>
-                        <li style="list-style-type: none;"><i class="bi bi-arrow-return-right"></i>
-                        Food Safety Management System (ISO 22000:2005) & HACCP</li>
-                        <li style="list-style-type: none;"><i class="bi bi-arrow-return-right"></i>
-                        Food Safety Systems Certification (FSSC 22000)</li>
-                        <li style="list-style-type: none;"><i class="bi bi-arrow-return-right"></i>
-                        Information Security Management System (ISO 27001:2013)</li>
-                        <li style="list-style-type: none;"><i class="bi bi-arrow-return-right"></i>
-                        Occupational Health & Safety Management System (OHSAS 18001)/ISO 45001:2016)</li>
-                        <li style="list-style-type: none;"><i class="bi bi-arrow-return-right"></i>
-                        Quality Management System (ISO 9001:2015)</li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#ComplianceandStandardsToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
-                </div>
-                </div>
-            </div>
-        </div>
-            
-        <div class="modal fade" id="ComplianceandStandardsToggle2" aria-hidden="true" aria-labelledby="examplComplianceandStandardsLabel2" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="examplComplianceandStandardsLabel2">Modal 2</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Hide this modal and show the first with the button below.
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#ComplianceandStandards" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>
-                </div>
-                </div>
-            </div>
-        </div> -->
-
-        <!-- Modal End Here -->
 
     </main>
 
