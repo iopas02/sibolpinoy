@@ -11,6 +11,12 @@ if(isset($_POST['create_services'])){
         $service_title = mysqli_real_escape_string($conn, $_POST['service_title']);
         $status = mysqli_real_escape_string($conn, $_POST['status']);
         $service_desc = mysqli_real_escape_string($conn, $_POST['service_desc']);
+
+        $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
+        $username = mysqli_real_escape_string($conn, $_POST['username']);
+        $user_level = mysqli_real_escape_string($conn, $_POST['user_level']);
+        $create_services = mysqli_real_escape_string($conn, $_POST['create_service']);
+
         $date = date("Y-m-d H:i:s");
 
         // print_r($_FILES['image']);
@@ -50,15 +56,24 @@ if(isset($_POST['create_services'])){
                     $year = date("Y");
                     $uniID = $year."-".$random_num;
 
-                    $insert_services = "INSERT INTO `services`(`service_uniID`, `service_title`, `image`, `service_desc`, `status`, `date_upload`, `date_update`) VALUES ('$uniID', '$service_title','$new_image_name','$service_desc', '$status', '$date', '$date')";
+                    $insert_services = "INSERT INTO `services`(`service_uniID`, `service_title`, `image`, `service_desc`, `status`, `loginId`, `action`, `date_upload`, `date_update`) VALUES ('$uniID', '$service_title', '$new_image_name', '$service_desc', '$status', '$user_id', '$create_services', '$date', '$date')";
 
                     $insert_services_result = mysqli_query($conn, $insert_services );
                     if(!$insert_services_result){
                         header("Location: ../services.tools.php?error=sql_error");
                         exit();
                     }else{
-                        header("Location: ../services.tools.php?success=new_services_upload");
-                        exit();
+                        $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$user_id', '$create_services','$username', '$date')";
+
+                        $create_adminlog_result = mysqli_query($conn, $create_adminlog);
+                        if(!$create_adminlog_result){
+                            header("Location: ../services.tools.php?error=adminlog_error");
+                            exit(); 
+                        }else{
+                            header("Location: ../services.tools.php?success=new_created_services_successfully");
+                            exit();
+                        }
+                        
                     }
 
                 }else{
@@ -85,6 +100,11 @@ if(isset($_POST['edit_services'])){
         $update_title = mysqli_real_escape_string($conn, $_POST['service_title']);
         $update_desc = mysqli_real_escape_string($conn, $_POST['service_desc']);
 
+        $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
+        $username = mysqli_real_escape_string($conn, $_POST['username']);
+        $user_level = mysqli_real_escape_string($conn, $_POST['user_level']);
+        $update_service = mysqli_real_escape_string($conn, $_POST['update_service']);
+
         $update_date = date("Y-m-d H:i:s");
 
         $service_query = "SELECT `service_uniID` FROM `services` WHERE `service_uniID`=?";
@@ -99,13 +119,23 @@ if(isset($_POST['edit_services'])){
             $resultcheck = mysqli_stmt_num_rows($stmt);
             if($resultcheck > 0) {
                 
-                $update_query = "UPDATE `services` SET `service_title`='$update_title', `service_desc`='$update_desc' WHERE `service_uniID`='$uniID' ";
+                $update_query = "UPDATE `services` SET `service_title`='$update_title', `service_desc`='$update_desc', `loginId`='$user_id',`action`='$update_service', `date_update`='$update_date' WHERE `service_uniID`='$uniID' ";
 
                 $update_query_result = mysqli_query($conn, $update_query);
 
                 if($update_query_result){
-                    header("Location: ../services.tools.php?success=update_services_successfully");
-                    exit();
+
+                    $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$user_id', '$update_service','$username', '$update_date')";
+
+                    $create_adminlog_result = mysqli_query($conn, $create_adminlog);
+                    if(!$create_adminlog_result){
+                        header("Location: ../services.tools.php?error=adminlog_error");
+                        exit(); 
+                    }else{
+                        header("Location: ../services.tools.php?success=services_update_successfully");
+                        exit();
+                    }
+
                 }else{
                     header("Location: ../services.tools.php?error=sql_error");
                     exit();
@@ -130,7 +160,13 @@ if(isset($_POST['update_stats'])){
     
     $uniID = mysqli_real_escape_string($conn, $_POST['uniID']);
     $status = mysqli_real_escape_string($conn, $_POST['stats']);
-    $date = date("Y-m-d H:i:s");
+
+    $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $user_level = mysqli_real_escape_string($conn, $_POST['user_level']);
+    $status_update = mysqli_real_escape_string($conn, $_POST['status_update']);
+
+    $update_date = date("Y-m-d H:i:s");
 
     $service_query = "SELECT `service_uniID` FROM `services` WHERE `service_uniID`=?";
     $stmt = mysqli_stmt_init($conn);
@@ -144,23 +180,31 @@ if(isset($_POST['update_stats'])){
         $resultcheck = mysqli_stmt_num_rows($stmt);
         if($resultcheck > 0) {
             
-            $update_stats = "UPDATE `services` SET `status`='$status', `date_update`='$date' WHERE `service_uniID`='$uniID' ";
+            $update_stats = "UPDATE `services` SET `status`='$status', `loginId`='$user_id', `action`='$status_update',  `date_update`='$update_date' WHERE `service_uniID`='$uniID' ";
             $update_query_result = mysqli_query($conn,$update_stats);
 
             if($update_query_result){
                 
-                $update_cat_query = "UPDATE `services_category` SET `status`='$status', `date_update`='$date' WHERE `service_uniID`='$uniID' ";
+                $update_cat_query = "UPDATE `services_category` SET `status`='$status', `loginId`='$user_id', `action`='$status_update', `date_update`='$update_date' WHERE `service_uniID`='$uniID' ";
                 $update_cat_query_result = mysqli_query($conn, $update_cat_query);
                 
                 if($update_cat_query_result){
                     
-                    $update_sub_cat_query = "UPDATE `services_sub_category` SET `status`='$status', `date_update`='$date' WHERE `service_uniID`='$uniID' ";
+                    $update_sub_cat_query = "UPDATE `services_sub_category` SET `status`='$status', `loginId`='$user_id', `action`='$status_update', `date_update`='$update_date' WHERE `service_uniID`='$uniID' ";
                     $update_sub_cat_query_result = mysqli_query($conn, $update_sub_cat_query);
 
                     if($update_sub_cat_query_result){
 
-                        header("Location: ../services.tools.php?success=status_update_successfully");
-                        exit();
+                        $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$user_id', '$status_update','$username', '$update_date')";
+
+                        $create_adminlog_result = mysqli_query($conn, $create_adminlog);
+                        if(!$create_adminlog_result){
+                            header("Location: ../services.tools.php?error=adminlog_error");
+                            exit(); 
+                        }else{
+                            header("Location: ../services.tools.php?success=status_update_successfully");
+                            exit();
+                        }
 
                     }else{
                         header("Location: ../services.tools.php?error=sub_category_error");
@@ -188,7 +232,13 @@ if(isset($_POST['update_image'])){
     date_default_timezone_set("Asia/Manila");
     
     $uniID = mysqli_real_escape_string($conn, $_POST['sunid']);
-    $date = date("Y-m-d H:i:s");
+
+    $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $user_level = mysqli_real_escape_string($conn, $_POST['user_level']);
+    $image_update = mysqli_real_escape_string($conn, $_POST['image_update']);
+
+    $update_date = date("Y-m-d H:i:s");
 
     $image_name = $_FILES['uimg']['name'];
     $img_size = $_FILES['uimg']['size'];
@@ -217,13 +267,24 @@ if(isset($_POST['update_image'])){
                 $new_image_name = uniqid("IMG-", true).'.'.$image_ex_loc;
                 $image_upload_path = '../upload/'.$new_image_name ;
                 move_uploaded_file($tmp_name, $image_upload_path );
-
-                $update_image = "UPDATE `services` SET `image`='$new_image_name',`date_update`='$date' WHERE `service_uniID`='$uniID' ";
+ 
+                $update_image = "UPDATE `services` SET `image`='$new_image_name', `loginId`='$user_id', `action`='$image_update', `date_update`='$update_date' WHERE `service_uniID`='$uniID' ";
+                
                 $update_query_result = mysqli_query($conn, $update_image);
 
                 if($update_query_result){
-                    header("Location: ../services.tools.php?success=update_image_successfully");
-                    exit();
+
+                    $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$user_id', '$image_update','$username', '$update_date')";
+
+                    $create_adminlog_result = mysqli_query($conn, $create_adminlog);
+                    if(!$create_adminlog_result){
+                        header("Location: ../services.tools.php?error=adminlog_error");
+                        exit(); 
+                    }else{
+                        header("Location: ../services.tools.php?success=service_image_update_successfully");
+                        exit();
+                    }
+
                 }else{
                     header("Location: ../services.tools.php?error=sql_error");
                     exit();

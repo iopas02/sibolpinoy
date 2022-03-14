@@ -60,17 +60,34 @@
                             <textarea class="form-control" id="service_desc" name="service_desc" rows="5" placeholder="Type services Description"></textarea>
                         </div>
                     </div>
+
+                <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
                     <div class="row col-md-12" hidden>
                         <div class="col-md-2 m-2">
-                            <label for="service_uniID" class="form-label service_uniID">Ceated By</label>
-                            <input class="form-control" type="text" readonly id="service_uniID" name="service_uniID" value="<?=$id?>">
+                            <label for="user_id" class="form-label service_uniID">Ceated By</label>
+                            <input class="form-control" type="text" readonly id="user_id" name="user_id" value="<?=$id?>">
                         </div>
-                
                         <div class="col-md-2 m-2">
-                            <label for="status" class="form-label">level</label>
-                            <input type="text" class="form-control" id="service_title" name="service_title" value="<?= $level ?>">
+                            <label for="username" class="form-label">User Name</label>
+                            <input type="text" class="form-control" id="username" name="username" value="<?= $rusername ?>">
+                        </div>
+                        <div class="col-md-2 m-2">
+                            <label for="user_level" class="form-label">level</label>
+                            <input type="text" class="form-control" id="user_level" name="user_level" value="<?= $level ?>">
+                        </div>
+                        <div class="col-md-2 m-2">
+                            <label for="create_services" class="form-label">Action 1</label>
+                            <input type="text" class="form-control" id="create_services" name="create_service" value="create services">
+
+                            <label for="update_services" class="form-label">Action 2</label>
+                            <input type="text" class="form-control" id="update_services" name="update_service" value="update services">
+
+                            <label for="delete_services" class="form-label">Action 3</label>
+                            <input type="text" class="form-control" id="delete_services" name="delete_service" value="delete services">
                         </div>
                     </div>
+                 <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
+
                     <div class="row col-md-12">
                         <div class="col-md-6">
                             <button type="submit" name="create_services" class="btn bg-coloured text-white my-2" >
@@ -103,14 +120,17 @@
                                 <th>Image</th>
                                 <th>Description</th>
                                 <th>Status</th>
+                                <th hidden>Username</th>
+                                <th hidden>Action</th>
                                 <th>Date</th>
                                 <th>Updated</th>
+                                <th>Log</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $Service_reload = "SELECT * FROM `services` ";
+                            $Service_reload = "SELECT tb1.service_uniID, tb1.service_title, tb1.image, tb1.service_desc, tb1.status, tb2.username, tb1.action, tb1.date_upload, tb1.date_update FROM services tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId";
                             $Service_reload_result = mysqli_query($conn, $Service_reload);
                             if(mysqli_num_rows($Service_reload_result) > 0 ){
                                 foreach($Service_reload_result as $services){
@@ -140,8 +160,13 @@
                                             </button>
                                             
                                         </td>
+                                        <td hidden><?= $services['username']?></td>
+                                        <td hidden><?= $services['action']?></td>
                                         <td><?= date('M d Y',  strtotime($services['date_upload'])) ?></td>
                                         <td><?= date('M d Y',  strtotime($services['date_update'])) ?></td>
+                                        <td>
+                                        <button type="button" class="border-0 bg-white p-2" data-bs-toggle="popover" title="Last Admin Log" data-bs-content="<?= $services['action']?> by <?= $services['username']?>"><i class="bi bi-exclamation-circle"></i></button>
+                                        </td>
                                         <td>
                                             <button type="button" class="stats-white tooltip-test read" title="READ" id="read">
                                                 <i class="bi bi-arrow-repeat"></i>
@@ -178,8 +203,11 @@
                                 <th>Image</th>
                                 <th>Description</th>
                                 <th>Status</th>
+                                <th hidden>Username</th>
+                                <th hidden>Action</th>
                                 <th>Date</th>
                                 <th>Updated</th>
+                                <th>Log</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
@@ -215,6 +243,30 @@
                                         <option value="Inactive">Inactive</option>
                                     </select>
                                 </div>
+
+                    <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
+                                <div class="row col-md-12" hidden>
+                                    <div class="col-md-2 m-2">
+                                        <label for="user_id" class="form-label service_uniID">User ID</label>
+                                        <input class="form-control" type="text" readonly id="user_id" name="user_id" value="<?=$id?>">
+                                    </div>
+                                    <div class="col-md-2 m-2">
+                                        <label for="username" class="form-label">User Name</label>
+                                        <input type="text" class="form-control" id="username" name="username" value="<?= $rusername ?>">
+                                    </div>
+                                    <div class="col-md-2 m-2">
+                                        <label for="user_level" class="form-label">level</label>
+                                        <input type="text" class="form-control" id="user_level" name="user_level" value="<?= $level ?>">
+                                    </div>
+                                    <div class="col-md-2 m-2">
+                                        <label for="status_update" class="form-label">Action 1</label>
+                                        <input type="text" class="form-control" id="status_update" name="status_update" value="update service status">
+
+                                    </div>
+                                </div>
+                    <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
+
+
                                 <div class="my-3 d-grid gap-2 d-md-flex justify-content-md-end">
                                     <button class="btn bg-coloured text-white" type="submit" name="update_stats" ><i class="bi bi-vector-pen"></i> Update Status</button>
                                 </div>
@@ -246,6 +298,27 @@
                                 <label for="uimg" class="col-form-label">Update Image</label>
                                 <input type="file" class="form-control" name="uimg" id="uimg">
                             </div>
+                            
+                    <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
+                            <div class="row col-md-12" hidden>
+                                <div class="col-md-2 m-2">
+                                    <label for="user_id" class="form-label service_uniID">User ID</label>
+                                    <input class="form-control" type="text" readonly id="user_id" name="user_id" value="<?=$id?>">
+                                </div>
+                                <div class="col-md-2 m-2">
+                                    <label for="username" class="form-label">User Name</label>
+                                    <input type="text" class="form-control" id="username" name="username" value="<?= $rusername ?>">
+                                </div>
+                                <div class="col-md-2 m-2">
+                                    <label for="user_level" class="form-label">level</label>
+                                    <input type="text" class="form-control" id="user_level" name="user_level" value="<?= $level ?>">
+                                </div>
+                                <div class="col-md-2 m-2">
+                                    <label for="image_update" class="form-label">Action 1</label>
+                                    <input type="text" class="form-control" id="image_update" name="image_update" value="update service image">
+                                </div>
+                            </div>
+                    <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
                             <div class="my-3 d-grid gap-2 d-md-flex justify-content-md-end">
                                 <button class="btn bg-coloured text-white" type="submit" name="update_image" ><i class="bi bi-vector-pen"></i> Update Image</button>
                             </div>
@@ -315,6 +388,10 @@
             })
         })
         
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
       
     </script>
     <!-- Footer and JS Script End Here -->
