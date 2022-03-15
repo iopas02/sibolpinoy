@@ -1,5 +1,15 @@
-
-
+<?php
+    $stats = 'New';
+    $count_inbox = "SELECT * FROM `email` WHERE `status`='$stats' ";
+    $count_inbox_run = mysqli_query($conn, $count_inbox);
+    $result_count = mysqli_num_rows($count_inbox_run);
+    
+    if($result_count > 0){
+        $add_class = '';
+    }else{
+        $add_class = 'visually-hidden';
+    }
+?>
 <div class="offcanvas offcanvas-start sidebar-nav bg-coloured" id="sidebar">
     <div class="offcanvas-body p-0">
 
@@ -46,8 +56,8 @@
                     <a class="nav-link px-3 text-light text-normal position-relative" data-bs-toggle="collapse" href="#email">
                         <span class="me-2"><i class="bi bi-archive"></i></span>
                             <span>Email 
-                                <span class="position-absolute top-0 stranslate-middle badge rounded-pill bg-danger visually-hidden" style="width: 25px; height: 25px;">
-                                <p class="mt-1"> 99+ </p>
+                                <span class="position-absolute top-0 stranslate-middle badge rounded-pill bg-danger <?= $add_class ?>" style="width: 25px; height: 25px;">
+                                <p class="mt-1"><?= $result_count ?></p>
                                 <span class="visually-hidden">unread messages</span>
                             </span>
                         </span>
@@ -73,9 +83,13 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="inbox.php" class="nav-link px-3 text-normal">
+                                <a href="inbox.php" class="nav-link px-3 text-normal position-relative">
                                     <span class="me-2"><i class="bi bi-envelope"></i></span>
-                                    <span>Inbox</span>
+                                    <span>Inbox
+                                        <span class="position-absolute top-0 stranslate-middle badge bg-danger <?= $add_class ?>"  style="width: 20px; height: 15px;">
+                                        <p class=""><?= $result_count ?></p>
+                                        <span class="visually-hidden">unread messages</span>
+                                    </span>
                                 </a>
                             </li>
                             <li>         
