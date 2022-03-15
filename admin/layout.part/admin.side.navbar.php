@@ -43,11 +43,17 @@
                     Messages
                 </div>
                 <li>
-                    <a class="nav-link px-3 text-light text-normal" data-bs-toggle="collapse" href="#email">
+                    <a class="nav-link px-3 text-light text-normal position-relative" data-bs-toggle="collapse" href="#email">
                         <span class="me-2"><i class="bi bi-archive"></i></span>
-                        <span>Email</span>
+                            <span>Email 
+                                <span class="position-absolute top-0 stranslate-middle badge rounded-pill bg-danger visually-hidden" style="width: 25px; height: 25px;">
+                                <p class="mt-1"> 99+ </p>
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+                        </span>
+                        
                         <span class="ms-auto">
-                            <span class="right-icon">
+                            <span class="right-icon mx-4">
                             <i class="bi bi-chevron-down"></i>
                             </span>
                         </span>
