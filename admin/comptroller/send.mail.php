@@ -16,22 +16,42 @@ if(isset($_POST['send_reply'])) {
         $recipient_email = $_POST['recipient_email'];
         $subject = $_POST['subject'];
 
-
         $sender_name = $_POST['sender'];
         $company_email = $_POST['sender_email'];
         $carbon_copy = $_POST['cc']; 
         $message = $_POST['message'];
 
         $date = date("Y-m-d H:i:s");
-        $to = "irecommend.ahis.als@gmail.com";
-        $status = "New";
-      
+
+        $attachment = $_FILES['attach_file']['name'];
+        $attachments = $_FILES['attach_file']['tmp_name'];
+
+        $content = file_get_contents($attachments);
+        $content = chunk_split(base64_encode($content)); 
+
+        // a random hash will be necessary to send mixed content
+        $separator = md5(time());
+        // carriage return type (RFC)
+        $eol = "\r\n";
 
         $body = "";
 
         $body .="From: " .$sender_name. "<br>";
         $body .="Email :" . $company_email. "<br>";
-        $body .="Message :" .$message. "<br>";
+        // $body .="Message :" .$message. "<br>";
+
+         // message
+        $body = "--" . $separator . $eol;
+        $body .= "Content-Type: text/plain; charset=\"iso-8859-1\"" . $eol;
+        $body .= "Content-Transfer-Encoding: 8bit" . $eol;
+        $body .= $message . $eol;
+        // attachment
+        $body .= "--" . $separator . $eol;
+        $body .= "Content-Type: application/octet-stream; name=\"" . $attachment  . "\"" . $eol;
+        $body .= "Content-Transfer-Encoding: base64" . $eol;
+        $body .= "Content-Disposition: attachment" . $eol;
+        $body .= $content . $eol;
+        $body .= "--" . $separator . "--";
        
         // Import PHPMailer classes into the global namespace
         // use PHPMailer\PHPMailer\PHPMailer;
@@ -70,9 +90,7 @@ if(isset($_POST['send_reply'])) {
         // Mail body content
         // $bodyContent = '<h1>How to Send Email from Localhost using PHP by InfoTech</h1>';
         // $bodyContent .= '<p>This HTML email is sent from the localhost server using PHP by <b>TechWAR</b></p>';
-        $mail->Body    = $body;
-
-
+        $mail->Body = $body;
 
         if(!$mail->send()) {
             header("Location: ../inbox.php?error=Message_not_sent");
