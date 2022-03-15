@@ -49,7 +49,7 @@ if(isset($_POST['create_services'])){
                 if(in_array($image_ex_loc, $allowed_ex)){
                     $new_image_name = uniqid("IMG-", true).'.'.$image_ex_loc;
                     $image_upload_path = '../upload/'.$new_image_name ;
-                    move_uploaded_file($tmp_name, $image_upload_path );
+                    move_uploaded_file($tmp_name, $image_upload_path);
 
                     $limit = 5;
                     $random_num =  random_int(10 ** ($limit - 1), (10 ** $limit) - 1);

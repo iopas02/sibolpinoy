@@ -93,7 +93,7 @@ if(isset($_POST['email_submit'])) {
                     $result = $conn->query($get_client_query);
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
-                            $client_uniID = $row['$client_uniID'];
+                            $client_uniID = $row['client_uniID'];
 
                             $email_request = "INSERT INTO `email`(`client_uniID`, `subject`, `message`, `status`, `date_mailed`) VALUES ('$client_uniID', '$subject', '$message', '$status', '$date')";
 
