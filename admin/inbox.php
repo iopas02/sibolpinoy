@@ -175,16 +175,16 @@
                 </div>                
             </div>
         </div>
+
         <div class="modal fade" id="replyMessage" aria-hidden="true"  tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
-                <form action="comptroller/update.php" method="POST">                    
+                <form action="comptroller/update.php" method="POST" enctype="multipart/form-data">                    
                     <div class="modal-header">
                         <h5 class="modal-title">Compose Email</h5>
-                        <button type="submit" name="cstatus" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="submit" name="close_btn" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        
                         <div class="row col-md-12">
                             <div class="col-md-6 mb-2">
                                 <label for="sender_email" name="sender_email" class="col-form-label">Recipient Name:</label>
@@ -216,10 +216,13 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="mb-3">
+                            <div class="mb-3 px-2">
                                 <label for="message" class="col-form-label">Message:</label>
                                 <textarea class="form-control" rows="5" name="message" id="message"></textarea>
                             </div>
+                        </div>
+                        <div class="mb-3 px-2">
+                            <input type="file" class="form-control" id="recipient-name" placeholder="attach you files here">
                         </div>
                         <div class="row col-md-12">
                             <button class="btn col-md-4 text-white bg-coloured" type="submit" name="send_reply">
@@ -259,6 +262,7 @@
                 console.log(data);
 
                 $('#emailID').val(data[0]);
+                $('#emailid').val(data[0]);
                 $('#sender_name').val(data[1]);
                 $('#s_name').val(data[1]);
                 $('#sender_email').val(data[2]);
