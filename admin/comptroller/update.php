@@ -1,7 +1,6 @@
 <?php
 
-//update.php
-
+/********THIS PART IS FOR THE UPDATE CALENDAR EVENT and EVENT TABLE START HERE*************/
 $connect = new PDO('mysql:host=localhost;dbname=sibolpinoy', 'root', '');
 
 if(isset($_POST["id"]))
@@ -17,7 +16,10 @@ if(isset($_POST["id"]))
   )
  );
 }
+/********THIS PART IS FOR THE UPDATE CALENDAR EVENT and EVENT TABLE END HERE*************/
 
+
+/********THIS PART IS FOR THE CHANGE STATUS IN THE EMAIL TABLE START HERE*************/
 if(isset($_POST["cstatus"])){
     include_once('../../connection.php');
 
@@ -34,5 +36,6 @@ if(isset($_POST["cstatus"])){
         exit();
     }
 }
+/********THIS PART IS FOR THE CHANGE STATUS IN THE EMAIL TABLE END HERE*************/
 
 ?>
