@@ -129,8 +129,9 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h6 class="bg-white text-start text-dark pe-3 secondary-font">About Us</h6>
                     <h1 class="mb-4 header-font">Welcome to Sibol-PINOY Management Consultancy</h1>
-                    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, debitis.</p>
-                    <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error quis unde ea eos, sapiente deleniti perspiciatis quos quaerat illo recusandae!</p>
+                    <p class="mb-4">Sibol-PINOY is a training and management consultancy which seeks to make expensive tools and techniques on productivity, 
+                    quality and performance excellence within the reach of micro, small and medium enterprises, including the government and NGOs. </p>
+                    
                     <div class="row gy-2 gx-4 mb-4">
                         <div class="col-sm-6">
                             <p class="mb-0"><i class="fa fa-arrow-right text-dark me-2"></i>Skilled Instructors</p>
