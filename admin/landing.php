@@ -214,46 +214,42 @@
           </div>
         </div>
 
-        <div class="col-md-3 mt-4">
-          
-            <div class="card card-outline-info text-xs-center">
-              <h2 class="px-4 py-2 text-dark card-text">Recent Action</h2>
-              <hr class="dropdown-divider bg-dark" />
-              <!-- Username -->
-              <h6 class="px-3 py-1">Username:
-              <?= $rusername ?>
-              </h6> 
-
-              <!-- Date and Time -->
-              <h6 class="px-3 py-1">Date & time:               
-              </h6>
-              
-              <!-- Action -->
-              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#Actions">
-                View Actions
-              </button>
-              
-              <div class="modal fade" id="Actions" tabindex="-1" aria-labelledby="ActionList" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h3 class="modal-title" id="ActionList">Recent Actions</h3>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"aria-label="Close"></button> 
-                    </div>
-                    <div class="modal-body">
-                      <p>List of actions?</p>
-                      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                      </div>
-                    </div>
-                  <div class="modal-footer">
-                  <!-- Close button -->
-                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <div class="col-md-3 mb-3">
+          <div class="container">
+            <div class="row ">
+               <?php
+                  date_default_timezone_set("Asia/Manila");
+                  $year = date("Y");
+                  $month = date("M");
+                  $date = date("d");
+                  $time = date("g:i a");  
+                ?>
+              <div class="col-lg-12 text-center bg-coloured text-white page-header" style="border-top-right-radius: 45px;">
+                <?php echo $year ?>
+              </div>
+              <div class="col-md-4 bg-coloured text-white" style="border-bottom-left-radius: 45px;">
+              <hr class="dropdown-divider bg-light" />
+                  <div class="text-center py-5">
+                    <div class="count-text"><?php echo $date ?></div>
+                    <div class="user-text"> <?php echo $month ?></div>
                   </div>
+              </div>
+              <div class="col-md-8">
+                <h3 class="page-header">Event for Today</h3>
+
+                <div class="card-text">
+                  ISO 9001:2015 Requirements and Internal Quality Audit
+                </div>
+
+                <div class="pt-3 login-text">
+                  <img src="svg/watch.svg" style="width: 18px; height: 18px;" alt="" /> <?php echo $time ?>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+      </div>
       <!-- FIRST FOUR CARDS END HERE -->
 
       <!-- SECOND TWO CARDS START HERE -->
