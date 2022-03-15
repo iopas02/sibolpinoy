@@ -252,14 +252,8 @@
                 </div>
               </div>
             </div>
-              </div>
-            </div>
-
-            </div>
           </div>
         </div>
-
-      </div>
       <!-- FIRST FOUR CARDS END HERE -->
 
       <!-- SECOND TWO CARDS START HERE -->
