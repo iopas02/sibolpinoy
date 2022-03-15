@@ -309,51 +309,29 @@
             <!-- Consultation Services End -->
           </div>
         </div>
-        <div class="col-md-3 mb-3">
+
+        <div class="col-md-6 mb-3">
           <div class="card h-100">
-            <!-- <div class="container pt-6 pb-3 bg-light"> -->
+            <div class="container pt-3 pb-3 bg-light" id="about">
                 <div class="container">
-                    <div class="row g-7">
-                        <div class="col-lg-9 wow fadeInUp" data-wow-delay="0.3s">
-                            <h4 class="text-dark pe-6 primary-font">Coming Events</h4>
-                            <h6 class="header-font">Mother's Day</h6>
-                            <p class="second-header">A simple Message and Celebration From Sibol-Pinoy</p>
-                               <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#Events">
-                               View Details 
-                            </button>
-
-                            <div class="modal fade" id="Events" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Happy Mother's Day</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                    <p>Greetings for the best mom's in the world from SPMC Philippines.
-                                      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s"  >
-                                      <div class="position-relative h-50">
-                                      <img class="prev-gif"  src="../img/celebrate_1.gif" alt="Mother's Day">
-                                      </div>
-                                      </div></p>
-                                    </div>
-                                    
-                                    <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                                    <!-- Edit -->
-                                    <button type="button" class="btn btn-primary">Edit</button> 
-                                    <!-- Add -->
-                                    <button type="button" class="btn btn-success">Add</button> 
-                                  </div>
-                                </div>
-                              </div>
+                    <div class="row g-5">
+                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                            <h6 class="text-dark pe-3 secondary-font">We Celebrate on this Month</h6>
+                            <h1 class="header-font">Happy Mother's Day</h1>
+                            <h5 class="second-header">A simple Message and Celebration From Sibol-Pinoy</h5>
+                            
+                        </div>
+                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s"  >
+                            <div class="position-relative h-50">
+                                <img class="prev-gif"  src="../img/celebrate_1.gif" alt="">
                             </div>
-                          </div>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                            </div>
-                          </div>
-
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- SECOND TWO CARDS END HERE -->
 
       <!-- THIRD EVENT CARDS START HERE -->  
