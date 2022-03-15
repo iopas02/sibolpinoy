@@ -82,7 +82,7 @@
                                                 <td hidden><?= $email['email_add']?></td>
                                                 <td><?= $email['subject']?></td>
                                                 <td><?= $email['message']?></td>
-                                                <td><?= date('M d Y H:i',  strtotime($email['date_mailed'])) ?></td>
+                                                <td><?= date('M d Y H:i', strtotime($email['date_mailed'])) ?></td>
                                                 <td>
                                                     <button type="button" class="btn tooltip-test read" id="read" title="Read">
                                                         <i class="bi bi-bookmark"></i>

@@ -102,7 +102,7 @@ if(isset($_POST['send_reply'])) {
                 header("Location: ../inbox.php?error=Message_not_sent");
                 exit();
             } else {
-               $email_record_query = "INSERT INTO `sent_email`(`client_uniID`, `emailID`, `loginId`, `company_email`, `cc`, `subject`, `message`, `action`, `date_reply`) VALUES ('$client_id','$emailID','$adminid','$company_email','$carbon_copy','$subject','$message','$reply_email','$date')";
+               $email_record_query = "INSERT INTO `sent_email`(`client_uniID`, `emailID`, `loginId`, `company_email`, `cc`, `subject`, `reply`, `action`, `date_reply`) VALUES ('$client_id','$emailID','$adminid','$company_email','$carbon_copy','$subject','$message','$reply_email','$date')";
                
                 $email_record_query_result = mysqli_query($conn, $email_record_query);
                 if(!$email_record_query_result){
@@ -185,7 +185,7 @@ if(isset($_POST['send_reply'])) {
                 header("Location: ../inbox.php?error=Message_not_sent");
                 exit();
             } else {
-            $email_record_query = "INSERT INTO `sent_email`(`client_uniID`, `emailID`, `loginId`, `company_email`, `cc`, `subject`, `message`, `attachment`, `action`, `date_reply`) VALUES ('$client_id','$emailID','$adminid','$company_email','$carbon_copy','$subject','$message','$new_file_name;','$reply_email','$date')";
+            $email_record_query = "INSERT INTO `sent_email`(`client_uniID`, `emailID`, `loginId`, `company_email`, `cc`, `subject`, `reply`, `attachment`, `action`, `date_reply`) VALUES ('$client_id','$emailID','$adminid','$company_email','$carbon_copy','$subject','$message','$new_file_name;','$reply_email','$date')";
             
                 $email_record_query_result = mysqli_query($conn, $email_record_query);
                 if(!$email_record_query_result){
