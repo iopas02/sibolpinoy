@@ -179,7 +179,7 @@
         <div class="modal fade" id="replyMessage" aria-hidden="true"  tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
-                <form action="comptroller/update.php" method="POST" enctype="multipart/form-data">                    
+                <form action="comptroller/send.mail.php" method="POST" enctype="multipart/form-data">                    
                     <div class="modal-header">
                         <h5 class="modal-title">Compose Email</h5>
                         <button type="submit" name="close_btn" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -203,11 +203,11 @@
                         </div>
                         <div class="row col-md-12">
                             <div class="form-floating col-md-6 mb-2 px-2">
-                                <input type="email" class="form-control" id="floatingInput" name="sender" placeholder="Sender Name:">
+                                <input type="text" class="form-control" readonly id="floatingInput" name="sender" value="<?= $firstName." ".$lastName ?>">
                                 <label for="floatingInput">Sender Name</label>
                             </div>
                             <div class="form-floating col-md-6 mb-2 px-2">
-                                <input type="email" class="form-control" id="floatingInput" name="sender" placeholder="name@example.com">
+                                <input type="email" class="form-control" readonly id="floatingInput" name="sender_email" value="irecommend.ahis.als@gmail.com">
                                 <label for="floatingInput">Email address</label>
                             </div>
                             <div class="form-floating col-md-12 mb-2 px-2">
@@ -222,8 +222,13 @@
                             </div>
                         </div>
                         <div class="mb-3 px-2">
-                            <input type="file" class="form-control" id="recipient-name" placeholder="attach you files here">
+                            <input class="form-control" type="file" name="attach_file">
                         </div>
+                        <div class="mb-3 px-2" hidden>
+                            <input class="form-control" type="text" name="admin_id" value="<?= $id ?>">
+                            <input class="form-control" type="text" name="reply_email" value="Reply Email">
+                        </div>
+                        
                         <div class="row col-md-12">
                             <button class="btn col-md-4 text-white bg-coloured" type="submit" name="send_reply">
                                 Send Message

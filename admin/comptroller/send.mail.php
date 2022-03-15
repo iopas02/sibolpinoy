@@ -1,9 +1,9 @@
 <?php
 // include_once('../connection.php');
 
-if(isset($_POST['email_submit'])) {
+if(isset($_POST['send_reply'])) {
 
-    if($_POST['cname'] && $_POST['cemail'] && $_POST['subject'] && $_POST['message'] !=''){
+    if($_POST['sender'] && $_POST['sender_email'] && $_POST['message'] !=''){
         
         date_default_timezone_set("Asia/Manila");
 
@@ -12,6 +12,16 @@ if(isset($_POST['email_submit'])) {
         // $subject = mysqli_real_escape_string($conn, $_POST['subject']);
         // $message = mysqli_real_escape_string($conn, $_POST['message']);
 
+        $recipient_name = $_POST['recipient_name'];
+        $recipient_email = $_POST['recipient_email'];
+        $subject = $_POST['subject'];
+
+
+        $sender_name = $_POST['sender'];
+        $company_email = $_POST['sender_email'];
+        $carbon_copy = $_POST['cc']; 
+        $message = $_POST['message'];
+
         $date = date("Y-m-d H:i:s");
         $to = "irecommend.ahis.als@gmail.com";
         $status = "New";
@@ -19,8 +29,8 @@ if(isset($_POST['email_submit'])) {
 
         $body = "";
 
-        $body .="From: " .$cname. "<br>";
-        $body .="Email :" .$cemail. "<br>";
+        $body .="From: " .$sender_name. "<br>";
+        $body .="Email :" . $company_email. "<br>";
         $body .="Message :" .$message. "<br>";
        
         // Import PHPMailer classes into the global namespace
@@ -42,13 +52,13 @@ if(isset($_POST['email_submit'])) {
         $mail->Port = 587;                    // TCP port to connect to
         
         // Sender info
-        $mail->setFrom($cemail, $cname);
-        $mail->addReplyTo($cemail, $cname);
+        $mail->setFrom($company_email, '');
+        $mail->addReplyTo($company_email, $sender_name);
 
         // Add a recipient
-        $mail->addAddress($to);
+        $mail->addAddress($recipient_email);
 
-        //$mail->addCC('cc@example.com');
+        $mail->addCC($carbon_copy);
         //$mail->addBCC('bcc@example.com');
 
         // Set email format to HTML
@@ -64,25 +74,28 @@ if(isset($_POST['email_submit'])) {
 
 
 
-    //     if(!$mail->send()) {
-    //         header("Location: ../contact.php?error=Message_not_sent");
-    //         exit();
-    //     } else {
-    //         $email_request = "INSERT INTO `email`(`sender_name`, `sender_email`, `subject`, `message`, `status`, `date_mailed`) VALUES ('$cname','$cemail','$subject','$message','$status','$date')";
-    //         $email_result = mysqli_query($conn, $email_request);
-    //         if(!$email_result){
-    //             header("Location: ../contact.php?error=message_error");
-    //             exit();
-    //         }else{
-    //             header("Location: ../contact.php?success=message_sent");
-    //             exit();
-    //         }
-    //     }
+        if(!$mail->send()) {
+            header("Location: ../inbox.php?error=Message_not_sent");
+            exit();
+        } else {
+            header("Location: ../inbox.php?succes=message_senr");
+            exit();
+        }    
+        //     $email_request = "INSERT INTO `email`(`sender_name`, `sender_email`, `subject`, `message`, `status`, `date_mailed`) VALUES ('$cname','$cemail','$subject','$message','$status','$date')";
+        //     $email_result = mysqli_query($conn, $email_request);
+        //     if(!$email_result){
+        //         header("Location: ../contact.php?error=message_error");
+        //         exit();
+        //     }else{
+        //         header("Location: ../contact.php?success=message_sent");
+        //         exit();
+        //     }
+        // }
     
-    // }else{
-    //     header("Location: ../contact.php?error=empty_fields");
-    //     exit();
-    // }
+    }else{
+        header("Location: ../inbox.php?error=empty_fields");
+        exit();
+    }
 
    
 }
