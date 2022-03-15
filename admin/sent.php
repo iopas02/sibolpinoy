@@ -55,7 +55,7 @@
                                         <th>Subject</th>
                                         <th>Message</th>
                                         <th>Status</th>
-                                        <th>Replied By:</th>
+                                        <th>Replied</th>
                                         <th>Action</th>
                                         <th>Replied</th>
                                         <th>Attachment</th>
@@ -125,7 +125,7 @@
                                         <th>Subject</th>
                                         <th>Message</th>
                                         <th>Status</th>
-                                        <th>Replied By:</th>
+                                        <th>Replied</th>
                                         <th>Action</th>
                                         <th>Replied</th>
                                         <th>Attachment</th>

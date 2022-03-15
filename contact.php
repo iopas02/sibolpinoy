@@ -84,26 +84,47 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" name="cname" placeholder="Your Name">
-                                    <label for="name">Your Name</label>
+                                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name:">
+                                    <label for="first_name">First Name*</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" name="cemail" placeholder="Your Email">
-                                    <label for="email">Your Email</label>
+                                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name">
+                                    <label for="last_name">Last Name*</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" name="cemail" placeholder="Email Address">
+                                    <label for="email">Email Address*</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact Number">
+                                    <label for="contact">Contact Number</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
-                                    <label for="subject">Subject</label>
+                                    <label for="subject">Subject*</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 150px"></textarea>
-                                    <label for="message">Message</label>
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 120px"></textarea>
+                                    <label for="message">Message*</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <small>SPMC <a href=#>TERMS</a> and <a href="#">PRIVACY POLICY</a></small>
+                                <div class="form-check">
+                                    <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+                                    <label class="form-check-label" for="invalidCheck3">
+                                        Agree to terms and conditions
+                                    </label>
                                 </div>
                             </div>
                             <div class="col-12">
