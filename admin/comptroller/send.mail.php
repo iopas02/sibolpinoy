@@ -23,36 +23,28 @@ if(isset($_POST['send_reply'])) {
 
         $date = date("Y-m-d H:i:s");
 
-        $attachment = $_FILES['attach_file']['name'];
-        $attachments = $_FILES['attach_file']['tmp_name'];
+        $errors = array();
+        $attachment_name = $_FILES['attach_file']['name'];
+        $attachment_size = $_FILES['attach_file']['size'];
+        $attachments_tmp = $_FILES['attach_file']['tmp_name'];
+        $attachment_type = $_FILES['attach_file']['type'];
+        $file_ext=strtolower(end(explode('.',$_FILES['attach_file']['name'])));
 
-        $content = file_get_contents($attachments);
-        $content = chunk_split(base64_encode($content)); 
+        $expensions= array("jpeg","jpg","png","pdf", "gif", "doc", "docx", "ppt", "pptx");
 
-        // a random hash will be necessary to send mixed content
-        $separator = md5(time());
-        // carriage return type (RFC)
-        $eol = "\r\n";
-
+        if(in_array($file_ext,$expensions) === false){
+            header("Location: ../inbox.php?error=file_extension_not_allowed");
+            exit();
+        }else{
+            move_uploaded_file($attachments_tmp,"../upload/".$attachment_name); //The folder where you would like your file to be saved
+        }
+    
         $body = "";
 
         $body .="From: " .$sender_name. "<br>";
         $body .="Email :" . $company_email. "<br>";
-        // $body .="Message :" .$message. "<br>";
-
-         // message
-        $body = "--" . $separator . $eol;
-        $body .= "Content-Type: text/plain; charset=\"iso-8859-1\"" . $eol;
-        $body .= "Content-Transfer-Encoding: 8bit" . $eol;
-        $body .= $message . $eol;
-        // attachment
-        $body .= "--" . $separator . $eol;
-        $body .= "Content-Type: application/octet-stream; name=\"" . $attachment  . "\"" . $eol;
-        $body .= "Content-Transfer-Encoding: base64" . $eol;
-        $body .= "Content-Disposition: attachment" . $eol;
-        $body .= $content . $eol;
-        $body .= "--" . $separator . "--";
-       
+        $body .="Message :" .$message. "<br>";
+        
         // Import PHPMailer classes into the global namespace
         // use PHPMailer\PHPMailer\PHPMailer;
         // use PHPMailer\PHPMailer\Exception;
@@ -70,7 +62,7 @@ if(isset($_POST['send_reply'])) {
         $mail->Password = 'xnhongbdpyodspfy';   // SMTP password
         $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = 587;                    // TCP port to connect to
-        
+        $mail->addAttachment("../upload/".$attachment_name);
         // Sender info
         $mail->setFrom($company_email, '');
         $mail->addReplyTo($company_email, $sender_name);
@@ -96,7 +88,7 @@ if(isset($_POST['send_reply'])) {
             header("Location: ../inbox.php?error=Message_not_sent");
             exit();
         } else {
-            header("Location: ../inbox.php?succes=message_senr");
+            header("Location: ../inbox.php?success=message_sent");
             exit();
         }    
         //     $email_request = "INSERT INTO `email`(`sender_name`, `sender_email`, `subject`, `message`, `status`, `date_mailed`) VALUES ('$cname','$cemail','$subject','$message','$status','$date')";
