@@ -215,7 +215,6 @@
         </div>
 
         <div class="col-md-3 mt-4">
-          
             <div class="card card-outline-info text-xs-center">
               <h2 class="px-4 py-2 text-dark card-text">Recent Action</h2>
               <hr class="dropdown-divider bg-dark" />

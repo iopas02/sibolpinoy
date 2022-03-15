@@ -36,7 +36,6 @@ if(isset($_POST["cstatus"])){
         exit();
     }
 }
-
 /********THIS PART IS FOR THE CHANGE STATUS IN THE EMAIL TABLE END HERE*************/
 
 ?>
