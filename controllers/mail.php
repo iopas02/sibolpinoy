@@ -3,23 +3,32 @@ include_once('../connection.php');
 
 if(isset($_POST['email_submit'])) {
 
-    if($_POST['cname'] && $_POST['cemail'] && $_POST['subject'] && $_POST['message'] !=''){
+    if($_POST['first_name'] && $_POST['last_name'] && $_POST['cemail'] && $_POST['subject'] && $_POST['message'] !=''){
         
         date_default_timezone_set("Asia/Manila");
 
-        $cname = mysqli_real_escape_string($conn, $_POST['cname']);
+        $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
+        $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
         $cemail = mysqli_real_escape_string($conn, $_POST['cemail']);
+        $contact = mysqli_real_escape_string($conn, $_POST['contact']);
         $subject = mysqli_real_escape_string($conn, $_POST['subject']);
         $message = mysqli_real_escape_string($conn, $_POST['message']);
+        
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+        // Output: 54esmdr0qf
+        $random_num = substr(str_shuffle($permitted_chars), 0, 10);
+        $year = date("Y");
+        $client_uniID = $year."-".$random_num;
 
         $date = date("Y-m-d H:i:s");
         $to = "irecommend.ahis.als@gmail.com";
         $status = "New";
-      
 
+        $sender = $first_name." ".$last_name;
+      
         $body = "";
 
-        $body .="From: " .$cname. "<br>";
+        $body .="From: " .$first_name." ".$last_name. "<br>";
         $body .="Email :" .$cemail. "<br>";
         $body .="Message :" .$message. "<br>";
        
@@ -42,8 +51,8 @@ if(isset($_POST['email_submit'])) {
         $mail->Port = 587;                    // TCP port to connect to
         
         // Sender info
-        $mail->setFrom($cemail, $cname);
-        $mail->addReplyTo($cemail, $cname);
+        $mail->setFrom($cemail, $sender);
+        $mail->addReplyTo($cemail, $sender);
 
         // Add a recipient
         $mail->addAddress($to);
@@ -68,15 +77,60 @@ if(isset($_POST['email_submit'])) {
             header("Location: ../contact.php?error=Message_not_sent");
             exit();
         } else {
-            $email_request = "INSERT INTO `email`(`sender_name`, `sender_email`, `subject`, `message`, `status`, `date_mailed`) VALUES ('$cname','$cemail','$subject','$message','$status','$date')";
-            $email_result = mysqli_query($conn, $email_request);
-            if(!$email_result){
-                header("Location: ../contact.php?error=message_error");
+            $check_cmail = "SELECT `email_add` FROM `client` WHERE `email_add`=? ";
+            $stmt = mysqli_stmt_init($conn);
+            if(!mysqli_stmt_prepare($stmt, $check_cmail)) {
+                header("Location: ../contact.ph?");
                 exit();
-            }else{
-                header("Location: ../contact.php?success=message_sent");
-                exit();
+            }else {
+                mysqli_stmt_bind_param($stmt, "s", $cemail);
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_store_result($stmt);
+                $resultcheck = mysqli_stmt_num_rows($stmt);
+    
+                if($resultcheck > 0) {
+                    $get_client_query = "SELECT * FROM `client` WHERE `email_add`='$cemail' ";
+                    $result = $conn->query($get_client_query);
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            $client_uniID = $row['$client_uniID'];
+
+                            $email_request = "INSERT INTO `email`(`client_uniID`, `subject`, `message`, `status`, `date_mailed`) VALUES ('$client_uniID', '$subject', '$message', '$status', '$date')";
+
+                            $email_result = mysqli_query($conn, $email_request);
+                            if(!$email_result){
+                                header("Location: ../contact.php?");
+                                exit();
+                            }else{
+                                header("Location: ../contact.php?success=message_sent");
+                                exit();
+                            }
+                        }
+                    }
+
+                }else{
+                    $new_client_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `lastName`, `email_add`, `contact`, `date_register`) VALUES ('$client_uniID', '$first_name', '$last_name', '$cemail', '$contact','$date')" ;
+
+                    $new_client_query_result = mysqli_query($conn,  $new_client_query);
+                    if(!$new_client_query_result ){
+                        header("Location: ../contact.php?");
+                        exit();
+                    }else{
+                        $email_request_query = "INSERT INTO `email`(`client_uniID`, `subject`, `message`, `status`, `date_mailed`) VALUES ('$client_uniID', '$subject', '$message', '$status', '$date')";
+
+                        $email_query_result = mysqli_query($conn, $email_request_query);
+                        if(!$email_query_result){
+                            header("Location: ../contact.php?");
+                            exit();
+                        }else{
+                            header("Location: ../contact.php?success=message_sent");
+                            exit();
+                        }
+                    }
+
+                }
             }
+            
         }
     
     }else{

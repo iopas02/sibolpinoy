@@ -11,7 +11,7 @@ if(isset($_POST['send_reply'])) {
         // $cemail = mysqli_real_escape_string($conn, $_POST['cemail']);
         // $subject = mysqli_real_escape_string($conn, $_POST['subject']);
         // $message = mysqli_real_escape_string($conn, $_POST['message']);
-
+        $emailID = $_POST['emailID'];
         $recipient_name = $_POST['recipient_name'];
         $recipient_email = $_POST['recipient_email'];
         $subject = $_POST['subject'];
