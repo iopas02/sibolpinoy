@@ -55,8 +55,14 @@ session_start();
                     header("location: index.php?error=no_account");
                 }
             }
+            else{
+                echo "error sa sql";
+            }
         }
 
+    }
+    else{
+        echo "wala ka sinubmit";
     }
 
 ?>
