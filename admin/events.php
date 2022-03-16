@@ -34,14 +34,14 @@
         </div>
 
         <div id="">
-            <form action="" enctype="multipart/form-data" method="post">
+            <form action="comptroller/create.event.php" enctype="multipart/form-data" method="post">
                 <div class="">
                     <div class="">
                         <div class="row">
                             <div class="col-lg-5" style="min-height: 400px;">
                                 <div class="position-relative" >
                                     <div class="pb-2" >
-                                   
+                                    <label>Upload Image Here</label>
                                     <img class="img-fluid w-100" style="height: 345px" src="
                                     <?php
                                         if(isset($_POST['submit1'])){ 
@@ -93,7 +93,12 @@
                                 <p class="mb-1">
                                     <input class="w-100 p-1" type="text" name="reg_fee" placeholder="Student & Group Registration (Min. of 3 pax | 50% OFF): P1,000.00/Pax.">
                                 </p>
-                                <!-- <a class="btn btn-dark py-3 px-5 mt-2" data-bs-toggle="modal" data-bs-target="#registration">For Registration</a> -->
+                                <label>status</label>
+                                <select name="status" id="">
+                                        <option value="New">New</option>
+                                        <option value="Old">Old</option>
+                                </select>
+                                <a class="btn bg-coloured text-white py-3 px-5 mt-2" type="submit" name="event_published">Published</a>
                             </div>
                         </div>
                     </div>

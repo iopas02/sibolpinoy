@@ -5,7 +5,7 @@ $connect = new PDO('mysql:host=localhost;dbname=sibolpinoy', 'root', '');
 
 if(isset($_POST["id"]))
 {
- $query = " UPDATE events SET title=:title, start_event=:start_event, end_event=:end_event WHERE id=:id";
+ $query = " UPDATE scheduler SET title=:title, start_event=:start_event, end_event=:end_event WHERE id=:id";
  $statement = $connect->prepare($query);
  $statement->execute(
   array(

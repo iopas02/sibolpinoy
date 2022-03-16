@@ -3,7 +3,7 @@ $connect = new PDO('mysql:host=localhost;dbname=sibolpinoy', 'root', '');
 
 //loading date from database
 $data = array();
-$query = "SELECT * FROM events ORDER BY id";
+$query = "SELECT * FROM scheduler ORDER BY id";
 $statement = $connect->prepare($query);
 $statement->execute();
 

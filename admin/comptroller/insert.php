@@ -4,7 +4,7 @@ $connect = new PDO('mysql:host=localhost;dbname=sibolpinoy', 'root', '');
 if(isset($_POST["title"]))
 {
  $query = "
- INSERT INTO events 
+ INSERT INTO scheduler 
  (title, start_event, end_event) 
  VALUES (:title, :start_event, :end_event)
  ";
