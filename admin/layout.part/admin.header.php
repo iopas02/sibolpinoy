@@ -1,6 +1,5 @@
 <?php
 session_start();
-
     $firstName = $lastName = $level ="";
     if(isset($_SESSION["firstName"]) && isset($_SESSION["lastName"]) && isset($_SESSION["level"]) && isset($_SESSION["username"])){
         $firstName = $_SESSION["firstName"];
