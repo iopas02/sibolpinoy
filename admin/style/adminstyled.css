@@ -60,7 +60,51 @@ body{
 .text-small{
     font-family: var(--roboto);
     font-size: 14px;
+    font-weight: 300;
+}
+
+.page-header{
+    font-family: var(--robotoSlab);
+    font-size: 28px;
     font-weight: 400;
+}
+
+.user-text{
+    font-family: var(--roboto);
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.count-text{
+    font-family: var(--roboto);
+    font-size: 35px;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.count-text-two{
+    font-family: var(--roboto);
+    font-size: 45px;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.card-text{
+    font-family: var(--roboto);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.welcome-text{
+    font-family: var(--roboto);
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.tag-text{
+    font-family: var(--roboto);
+    font-size: 18px;
+    font-weight: 300;
 }
 
 
@@ -136,42 +180,7 @@ body{
 }
 /******This is For The Admin Dashboard Page Style End Here********/
 
-.page-header{
-    font-family: var(--robotoSlab);
-    font-size: 28px;
-    font-weight: 400;
-}
 
-.user-text{
-    font-family: var(--roboto);
-    font-size: 22px;
-    font-weight: 400;
-}
-
-.count-text{
-    font-family: var(--roboto);
-    font-size: 35px;
-    font-weight: 400;
-    text-decoration: underline;
-}
-
-.card-text{
-    font-family: var(--roboto);
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.welcome-text{
-    font-family: var(--roboto);
-    font-size: 22px;
-    font-weight: 300;
-}
-
-.tag-text{
-    font-family: var(--roboto);
-    font-size: 18px;
-    font-weight: 300;
-}
 
 .__logo {
     width: 45px;

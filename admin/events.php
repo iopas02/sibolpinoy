@@ -29,7 +29,7 @@
             <div class="row">
             <div class="col-md-12 mb-4">
                 <h5 class="page-header">Create Event</h5>
-                <a href="comptroller/event.preview.php">event preview</a>
+                <a href="event.preview.php">event preview</a>
                 <hr class="dropdown-divider bg-dark" />
             </div>
         </div>
