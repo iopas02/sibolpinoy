@@ -29,6 +29,7 @@
             <div class="row">
             <div class="col-md-12 mb-4">
                 <h5 class="page-header">Create Event</h5>
+                <a href="comptroller/event.preview.php">event preview</a>
                 <hr class="dropdown-divider bg-dark" />
             </div>
         </div>
@@ -59,10 +60,8 @@
                                     ">  
                                     </div>
                                 </div>
-                                <form action="events.php" enctype="multipart/form-data" method="post">
                                     <input type="file" name="event_image">
-                                    <button type="submit" name="submit1" >Test Image</button>    
-                                </form>              
+                                       
                             </div>
                             <div class="col-lg-7">
                                 <label>Header Part:</label>
@@ -86,19 +85,22 @@
 
                                 <label>Description 1</label>
                                 <p class="mb-1">
-                                    <input class="w-100 p-1" type="text" name="reg_fee" placeholder="Early Bird Discount (20% OFF): P1,600.00/Training if you register until March 1, 2022">
+                                    <input class="w-100 p-1" type="text" name="desc_one" placeholder="Early Bird Discount (20% OFF): P1,600.00/Training if you register until March 1, 2022">
                                 </p>
 
                                 <label>Description 2</label>
                                 <p class="mb-1">
-                                    <input class="w-100 p-1" type="text" name="reg_fee" placeholder="Student & Group Registration (Min. of 3 pax | 50% OFF): P1,000.00/Pax.">
+                                    <input class="w-100 p-1" type="text" name="desc_two" placeholder="Student & Group Registration (Min. of 3 pax | 50% OFF): P1,000.00/Pax.">
                                 </p>
                                 <label>status</label>
                                 <select name="status" id="">
-                                        <option value="New">New</option>
-                                        <option value="Old">Old</option>
+                                        <option value="published">published</option>
+                                        <option value="unpublished">unpublished</option>
                                 </select>
-                                <a class="btn bg-coloured text-white py-3 px-5 mt-2" type="submit" name="event_published">Published</a>
+                                <input type="text" name="loginid" value="<?= $id?>">
+                                <input type="text" name="admin" value="<?= $rusername?>">
+                                <input type="text" name="action" value="published new event">  
+                                <button class="btn bg-coloured text-white py-3 px-5 mt-2" type="submit" name="event_published">Published</button>
                             </div>
                         </div>
                     </div>
