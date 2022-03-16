@@ -8,7 +8,7 @@
   <!-- Header End -->
 
   <body>
-    <title>Sibol-PINOY Consultation Inbox</title>
+    <title>Sibol-PINOY Sent Box</title>
 
     <!-- top navigation bar -->
     <?php

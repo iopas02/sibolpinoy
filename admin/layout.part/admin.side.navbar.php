@@ -133,7 +133,7 @@
                         <span>Services</span>            
                     </a>
                 
-                    <a href="404.php" class="nav-link px-3 sidebar-link text-light text-normal">
+                    <a href="events.php" class="nav-link px-3 sidebar-link text-light text-normal">
                         <span class="me-2"><i class="bi bi-table"></i></span>
                         <span>Events</span>
                     </a>
