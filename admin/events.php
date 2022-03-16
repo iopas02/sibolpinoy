@@ -46,9 +46,10 @@
                                     <?php
                                         if(isset($_POST['submit1'])){ 
                                             $filepath = "./upload/". $_FILES["event_image"]["name"];
+                                            $default = "svg/default_new_image.jpg";
 
                                             if(!move_uploaded_file($_FILES["event_image"]["tmp_name"], $filepath)) {
-                                                echo "svg/default_new_image.jpg"; 
+                                                echo "$default"; 
                                                          
                                             } else {
                                                 echo "$filepath" ;  
