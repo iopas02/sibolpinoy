@@ -32,7 +32,7 @@ session_start();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"/>
     <link rel="stylesheet" href="style/dataTables.bootstrap5.min.css" />
 
-    <link rel="stylesheet" href="style/adminstyled.css" />
+    <link rel="stylesheet" href="style/adminstyle.css" />
     <link rel="stylesheet" href="style/colored.css" />
     
   </head>

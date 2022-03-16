@@ -38,7 +38,7 @@
             <div class="row col-md-12">
                
                 <div class="col-md-3">
-                    <img src="upload/IMG-62317b9f5731b3.22549484.png" style="width: 300px; height: 250px;" alt="">
+                    <img src="upload/IMG-62317b9f5731b3.22549484.png" style="width: 250px; height: 250px;" alt="">
                 </div>
                 <div class="col-md-7">
                     <p class="text-normal" >Join Sibol-PINOY Management Consultancy on its FREE WEBINAR with the theme, "Pinakbet or Laing: Weighing Alternatives, Making the Right Choice #NOTAPOLITICALFORUM</p>
@@ -52,6 +52,8 @@
                     <p class="text-small">Don't miss the opportunity to discover the world of Business Decision-Making and Product and Service Management!</p>
 
                     <p class="text-small">You may access the registration form by scanning the QR code or fill-up in this link: https://lnkd.in/gxefz_kY</p>
+
+                    <button class="col-md-3 b-0 bg-coloured p-1 text-white">Register</button>    
                 </div>
                 <div class="col-md-2 text-center py-5">
                     <?php
@@ -60,17 +62,14 @@
                     $month = date("M");
                     $date = date("d");
                     $time = date("g:i a");  
-                    ?>
-                 
+                    ?>          
                         <div class="count-text-two"><?php echo $date ?></div>
-                        <div class="user-text"> <?php echo $month ?></div>
-                    
+                        <div class="user-text-two"> <?php echo $month ?></div>
                 </div>
                 <hr class="dropdown-divider bg-dark" />
             </div>
-                
-
-        
+            
+            
         </div>
     </main>
 
