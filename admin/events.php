@@ -21,25 +21,34 @@
     <?php
       require "layout.part/admin.side.navbar.php";
     ?>
-
     <!-- THIS IS FOR SIDE NAV-BAR and OFF CANVA END HERE -->
 
     <main class="mt-5 pt-2">
+
+        <!-- THIS IS FOR SUB NAV-BAR FOR EVENT START HERE -->
+        <?php
+            require "layout.part/events.subnav.php";
+        ?>
+        <!-- THIS IS FOR SUB NAV-BAR FOR EVENT END HERE -->
+
+        <!-- THIS IS HEADER PAGE START HERE -->
         <div class="container-fluid">
             <div class="row">
             <div class="col-md-12 mb-4">
                 <h5 class="page-header">Create Event</h5>
-                <a href="event.preview.php">event preview</a>
-                <hr class="dropdown-divider bg-dark" />
             </div>
         </div>
-
-        <div id="">
-            <form action="comptroller/create.event.php" enctype="multipart/form-data" method="post">
+        <!-- THIS IS HEADER PAGE END HERE -->
+        
+        <!-- THIS IS CREATE NEW EVENTS FORM START HERE -->
+        <div class="p-2">
+            <form action="comptroller/event.control.php" enctype="multipart/form-data" method="post">
                 <div class="">
                     <div class="">
                         <div class="row">
                             <div class="col-lg-4" style="min-height: 400px;">
+                                <label for="#event_id">Event ID</label>
+                                <input type="text" id="event_id" class="" readonly>                           
                                 <div class="position-relative" >
                                     <div class="pb-2" >
                                         <label>Upload Image Here</label>
@@ -95,14 +104,162 @@
                                
                                 <input type="text" hidden name="loginid" value="<?= $id?>">
                                 <input type="text" hidden name="admin" value="<?= $rusername?>">
-                                <input type="text" hidden name="action" value="published new event">  
-                                <button class="btn bg-coloured text-white py-3 px-5 mt-2" type="submit" name="event_published">Published</button>
+                                <input type="text" hidden name="action" value="created new event">
+                                <input type="text" hidden name="action1" value="update event">   
+                                <input type="text" hidden name="action2" value="delete event"> 
+                                
+                                <div class="row col-md-12">
+                                    <div class="col-md-6">
+                                        <button type="submit" name="event_published" class="btn bg-coloured text-white my-2" >
+                                        <i class="bi bi-folder-plus"></i> Create Event
+                                        </button>
+                                    </div>
+                                    <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <button  type="submit" name="edit_services" class="btn bg-coloured text-white my-2" "><i class="bi bi-vector-pen"></i> Update</button>
+                                        <button  type="submit" name="delete_services" class="btn bg-coloured text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
+        <!-- THIS IS CREATE NEW EVENTS FORM END HERE -->
+
+        <!-- THIS IS SERVICES TABLE START HERE -->
+        <div class="row col-md-12 mt-3">
+            <hr class="dropdown-divider bg-dark" />
+            <div class="row col-md-12 px-5">
+                <h5>Events Table</h5>
+            </div>
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="datatableid" class="table data-table" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Image</th>
+                                <th>Header</th>
+                                <th>Title</th>
+                                <th>Date Start</th>
+                                <th>Date and Time</th>
+                                <th>Reg Fee</th>
+                                <th>Desc One</th>
+                                <th>Desc Two</th>
+                                <th hidden>admin id</th>
+                                <th hidden>Created By</th>
+                                <th>Status</th>
+                                <th>Date Created</th>
+                                <th hidden>Action</th>
+                                <th>Date Update</th>
+                                <th>Log</th>
+                                <th>Read</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $event_reload_query = "SELECT tb1.eventID, tb1.event_img, tb1.header, tb1.event_title, tb1.date_start, tb1.date_and_time, tb1.reg_fee, tb1.desc_1, tb1.desc_2, tb2.loginId, tb2.username, tb1.status, tb1.date_published, tb1.action, tb1.date_update FROM events tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId";
+
+                            $event_reload_query_result = mysqli_query($conn, $event_reload_query);
+                            if(mysqli_num_rows($event_reload_query_result) > 0 ){
+                                foreach($event_reload_query_result as $event){
+                                    ?>
+                                    <tr >  
+                                        <td><?= $event['eventID']?></td>
+                                        <td>
+                                            <button type="button" class="btn tooltip-test imgs" title="UPDATE IMAGE" id="imgs">
+                                                <img src="./upload/<?= $event['event_img']?>" class="h-100 w-100">
+                                            </button>
+                                        </td>
+                                        <td><?= $event['header']?></td>
+                                        <td><?= $event['event_title']?></td>
+                                        <td><?= date('M d Y',  strtotime($event['date_start'])) ?></td>
+                                        <td><?= $event['date_and_time']?></td>
+                                        <td><?= $event['reg_fee']?></td>
+                                        <td><?= $event['desc_1']?></td>
+                                        <td><?= $event['desc_2']?></td>
+                                        <td hidden><?= $event['loginId']?></td>
+                                        <td hidden><?= $event['username']?></td>
+                                            <?php
+                                                if($event['status'] == 'published'){
+                                                    $stats = "stats-orange";
+                                                    $font = "P"; 
+                                                }else if($event['status'] == 'unpublished'){
+                                                    $stats = "stats-blue";
+                                                    $font = "UP";
+                                                }else{
+                                                    $stats = "stats-white";
+                                                    $font = "S";
+                                                }
+                                            ?>
+                                        <td>
+                                            <button type="button" class="<?= $stats ?> tooltip-test status" title="Status" id="status">
+                                            <?= $font ?>
+                                            </button>
+                                        </td>
+                                        <td><?= date('M d Y',  strtotime($event['date_published'])) ?></td>
+                                        <td hidden><?= $event['action']?></td>
+                                        <td><?= date('M d Y',  strtotime($event['date_update'])) ?></td>
+                                        <td>
+                                            <button type="button" class="border-0 bg-white p-2" data-bs-toggle="popover" title="Last Admin Log" data-bs-content="<?= $event['action']?> by <?= $event['username']?>"><i class="bi bi-exclamation-circle"></i></button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="stats-white tooltip-test read" title="READ" id="read">
+                                                <i class="bi bi-arrow-repeat"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                }
+                            }
+
+                            ?>
+
+                            <!-- <tr>
+                                <td>Mrs. Maria Fully Grace</td>
+                                <td>Strategic Planning and Risk-Based Management</td>
+                                <td>12:00 pm</td>
+                                <td>
+                                    <button type="button" class="btn tooltip-test" title="Read" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                                        <i class="bi bi-bookmark"></i>
+                                    </button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </td>
+                            </tr> -->
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th>Image</th>
+                                <th>Header</th>
+                                <th>Title</th>
+                                <th>Date Start</th>
+                                <th>Date and Time</th>
+                                <th>Reg Fee</th>
+                                <th>Desc One</th>
+                                <th>Desc Two</th>
+                                <th hidden>admin id</th>
+                                <th hidden>Created By</th>
+                                <th>Status</th>
+                                <th>Date Created</th>
+                                <th hidden>Action</th>
+                                <th>Date Update</th>
+                                <th>Log</th>
+                                <th>Read</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- THIS IS SERVICES TABLE END HERE -->
 
     </main>
 
@@ -110,6 +267,13 @@
     <?php
       require "layout.part/admin.footer.php";
     ?>
+    <script>
+
+         var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
+    </script>
     <!-- Footer and JS Script End Here -->
   </body>
 </html>

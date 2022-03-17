@@ -38,7 +38,7 @@ if(isset($_POST['event_published'])){
             $image_upload_path = '../upload/'.$new_image_name ;
             move_uploaded_file($tmp_name, $image_upload_path);
 
-            $event_pub_query = "INSERT INTO `events`(`event_img`, `header`, `event_title`, `date_start`, `date_and_time`, `reg_fee`, `desc_1`, `desc_2`, `published_by`, `status`, `date_published`) VALUES ('$new_image_name','$header','$event_title',' $start_date','$event_date','$reg_fee','$desc_one','$desc_two','$loginid','$status','$date')";
+            $event_pub_query = "INSERT INTO `events`(`event_img`, `header`, `event_title`, `date_start`, `date_and_time`, `reg_fee`, `desc_1`, `desc_2`, `loginId`, `status`, `date_published`, `action`, `date_update`) VALUES ('$new_image_name','$header','$event_title',' $start_date','$event_date','$reg_fee','$desc_one','$desc_two','$loginid','$status','$date','$action','$date')";
 
             $event_pub_query_result = mysqli_query($conn, $event_pub_query);
             if(!$event_pub_query_result){

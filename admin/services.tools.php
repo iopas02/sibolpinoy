@@ -35,7 +35,7 @@
     <!-- THIS IS CREATE NEW SERVICES FORM START HERE -->
         <div class="row col-md-12 border-bottom border-1 border-dark mb-2">
             <div class="row col-md-12 px-5">
-                    <h5>Create Services</h5>
+                <h5 class="page-header">Create Services</h5>
             </div>
             <div class="row col-md-12 mb-2">
                 <form action="comptroller/service.control.php" method="POST" enctype="multipart/form-data">
@@ -142,11 +142,10 @@
                                             <button type="button" class="btn tooltip-test imgs" title="UPDATE IMAGE" id="imgs">
                                                 <img src="./upload/<?= $services['image']?>" class="h-100 w-100">
                                             </button>
-                                            <input hidden value="<?= $services['image']?>">
                                         </td>
                                         <td><?= $services['service_desc']?></td>
-                                            <?= $status = $services['status'];
-                                                if($status == 'Active'){
+                                            <?php
+                                                if($services['status'] == 'Active'){
                                                     $stats = "stats-orange";
                                                     $font = "A"; 
                                                 }else{

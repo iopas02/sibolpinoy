@@ -25,15 +25,19 @@
     <!-- THIS IS FOR SIDE NAV-BAR and OFF CANVA END HERE -->
 
     <main class="mt-5 pt-2">
-        <div class="container-fluid">
 
-            <div class="row">
-                <div class="col-md-12 mb-4">
-                    <h5 class="page-header">Event Preview</h5>
-                    <a href="events.php">Create Event</a>
-                    <hr class="dropdown-divider bg-dark" />
-                </div>
-            </div>
+      <!-- THIS IS FOR SUB NAV-BAR FOR EVENT START HERE -->
+      <?php
+            require "layout.part/events.subnav.php";
+        ?>
+        <!-- THIS IS FOR SUB NAV-BAR FOR EVENT END HERE -->
+
+        <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12 mb-4">
+                  <h5 class="page-header">Event Preview</h5>
+              </div>
+          </div>
 
             <div class="row col-md-12 ">
               <?php
