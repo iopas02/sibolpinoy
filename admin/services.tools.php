@@ -265,7 +265,6 @@
                                 </div>
                     <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
 
-
                                 <div class="my-3 d-grid gap-2 d-md-flex justify-content-md-end">
                                     <button class="btn bg-coloured text-white" type="submit" name="update_stats" ><i class="bi bi-vector-pen"></i> Update Status</button>
                                 </div>

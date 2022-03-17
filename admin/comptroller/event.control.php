@@ -121,3 +121,39 @@ if(isset($_POST['edit_event'])){
     }
 
 }
+
+if(isset($_POST['update_event_stats'])){
+    if($_POST['stats'] !='' ){
+
+        $eventid = mysqli_real_escape_string($conn, $_POST['eventid']);
+        $status = mysqli_real_escape_string($conn, $_POST['stats']);
+        $admin = mysqli_real_escape_string($conn, $_POST['username']);
+        $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
+        $status_update = mysqli_real_escape_string($conn, $_POST['status_update']);
+    
+        $date_update = date("Y-m-d H:i:s");
+
+        $update_event_status = "UPDATE `events` SET `loginId`='$user_id',`status`='$status', `action`='$status_update',`date_update`='$date_update' WHERE `eventID`='$eventid' ";
+
+        $update_event_status_result = mysqli_query($conn, $update_event_status);
+        if(!$update_event_status_result){
+            header("Location: ../events.php?error=update_event_status_failed");
+            exit();
+        }else{
+            $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$user_id','$status_update','$admin', '$date_update')";
+
+            $create_adminlog_result = mysqli_query($conn, $create_adminlog);
+            if(!$create_adminlog_result){
+                header("Location: ../events.php?error=adminlog_error");
+                exit(); 
+            }else{
+                header("Location: ../events.php?success=event_status_updated_successfully");
+                exit();
+            }
+        }
+
+    }else{
+        header("Location: ../events.php?error=please_select_status");
+        exit();
+    }
+}
