@@ -33,16 +33,30 @@
         <!-- THIS IS FOR SUB NAV-BAR FOR EVENT END HERE -->
 
         <div class="container-fluid">
-          <div class="row">
-              <div class="col-md-12 mb-4">
-                  <h5 class="page-header">Event Preview</h5>
+          <form action="event.preview.php" method="POST">
+            <div class="row col-md-12">
+              <div class="col-md-8 mb-4">
+                <h5 class="page-header">Event Preview</h5>
               </div>
-          </div>
+              <div class="input-group col-md-4 mb-3">  
+                  <select class="form-select" name="stats">
+                    <option value="">Select Status</option>
+                    <option value="sample">sample</option>
+                    <option value="published">published</option>
+                    <option value="unpublished">unpublished</option>
+                  </select>
+                  <button class="bg-coloured text-white p-2" type="submit" id="button-addon2" name="status_search"> <i class="bi bi-binoculars"></i> Button</button>
+              </div>
+            </div>
+          </form>
 
           <div class="row col-md-12 ">
             <?php
-              $prev_status = "sample";
-
+              $prev_status = '';
+              if(isset($_POST['status_search'])){
+                $prev_status =  mysqli_real_escape_string($conn, $_POST['stats']);
+              }
+              
               $preview_event_query = "SELECT * FROM `events` WHERE `status`='$prev_status' ORDER BY `date_start`";
               $preview_event_query_result = mysqli_query($conn, $preview_event_query);
               if(mysqli_num_rows($preview_event_query_result) > 0 ){
