@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto+Slab:wght@500;600&family=Roboto:wght@100;300;500;900&display=swap');
+/* 
+font-family: 'Roboto', sans-serif; 
+font-family: 'Roboto Slab', serif;
+font-family: 'Abril Fatface', cursive;
+*/
 :root {
     --yellowColor: #FF7F00;
     --blueColor: #040478;
@@ -90,7 +96,7 @@ body{
 .card-text{
     font-family: var(--roboto);
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .welcome-text{
