@@ -41,56 +41,40 @@
                 <h6 class="bg-white text-center text-dark px-3 secondary-font">Upcoming Events</h6>
                 <h1 class="mb-5 header-font">Check Our Upcoming Events</h1>
             </div>
-      
-            <div id="carouselExampleIndicators" class="carousel slide wow fadeInUp" data-wow-delay="0.2s" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" style="background-color: blue;" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" style="background-color: blue;" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row g-5">
-                            <div class="col-lg-6" style="min-height: 400px;">
-                                <div class="position-relative" >
-                                    <div class="testimonial-item text-center" >
-                                        <img class="img-fluid w-100" style="height: 345px" src="img/event_1.jpg">
-                                    </div>
-                                </div>                     
-                            </div>
-                            <div class="col-lg-6">
-                                <h5 class="bg-white text-dark pe-3 secondary-font">Avail UP TO 50% OFF on any of the following Training-Workshops below:</h5>
-                                <h6 class="bg-white text-dark pe-3 second-header">𝐈𝐒𝐎 𝟗𝟎𝟎𝟏:𝟐𝟎𝟏𝟓 𝐑𝐞𝐪𝐮𝐢𝐫𝐞𝐦𝐞𝐧𝐭𝐬 𝐚𝐧𝐝 𝐈𝐧𝐭𝐞𝐫𝐧𝐚𝐥 𝐐𝐮𝐚𝐥𝐢𝐭𝐲 𝐀𝐮𝐝𝐢𝐭: March 5, 6, 12 & 13, 2022 | 9AM-5PM</h6>
+            
+            <div class="row col-md-12">
+                <?php
+                    $tatus = 'published';
+                    $load_event_query = "SELECT * FROM `events` WHERE `status`='$tatus' ORDER BY `date_start`";
+                    $load_event_query_result = mysqli_query($conn, $load_event_query );
+                    if(mysqli_num_rows($load_event_query_result) > 0 ){
+                        foreach($load_event_query_result as $published_event){
+                            ?>
+                                <div class="col-md-3 text-center py-2">
+                                    <img src="admin/upload/<?= $published_event['event_img']?>" style="width: 250px; height: 210px;" alt="">
+                                </div>
+                                <div class="col-md-7 py-2">
+                                    <div class="text-one"> <?= $published_event['header']?> </div>
+                                    <div class="text-two"><?= $published_event['event_title']?></div>
+                                    <div class="text-one"><?= $published_event['date_and_time']?></div>
+                                    <div class="text-one"><?= $published_event['reg_fee']?></div>
+                                    <div class="smaller-text"><?= $published_event['desc_1']?></div>
+                                    <div class="smaller-text"><?= $published_event['desc_2']?></div>
 
-                                <p class="mb-2">Registration Rates:</p>
-                                <p class="mb-2">Regular Fee: P2,000.00</p>
-                                <p class="mb-2">Early Bird Discount (20% OFF): P1,600.00/Training if you register until March 1, 2022</p>
-                                <p class="mb-2">Student & Group Registration (Min. of 3 pax | 50% OFF): P1,000.00/Pax.</p>
-                                <a class="btn btn-dark py-3 px-5 mt-2" data-bs-toggle="modal" data-bs-target="#registration">For Registration</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row g-5">
-                            <div class="col-lg-6" style="min-height: 400px;">
-                                <div class="position-relative">
-                                    <div class="testimonial-item text-center">
-                                        <img class="img-fluid w-100" style="height: 345px" src="img/event_2.jpg">
-                                    </div>
-                                </div>                     
-                            </div>
-                            <div class="col-lg-6">
-                                <h5 class="bg-white text-dark pe-3 secondary-font">Avail UP TO 50% OFF on any of the following Training-Workshops below:</h5>
-                                <h6 class="bg-white text-dark pe-3 second-header">𝐒𝐭𝐫𝐚𝐭𝐞𝐠𝐢𝐜 𝐏𝐥𝐚𝐧𝐧𝐢𝐧𝐠 𝐚𝐧𝐝 𝐑𝐢𝐬𝐤-𝐁𝐚𝐬𝐞𝐝 𝐌𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭: March 7 - 11, 2022 | 5PM-9PM</h6>
-                                <p class="mb-2">Registration Rates:</p>
-                                <p class="mb-2">Regular Fee: P2,000.00</p>
-                                <p class="mb-2">Early Bird Discount (20% OFF): P1,600.00/Training if you register until March 1, 2022</p>
-                                <p class="mb-2">Student & Group Registration (Min. of 3 pax | 50% OFF): P1,000.00/Pax.</p>
-                                <a class="btn btn-dark py-3 px-5 mt-2" data-bs-toggle="modal" data-bs-target="#registration">For Registration</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                    <button class="col-md-3 b-0 bg-blue p-1 mt-2 text-white">Register</button>    
+                                </div>
+                                <div class="col-md-2 text-center py-3">       
+                                    <div class="date-text"><?= date('d',  strtotime($published_event['date_start'])) ?></div>
+                                    <div class="month-text"><?= date('M',  strtotime($published_event['date_start'])) ?></div>
+                                </div>
+                                <hr class="dropdown-divider bg-dark" />
+                            <?php
+                        }
+                    }    
+
+                ?>
             </div>
+            
         </div>
     </div>
     

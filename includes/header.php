@@ -45,5 +45,5 @@
 
     <!-- Template Stylesheet -->
     <link href="css/styled.css" rel="stylesheet">
-    <link href="css/plus.style.css" rel="stylesheet">
+    <link href="css/plustyle.css" rel="stylesheet">
 </head>
