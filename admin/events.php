@@ -47,12 +47,12 @@
                     <div class="">
                         <div class="row">
                             <div class="col-lg-4" style="min-height: 400px;">
-                                <label for="#event_id">Event ID</label>
-                                <input type="text" id="event_id" class="" readonly>                           
+                                <label for="#eventID">Event ID</label>
+                                <input type="text" id="eventID" name="eventID" class="form-control w-50" readonly>                           
                                 <div class="position-relative" >
                                     <div class="pb-2" >
                                         <label>Upload Image Here</label>
-                                        <img class="img-fluid w-100" style="height: 345px" src="svg/default_new_image.jpg">  
+                                        <img class="img-fluid w-100" style="height: 250px" src="svg/default_new_image.jpg">  
                                     </div>
                                 </div>
                                 <input type="file" name="event_image">
@@ -62,25 +62,25 @@
                                 
                                 <div class="bg-white text-dark mb-2">
                                     <label>Header</label>
-                                    <input class="w-100 h-100 p-1" type="text" name="header" placeholder="Avail UP TO 50% OFF on any of the following Training-Workshops below:">    
+                                    <input class="w-100 h-100 p-1" type="text" id="header" name="header" placeholder="e.g Avail UP TO 50% OFF on any of the following Training-Workshops below:">    
                                 </div>
                                 
                                 <div class="bg-white text-dark pe-3 mb-2">
                                     <label>Event Title:</label>
-                                    <input class="w-100 h-100 p-1" type="text" name="event_title" placeholder="ISO 9001:2015 Requirements and internal Aquality Audit">  
+                                    <input class="w-100 h-100 p-1" type="text" id="event_title" name="event_title" placeholder="e.g ISO 9001:2015 Requirements and internal Aquality Audit">  
                                 </div>
                                    
                                 <div class="bg-white text-dark pe-3 second-header">
                                     <label>Date And Time </label>
-                                    <input class="w-50 h-100 p-1" type="text" name="event_date" placeholder="March 5, 6, 12 & 13, 2022 | 9AM-5PM">
+                                    <input class="w-50 h-100 p-1" type="text" id="date_and_time" name="event_date" placeholder="e.g March 5, 6, 12 & 13, 2022 | 9AM-5PM">
                                     
                                     <label>Start Date</label>
-                                    <input class="w-30 h-100 p-1" type="date" name="start_date" > 
+                                    <input class="w-30 h-100 p-1" type="date" id="date_start" name="start_date"> 
                                 </div>
 
                                 <div class="mb-2"> 
                                     <label>Registration Fees </label>
-                                    <input class="w-50 p-1" type="text" name="reg_fee" placeholder="Regular Fee: P2,000.00">
+                                    <input class="w-50 p-1" type="text" id="reg_fee" name="reg_fee" placeholder="e.g Regular Fee: P2,000.00">
 
                                     <label>Status</label>
                                         <select class="w-40 p-2" name="status" id="">
@@ -93,13 +93,13 @@
 
                                 <div class="mb-2">
                                     <label>Description 1</label>
-                                    <input class="w-100 p-1" type="text" name="desc_one" placeholder="Early Bird Discount (20% OFF): P1,600.00/Training if you register until March 1, 2022">
+                                    <input class="w-100 p-1" type="text" id="desc_1" name="desc_one" placeholder="e.g Early Bird Discount (20% OFF): P1,600.00/Training if you register until March 1, 2022">
                                 </div>
 
                                 
                                 <div class="mb-2">
                                     <label>Description 2</label>
-                                    <input class="w-100 p-1" type="text" name="desc_two" placeholder="Student & Group Registration (Min. of 3 pax | 50% OFF): P1,000.00/Pax.">
+                                    <input class="w-100 p-1" type="text" id="desc_2" name="desc_two" placeholder="e.g Student & Group Registration (Min. of 3 pax | 50% OFF): P1,000.00/Pax.">
                                 </div>
                                
                                 <input type="text" hidden name="loginid" value="<?= $id?>">
@@ -115,7 +115,7 @@
                                         </button>
                                     </div>
                                     <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
-                                        <button  type="submit" name="edit_services" class="btn bg-coloured text-white my-2" "><i class="bi bi-vector-pen"></i> Update</button>
+                                        <button  type="submit" name="edit_event" class="btn bg-coloured text-white my-2" "><i class="bi bi-vector-pen"></i> Update</button>
                                         <button  type="submit" name="delete_services" class="btn bg-coloured text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
                                     </div>
                                 </div>
@@ -127,7 +127,7 @@
         </div>
         <!-- THIS IS CREATE NEW EVENTS FORM END HERE -->
 
-        <!-- THIS IS SERVICES TABLE START HERE -->
+        <!-- THIS IS EVENTS TABLE START HERE -->
         <div class="row col-md-12 mt-3">
             <hr class="dropdown-divider bg-dark" />
             <div class="row col-md-12 px-5">
@@ -216,23 +216,6 @@
                             }
 
                             ?>
-
-                            <!-- <tr>
-                                <td>Mrs. Maria Fully Grace</td>
-                                <td>Strategic Planning and Risk-Based Management</td>
-                                <td>12:00 pm</td>
-                                <td>
-                                    <button type="button" class="btn tooltip-test" title="Read" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-                                        <i class="bi bi-bookmark"></i>
-                                    </button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </td>
-                            </tr> -->
-
                         </tbody>
                         <tfoot>
                             <tr>
@@ -259,7 +242,7 @@
                 </div>
             </div>
         </div>
-        <!-- THIS IS SERVICES TABLE END HERE -->
+        <!-- THIS IS EVENTS TABLE END HERE -->
 
     </main>
 
@@ -268,6 +251,31 @@
       require "layout.part/admin.footer.php";
     ?>
     <script>
+           $(document).ready(function(){
+            $('.read').on('click', function(){
+                
+                $tr = $(this).closest('tr');
+
+                var data= $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+
+                $('#eventID').val(data[0]);
+                $('#header').val(data[2]);
+                $('#event_title').val(data[3]);
+                $('#date_start').val(data[4]);
+                $('#date_and_time').val(data[5]);
+                $('#reg_fee').val(data[6]);
+                $('#desc_1').val(data[7]);
+                $('#desc_2').val(data[8]);
+                // $('#date_and_time').val(data[5]);
+                // $('#date_and_time').val(data[5]);
+           
+            })
+
+        })
 
          var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
             var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {

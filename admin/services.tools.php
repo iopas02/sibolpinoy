@@ -125,7 +125,7 @@
                                 <th>Date</th>
                                 <th>Updated</th>
                                 <th>Log</th>
-                                <th>Action</th>
+                                <th>Read</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -207,7 +207,7 @@
                                 <th>Date</th>
                                 <th>Updated</th>
                                 <th>Log</th>
-                                <th>Action</th>
+                                <th>Read</th>
                             </tr>
                         </tfoot>
                     </table>
