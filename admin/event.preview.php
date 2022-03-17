@@ -35,41 +35,43 @@
                 </div>
             </div>
 
-            <div class="row col-md-12">
-               
-                <div class="col-md-3">
-                    <img src="upload/IMG-62317b9f5731b3.22549484.png" style="width: 250px; height: 250px;" alt="">
-                </div>
-                <div class="col-md-7">
-                    <p class="text-normal" >Join Sibol-PINOY Management Consultancy on its FREE WEBINAR with the theme, "Pinakbet or Laing: Weighing Alternatives, Making the Right Choice #NOTAPOLITICALFORUM</p>
+            <div class="row col-md-12 ">
+              <?php
+                $prev_status = "sample";
 
-                    <h5 class="welcome-text">A Webinar on Business Decision-Making, and Product and Service Management.</h5>
+                $preview_event_query = "SELECT * FROM `events` WHERE `status`='$prev_status' ORDER BY `date_start` ";
+                $preview_event_query_result = mysqli_query($conn, $preview_event_query);
+                if(mysqli_num_rows($preview_event_query_result) > 0 ){
+                    foreach($preview_event_query_result as $preview_event){
+                      ?>
+                      <div class="col-md-3 text-center py-2">
+                        <img src="./upload/<?= $preview_event['event_img']?>" style="width: 250px; height: 250px;" alt="">
+                      </div>
+                      <div class="col-md-7 py-2">
+                          <p class="text-normal"><?= $preview_event['header']?></p>
 
-                    <h6 class="text-normal">Friday, 1st of April, 2022 from 5:00 PM to 8:00 PM</h6>
+                          <h5 class="welcome-text"><?= $preview_event['event_title']?></h5>
 
-                    <p class="text-normal">FREE WEBINAR </p>
+                          <h6 class="text-normal"><?= $preview_event['date_and_time']?></h6>
 
-                    <p class="text-small">Don't miss the opportunity to discover the world of Business Decision-Making and Product and Service Management!</p>
+                          <p class="text-normal"><?= $preview_event['reg_fee']?></p>
 
-                    <p class="text-small">You may access the registration form by scanning the QR code or fill-up in this link: https://lnkd.in/gxefz_kY</p>
+                          <p class="text-small"><?= $preview_event['desc_1']?></p>
 
-                    <button class="col-md-3 b-0 bg-coloured p-1 text-white">Register</button>    
-                </div>
-                <div class="col-md-2 text-center py-5">
-                    <?php
-                    date_default_timezone_set("Asia/Manila");
-                    $year = date("Y");
-                    $month = date("M");
-                    $date = date("d");
-                    $time = date("g:i a");  
-                    ?>          
-                        <div class="count-text-two"><?php echo $date ?></div>
-                        <div class="user-text-two"> <?php echo $month ?></div>
-                </div>
-                <hr class="dropdown-divider bg-dark" />
-            </div>
-            
-            
+                          <p class="text-small"><?= $preview_event['desc_2']?></p>
+
+                          <button class="col-md-3 b-0 bg-coloured p-1 text-white">Register</button>    
+                      </div>
+                      <div class="col-md-2 text-center py-5">       
+                        <div class="count-text-two"><?= date('d',  strtotime($preview_event['date_start'])) ?></div>
+                        <div class="user-text-two"><?= date('M',  strtotime($preview_event['date_start'])) ?></div>
+                      </div>
+                      <hr class="dropdown-divider bg-dark" />
+                      <?php
+                    }
+                  }
+              ?>
+            </div>  
         </div>
     </main>
 

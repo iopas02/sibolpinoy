@@ -75,7 +75,8 @@
 
                                     <label>Status</label>
                                         <select class="w-40 p-2" name="status" id="">
-                                                <option value="published">sample</option>
+                                                <option value="">Select Status</option>
+                                                <option value="sample">sample</option>
                                                 <option value="published">published</option>
                                                 <option value="unpublished">unpublished</option>
                                         </select> 

@@ -14,6 +14,8 @@ if(isset($_POST['event_published'])){
         $desc_one = mysqli_real_escape_string($conn, $_POST['desc_one']);
         $desc_two = mysqli_real_escape_string($conn, $_POST['desc_two']);
 
+        // echo $start_date;
+
         $status = mysqli_real_escape_string($conn, $_POST['status']);
         $admin = mysqli_real_escape_string($conn, $_POST['admin']);
         $loginid = mysqli_real_escape_string($conn, $_POST['loginid']);
@@ -36,12 +38,12 @@ if(isset($_POST['event_published'])){
             $image_upload_path = '../upload/'.$new_image_name ;
             move_uploaded_file($tmp_name, $image_upload_path);
 
-            $event_pub_query = "INSERT INTO `events`(`event_img`, `header`, `event_title`, `date_start`, `date_and_time`, `reg_fee`, `desc_1`, `desc_2`, `published_by`, `status`, `date_published`) VALUES ('$new_image_name','$header','$event_title','$event_date','$reg_fee','$desc_one','$desc_two','$loginid','$status','$date')";
+            $event_pub_query = "INSERT INTO `events`(`event_img`, `header`, `event_title`, `date_start`, `date_and_time`, `reg_fee`, `desc_1`, `desc_2`, `published_by`, `status`, `date_published`) VALUES ('$new_image_name','$header','$event_title',' $start_date','$event_date','$reg_fee','$desc_one','$desc_two','$loginid','$status','$date')";
 
             $event_pub_query_result = mysqli_query($conn, $event_pub_query);
             if(!$event_pub_query_result){
                 
-                header("Location: ../events.php?error=event_sql_erro");
+                header("Location: ../events.php?error=event_sql_error");
                 exit();
 
             }else {

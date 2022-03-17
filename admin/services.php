@@ -36,7 +36,7 @@
         <div class="row col-md-12">
             <?php
                 $services_reload_query = "SELECT * FROM `services` ";
-                $services_reload_query_result = mysqli_query($conn, $services_reload_query );
+                $services_reload_query_result = mysqli_query($conn, $services_reload_query);
                 if(mysqli_num_rows($services_reload_query_result) > 0 ){
                     foreach($services_reload_query_result as $service){
                         ?>  
