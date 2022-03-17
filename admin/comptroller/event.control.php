@@ -74,6 +74,7 @@ if(isset($_POST['edit_event'])){
     if($_POST['eventID'] && $_POST['header'] && $_POST['event_title'] && $_POST['event_date'] !=''){
 
         if($_POST['start_date'] !='') {
+            date_default_timezone_set("Asia/Manila");
             
             $eventID = mysqli_real_escape_string($conn, $_POST['eventID']);
             $header = mysqli_real_escape_string($conn, $_POST['header']);
@@ -124,6 +125,7 @@ if(isset($_POST['edit_event'])){
 
 if(isset($_POST['update_event_stats'])){
     if($_POST['stats'] !='' ){
+        date_default_timezone_set("Asia/Manila");
 
         $eventid = mysqli_real_escape_string($conn, $_POST['eventid']);
         $status = mysqli_real_escape_string($conn, $_POST['stats']);
@@ -154,6 +156,68 @@ if(isset($_POST['update_event_stats'])){
 
     }else{
         header("Location: ../events.php?error=please_select_status");
+        exit();
+    }
+}
+
+if(isset($_POST['update_event_img'])){
+    if($_FILES['event_img'] !='' ){
+        date_default_timezone_set("Asia/Manila");
+
+        $eid = mysqli_real_escape_string($conn, $_POST['eid']);
+
+        $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
+        $username = mysqli_real_escape_string($conn, $_POST['username']);
+        $user_level = mysqli_real_escape_string($conn, $_POST['user_level']);
+        $image_update = mysqli_real_escape_string($conn, $_POST['image_update']);
+
+        $update_date = date("Y-m-d H:i:s");
+
+        $image_name = $_FILES['event_img']['name'];
+        $img_size = $_FILES['event_img']['size'];
+        $tmp_name = $_FILES['event_img']['tmp_name'];
+        $error = $_FILES['event_img']['error'];
+
+        $image_ex = pathinfo($image_name, PATHINFO_EXTENSION);
+        $image_ex_loc = strtolower($image_ex );
+        
+        $allowed_ex = array("jpg", "jpeg", "png", "gif");
+
+        if(in_array($image_ex_loc, $allowed_ex)){
+
+            $new_image_name = uniqid("IMG-", true).'.'.$image_ex_loc;
+            $image_upload_path = '../upload/'.$new_image_name ;
+            move_uploaded_file($tmp_name, $image_upload_path );
+
+            $update_event_image = "UPDATE `events` SET `event_img`='$new_image_name',`loginId`='$user_id',`action`='$image_update',`date_update`='$update_date' WHERE `eventID`='$eid' ";
+            
+            $update_query_result = mysqli_query($conn, $update_event_image);
+
+            if($update_query_result){
+
+                $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$user_id', '$image_update','$username', '$update_date')";
+
+                $create_adminlog_result = mysqli_query($conn, $create_adminlog);
+                if(!$create_adminlog_result){
+                    header("Location: ../events.php?error=adminlog_error");
+                    exit(); 
+                }else{
+                    header("Location: ../events.php?success=event_image_update_successfully");
+                    exit();
+                }
+
+            }else{
+                header("Location: ../events.php?error=image_update_failed");
+                exit();
+            }
+        }else{
+            header("Location: ../events.php?error=file_not_supported");
+            exit();
+        }
+
+    }
+    else{
+        header("Location: ../events.php?error=no_image_attach");
         exit();
     }
 }

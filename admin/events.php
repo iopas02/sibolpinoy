@@ -128,7 +128,7 @@
         <!-- THIS IS CREATE NEW EVENTS FORM END HERE -->
 
         <!-- THIS IS EVENTS TABLE START HERE -->
-        <div class="row col-md-12 mt-3">
+        <div class="row col-md-12 my-3">
             <hr class="dropdown-divider bg-dark" />
             <div class="row col-md-12 px-5">
                 <h5>Events Table</h5>
@@ -195,7 +195,7 @@
                                                 }
                                             ?>
                                         <td>
-                                            <button type="button" class="<?= $stats ?> tooltip-test status" title="Status" id="status">
+                                            <button type="button" class="<?= $stats ?> tooltip-test status" title="Update Status" id="status">
                                             <?= $font ?>
                                             </button>
                                         </td>
@@ -305,25 +305,25 @@
         </div>
 
         <div class="modal fade" id="editImage" data-bs-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Update Image</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>   
                     <div class="modal-body">
-                        <form action="comptroller/service.control.php" method="POST" enctype="multipart/form-data">
+                        <form action="comptroller/event.control.php" method="POST" enctype="multipart/form-data">
                             <div class="row col-sm-12 px-2">
-                                <label for="sunid" class="col-form-label">Service uniID</label>
-                                <input type="text" class="form-control" readonly name="sunid" id="sunid">
+                                <label for="eid" class="col-form-label">Event uniID</label>
+                                <input type="text" class="form-control" readonly name="eid" id="eid">
                             </div>
                             <div class="row col-sm-12 px-2">
-                                <label for="stitle" class="col-form-label">Service Title</label>
-                                <input type="text" class="form-control" readonly name="stitle" id="stitle">
+                                <label for="etitle" class="col-form-label">Event Title</label>
+                                <input type="text" class="form-control" readonly name="etitle" id="etitle">
                             </div>
                             <div class="row col-sm-12 px-2">
                                 <label for="uimg" class="col-form-label">Update Image</label>
-                                <input type="file" class="form-control" name="uimg" id="uimg">
+                                <input type="file" class="form-control" name="event_img" id="event_img">
                             </div>
                             
                     <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
@@ -342,12 +342,12 @@
                                 </div>
                                 <div class="col-md-2 m-2">
                                     <label for="image_update" class="form-label">Action 1</label>
-                                    <input type="text" class="form-control" id="image_update" name="image_update" value="update service image">
+                                    <input type="text" class="form-control" id="image_update" name="image_update" value="update event image">
                                 </div>
                             </div>
                     <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
                             <div class="my-3 d-grid gap-2 d-md-flex justify-content-md-end">
-                                <button class="btn bg-coloured text-white" type="submit" name="update_image" ><i class="bi bi-vector-pen"></i> Update Image</button>
+                                <button class="btn bg-coloured text-white" type="submit" name="update_event_img" ><i class="bi bi-vector-pen"></i> Update Image</button>
                             </div>
                         </form>     
                     </div>
@@ -401,6 +401,22 @@
                 console.log(data);
                 $('#eventid').val(data[0]);
                 $('#eventtitle').val(data[3]);
+            })
+        })
+
+        $(document).ready(function(){
+            $('.imgs').on('click', function(){
+                $('#editImage').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data= $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+                $('#eid').val(data[0]);
+                $('#etitle').val(data[3]);
             })
         })
 

@@ -154,7 +154,7 @@
                                                 }
                                             ?>
                                         <td>
-                                            <button type="button" class="<?= $stats ?> tooltip-test status" title="Status" id="status">
+                                            <button type="button" class="<?= $stats ?> tooltip-test status" title="Update Status" id="status">
                                             <?= $font ?>
                                             </button>
                                             
