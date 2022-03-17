@@ -138,9 +138,40 @@
     </div>
     <!-- About Sibol-PINOY End -->
 
+    <!-- Sibol Start -->
+<div class="container-fluid py-5 bg-white">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <!-- <h6 class="bg-white text-center text-dark px-3 secondary-font">Our Team</h6> -->
+                <h1 class="mb-5 header-font">Grow With Us!</h1>
+            </div>
 
+            <div class="container-xxl py-5 mb-5 wow fadeInUp">
+                <div class="container">
+                    <div class="row g-5">
+                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="text-center">
+                                <img class="img-fluid border" src="img/spmc.gif" style="height:400px; width:350px;" alt="">
+                            </div>
+                            <!-- <div class="text-center">
+                                <h5 class="mb-0 secondary-font">Red One</h5>
+                                <small>Designation</small>
+                            </div> -->
+                        </div>
+                        <div class="col-lg-6 py-5 wow fadeInUp" data-wow-delay="0.3s">    
+                            <h1 class="text-center text-blue header-font">
+                                <i class="fa fa-quote-left px-5 text-yellow"></i>
+                                    <br> We offer solutions, We are the solution. <br>
+                                <i class="fa fa-quote-right px-5 text-yellow"></i>     
+                            </h1>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     <!-- Team Start -->
-    <div class="container-fluid py-5 bg-white">
+    <!-- <div class="container-fluid py-5 bg-white">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="bg-white text-center text-dark px-3 secondary-font">Our Team</h6>
@@ -218,7 +249,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Team End -->
         
 
