@@ -28,8 +28,8 @@
             <div class="row justify-content-start">
                 <div class="col-sm-10 col-lg-8">
                 <!-- <h1 class="display-3 text-white animated slideInDown">Sibol-PINOY</h1> -->
-                    <h4 class="text-dark header-font">Consultation</h4>
-                    <p class="mb-4 pb-2 text-dark secondary-font">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, unde?.</p>
+                <h4 class="text-dark header-font">Consultation</h4>
+                <p class="mb-4 pb-2 text-dark secondary-font">Quality is a choice, Choose to be better, Choose <strong>SPMC</strong>.</p>
                 </div>
             </div>
         </div>
