@@ -35,7 +35,7 @@
                             <div class="col-sm-10 col-lg-8">
                             <!-- <h1 class="display-3 text-white animated slideInDown">Sibol-PINOY</h1> -->
                                 <h4 class="text-white animated slideInDown header-font">Take Your Business To The Next Level</h4>
-                                <p class="text-white mb-4 pb-2 secondary-font">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, unde?.</p>
+                                <p class="text-white mb-4 pb-2 secondary-font">Unlocking potentials, building oppurtunities.</p>
                                 <a href="#check-services" class="btn py-md-3 px-md-5 me-3 animated slideInLeft text-light bg-blue">Read More</a>
                                 <a href="#" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
                             </div>
@@ -51,7 +51,7 @@
                             <div class="col-sm-10 col-lg-8">
                             <!-- <h1 class="display-3 text-white animated slideInDown">Sibol-PINOY</h1> -->
                                 <h4 class="text-white animated slideInDown header-font">Take Your Business To The Next Level</h4>
-                                <p class="text-white mb-4 pb-2 secondary-font">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum, quae..</p>
+                                <p class="text-white mb-4 pb-2 secondary-font">Unlocking potentials, building oppurtunities.</p>
                                 <a href="#check-services" class="btn py-md-3 px-md-5 me-3 animated slideInLeft text-light bg-blue">Read More</a>
                                 <a href="#" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
                             </div>
@@ -81,7 +81,7 @@
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-box-open text-primary mb-4"></i>
-                            <h5 class="mb-3 second-header">Honesty & Openness</h5>
+                            <h5 class="mb-3 second-header">Honesty & Openness</h5><br>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, iste.</p>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
-                            <h5 class="mb-3 second-header">Dedicated Team</h5>
+                            <h5 class="mb-3 second-header">Dedicated Team</h5><br>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate neque obcaecati voluptas possimus qui labore impedit cumque! Esse.</p>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-hand-holding-heart text-primary mb-4"></i>
-                            <h5 class="mb-3 second-header">Practical Approach</h5>
+                            <h5 class="mb-3 second-header">Practical Approach</h5><br>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel suscipit mollitia quis commodi! Accusantium autem ipsa explicabo saepe quas quae?</p>
                         </div>
                     </div>
@@ -130,10 +130,19 @@
                     <h6 class="bg-white text-start text-dark pe-3 secondary-font">About Us</h6>
                     <h1 class="mb-4 header-font">Welcome to Sibol-PINOY Management Consultancy</h1>
                     <p class="mb-4">Sibol-PINOY is a training and management consultancy which seeks to make expensive tools and techniques on productivity, 
-                    quality and performance excellence within the reach of micro, small and medium enterprises, including the government and NGOs. </p>
+                    quality and performance excellence within the reach of micro, small and medium enterprises, including the government and NGOs. What we promotes are the following:</p>
                     
                     <div class="row gy-2 gx-4 mb-4">
                         <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-dark me-2"></i><a href="#check-promotes">Brave and Conquer</a></p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-dark me-2"></i><a href="#check-promotes">Organized Goals</a></p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-dark me-2"></i><a href="#check-promotes">Productivity and Result</a></p>
+                        </div>
+                        <!-- <div class="col-sm-6">
                             <p class="mb-0"><i class="fa fa-arrow-right text-dark me-2"></i>Skilled Instructors</p>
                         </div>
                         <div class="col-sm-6">
@@ -141,16 +150,7 @@
                         </div>
                         <div class="col-sm-6">
                             <p class="mb-0"><i class="fa fa-arrow-right text-dark me-2"></i>International Certificate</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-dark me-2"></i>Skilled Instructors</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-dark me-2"></i>Online Classes</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-dark me-2"></i>International Certificate</p>
-                        </div>
+                        </div> -->
                     </div>
                     <a class="btn py-3 px-5 mt-2 text-light bg-blue" href="about.php">Read More</a>
                 </div>
@@ -160,54 +160,68 @@
     <!-- About End -->
 
 
-    <!-- Categories Start -->
-    <div class="ontainer-fluid bg-white py-5 category" id="services">
+   <!-- Categories Start -->
+<div class="ontainer-fluid bg-white py-5 category" id="services">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="text-center text-dark px-3 secondary-font">Services</h6>
                 <h1 class="mb-5 header-font">Services Categories</h1>
             </div>
-            <div class="row g-3">
-                <div class="col-lg-7 col-md-6">
-                    <div class="row g-3">
-                        <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                            <a class="position-relative d-block overflow-hidden" href="services.php">
-                                <img class="img-fluid" src="img/tech-solution.jpg" alt="">
-                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0 second-header">Technological Solutions</h5>
-                                </div>
-                            </a>
+
+            <div class="row g-4 mt-3">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/business-consultancy.jpg" alt="" >
                         </div>
-                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
-                            <a class="position-relative d-block overflow-hidden" href="services.php">
-                                <img class="img-fluid" src="img/training-development.jpg" alt="">
-                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0 second-header">Training and Development</h5>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                            <a class="position-relative d-block overflow-hidden" href="services.php">
-                                <img class="img-fluid" src="img/research-development.jpg" alt="">
-                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0 second-header">Research Development</h5>
-                                </div>
-                            </a>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0 secondary-font">Business Consultancy</h5>
+                            <!-- <br><small>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
+                            their objectives. We just do not partner with our
+                            clients, we engage and become one with them in
+                            their journey to quality improvement</small> -->
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
-                    <a class="position-relative d-block h-100 overflow-hidden" href="services.php">
-                        <img class="img-fluid position-absolute w-100 h-100" src="img/business-consultancy.jpg" alt="" style="object-fit: cover;">
-                        <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
-                            <h5 class="m-0 second-header">Business Consultancy</h5>
+
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/tech-solution.jpg" alt="">
                         </div>
-                    </a>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0 secondary-font">Technological solutions</h5>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/training-development.jpg" alt="">
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0 secondary-font">Training & development</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item bg-light">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/research-development.jpg" alt="">
+                        </div>
+                        <div class="text-center p-4">
+                            <h5 class="mb-0 secondary-font">Research development</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+             </div>
             </div>
-        </div>
-    </div>
-    <!-- Categories Start -->
+            </div>
+    <!-- Categories End -->
 
     <!-- WHY CHOOSE SIBOL -->
     <div class="ontainer-fluid bg-white py-5" id="check-services">
@@ -226,7 +240,7 @@
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="py-2 second-header">Business Consultancy</h5>
+                            <h5 class="py-2 second-header">Business Consultancy</h5><br>
                             <p>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
                             their objectives. We just do not partner with our
                             clients, we engage and become one with them in
@@ -295,7 +309,7 @@
 
 
     <!-- WHAT SIBOL PROMOTES -->
-    <div class="ontainer-fluid bg-white py-5" >
+    <div class="ontainer-fluid bg-white py-5" id="check-promotes">
         <div class="container">
             <div class="text-center wow fadeInUp">
                 <h2 class="bg-white text-center text-dark px-3 header-font">WHAT WE PROMOTES?</h2>
