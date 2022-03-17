@@ -203,8 +203,8 @@
                                         <td><?= $sub_cat['sub_cat_title']?></td>
                                         <td hidden><?= $sub_cat['username']?></td>
                                         <td hidden><?= $sub_cat['action']?></td>
-                                            <?= $status = $sub_cat['status'];
-                                                if($status == 'Active'){
+                                            <?php
+                                                if($sub_cat['status'] == 'Active'){
                                                     $stats = "stats-orange";
                                                     $font = "A"; 
                                                 }else{

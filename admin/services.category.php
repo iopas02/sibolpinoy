@@ -184,8 +184,8 @@
                                         <td hidden><?= $category['service_uniID']?></td>
                                         <td><?= $category['service_title']?></td>
                                         <td><?= $category['category_title']?></td>
-                                            <?= $status = $category['status'];
-                                                if($status == 'Active'){
+                                            <?php
+                                                if($category['status'] == 'Active'){
                                                     $stats = "stats-orange";
                                                     $font = "A"; 
                                                 }else{
@@ -284,7 +284,7 @@
                                 </div>
 
                 <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
-                                <div class="row col-md-12" >
+                                <div class="row col-md-12" hidden>
                                     <div class="col-md-2 m-2">
                                         <label for="user_id" class="form-label service_uniID">Ceated By</label>
                                         <input class="form-control" type="text" readonly id="user_id" name="user_id" value="<?=$id?>">
