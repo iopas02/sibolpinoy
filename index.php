@@ -161,7 +161,7 @@
 
 
    <!-- Categories Start -->
-<div class="ontainer-fluid bg-white py-5 category" id="services">
+    <div class="ontainer-fluid bg-white py-5 category" id="services">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="text-center text-dark px-3 secondary-font">Services</h6>
@@ -218,9 +218,9 @@
                         </div>
                     </div>
                 </div>
-             </div>
             </div>
-            </div>
+        </div>
+    </div>
     <!-- Categories End -->
 
     <!-- WHY CHOOSE SIBOL -->
@@ -361,4 +361,4 @@
     <script src="js/main.js"></script>
 </body>
 
-</html>
+</html> 
