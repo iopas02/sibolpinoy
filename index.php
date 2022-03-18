@@ -168,63 +168,73 @@
                 <h1 class="mb-5 header-font">Services Categories</h1>
             </div>
 
-            <div class="row g-4 mt-3">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/business-consultancy.jpg" alt="" >
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0 secondary-font">Business Consultancy</h5>
-                            <!-- <br><small>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
+            <div class="container col-md-12">
+
+                <div class="row col-md-12 d-flex justify-content-center align-items-center">
+
+                    <div class="col-md-5 p-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="position-relative d-block text-center overflow-hidden" href="">
+                            <img class="" style="width: 380px; height: 230px;" src="img/tech-solution.jpg" alt="">
+                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin-left: 45px;">
+                                <h5 class="m-0">Business Consultancy</h5>
+                            </div>
+                        </a>
+                        <p>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
                             their objectives. We just do not partner with our
                             clients, we engage and become one with them in
-                            their journey to quality improvement</small> -->
-                        </div>
+                            their journey to quality improvement</p>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/tech-solution.jpg" alt="">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0 secondary-font">Technological solutions</h5>
-                        </div>
+                    <div class="col-md-5 p-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="position-relative d-block text-center overflow-hidden" href="">
+                            <img class="" style="width: 380px; height: 230px;" src="img/tech-solution.jpg" alt="">
+                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin-left: 45px;">
+                                <h5 class="m-0">Business Consultancy</h5>
+                            </div>
+                        </a>
+                        <p>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
+                            their objectives. We just do not partner with our
+                            clients, we engage and become one with them in
+                            their journey to quality improvement</p>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/training-development.jpg" alt="">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0 secondary-font">Training & development</h5>
-                            
-                        </div>
+                    <div class="col-md-5 p-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="position-relative d-block text-center overflow-hidden" href="">
+                            <img class="" style="width: 380px; height: 230px;" src="img/tech-solution.jpg" alt="">
+                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin-left: 45px;">
+                                <h5 class="m-0">Business Consultancy</h5>
+                            </div>
+                        </a>
+                        <p>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
+                            their objectives. We just do not partner with our
+                            clients, we engage and become one with them in
+                            their journey to quality improvement</p>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/research-development.jpg" alt="">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0 secondary-font">Research development</h5>
-                            
-                        </div>
+                    <div class="col-md-5 p-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="position-relative d-block text-center overflow-hidden" href="">
+                            <img class="" style="width: 380px; height: 230px;" src="img/tech-solution.jpg" alt="">
+                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin-left: 45px;">
+                                <h5 class="m-0">Business Consultancy</h5>
+                            </div>
+                        </a>
+                        <p>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
+                            their objectives. We just do not partner with our
+                            clients, we engage and become one with them in
+                            their journey to quality improvement</p>
                     </div>
+
                 </div>
+                
+              
+                
             </div>
         </div>
     </div>
     <!-- Categories End -->
 
     <!-- WHY CHOOSE SIBOL -->
-    <div class="ontainer-fluid bg-white py-5" id="check-services">
+    <!-- <div class="ontainer-fluid bg-white py-5" id="check-services">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h2 class="bg-white text-center text-dark px-3 header-font">
@@ -235,7 +245,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item">
                         <div class="overflow-hidden">
-                            <!-- <img class="img-fluid" src="img/team-1.jpg" alt=""> -->
+                            <img class="img-fluid" src="img/team-1.jpg" alt="">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -252,7 +262,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="team-item">
                         <div class="overflow-hidden">
-                           <!--  <img class="img-fluid" src="img/team-2.jpg" alt=""> -->
+                            <img class="img-fluid" src="img/team-2.jpg" alt="">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -270,7 +280,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.05s">
                     <div class="team-item">
                         <div class="overflow-hidden">
-                            <!-- <img class="img-fluid" src="img/team-3.jpg" alt=""> -->
+                            <img class="img-fluid" src="img/team-3.jpg" alt="">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -288,7 +298,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp">
                     <div class="team-item">
                         <div class="overflow-hidden">
-                            <!-- <img class="img-fluid" src="img/team-4.jpg" alt=""> -->
+                            <img class="img-fluid" src="img/team-4.jpg" alt="">
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -304,12 +314,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- WHY CHOOSE SIBOL -->
 
 
     <!-- WHAT SIBOL PROMOTES -->
-    <div class="ontainer-fluid bg-white py-5" id="check-promotes">
+    <!-- <div class="ontainer-fluid bg-white py-5" id="check-promotes">
         <div class="container">
             <div class="text-center wow fadeInUp">
                 <h2 class="bg-white text-center text-dark px-3 header-font">WHAT WE PROMOTES?</h2>
@@ -336,7 +346,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Testimonial End -->
         
 
