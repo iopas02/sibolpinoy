@@ -112,7 +112,7 @@
 
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="datatableid" class="table data-table" style="width: 100%">
+                    <table id="datatableid" class="table data-table" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>ID</th>

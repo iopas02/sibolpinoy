@@ -172,11 +172,11 @@
 
     <!-- THIS IS SERVICES TABLE START HERE -->
         <div class="row col-md-12 mt-3">
-            <div class="row col-md-12 px-5">
+            <div class="col-md-6 px-5">
                 <h5>Sub-Category Services Table</h5>
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group float-end col-md-6">
                 <input type="text" class="form-control inputSearch" id="inputSearch" placeholder="Search..">
             </div>
 

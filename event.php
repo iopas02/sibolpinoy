@@ -106,7 +106,137 @@
                 <h6 class="bg-white text-center text-dark px-3 secondary-font">Previous Events</h6>
                 <h1 class="mb-5 header-font">For The Previous Events</h1>
             </div>
-            <div class="owl-carousel testimonial-carousel position-relative" >
+            
+            <div class="d-flex justify-content-center align-items-center">
+                <table id="example" class="table data-table" style="width: 70%">
+                    <thead>
+                        <tr hidden>
+                            <th class="col-md-4">Image</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+
+                            if(isset($_GET['page_no']) && $_GET['page_no'] !=''){
+                                $page_no = $_GET['page_no'];
+                            }else{
+                                $page_no = 1;
+                            }
+
+                            $total_records_per_page = 5;
+                            $offset = ($page_no-1) * $total_records_per_page;
+                            $previous_page = $page_no - 1;
+                            $next_page = $page_no + 1;
+                            $adjacents = "2";
+
+                            $result_count = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM `events`" );
+                            $total_records = mysqli_fetch_array($result_count);
+                            $total_records = $total_records['total_records'];
+                            $total_number_of_page = ceil($total_records / $total_records_per_page);
+                            $second_last = $total_number_of_page - 1;
+
+                            $prev_event_query = "SELECT * FROM `events` WHERE `status`='unpublished' ORDER BY `date_start` LIMIT $offset,$total_records_per_page";
+                            $prev_event_query_result = mysqli_query($conn,$prev_event_query);
+                            if(mysqli_num_rows($prev_event_query_result) > 0){
+                                foreach($prev_event_query_result as $prev_event){
+                                    ?>
+                                        <tr>
+                                            <td class="col-md-4">
+                                                <img class="" style="width: 250px; height: 150px;" src="admin/upload/<?= $prev_event['event_img']?>">
+                                            </td>
+                                            <td>
+                                                <h5 class="mb-0 second-header"><?= $prev_event['event_title']?></h5>
+                                                <p><?= $prev_event['date_and_time']?> </p>
+                                            </td>
+                                        </tr>
+                                    <?php
+                                }
+                            }
+                        ?>
+
+                    </tbody>
+                    <tfoot>
+                        <tr hidden>
+                            <th>Image</th>
+                            <th>Description</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center">
+            <ul class="pagination pull-right">
+                <!-- <li class="pull-left btn btn-default disabled">Showing Page <?php echo $page_no." of ".$total_number_of_page;?></li> -->
+                <li class=" p-2 <?php if($page_no <= 1) { echo "disabled";}?>">
+                    <a <?php if($page_no > 1) { echo "href='?page_no=$previous_page'";} ?>>Previous</a>
+                </li>
+
+                <?php
+                    if($total_number_of_page <=10){
+
+                        for($counter = 1; $counter <=$total_number_of_page;$counter++){
+                            if($counter == $page_no){
+                                echo "<li class='active p-2'><a> $counter </a></li>";
+                            }else{
+                                echo "<li class='p-2'><a href='?page_no=$counter'> $counter </a></li>";
+                            }
+                        }
+                    }elseif($total_number_of_page > 10){
+                        if($page_no <=4){
+                            for($counter = 1; $counter < 8; $counter++){
+                                if($counter == $page_no){
+                                    echo "<li class='active p-2'><a> $counter </a></li>";
+                                }else {
+                                    echo "<li class='p-2'><a href'?page_no=$counter'> $counter </a></li>";
+                                }
+                            }
+                            echo "<li class='p-2'><a>...</a></li>";
+                            echo "<li class='p-2'><a href='?page_no=$second_last'>$second_last</a></li>";
+                            echo "<li class='p-2'><a href='?page_no=$total_number_of_page'>$total_number_of_page</a></li>";
+                        }
+                    }elseif($page_no > 4 && $page_no < $total_number_of_page -4 ){
+                        echo "<li><a href='?page_no=1'>1</a></li>";
+                        echo "<li><a href='?page_no=2'>2</a></li>";
+                        echo "<li><a>...</a></li>";
+
+                        for($counter = $page_no - $adjacents; $counter <=$page_no + $adjacents;$counter++){
+                            if($counter == $page_no){
+                                echo "<li class='active'><a> $counter </a></li>";
+                            }else{
+                                echo "<li><a href'?page_no=$counter'> $counter </a></li>";
+                            }
+                        }
+                        echo "<li><a>...</a></li>";
+                        echo "<li><a href='?page_no=$second_last'>$second_last</a></li>";
+                        echo "<li><a href='?page_no=$total_number_of_page'>$total_number_of_page</a></li>";
+                    }else{
+                        echo "<li><a href='?page_no=1'>1</a></li>";
+                        echo "<li><a href='?page_no=2'>2</a></li>";
+                        echo "<li><a>...</a></li>";
+
+                        for($counter = $total_number_of_page - 6; $counter <= $total_number_of_page;$counter++){
+                            if($counter == $page_no){
+                                echo "<li class='active'><a> $counter </a></li>";
+                            }else{
+                                echo "<li><a href'?page_no=$counter'> $counter </a></li>";
+                            }
+                        }
+                            
+                    } 
+                ?>
+
+                <li class="p-2 <?php if($page_no >= $total_number_of_page) {echo "disabled";} ?>" >
+                    <a <?php if($page_no < $total_number_of_page) {echo "href='?page_no=$next_page'";} ?>>Next</a>
+                </li>
+                <?php if($page_no < $total_number_of_page) {echo "<li class='p-2'><a href='?page_no=$total_number_of_page'>Last &rsaquo;</a?</li>";} ?>
+                
+            </ul>
+            </div>
+            
+
+
+            <!-- <div class="owl-carousel testimonial-carousel position-relative" >
                 <div class="testimonial-item text-center wow fadeInUp" data-wow-delay="0.1s">
                     <img class="p-2 mx-auto mb-3" styel="width: 150px; height:180px;" src="img/past_event_1.png">
                     <h5 class="mb-0 second-header">ISO 9001:2015 Requirements and Internal Quality Audit</h5>
@@ -127,7 +257,7 @@
                     <h5 class="mb-0 second-header">Building Organizational Resilience: Introducing Tools and Techniques in Risk Management and Root Cause Analysis</h5>
                     <p> January 16, 2022, 9AM - 12NN</p>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- Previous Events End -->
