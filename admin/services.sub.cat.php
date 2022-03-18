@@ -9,6 +9,16 @@
 
   <body>
     <title>Sibol-PINOY Services Tools</title>
+    <script>
+        $(document).ready(function(){
+            $(".inputSearch").on('keyup', function(){
+              var value =$(this).val().toLowerCase();
+              $("#myTable tr").filter(function(){
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              });    
+            });
+        });   
+    </script>
 
     <!-- top navigation bar -->
     <?php
@@ -166,6 +176,10 @@
                 <h5>Sub-Category Services Table</h5>
             </div>
 
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control inputSearch" id="inputSearch" placeholder="Search..">
+            </div>
+
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="datatableid" class="table data-table" style="width: 100%">
@@ -186,7 +200,7 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="myTable">  
                             <?php
 
                             if(isset($_GET['page_no']) && $_GET['page_no'] !=''){
@@ -253,23 +267,6 @@
                             }
 
                             ?>
-
-                            <!-- <tr>
-                                <td>Mrs. Maria Fully Grace</td>
-                                <td>Strategic Planning and Risk-Based Management</td>
-                                <td>12:00 pm</td>
-                                <td>
-                                    <button type="button" class="btn tooltip-test" title="Read" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-                                        <i class="bi bi-bookmark"></i>
-                                    </button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </td>
-                            </tr> -->
-
                         </tbody>
                         <tfoot>
                             <tr>
