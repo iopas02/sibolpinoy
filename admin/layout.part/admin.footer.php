@@ -3,7 +3,7 @@
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script> -->
 
    <!-- <script src="admin.js/bootstrap.bundle.min.js"></script> -->
-   <script src="admin.js/jquery.dataTables.min.js"></script>
+   <!-- <script src="admin.js/jquery.dataTables.min.js"></script> -->
    <script src="admin.js/dataTables.bootstrap5.min.js"></script>
 
    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>

@@ -44,7 +44,7 @@
                         <form action="" method="GET">
                             <label for="service_uniID" class="form-label service_uniID">Category UniID</label>
                             <div class="input-group">
-                                <select class="form-select" name="cat-uniID" value="<?php if(isset($_GET['cat-uniID'])){echo $_GET['search']; } ?>" >
+                                <select class="form-select" name="appss" value="<?php if(isset($_GET['appss'])){echo $_GET['search']; } ?>" >
                                     <option selected>Find Category uniID</option>
                                     <?php
                                         $cat_uniDI_query = "SELECT * FROM `services_category` ";
@@ -69,8 +69,8 @@
                     <div class="col-md-4">
                         <?php
                             $serv_uniID = $cat_uniID = $Service_title = $cat_title ='';
-                            if(isset($_GET['cat-uniID'])){
-                                $cat_uniID = $_GET['cat-uniID'];
+                            if(isset($_GET['appss'])){
+                                $cat_uniID = $_GET['appss'];
 
                                 $get_cat_query = "SELECT tb1.category_uniID, tb2.service_uniID, tb2.service_title, tb1.category_title, tb1.status, tb1.date_upload, tb1.date_update FROM services_category tb1 INNER JOIN services tb2 ON tb1.service_uniID = tb2.service_uniID WHERE category_uniID = '$cat_uniID' ";
                                 $get_cat_query_run = mysqli_query($conn, $get_cat_query);
@@ -188,7 +188,26 @@
                         </thead>
                         <tbody>
                             <?php
-                            $sub_cat_reload = "SELECT tb1.sub_cat_uniID, tb1.service_uniID, tb1.category_uniID, tb2.service_title, tb3.category_title, tb1.sub_cat_title, tb1.status, tb4.username, tb1.action, tb1.date_upload, tb1.date_update FROM (((services_sub_category tb1 INNER JOIN services tb2 ON tb1.service_uniID = tb2.service_uniID) INNER JOIN services_category tb3 ON tb1.category_uniID = tb3.category_uniID) INNER JOIN login tb4 ON tb1.loginId = tb4.loginId)" ;
+
+                            if(isset($_GET['page_no']) && $_GET['page_no'] !=''){
+                                $page_no = $_GET['page_no'];
+                            }else{
+                                $page_no = 1;
+                            }
+
+                            $total_records_per_page = 10;
+                            $offset = ($page_no-1) * $total_records_per_page;
+                            $previous_page = $page_no - 1;
+                            $next_page = $page_no + 1;
+                            $adjacents = "2";
+
+                            $result_count = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM `services_sub_category`" );
+                            $total_records = mysqli_fetch_array($result_count);
+                            $total_records = $total_records['total_records'];
+                            $total_number_of_page = ceil($total_records / $total_records_per_page);
+                            $second_last = $total_number_of_page - 1;
+
+                            $sub_cat_reload = "SELECT tb1.sub_cat_uniID, tb1.service_uniID, tb1.category_uniID, tb2.service_title, tb3.category_title, tb1.sub_cat_title, tb1.status, tb4.username, tb1.action, tb1.date_upload, tb1.date_update FROM (((services_sub_category tb1 INNER JOIN services tb2 ON tb1.service_uniID = tb2.service_uniID) INNER JOIN services_category tb3 ON tb1.category_uniID = tb3.category_uniID) INNER JOIN login tb4 ON tb1.loginId = tb4.loginId) LIMIT $offset,$total_records_per_page " ;
 
                             $sub_cat_reload_result = mysqli_query($conn, $sub_cat_reload);
                             if(mysqli_num_rows($sub_cat_reload_result) > 0 ){
@@ -271,6 +290,72 @@
                         </tfoot>
                     </table>
                 </div>
+                <ul class="pagination pull-right">
+                    <li class="pull-left btn btn-default disabled">Showing Page <?php echo $page_no." of ".$total_number_of_page;?></li>
+                    <li class=" p-2 <?php if($page_no <= 1) { echo "disabled";}?>">
+                        <a <?php if($page_no > 1) { echo "href='?page_no=$previous_page'";} ?>>Previous</a>
+                    </li>
+
+                    <?php
+                        if($total_number_of_page <=10){
+
+                            for($counter = 1; $counter <=$total_number_of_page;$counter++){
+                                if($counter == $page_no){
+                                    echo "<li class='active p-2'><a> $counter </a></li>";
+                                }else{
+                                    echo "<li class='p-2'><a href='?page_no=$counter'> $counter </a></li>";
+                                }
+                            }
+                        }elseif($total_number_of_page > 10){
+                            if($page_no <=4){
+                                for($counter = 1; $counter < 8; $counter++){
+                                    if($counter == $page_no){
+                                        echo "<li class='active p-2'><a> $counter </a></li>";
+                                    }else {
+                                        echo "<li class='p-2'><a href'?page_no=$counter'> $counter </a></li>";
+                                    }
+                                }
+                                echo "<li class='p-2'><a>...</a></li>";
+                                echo "<li class='p-2'><a href='?page_no=$second_last'>$second_last</a></li>";
+                                echo "<li class='p-2'><a href='?page_no=$total_number_of_page'>$total_number_of_page</a></li>";
+                            }
+                        }elseif($page_no > 4 && $page_no < $total_number_of_page -4 ){
+                            echo "<li><a href='?page_no=1'>1</a></li>";
+                            echo "<li><a href='?page_no=2'>2</a></li>";
+                            echo "<li><a>...</a></li>";
+
+                            for($counter = $page_no - $adjacents; $counter <=$page_no + $adjacents;$counter++){
+                                if($counter == $page_no){
+                                    echo "<li class='active'><a> $counter </a></li>";
+                                }else{
+                                    echo "<li><a href'?page_no=$counter'> $counter </a></li>";
+                                }
+                            }
+                            echo "<li><a>...</a></li>";
+                            echo "<li><a href='?page_no=$second_last'>$second_last</a></li>";
+                            echo "<li><a href='?page_no=$total_number_of_page'>$total_number_of_page</a></li>";
+                        }else{
+                            echo "<li><a href='?page_no=1'>1</a></li>";
+                            echo "<li><a href='?page_no=2'>2</a></li>";
+                            echo "<li><a>...</a></li>";
+
+                            for($counter = $total_number_of_page - 6; $counter <= $total_number_of_page;$counter++){
+                                if($counter == $page_no){
+                                    echo "<li class='active'><a> $counter </a></li>";
+                                }else{
+                                    echo "<li><a href'?page_no=$counter'> $counter </a></li>";
+                                }
+                            }
+                               
+                        } 
+                    ?>
+
+                    <li class="p-2 <?php if($page_no >= $total_number_of_page) {echo "disabled";} ?>" >
+                        <a <?php if($page_no < $total_number_of_page) {echo "href='?page_no=$next_page'";} ?>>Next</a>
+                    </li>
+                    <?php if($page_no < $total_number_of_page) {echo "<li class='p-2'><a href='?page_no=$total_number_of_page'>Last &rsaquo;</a?</li>";} ?>
+                    
+                </ul>
             </div>
         </div>
     <!-- THIS IS SERVICES TABLE END HERE -->
@@ -372,6 +457,7 @@
       require "layout.part/admin.footer.php";
     ?>
     <script>
+         
         $(document).ready(function(){
             $('.read').on('click', function(){
                 
