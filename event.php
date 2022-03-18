@@ -81,9 +81,9 @@
     <!-- Events Start -->
 
     <!-- About Start -->
-    <div class="container-fluid bg-light py-5" id="about">
-        <div class="container">
-            <div class="row g-5">
+    <div class="container-fluid bg-white py-5" id="about">
+        <div class="container d-flex justify-content-center align-items-center">
+            <div class="row col-md-10">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h6 class="text-start text-dark pe-3 secondary-font">We Celebrate on this Month</h6>
                     <h1 class="mb-4 header-font">Happy Mother's Day</h1>
@@ -166,76 +166,74 @@
             </div>
 
             <div class="d-flex justify-content-center align-items-center">
-            <ul class="pagination pull-right">
-                <!-- <li class="pull-left btn btn-default disabled">Showing Page <?php echo $page_no." of ".$total_number_of_page;?></li> -->
-                <li class=" p-2 <?php if($page_no <= 1) { echo "disabled";}?>">
-                    <a <?php if($page_no > 1) { echo "href='?page_no=$previous_page'";} ?>>Previous</a>
-                </li>
+                <ul class="pagination pull-right">
+                    <!-- <li class="pull-left btn btn-default disabled">Showing Page <?php echo $page_no." of ".$total_number_of_page;?></li> -->
+                    <li class=" p-2 <?php if($page_no <= 1) { echo "disabled";}?>">
+                        <a <?php if($page_no > 1) { echo "href='?page_no=$previous_page'";} ?>>Previous</a>
+                    </li>
 
-                <?php
-                    if($total_number_of_page <=10){
+                    <?php
+                        if($total_number_of_page <=10){
 
-                        for($counter = 1; $counter <=$total_number_of_page;$counter++){
-                            if($counter == $page_no){
-                                echo "<li class='active p-2'><a> $counter </a></li>";
-                            }else{
-                                echo "<li class='p-2'><a href='?page_no=$counter'> $counter </a></li>";
-                            }
-                        }
-                    }elseif($total_number_of_page > 10){
-                        if($page_no <=4){
-                            for($counter = 1; $counter < 8; $counter++){
+                            for($counter = 1; $counter <=$total_number_of_page;$counter++){
                                 if($counter == $page_no){
                                     echo "<li class='active p-2'><a> $counter </a></li>";
-                                }else {
-                                    echo "<li class='p-2'><a href'?page_no=$counter'> $counter </a></li>";
+                                }else{
+                                    echo "<li class='p-2'><a href='?page_no=$counter'> $counter </a></li>";
                                 }
                             }
-                            echo "<li class='p-2'><a>...</a></li>";
-                            echo "<li class='p-2'><a href='?page_no=$second_last'>$second_last</a></li>";
-                            echo "<li class='p-2'><a href='?page_no=$total_number_of_page'>$total_number_of_page</a></li>";
-                        }
-                    }elseif($page_no > 4 && $page_no < $total_number_of_page -4 ){
-                        echo "<li><a href='?page_no=1'>1</a></li>";
-                        echo "<li><a href='?page_no=2'>2</a></li>";
-                        echo "<li><a>...</a></li>";
-
-                        for($counter = $page_no - $adjacents; $counter <=$page_no + $adjacents;$counter++){
-                            if($counter == $page_no){
-                                echo "<li class='active'><a> $counter </a></li>";
-                            }else{
-                                echo "<li><a href'?page_no=$counter'> $counter </a></li>";
+                        }elseif($total_number_of_page > 10){
+                            if($page_no <=4){
+                                for($counter = 1; $counter < 8; $counter++){
+                                    if($counter == $page_no){
+                                        echo "<li class='active p-2'><a> $counter </a></li>";
+                                    }else {
+                                        echo "<li class='p-2'><a href'?page_no=$counter'> $counter </a></li>";
+                                    }
+                                }
+                                echo "<li class='p-2'><a>...</a></li>";
+                                echo "<li class='p-2'><a href='?page_no=$second_last'>$second_last</a></li>";
+                                echo "<li class='p-2'><a href='?page_no=$total_number_of_page'>$total_number_of_page</a></li>";
                             }
-                        }
-                        echo "<li><a>...</a></li>";
-                        echo "<li><a href='?page_no=$second_last'>$second_last</a></li>";
-                        echo "<li><a href='?page_no=$total_number_of_page'>$total_number_of_page</a></li>";
-                    }else{
-                        echo "<li><a href='?page_no=1'>1</a></li>";
-                        echo "<li><a href='?page_no=2'>2</a></li>";
-                        echo "<li><a>...</a></li>";
+                        }elseif($page_no > 4 && $page_no < $total_number_of_page -4 ){
+                            echo "<li><a href='?page_no=1'>1</a></li>";
+                            echo "<li><a href='?page_no=2'>2</a></li>";
+                            echo "<li><a>...</a></li>";
 
-                        for($counter = $total_number_of_page - 6; $counter <= $total_number_of_page;$counter++){
-                            if($counter == $page_no){
-                                echo "<li class='active'><a> $counter </a></li>";
-                            }else{
-                                echo "<li><a href'?page_no=$counter'> $counter </a></li>";
+                            for($counter = $page_no - $adjacents; $counter <=$page_no + $adjacents;$counter++){
+                                if($counter == $page_no){
+                                    echo "<li class='active'><a> $counter </a></li>";
+                                }else{
+                                    echo "<li><a href'?page_no=$counter'> $counter </a></li>";
+                                }
                             }
-                        }
-                            
-                    } 
-                ?>
+                            echo "<li><a>...</a></li>";
+                            echo "<li><a href='?page_no=$second_last'>$second_last</a></li>";
+                            echo "<li><a href='?page_no=$total_number_of_page'>$total_number_of_page</a></li>";
+                        }else{
+                            echo "<li><a href='?page_no=1'>1</a></li>";
+                            echo "<li><a href='?page_no=2'>2</a></li>";
+                            echo "<li><a>...</a></li>";
 
-                <li class="p-2 <?php if($page_no >= $total_number_of_page) {echo "disabled";} ?>" >
-                    <a <?php if($page_no < $total_number_of_page) {echo "href='?page_no=$next_page'";} ?>>Next</a>
-                </li>
-                <?php if($page_no < $total_number_of_page) {echo "<li class='p-2'><a href='?page_no=$total_number_of_page'>Last &rsaquo;</a?</li>";} ?>
-                
-            </ul>
+                            for($counter = $total_number_of_page - 6; $counter <= $total_number_of_page;$counter++){
+                                if($counter == $page_no){
+                                    echo "<li class='active'><a> $counter </a></li>";
+                                }else{
+                                    echo "<li><a href'?page_no=$counter'> $counter </a></li>";
+                                }
+                            }
+                                
+                        } 
+                    ?>
+
+                    <li class="p-2 <?php if($page_no >= $total_number_of_page) {echo "disabled";} ?>" >
+                        <a <?php if($page_no < $total_number_of_page) {echo "href='?page_no=$next_page'";} ?>>Next</a>
+                    </li>
+                    <?php if($page_no < $total_number_of_page) {echo "<li class='p-2'><a href='?page_no=$total_number_of_page'>Last &rsaquo;</a?</li>";} ?>
+                    
+                </ul>
             </div>
             
-
-
             <!-- <div class="owl-carousel testimonial-carousel position-relative" >
                 <div class="testimonial-item text-center wow fadeInUp" data-wow-delay="0.1s">
                     <img class="p-2 mx-auto mb-3" styel="width: 150px; height:180px;" src="img/past_event_1.png">
