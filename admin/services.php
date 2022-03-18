@@ -71,15 +71,13 @@
                                                         <?php
                                                             $str = $category_services['category_title'];
                                                             $new_str = str_replace(' ', '', $str);
+                                                            $clear =  substr($new_str , 0,6);
                                                         ?>
-                                                            <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $new_str ?>" aris-expanded="true" aria-controls="compliance">
+                                                            <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $clear ?>" aris-expanded="true" aria-controls="compliance">
                                                                 <?=$category_services['category_title'] ?>
                                                             </button>
                                                         </h5>
                                                         <?php
-                                                            $str = $category_services['category_title'];
-                                                            $new_str = str_replace(' ', '', $str);
-
                                                             $status = "Active";
                                                             $cat_uniDI = $category_services['category_uniID'];
                                                             $sub_cat_query = "SELECT * FROM `services_sub_category` WHERE `category_uniID`='$cat_uniDI' AND `status`='$status' ";
@@ -88,7 +86,7 @@
                                                             if(mysqli_num_rows($sub_cat_query_run) > 0 ){
                                                                 foreach($sub_cat_query_run as $sub_cat){
                                                                     ?>
-                                                                        <div class="accordion-collapse px-4 mt-1 collapse" id="<?=$new_str ?>">    
+                                                                        <div class="accordion-collapse px-4 mt-1 collapse" id="<?= $clear ?>">    
                                                                         <i class="bi bi-check2-circle"></i> <?= $sub_cat['sub_cat_title']?> 
                                                                         </div>
                                                                     <?php

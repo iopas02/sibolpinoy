@@ -40,225 +40,85 @@
                 <h6 class="text-center text-dark px-3 secondary-font">Services</h6>
                 <h1 class="mb-5 header-font">Check our Services</h1>
             </div>
-            <!-- <div class="row g-3">
-                <div class="col-lg-7 col-md-6">
-                    <div class="row g-3">
-                        <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="img/cat-1.jpg" alt="">
-                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0">Web Design</h5>
-                                    <small class="text-primary">49 Courses</small>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="img/cat-2.jpg" alt="">
-                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0">Graphic Design</h5>
-                                    <small class="text-primary">49 Courses</small>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="img/cat-3.jpg" alt="">
-                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
-                                    <h5 class="m-0">Video Editing</h5>
-                                    <small class="text-primary">49 Courses</small>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
-                    <a class="position-relative d-block h-100 overflow-hidden" href="">
-                        <img class="img-fluid position-absolute w-100 h-100" src="img/cat-4.jpg" alt="" style="object-fit: cover;">
-                        <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
-                            <h5 class="m-0">Online Marketing</h5>
-                            <small class="text-primary">49 Courses</small>
-                        </div>
-                    </a>
-                </div>
-            </div> -->
+          
 
             <div class="container-xxl py-5">
                 <div class="container">
-                    <div class="row g-5 mb-5">
-                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="position-relative">
-                                <img class="img-fluid" src="img/business-consultancy.jpg" alt="" >
-                            </div>
-                        </div>
-                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                            <h5 class="mb-1 header-font">Business Consultancy</h5>
-                            <p class="mb-1">In Sibol-Pinoy , we boast of our world class approach in helping organizations achieve their objectives. We just do not partner with our clients, we engage and become one with them in their journey to quality improvement.</p>
-                            <h5 class="mb-1 text-dark second-header">What do we offer here?</h5>
-                            <div class="accordion" id="businessConsultancy">
-                                <div class="accrodion-item mb-1">
-                                    <h5 class="accordion-header second-header" id="bc_header1">
-                                        <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#compliance" aris-expanded="true" aria-controls="compliance">
-                                            Compliance and Standards
-                                        </button>
-                                    </h5>
-                                    <div class="accordion-collapse collapse" id="compliance">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Automotive Quality Management System Standard (IATF 16949:2016)</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Energy Management System (ISO 50001:2011)</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Environmental Management System (ISO 14001:2015)</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Food Safety Management System (ISO 22000:2005) & HACCP</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Food Safety Systems Certification (FSSC 22000)</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Information Security Management System (ISO 27001:2013)</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Occupational Health & Safety Management System (OHSAS 18001)/ISO 45001:2016)</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Quality Management System (ISO 9001:2015)</li>
-                                            </ul>
+                    <?php
+                        $services_reload_query = "SELECT * FROM `services` WHERE `status`='Active'";
+                        $services_reload_query_result = mysqli_query($conn, $services_reload_query);
+                        if(mysqli_num_rows($services_reload_query_result) > 0){
+                            foreach($services_reload_query_result as $services){
+                                ?>
+                                    <div class="row g-5 mb-5">
+                                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                                            <div class="position-relative">
+                                                <img class="img-fluid" src="admin/upload/<?= $services['image']?>" alt="" >
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="accrodion-item mb-1">
-                                    <h5 class="accordion-header second-header" id="bc_header2">
-                                        <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#performance" aris-expanded="true" aria-controls="compliance">
-                                            Performance Excellence
-                                        </button>
-                                    </h5>
-                                    <div class="accordion-collapse collapse" id="performance">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Business Excellence Self-Assessment</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Third-Party BE Assessment</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Leadership Excellence</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Strategic Planning</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Customer-Focused Excellence</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Knowledge Management</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>HR Excellence</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Operations Excellence</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accrodion-item mb-1">
-                                    <h5 class="accordion-header second-header" id="bc_header3">
-                                        <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#productivity" aris-expanded="true" aria-controls="compliance">
-                                            Productivity & Quality
-                                        </button>
-                                    </h5>
-                                    <div class="accordion-collapse collapse" id="productivity">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>P&Q Diagnosis</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>5s</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>SS</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>WIT</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Lean Management</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Labor-Management Cooperation</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>    
-                    </div>
+                                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                                            <h5 class="mb-1 header-font"><?= $services['service_title']?></h5>
+                                            <p class="mb-1"><?= $services['service_desc']?></p>
+                                            <h5 class="mb-1 text-dark second-header">What do we offer here?</h5>
+                                            <div class="accordion" id="businessConsultancy">
+                                                <?php
+                                                $service_id = $services['service_uniID'];
+                                                $services_category_query = "SELECT * FROM `services_category` WHERE `service_uniID`='$service_id' AND `status`='Active' ";
+                                                
+                                                $services_category_query_result= mysqli_query($conn, $services_category_query);
+                                                if(mysqli_num_rows($services_category_query_result)>0){
+                                                    foreach($services_category_query_result as $services_cat){
+                                                        ?>
+                                                            <div class="accrodion-item pb-1">
+                                                                    <h5 class="accordion-header second-header" id="bc_header1">
+                                                                        <?php
+                                                                            $str = $services_cat['category_title'];
+                                                                            $new_str = str_replace(' ', '', $str);
+                                                                            $clear =  substr($new_str , 0,6);
+                                                                            
+                                                                        ?>
+                                                                        <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $clear ?>" aris-expanded="true" aria-controls="">
+                                                                            <?= $services_cat['category_title']?>
+                                                                        </button>
+                                                                    </h5>
+                                                                <div class="accordion-collapse collapse" id="<?= $clear ?>">
+                                                                    <div class="accordion-body">
+                                                                        <ul>
+                                                                            <?php
+                                                                                $services_cat_id = $services_cat['category_uniID'];
+                                                                                $sub_cat_reload_query = "SELECT * FROM `services_sub_category` WHERE `category_uniID`='$services_cat_id' AND `status`='Active' ";
 
-                    <div class="row g-5 mb-5">
-                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="position-relative h-100">
-                                <img class="img-fluid" src="img/tech-solution.jpg" alt="">
-                            </div>
-                        </div>  
-                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                            <h5 class="mb-1 header-font">Technological Solutions</h5>
-                            <p class="mb-1">Let Sibol-Pinoy help you provide complete customer solutions that span the IT life-cycle. Our technology experts will work with you to exceed the demand of high-growth technology in the vertical markets locally and around the world.</p>
-                            <h5 class="mb-1 text-dark second-header">What do we offer here?</h5>
-                            <div class="accordion" id="technological">
-                                <div class="accrodion-item mb-1">
-                                    <h5 class="accordion-header" id="ts_header1">
-                                        <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#graphics" aris-expanded="true" aria-controls="compliance">
-                                            Graphics Services
-                                        </button>
-                                    </h5>
-                                    <div class="accordion-collapse collapse" id="graphics">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Logo</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Flyer</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Design Services</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Banner design</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Ad Boxes design</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Brochure</li>
-                                            </ul>
+                                                                                $sub_cat_reload_query_result = mysqli_query($conn, $sub_cat_reload_query);
+                                                                                if(mysqli_num_rows($sub_cat_reload_query_result)>0){
+                                                                                    foreach($sub_cat_reload_query_result as $subt_cat){
+                                                                                        ?>
+                                                                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i><?= $subt_cat['sub_cat_title']?></li>
+                                                                                        <?php
+                                                                                    }
+                                                                                }
+                                                                            ?>
+                                                                            
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+                                                                                                  
+                                            </div>    
                                         </div>
                                     </div>
-                                </div>
-                                <div class="accrodion-item mb-1">
-                                    <h5 class="accordion-header second-header" id="ts_header2">
-                                        <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#webDesigning" aris-expanded="true" aria-controls="compliance">
-                                            Web Designing
-                                        </button>
-                                    </h5>
-                                    <div class="accordion-collapse collapse" id="webDesigning">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Web Content</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Redesign Services</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Content Upload</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Technical Maintenance</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Customer-Focused Excellence</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Web Hosting</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Web Statistics</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accrodion-item mb-1">
-                                    <h5 class="accordion-header second-header" id="ts_header3">
-                                        <button class="accordion-button text-light" style="background: darkblue;" type="button" data-bs-toggle="collapse" data-bs-target="#documentServices" aris-expanded="true" aria-controls="compliance">
-                                            Document Services
-                                        </button>
-                                    </h5>
-                                    <div class="accordion-collapse collapse" id="documentServices">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Presentation Services</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Transcription</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Proofreading</li>
-                                                <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Conceptual Design</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>  
-                    </div>
 
-                    <div class="row g-5 mb-5">
-                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="position-relative h-100">
-                                <img class="img-fluid" src="img/training-development.jpg" alt="">
-                            </div>
-                        </div>   
-                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                            <h5 class="mb-1 header-font">Training and Development</h5>
-                            <p class="mb-1">As we envision our client to be self-dependent, we put emphasis on capacity-building and capability-building activities. Thus, Ideation Philippines has carefully designed and developed training modules and short-term courses aligned with global standards.</p>
-                            <h5 class="mb-1 text-dark second-header">What do we offer here?</h5>
-                        </div> 
-                    </div>
-
-                    <div class="row g-5 mb-5">
-                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="position-relative h-100">
-                                <img class="img-fluid" src="img/research-development.jpg" alt="" >
-                            </div>
-                        </div> 
-                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                            <h5 class="mb-1 header-font">Research Development</h5>
-                            <p class="mb-1">Sibol Pinoy Management Consultancy highly engaged team members ar specialized in providing technical assistance providing professional development and management support to public and private sector organizations in order to maximize resources and value, while minimizing cost and risk.</p>
-                            <h5 class="mb-1 text-dark second-header">What do we offer here?</h5>
-                        </div>   
-                    </div>
+                                <?php
+                            }
+                        }
+                    ?>
+                        
                 </div>
             </div>
+
         </div>
     </div>
     <!-- Services Start -->
