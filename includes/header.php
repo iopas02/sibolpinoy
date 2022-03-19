@@ -44,6 +44,6 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/styled.css" rel="stylesheet">
+    <link href="css/styler.css" rel="stylesheet">
     <link href="css/plustyle.css" rel="stylesheet">
 </head>

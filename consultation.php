@@ -40,220 +40,90 @@
     <!-- Consultation services Start -->
     <div class="container-xxl py-5">
         <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <div class="text-center" >
                 <h6 class="bg-white text-center text-dark px-3 secondary-font">Our Services</h6>
                 <h1 class="mb-5 header-font">We have 15 mins Free Consultation, Hurry and Book now!</h1>
             </div>
+            
             <div class="row g-4 mt-3">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/business-consultancy.jpg" alt="">
-                        </div>
-                        <div class="text-center pt-4">
-                            <h5 class="py-2 second-header">Business Consultancy</h5>
-                        </div>
-                        <div class="small-container">
-                            <small>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
-                                their objectives. We just do not partner with our
-                                clients, we engage and become one with them in
-                                their journey to quality improvement.
-                            </small>  
-                        </div>
-                        <div class="">
-                            <h5 class="py-2 second-header">What do we offer here?</h5>
-                        </div>
-                        <div class="accordion" id="businessConsultancy">
-                            <div class="accrodion-item mb-1">
-                                <h5 class="accordion-header second-header" id="bc_header1">
-                                    <button class="accordion-button text-light" style="background: darkblue;border-top-left-radius: 30px; border-bottom-right-radius: 30px" type="button" data-bs-toggle="collapse" data-bs-target="#compliance" aris-expanded="true" aria-controls="compliance">
-                                        Compliance and Standards
-                                    </button>
-                                </h5>
-                                <div class="accordion-collapse collapse" id="compliance">
-                                    <div class="accordion-body">
-                                        <ul>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Automotive Quality Management System Standard (IATF 16949:2016)</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Energy Management System (ISO 50001:2011)</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Environmental Management System (ISO 14001:2015)</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Food Safety Management System (ISO 22000:2005) & HACCP</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Food Safety Systems Certification (FSSC 22000)</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Information Security Management System (ISO 27001:2013)</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Occupational Health & Safety Management System (OHSAS 18001)/ISO 45001:2016)</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Quality Management System (ISO 9001:2015)</li>
-                                        </ul>
+                <div class="row col-md-12 d-flex justify-content-center align-items-center">
+                    <?php
+                        $status = "Active";   
+                        $serv_load_query = "SELECT * FROM `services` WHERE `status`='$status' ";
+                        $serv_load_query_result = mysqli_query($conn, $serv_load_query);
+                        if(mysqli_num_rows($serv_load_query_result)>0){
+                            foreach($serv_load_query_result as $serv_load){
+                                ?>
+                                    <div class="col-lg-6 col-md-6 mt-5">
+                                        <div class="team-item">
+                                            <div class="overflow-hidden text-center">
+                                                <img class="img-fluid" src="admin/upload/<?= $serv_load['image']?>" alt="">
+                                                <div class="bg-white text-center position-absolute py-2 px-3" style="margin-left: 85px; margin-top: -60px">
+                                                    <h5 class="py-2 second-header"><?= $serv_load['service_title']?></h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10 mx-5 small-container">
+                                                <small><?= $serv_load['service_desc']?>
+                                                </small>  
+                                            </div>
+                                            <div class="">
+                                                <h5 class="py-2 mx-5 second-header">What do we offer here?</h5>
+                                            </div>
+                                            <div class="accordion col-md-10 mx-5" id="" >
+                                                <?php
+                                                    $status = "Active";
+                                                    $service_uniDI = $serv_load['service_uniID'];
+                                                    $service_category_query = "SELECT * FROM `services_category` WHERE `service_uniID`= '$service_uniDI' AND `status`='$status' ";
+
+                                                    $service_category_query_result = mysqli_query($conn, $service_category_query);
+                                                    if(mysqli_num_rows($service_category_query_result) > 0){
+                                                        foreach($service_category_query_result as $serv_cat ){
+                                                            ?>
+                                                                <div class="accrodion-item mb-1">
+                                                                <?php
+                                                                    $str = $serv_cat['category_title'];
+                                                                    $new_str = str_replace(' ', '', $str);
+                                                                    $clear =  substr($new_str , 0,6);
+                                                                ?>
+                                                                    <h5 class="accordion-header second-header" id="bc_header1">
+                                                                        <button class="accordion-button text-light" style="background: darkblue;border-top-left-radius: 30px; border-bottom-right-radius: 30px" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $clear ?>" aris-expanded="true">
+                                                                            <?= $serv_cat['category_title']?>
+                                                                        </button>
+                                                                    </h5>
+                                                                    <?php
+                                                                        $status = "Active";
+                                                                        $cat_uniDI = $serv_cat['category_uniID'];
+                                                                        $sub_cat_query = "SELECT * FROM `services_sub_category` WHERE `category_uniID`='$cat_uniDI' AND `status`='$status' ";
+            
+                                                                        $sub_cat_query_run = mysqli_query($conn, $sub_cat_query);
+                                                                        if(mysqli_num_rows($sub_cat_query_run) > 0 ){
+                                                                            foreach($sub_cat_query_run as $sub_cat){
+                                                                                ?>
+                                                                                    <div class="accordion-collapse collapse px-4" id="<?= $clear ?>">
+                                                                                        <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i><?= $sub_cat['sub_cat_title']?></li>
+                                                                                    </div>
+
+                                                                                <?php
+                                                                            }
+                                                                        }    
+
+                                                                    ?>
+                                                                </div>
+                                                            <?php
+                                                        }
+                                                    }
+                                                ?>                                               
+                                            </div>
+                                            <div class="text-center py-2">
+                                                <button class="text-dark bg-yellow border-0 py-2 px-2" style="border-top-left-radius: 15px; border-bottom-right-radius: 15px" data-bs-toggle="modal" type="button" data-bs-target="#businessForm">Book Consultation</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="accrodion-item mb-1">
-                                <h5 class="accordion-header second-header" id="bc_header2">
-                                    <button class="accordion-button text-light" style="background: darkblue; border-top-left-radius: 30px; border-bottom-right-radius: 30px" type="button" data-bs-toggle="collapse" data-bs-target="#performance" aris-expanded="true" aria-controls="compliance">
-                                        Performance Excellence
-                                    </button>
-                                </h5>
-                                <div class="accordion-collapse collapse" id="performance">
-                                    <div class="accordion-body">
-                                        <ul>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Business Excellence Self-Assessment</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Third-Party BE Assessment</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Leadership Excellence</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Strategic Planning</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Customer-Focused Excellence</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Knowledge Management</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>HR Excellence</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Operations Excellence</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accrodion-item mb-1">
-                                <h5 class="accordion-header second-header" id="bc_header3">
-                                    <button class="accordion-button text-light" style="background: darkblue; border-top-left-radius: 30px; border-bottom-right-radius: 30px" type="button" data-bs-toggle="collapse" data-bs-target="#productivity" aris-expanded="true" aria-controls="compliance">
-                                        Productivity & Quality
-                                    </button>
-                                </h5>
-                                <div class="accordion-collapse collapse" id="productivity">
-                                    <div class="accordion-body">
-                                        <ul>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>P&Q Diagnosis</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>5s</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>SS</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>WIT</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Lean Management</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Labor-Management Cooperation</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center py-2">
-                            <button class="text-dark bg-yellow border-0 py-2 px-2" style="border-top-left-radius: 15px; border-bottom-right-radius: 15px" data-bs-toggle="modal" type="button" data-bs-target="#businessForm">Book Consultation</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="team-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/tech-solution.jpg" alt="">
-                        </div>
-                        <div class="text-center pt-4">
-                            <h5 class="py-2 second-header">Technological Solutions</h5>
-                        </div>
-                        <div class="small-container">
-                            <small>Let Sibol-Pinoy help you provide complete
-                                customer solutions that span the IT life-cycle.
-                                Our technology experts will work with you to
-                                exceed the demand of high-growth technology in
-                                the vertical markets locally and around the world.
-                            </small>   
-                        </div>
-                        <div class="">
-                            <h5 class="py-2 second-header">What do we offer here?</h5>
-                        </div>
-                        <div class="accordion" id="technological">
-                            <div class="accrodion-item mb-1">
-                                <h5 class="accordion-header second-header" id="ts_header1">
-                                    <button class="accordion-button text-light" style="background: darkblue; border-top-left-radius: 30px; border-bottom-right-radius: 30px" type="button" data-bs-toggle="collapse" data-bs-target="#graphics" aris-expanded="true" aria-controls="compliance">
-                                        Graphics Services
-                                    </button>
-                                </h5>
-                                <div class="accordion-collapse collapse" id="graphics">
-                                    <div class="accordion-body">
-                                        <ul>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Logo</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Flyer</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Design Services</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Banner design</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Ad Boxes design</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Brochure</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accrodion-item mb-1">
-                                <h5 class="accordion-header second-header" id="ts_header2">
-                                    <button class="accordion-button text-light" style="background: darkblue; border-top-left-radius: 30px; border-bottom-right-radius: 30px" type="button" data-bs-toggle="collapse" data-bs-target="#webDesigning" aris-expanded="true" aria-controls="compliance">
-                                        Web Designing
-                                    </button>
-                                </h5>
-                                <div class="accordion-collapse collapse" id="webDesigning">
-                                    <div class="accordion-body">
-                                        <ul>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Web Content</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Redesign Services</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Content Upload</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Technical Maintenance</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Customer-Focused Excellence</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Web Hosting</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Web Statistics</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accrodion-item mb-1">
-                                <h5 class="accordion-header second-header" id="ts_header3">
-                                    <button class="accordion-button text-light" style="background: darkblue; border-top-left-radius: 30px; border-bottom-right-radius: 30px" type="button" data-bs-toggle="collapse" data-bs-target="#documentServices" aris-expanded="true" aria-controls="compliance">
-                                        Document Services
-                                    </button>
-                                </h5>
-                                <div class="accordion-collapse collapse" id="documentServices">
-                                    <div class="accordion-body">
-                                        <ul>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Presentation Services</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Transcription</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Proofreading</li>
-                                            <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i>Conceptual Design</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center py-2">
-                            <button class="text-dark bg-yellow border-0 py-2 px-2" style="border-top-left-radius: 15px; border-bottom-right-radius: 15px" data-bs-toggle="modal" type="button" data-bs-target="#technologyForm">Book Consultation</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/training-development.jpg" alt="">
-                        </div>
-                        <div class="text-center pt-4">
-                            <h5 class="py-2 second-header">Training and Development</h5>
-                        </div>
-                        <div class="small-container">
-                            <small>As we envision our client to be self-dependent, we put
-                                emphasis on capacity-building and capability-building
-                                activities. Thus, Ideation Philippines has carefully designed
-                                and developed training modules and short-term courses
-                                aligned with global standards.
-                            </small>   
-                        </div>
-                        <div class="">
-                            <h5 class="py-2 second-header">What do we offer here?</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="team-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/research-development.jpg" alt="">
-                        </div>
-                        <div class="text-center pt-4">
-                            <h5 class="py-2 second-header">Research Development</h5>
-                        </div>
-                        <div class="small-container">
-                            <small>Sibol Pinoy Management Consultancy highly engaged team members are
-                            specialized in providing technical assistance providing
-                            professional development and management support to public
-                            and private sector organizations in order to maximize resources
-                            and value, while minimizing cost and risk.
-                        </small>
-                        </div>
-                        <div class="">
-                            <h5 class="py-2 second-header">What do we offer here?</h5>
-                        </div>
-                    </div>
+
+                                <?php
+                            }
+                        }
+                    ?>
                 </div>
             </div>
         </div>
@@ -263,17 +133,17 @@
     <!-- Question Form Start -->
     <div class="container-fluid bg-white py-5" id="about">
         <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <div class="text-center">
                 <h6 class="bg-white text-center text-dark px-3 secondary-font">Message Us</h6>
                 <h1 class="mb-5 header-font">Do You Have Any Question?</h1>
             </div>
             <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="col-lg-6" style="min-height: 400px;">
                     <div class="position-relative h-100">
                         <img class="img-fluid position-absolute w-100 h-100" src="img/sibol-GIF.gif" alt="" style="object-fit: cover;">
                     </div>
                 </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-6">
                     <h6 class="bg-white text-start text-dark pe-3 secondary-font">You Can leave A Message</h6>
                     <form>
                         <div class="row g-3">
