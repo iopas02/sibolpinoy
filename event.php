@@ -83,15 +83,31 @@
     <!-- About Start -->
     <div class="container-fluid bg-white py-5" id="about">
         <div class="container d-flex justify-content-center align-items-center">
+            <?php
+                $header = $title = $message1 = $message2 = $img = '';
+                $status = 'published';
+                $celeb_reload_query = "SELECT * FROM `celebration` WHERE `status`= '$status' ";
+                $celeb_reload_query_result = mysqli_query($conn, $celeb_reload_query);
+                if(mysqli_num_rows($celeb_reload_query_result) > 0){
+                    while($row = mysqli_fetch_assoc($celeb_reload_query_result)){
+                        $header = $row['header']; 
+                        $title = $row['commemoration'];
+                        $message1 = $row['message1'];
+                        $message2 = $row['message2'];
+                        $img = $row['image'];
+                    }
+                }
+            ?>
             <div class="row col-md-10">
                 <div class="col-lg-6">
-                    <h6 class="text-start text-dark pe-3 secondary-font">We Celebrate on this Month</h6>
-                    <h1 class="mb-4 header-font">Happy Mother's Day</h1>
-                    <h5 class="mb-4 second-header">A simple Message and Celebration From Sibol-Pinoy</h5>
+                    <h6 class="text-start text-dark pe-3 secondary-font"><?= $header ?></h6>
+                    <h1 class="mb-4 header-font"><?= $title ?></h1>
+                    <h5 class="mb-4 second-header"><?= $message1 ?></h5>
+                    <h6 class="mb-4 second-header"><?= $message2 ?></h6>
                 </div>
-                <div class="col-lg-6" style="min-height: 400px;">
+                <div class="col-lg-6" style="min-height: 300px;">
                     <div class="position-relative h-100">
-                        <img class="img-fluid position-absolute w-100 h-100" src="img/celebrate_1.gif" alt="" style="object-fit: cover;">
+                        <img class="img-fluid position-absolute w-100 h-100" src="admin/upload/<?= $img ?>" alt="" >
                     </div>
                 </div>
             </div>

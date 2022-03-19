@@ -37,7 +37,7 @@ if(isset($_POST['create_celeb'])){
                 $image_upload_path = '../upload/'.$new_image_name ;
                 move_uploaded_file($tmp_name, $image_upload_path);
                 
-                $create_celeb_query = "INSERT INTO `celebration`( `commemoration`, `header`, `message1`, `message2`, `status`, `loginId`, `action`, `uploaded`, `updated`) VALUES ('$celeb_title','$header','$message1','$message2','$status','$loginid','$action','$date','$date')";
+                $create_celeb_query = "INSERT INTO `celebration`( `commemoration`, `header`,`image`, `message1`, `message2`, `status`, `loginId`, `action`, `uploaded`, `updated`) VALUES ('$celeb_title','$header','$new_image_name','$message1','$message2','$status','$loginid','$action','$date','$date')";
 
                 $create_celeb_query_result = mysqli_query($conn, $create_celeb_query);
                 if(!$create_celeb_query_result){
