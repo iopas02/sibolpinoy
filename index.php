@@ -171,59 +171,26 @@
             <div class="container col-md-12">
 
                 <div class="row col-md-12 d-flex justify-content-center align-items-center">
+                    <?php
+                        $serv_reload_query = "SELECT * FROM `services` WHERE `status`='Active' ";
+                        $serv_reload_query_result = mysqli_query($conn, $serv_reload_query);
+                        if(mysqli_num_rows($serv_reload_query_result)>0){
+                            foreach($serv_reload_query_result as $service_offer){
+                                ?>
+                                    <div class="col-md-5 p-4 wow fadeInUp" data-wow-delay="0.1s">
+                                        <a class="position-relative d-block text-center overflow-hidden" href="">
+                                            <img class="" style="width: 380px; height: 230px;" src="admin/upload/<?= $service_offer['image']?>" alt="">
+                                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin-left: 45px;">
+                                                <h5 class="m-0"><?= $service_offer['service_title']?></h5>
+                                            </div>
+                                        </a>
+                                        <p><?= $service_offer['service_desc']?></p>
+                                    </div>
 
-                    <div class="col-md-5 p-4 wow fadeInUp" data-wow-delay="0.1s">
-                        <a class="position-relative d-block text-center overflow-hidden" href="">
-                            <img class="" style="width: 380px; height: 230px;" src="img/tech-solution.jpg" alt="">
-                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin-left: 45px;">
-                                <h5 class="m-0">Business Consultancy</h5>
-                            </div>
-                        </a>
-                        <p>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
-                            their objectives. We just do not partner with our
-                            clients, we engage and become one with them in
-                            their journey to quality improvement</p>
-                    </div>
-
-                    <div class="col-md-5 p-4 wow fadeInUp" data-wow-delay="0.1s">
-                        <a class="position-relative d-block text-center overflow-hidden" href="">
-                            <img class="" style="width: 380px; height: 230px;" src="img/tech-solution.jpg" alt="">
-                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin-left: 45px;">
-                                <h5 class="m-0">Business Consultancy</h5>
-                            </div>
-                        </a>
-                        <p>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
-                            their objectives. We just do not partner with our
-                            clients, we engage and become one with them in
-                            their journey to quality improvement</p>
-                    </div>
-
-                    <div class="col-md-5 p-4 wow fadeInUp" data-wow-delay="0.1s">
-                        <a class="position-relative d-block text-center overflow-hidden" href="">
-                            <img class="" style="width: 380px; height: 230px;" src="img/tech-solution.jpg" alt="">
-                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin-left: 45px;">
-                                <h5 class="m-0">Business Consultancy</h5>
-                            </div>
-                        </a>
-                        <p>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
-                            their objectives. We just do not partner with our
-                            clients, we engage and become one with them in
-                            their journey to quality improvement</p>
-                    </div>
-
-                    <div class="col-md-5 p-4 wow fadeInUp" data-wow-delay="0.1s">
-                        <a class="position-relative d-block text-center overflow-hidden" href="">
-                            <img class="" style="width: 380px; height: 230px;" src="img/tech-solution.jpg" alt="">
-                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin-left: 45px;">
-                                <h5 class="m-0">Business Consultancy</h5>
-                            </div>
-                        </a>
-                        <p>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
-                            their objectives. We just do not partner with our
-                            clients, we engage and become one with them in
-                            their journey to quality improvement</p>
-                    </div>
-
+                                <?php
+                            }
+                        }
+                    ?>
                 </div>
                 
               
