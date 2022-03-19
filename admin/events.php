@@ -65,7 +65,7 @@
                                     <input class="w-100 h-100 p-1" type="text" id="header" name="header" placeholder="e.g Avail UP TO 50% OFF on any of the following Training-Workshops below:">    
                                 </div>
                                 
-                                <div class="bg-white text-dark pe-3 mb-2">
+                                <div class="bg-white text-dark mb-2">
                                     <label>Event Title:</label>
                                     <input class="w-100 h-100 p-1" type="text" id="event_title" name="event_title" placeholder="e.g ISO 9001:2015 Requirements and internal Aquality Audit">  
                                 </div>

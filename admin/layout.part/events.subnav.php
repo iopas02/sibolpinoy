@@ -4,8 +4,8 @@
             <a class="navbar-brand" href="events.php">Create New Events</a>
             
             <div class="navbar-nav">
-                <!-- <a class="nav-link active" aria-current="page" href="services.category.php">Services Category Tool</a>
-                <a class="nav-link active" aria-current="page" href="services.sub.cat.php">Services Sub-Category Tool</a> -->
+                <!-- <a class="nav-link active" aria-current="page" href="services.category.php">Services Category Tool</a> -->
+                <a class="nav-link active" aria-current="page" href="celebration.php">Create Celebration</a>
                 <a class="nav-link active" aria-current="page" href="event.preview.php">Events Preview</a>
             </div>
         </div>
