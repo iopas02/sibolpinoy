@@ -65,10 +65,10 @@
 
 
     <!-- Service Start -->
-    <div class="ontainer-fluid bg-white py-5 mt-0">
+    <div class="container-fluid bg-white py-5 mt-0">
         <div class="container">
             <div class="row g-4">
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-3 col-sm-6">
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-comments text-primary mb-4"></i>
@@ -77,7 +77,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-3 col-sm-6" >
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-box-open text-primary mb-4"></i>
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="col-lg-3 col-sm-6" >
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
@@ -95,7 +95,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                <div class="col-lg-3 col-sm-6" >
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-hand-holding-heart text-primary mb-4"></i>
@@ -121,12 +121,12 @@
     <div class="container-fluid bg-white py-5" id="about">
         <div class="container">
             <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="col-lg-6" style="min-height: 400px;">
                     <div class="position-relative h-100">
                         <img class="img-fluid position-absolute w-100 h-100" src="video/head_banner_1.gif" alt="" style="object-fit: cover;">
                     </div>
                 </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-6" >
                     <h6 class="bg-white text-start text-dark pe-3 secondary-font">About Us</h6>
                     <h1 class="mb-4 header-font">Welcome to Sibol-PINOY Management Consultancy</h1>
                     <p class="mb-4">Sibol-PINOY is a training and management consultancy which seeks to make expensive tools and techniques on productivity, 
@@ -163,7 +163,7 @@
    <!-- Categories Start -->
     <div class="ontainer-fluid bg-white py-5 category" id="services">
         <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <div class="text-center">
                 <h6 class="text-center text-dark px-3 secondary-font">Services</h6>
                 <h1 class="mb-5 header-font">Services Categories</h1>
             </div>
@@ -177,7 +177,7 @@
                         if(mysqli_num_rows($serv_reload_query_result)>0){
                             foreach($serv_reload_query_result as $service_offer){
                                 ?>
-                                    <div class="col-md-5 p-4 wow fadeInUp" data-wow-delay="0.1s">
+                                    <div class="col-md-5 p-4">
                                         <a class="position-relative d-block text-center overflow-hidden" href="">
                                             <img class="" style="width: 380px; height: 230px;" src="admin/upload/<?= $service_offer['image']?>" alt="">
                                             <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin-left: 45px;">

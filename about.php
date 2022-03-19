@@ -74,7 +74,7 @@
     <div class="container-fluid py-5 bg-white">
         <div class="container">
             <div class="row g-4">
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-4 col-sm-6">
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-comment text-primary mb-4" aria-hidden="true"></i>
@@ -84,7 +84,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-4 col-sm-6">
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-globe text-primary mb-4"></i>
@@ -93,7 +93,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="col-lg-4 col-sm-6" >
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-home text-primary mb-4"></i>
@@ -114,13 +114,13 @@
     <div class="container-fluid bg-white py-5">
         <div class="container">
             <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp text-center" data-wow-delay="0.2s">
+                <div class="col-lg-6 text-center">
                     <h1 class="bg-white text-dark pe-3 header-font">Our Mission</h1>
                     <!-- <h1 class="mb-4">Welcome to eLEARNING</h1> -->
                     <p class="mb-4">Unlocking potentials of Organizations Both in the public and private sectors that will open limitless opportunity to yield superior results</p>
                 </div>
 
-                <div class="col-lg-6 wow fadeInUp text-center" data-wow-delay="0.2s">
+                <div class="col-lg-6 text-center" >
                     <h1 class="bg-white text-dark pe-3 header-font">Our Vision</h1>
                     <!-- <h1 class="mb-4">Welcome to eLEARNING</h1> -->
                     <p class="mb-4">Become the Leading business Solution provider in the Philippines.</p>
@@ -131,7 +131,7 @@
 
     <div class="container-fluid bg-white py-3">
         <div class="container">
-            <div class="embed-responsive embed-responsive-16by9 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="embed-responsive embed-responsive-16by9" >
                 <iframe class="embed-responsive-item col-lg-12 col-sm-12 about-video" src="video/video_2.mp4" sandbox></iframe>
             </div>
         </div>
@@ -139,17 +139,17 @@
     <!-- About Sibol-PINOY End -->
 
     <!-- Sibol Start -->
-<div class="container-fluid py-5 bg-white">
+    <div class="container-fluid py-5 bg-white">
         <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <div class="text-center" >
                 <!-- <h6 class="bg-white text-center text-dark px-3 secondary-font">Our Team</h6> -->
                 <h1 class="mb-5 header-font">Grow With Us!</h1>
             </div>
 
-            <div class="container-xxl py-5 mb-5 wow fadeInUp">
+            <div class="container-xxl py-5 mb-5">
                 <div class="container">
                     <div class="row g-5">
-                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="col-lg-6" >
                             <div class="text-center">
                                 <img class="img-fluid border" src="img/spmc.gif" style="height:400px; width:350px;" alt="">
                             </div>
@@ -158,7 +158,7 @@
                                 <small>Designation</small>
                             </div> -->
                         </div>
-                        <div class="col-lg-6 py-5 wow fadeInUp" data-wow-delay="0.3s">    
+                        <div class="col-lg-6 py-5">    
                             <h1 class="text-center text-blue header-font">
                                 <i class="fa fa-quote-left px-5 text-yellow"></i>
                                     <br> We offer solutions, We are the solution. <br>
@@ -169,6 +169,7 @@
                 </div>
             </div>
         </div>
+    </div>    
         
     <!-- Team Start -->
     <!-- <div class="container-fluid py-5 bg-white">

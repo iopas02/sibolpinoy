@@ -36,12 +36,12 @@
     <!-- Contact Start -->
     <div class="container-fuid bg-white py-5">
         <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <div class="text-center" >
                 <h6 class="text-center text-dark px-3 secondary-font">Contact Us</h6>
                 <h1 class="mb-5 header-font">Get in touch with us!</h1>
             </div>
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="col-lg-4 col-md-6">
                     <h5 class="second-header">Get In Touch</h5>
                     <p class="mb-4">If you have any questions about pricing, services, or anything else, we are here to help!</a></p>
                     <div class="d-flex align-items-center mb-3">
@@ -78,7 +78,7 @@
                         frameborder="0" style="min-height: 300px; border:0;" allowfullscreen="" aria-hidden="false"
                         tabindex="0"></iframe>
                 </div> -->
-                <div class="col-lg-8 col-md-12 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-8 col-md-12" >
                  
                     <form action="controllers/mail.php" method="POST">
                         <div class="row g-3">

@@ -37,7 +37,7 @@
     
     <div class="container-fluid bg-white py-5">
         <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <div class="text-center">
                 <h6 class="bg-white text-center text-dark px-3 secondary-font">Upcoming Events</h6>
                 <h1 class="mb-5 header-font">Check Our Upcoming Events</h1>
             </div>
@@ -84,12 +84,12 @@
     <div class="container-fluid bg-white py-5" id="about">
         <div class="container d-flex justify-content-center align-items-center">
             <div class="row col-md-10">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-6">
                     <h6 class="text-start text-dark pe-3 secondary-font">We Celebrate on this Month</h6>
                     <h1 class="mb-4 header-font">Happy Mother's Day</h1>
                     <h5 class="mb-4 second-header">A simple Message and Celebration From Sibol-Pinoy</h5>
                 </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                <div class="col-lg-6" style="min-height: 400px;">
                     <div class="position-relative h-100">
                         <img class="img-fluid position-absolute w-100 h-100" src="img/celebrate_1.gif" alt="" style="object-fit: cover;">
                     </div>
@@ -101,7 +101,7 @@
 
     <!-- Previous Events Start -->
     <div class="container-fliud bg-white py-5" >
-        <div class="container wow fadeInUp">
+        <div class="container">
             <div class="text-center">
                 <h6 class="bg-white text-center text-dark px-3 secondary-font">Previous Events</h6>
                 <h1 class="mb-5 header-font">For The Previous Events</h1>

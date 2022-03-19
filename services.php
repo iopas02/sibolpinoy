@@ -36,7 +36,7 @@
     <!-- Services Start -->
     <div class="container-fluid py-5 bg-white category">
         <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <div class="text-center" >
                 <h6 class="text-center text-dark px-3 secondary-font">Services</h6>
                 <h1 class="mb-5 header-font">Check our Services</h1>
             </div>
@@ -51,12 +51,12 @@
                             foreach($services_reload_query_result as $services){
                                 ?>
                                     <div class="row g-5 mb-5">
-                                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                                        <div class="col-lg-6">
                                             <div class="position-relative">
                                                 <img class="img-fluid" src="admin/upload/<?= $services['image']?>" alt="" >
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                                        <div class="col-lg-6">
                                             <h5 class="mb-1 header-font"><?= $services['service_title']?></h5>
                                             <p class="mb-1"><?= $services['service_desc']?></p>
                                             <h5 class="mb-1 text-dark second-header">What do we offer here?</h5>
@@ -127,12 +127,12 @@
     <!-- Courses Start -->
     <div class="container-fluid bg-white py-5">
         <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <div class="text-center" >
                 <h6 class="bg-white text-center text-dark px-3 secondary-font">Our Client</h6>
                 <h1 class="mb-5 header-font">List of our Past Key Clients</h1>
             </div>
             <div class="row g-4 justify-content-center">
-                <div class="col-lg-3 col-md-6 wow fadeInUp py-2" data-wow-delay="0.1s">
+                <div class="col-lg-3 col-md-6 py-2" >
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid" src="img/client_1.PNG" alt="">
@@ -148,7 +148,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp py-2" data-wow-delay="0.2s">
+                <div class="col-lg-3 col-md-6 py-2">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid" src="img/client_2.PNG" alt="">
@@ -164,7 +164,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp py-2" data-wow-delay="0.3s">
+                <div class="col-lg-3 col-md-6 py-2">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid" src="img/client_3.PNG" alt="">
@@ -180,7 +180,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp py-2" data-wow-delay="0.4s">
+                <div class="col-lg-3 col-md-6 py-2" >
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid" src="img/client_4.PNG" alt="">
@@ -196,7 +196,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp py-2" data-wow-delay="0.5s">
+                <div class="col-lg-3 col-md-6 py-2">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid" src="img/client_5.PNG" alt="">
@@ -212,7 +212,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp py-2" data-wow-delay="0.6s">
+                <div class="col-lg-3 col-md-6 py-2">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid" src="img/client_6.PNG" alt="">
@@ -228,7 +228,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp py-2" data-wow-delay="0.7s">
+                <div class="col-lg-3 col-md-6 py-2" >
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid" src="img/client_7.PNG" alt="">
@@ -244,7 +244,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp py-2" data-wow-delay="0.8s">
+                <div class="col-lg-3 col-md-6 py-2">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid" src="img/client_8.PNG" alt="">
@@ -268,13 +268,13 @@
 
     <!-- Testimonial Start -->
     <div class="container-fliud bg-white py-5" >
-        <div class="container wow fadeInUp">
+        <div class="container">
             <div class="text-center">
                 <h6 class="bg-white text-center text-dark px-3 secondary-font">Testimonial</h6>
                 <h1 class="mb-5 header-font">Past Client Testimonial</h1>
             </div>
             <div class="owl-carousel testimonial-carousel position-relative" >
-                <div class="testimonial-item text-center wow fadeInUp" data-wow-delay="0.1s">
+                <div class="testimonial-item text-center" >
                     <img class="border rounded-circle p-2 mx-auto mb-3" src="img/client_1.PNG" style="width: 80px; height: 80px;">
                     <h5 class="mb-0 second-header">Mr. Juan Dela Cluz</h5>
                     <p>Y.M.C.A Manila</p>
@@ -282,7 +282,7 @@
                     <p class="mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, adipisci!</p>
                     </div>
                 </div>
-                <div class="testimonial-item text-center wow fadeInUp" data-wow-delay="0.2s">
+                <div class="testimonial-item text-center" >
                     <img class="border rounded-circle p-2 mx-auto mb-3" src="img/client_2.PNG" style="width: 80px; height: 80px;">
                     <h5 class="mb-0 second-header">Mrs. Marites</h5>
                     <p>Virgen Milagrosa University Foundation</p>
@@ -290,7 +290,7 @@
                     <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut tempore accusantium? Explicabo, quia reprehenderit.</p>
                     </div>
                 </div>
-                <div class="testimonial-item text-center wow fadeInUp" data-wow-delay="0.3s">
+                <div class="testimonial-item text-center" >
                     <img class="border rounded-circle p-2 mx-auto mb-3" src="img/client_3.PNG" style="width: 80px; height: 80px;">
                     <h5 class="mb-0 second-header">Dr. Jose Marua</h5>
                     <p>Magna Prime Chemical Tech. inc.</p>
@@ -298,7 +298,7 @@
                     <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dicta quaerat quos, vel animi, fugiat similique ipsa illo ipsam, corrupti aspernatur adipisci. Nobis.</p>
                     </div>
                 </div>
-                <div class="testimonial-item text-center wow fadeInUp" data-wow-delay="0.4s"> 
+                <div class="testimonial-item text-center"> 
                     <img class="border rounded-circle p-2 mx-auto mb-3" src="img\client_4.PNG" style="width: 80px; height: 80px;">
                     <h5 class="mb-0 second-header">Engr. Maria Fully Grace</h5>
                     <p>Romblon State University</p>
