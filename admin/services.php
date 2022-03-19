@@ -34,7 +34,7 @@
     
   
 
-        <div class="row col-md-12 my-3">
+        <div class="row col-md-12 py-4">
             <?php
                 $status = "Active";
                 $services_reload_query = "SELECT * FROM `services` WHERE `status`='$status' ";
@@ -42,7 +42,7 @@
                 if(mysqli_num_rows($services_reload_query_result) > 0 ){
                      foreach($services_reload_query_result as $service){
                         ?>
-                            <div class="col-md-6">
+                            <div class="col-md-6 pt-3">
                                 <div class="position-relative text-center">
                                     <img class="img-fluid" src="./upload/<?= $service['image']?>" alt="" style="width: 550px; height: 350px;" >
                                 </div>
@@ -52,7 +52,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6  pt-3">
                                 <h5 class="mb-1 header-font"><?= $service['service_title'] ?></h5>
                                 <p class="mb-1"><?= $service['service_desc'] ?></p>
                                 <h5 class="mb-1 text-dark second-header">What do we offer here?</h5>
