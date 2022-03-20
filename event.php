@@ -26,9 +26,9 @@
 
     <!-- Header Start -->
     <section>
-        <div class="event-content" >
-            <div class="text-content">
-                <h1 class="text-text-content">Check Our Upcoming and Previous Events</h1>
+        <div class="eventContent" >
+            <div class="textContent">
+                <h1 class="textTextContent">Check Our Upcoming and Previous Events</h1>
             </div>
         </div>
     </section>
@@ -186,7 +186,7 @@
             <div class="d-flex justify-content-center align-items-center">
                 <ul class="pagination pull-right">
                     <!-- <li class="pull-left btn btn-default disabled">Showing Page <?php echo $page_no." of ".$total_number_of_page;?></li> -->
-                    <li class=" p-2 <?php if($page_no <= 1) { echo "disabled";}?>">
+                    <li class="p-2 <?php if($page_no <= 1) { echo "disabled";}?>">
                         <a <?php if($page_no > 1) { echo "href='?page_no=$previous_page'";} ?>>Previous</a>
                     </li>
 
@@ -247,7 +247,6 @@
                     <li class="p-2 <?php if($page_no >= $total_number_of_page) {echo "disabled";} ?>" >
                         <a <?php if($page_no < $total_number_of_page) {echo "href='?page_no=$next_page'";} ?>>Next</a>
                     </li>
-                    <?php if($page_no < $total_number_of_page) {echo "<li class='p-2'><a href='?page_no=$total_number_of_page'>Last &rsaquo;</a?</li>";} ?>
                     
                 </ul>
             </div>

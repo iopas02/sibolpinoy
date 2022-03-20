@@ -168,7 +168,7 @@ section{
     color: white;
 }
 
-.event-content{
+.eventContent{
     height: 100%;
     width: 100%;
     box-sizing: border-box;
@@ -179,13 +179,13 @@ section{
     
 }
 
-.event-content .text-content{
+.eventContent .textContent{
     padding-top: 125px;
     padding-left: 85px;
     width: 755px;
 }
 
-.event-content .text-content .text-text-content{
+.eventContent .textContent .textTextContent{
     font-family: var(--roboto);
     font-size: 65px;
     font-weight: 400;
