@@ -25,7 +25,7 @@
 
 
     <!-- Carousel Start -->
-    <div class="container-fluid p-0 mb-0">
+    <!-- <div class="container-fluid p-0 mb-0">
         <div class="owl-carousel header-carousel position-relative">
             <div class="owl-carousel-item position-relative">
                 <img class="img-fluid" src="img/new_carousel-1.jpg" alt="">
@@ -33,7 +33,7 @@
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-sm-10 col-lg-8">
-                            <!-- <h1 class="display-3 text-white animated slideInDown">Sibol-PINOY</h1> -->
+                            <h1 class="display-3 text-white animated slideInDown">Sibol-PINOY</h1>
                                 <h4 class="text-white animated slideInDown header-font">Take Your Business To The Next Level</h4>
                                 <p class="text-white mb-4 pb-2 secondary-font">Unlocking potentials, building oppurtunities.</p>
                                 <a href="#check-services" class="btn py-md-3 px-md-5 me-3 animated slideInLeft text-light bg-blue">Read More</a>
@@ -49,7 +49,7 @@
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-sm-10 col-lg-8">
-                            <!-- <h1 class="display-3 text-white animated slideInDown">Sibol-PINOY</h1> -->
+                            <h1 class="display-3 text-white animated slideInDown">Sibol-PINOY</h1>
                                 <h4 class="text-white animated slideInDown header-font">Take Your Business To The Next Level</h4>
                                 <p class="text-white mb-4 pb-2 secondary-font">Unlocking potentials, building oppurtunities.</p>
                                 <a href="#check-services" class="btn py-md-3 px-md-5 me-3 animated slideInLeft text-light bg-blue">Read More</a>
@@ -60,8 +60,19 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Carousel End -->
+
+    <!-- Header Start -->
+    <section>
+        <div class="indexContent" >
+            <div class="indexTextContent">
+                <h1 class="indexText">Unlocking Potential</h1>
+                <h1 class="indexText" style="padding-left: 25px;">Building Opportunities</h1>
+            </div>
+        </div>
+    </section>
+    <!-- Header End -->
 
 
     <!-- Service Start -->
