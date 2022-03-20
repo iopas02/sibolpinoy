@@ -27,16 +27,13 @@
     <!-- Header Start -->
     <section>
         
-        <div class="content">
+        <div class="content" >
             <div class="text-container">
                 <h1 class="text-design">We Offer Solution</h1>
                 <h1 class="text-design" style="padding-left: 25px;">We Are The Solution</h1>
             </div>
         </div>
-        <div class="imageBox">
-            <img src="img/banner_vid_two.gif" alt="">
-        </div>
-
+    
     </section>
   
     <!-- Header End -->
