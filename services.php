@@ -25,11 +25,16 @@
 
 
     <!-- Header Start -->
-    <div class="container-fluid parallax-header">
-        <video autoplay muted loop>
-                <source src="video/video_4.mp4" type="video/mp4">
-        </video>
-    </div>
+    <section>
+        <div class="sevicestContent" >
+            <div class="textServiceContent">
+                <div class="textTextService">Business Consultancy</div>
+                <div class="textTextService">Technological Solutions</div>
+                <div class="textTextService">Training and Development</div>
+                <div class="textTextService">Research Development</div>
+            </div>
+        </div>
+    </section>
     <!-- Header End -->
 
 
