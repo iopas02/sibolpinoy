@@ -6,7 +6,7 @@ font-family: 'Abril Fatface', cursive;
 */
 
 :root {
-    --yellowColor: #FF7F00;
+    --yellowColor: rgb(255, 127, 0);
     --blueColor: rgb(4, 4, 120);
     --roboto: 'Roboto', sans-serif;
     --robotoSlab: 'Roboto Slab', serif;
@@ -153,6 +153,8 @@ section{
     box-shadow: 0 10px 20px -6px #000;
     
 }
+
+
 .content .text-container{
     padding-top: 125px;
     padding-left: 85px;
@@ -166,17 +168,54 @@ section{
     color: white;
 }
 
-@media(max-width: 868px){
+.event-content{
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    background-image: linear-gradient(120deg, rgb(255, 127, 0) 55%, transparent 45%),
+    url('../img/banner_vid_two.gif');
+    background-size: 100% 100%;
+    box-shadow: 0 10px 20px -6px #000;
+    
+}
+
+.event-content .text-content{
+    padding-top: 125px;
+    padding-left: 85px;
+    width: 755px;
+}
+
+.event-content .text-content .text-text-content{
+    font-family: var(--roboto);
+    font-size: 65px;
+    font-weight: 400;
+    line-height: 55px;
+    color: var(--blueColor);
+}
+
+@media(max-width: 900px){
     .content .text-container{
         width: 100vw;
-        padding-top: 125px;
         padding-left: 15px;
     }
     .content .text-container .text-design{
         font-size: 45px;
         font-weight: 600;
         line-height: 45px;
-        color: black;
+        color: var(--yellowColor);
+    }
+
+    .event-content .text-content{
+        padding-left: 15px;
+        width: 90vw;
+    }
+    
+    .event-content .text-content .text-text-content{
+        font-family: var(--roboto);
+        font-size: 55px;
+        font-weight: 600;
+        line-height: 55px;
+        color: var(--blueColor);
     }
 }
 

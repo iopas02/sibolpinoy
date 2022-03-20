@@ -25,11 +25,13 @@
 
 
     <!-- Header Start -->
-       <div class="container-fluid parallax-header">
-        <video autoplay muted loop>
-                <source src="video/head_banner_3.mp4" type="video/mp4">
-        </video>
-    </div>
+    <section>
+        <div class="event-content" >
+            <div class="text-content">
+                <h1 class="text-text-content">Check Our Upcoming and Previous Events</h1>
+            </div>
+        </div>
+    </section>
     <!-- Header End -->
 
 
