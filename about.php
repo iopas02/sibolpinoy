@@ -25,47 +25,19 @@
 
 
     <!-- Header Start -->
-    <!-- <div class="container-fluid bg-primary py-5 mb-5">
-  
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 text-center">
-                    <h1 class="display-3 text-white animated slideInDown">About Us</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">About</li>
-                        </ol>
-                    </nav>
-                </div>
+    <section>
+        
+        <div class="content">
+            <div class="text-container">
+                <h1 class="text-design">We Offer Solution</h1>
+                <h1 class="text-design" style="padding-left: 25px;">We Are The Solution</h1>
             </div>
         </div>
-    </div> -->
-    <!-- <div class="container-fluid p-0 mb-5"> 
-        <img class="img-fluid" src="img/new_carousel-1.jpg"  alt="">
-        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-            <div class="container py-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10 text-center">
-                        <h1 class="display-3 text-white animated slideInDown">About Us</h1>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                                <li class="breadcrumb-item text-white active" aria-current="page">About</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
+        <div class="imageBox">
+            <img src="img/banner_vid_two.gif" alt="">
         </div>
-    </div> -->
-    <div class="container-fluid parallax-header">
-        <video autoplay muted loop>
-                <source src="video/head_banner_1.mp4" type="video/mp4">
-        </video>
-    </div>
+
+    </section>
   
     <!-- Header End -->
 
