@@ -182,66 +182,80 @@
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="text-center text-dark px-3 secondary-font">Services</h6>
-                <h1 class="mb-5 header-font">Services Categories</h1>
+                <h1 class="mb-5 header-font">Here at SPMC we always present our services at its best</h1>
             </div>
 
             <div class="row g-4 mt-3 d-flex justify-content-center">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item bg-light">
+                <div class="col-lg-3 col-md-8 wow fadeInUp d-flex flex-column flex-1 flex-grow-1"   data-wow-delay="0.1s">
+                    <div class="team-item bg-light d-flex flex-column flex-1 flex-grow-1">
                         <div class="overflow-hidden text-center">
                             <img class="img-fluid"  src="img/business-consultancy.jpg" alt="">
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="mb-0 secondary-font">Business Consultancy</h5>
-                            <!-- <br><small>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
+                            <h5 class="mb-0 secondary-font">Business consultancy</h5>
+                            <br><small>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
                             their objectives. We just do not partner with our
                             clients, we engage and become one with them in
-                            their journey to quality improvement</small> -->
+                            their journey to quality improvement.</small>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item bg-light">
+                <div class="col-lg-3 col-md-6 wow fadeInUp d-flex flex-column flex-1 flex-grow-1" data-wow-delay="0.3s">
+                    <div class="team-item bg-light d-flex flex-column flex-1 flex-grow-1">
                         <div class="overflow-hidden text-center">
                             <img class="img-fluid" src="img/tech-solution.jpg" alt="">
                         </div>
                         <div class="text-center p-4">
                             <h5 class="mb-0 secondary-font">Technological solutions</h5>
+                            <br><small>Let Sibol-Pinoy help you provide complete
+                            customer solutions that span the IT life-cycle.
+                            Our technology experts will work with you to
+                            exceed the demand of high-growth technology in
+                            the vertical markets locally and around the world.</small>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item bg-light">
+                <div class="col-lg-3 col-md-6 wow fadeInUp d-flex flex-column flex-1 flex-grow-1" data-wow-delay="0.5s">
+                    <div class="team-item bg-light d-flex flex-column flex-1 flex-grow-1">
                         <div class="overflow-hidden text-center">
                             <img class="img-fluid" src="img/training-development.jpg" alt="">
                         </div>
                         <div class="text-center p-4">
                             <h5 class="mb-0 secondary-font">Training & development</h5>
-                            
+                            <br><small>As we envision our client to be self-dependent, we put
+                            emphasis on capacity-building and capability-building
+                            activities. Thus, Ideation Philippines has carefully designed
+                            and developed training modules and short-term courses
+                            aligned with global standards.</small>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="team-item bg-light">
+                <div class="col-lg-3 col-md-6 wow fadeInUp d-flex flex-column flex-1 flex-grow-1" data-wow-delay="0.7s">
+                    <div class="team-item bg-light d-flex flex-column flex-1 flex-grow-1">
                         <div class="overflow-hidden text-center">
                             <img class="img-fluid" src="img/research-development.jpg" alt="">
                         </div>
                         <div class="text-center p-4">
                             <h5 class="mb-0 secondary-font">Research development</h5>
-                            
+                            <br><small>Sibol Pinoy Management Consultancy highly engaged team members are
+                                specialized in providing technical assistance providing
+                                professional development and management support to public
+                                and private sector organizations in order to maximize resources
+                                and value, while minimizing cost and risk.</small>
+                                
                         </div>
                     </div>
                 </div>
              </div>
-            </div>
-            </div>
+    </div>
+</div>
     <!-- Categories End -->
 
     <!-- WHY CHOOSE SIBOL -->
-    <div class="ontainer-fluid bg-white py-5" id="check-services">
+    <!-- <div class="ontainer-fluid bg-white py-5" id="check-services">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h2 class="bg-white text-center text-dark px-3 header-font">
@@ -252,7 +266,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item">
                         <div class="overflow-hidden">
-                            <!-- <img class="img-fluid" src="img/team-1.jpg" alt=""> -->
+                            
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -269,7 +283,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="team-item">
                         <div class="overflow-hidden">
-                           <!--  <img class="img-fluid" src="img/team-2.jpg" alt=""> -->
+                           
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -287,7 +301,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.05s">
                     <div class="team-item">
                         <div class="overflow-hidden">
-                            <!-- <img class="img-fluid" src="img/team-3.jpg" alt=""> -->
+                            
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -305,7 +319,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp">
                     <div class="team-item">
                         <div class="overflow-hidden">
-                            <!-- <img class="img-fluid" src="img/team-4.jpg" alt=""> -->
+                            
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                         </div>
@@ -321,7 +335,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- WHY CHOOSE SIBOL -->
 
 
