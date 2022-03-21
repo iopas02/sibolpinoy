@@ -178,18 +178,18 @@
 
 
    <!-- Categories Start -->
-<div class="ontainer-fluid bg-white py-5 category" id="services">
+<div class="container-fluid bg-white py-5 category" id="services">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="text-center text-dark px-3 secondary-font">Services</h6>
                 <h1 class="mb-5 header-font">Services Categories</h1>
             </div>
 
-            <div class="row g-4 mt-3">
+            <div class="row g-4 mt-3 d-flex justify-content-center">
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/business-consultancy.jpg" alt="" >
+                        <div class="overflow-hidden text-center">
+                            <img class="img-fluid"  src="img/business-consultancy.jpg" alt="">
                         </div>
                         <div class="text-center p-4">
                             <h5 class="mb-0 secondary-font">Business Consultancy</h5>
@@ -203,7 +203,7 @@
 
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item bg-light">
-                        <div class="overflow-hidden">
+                        <div class="overflow-hidden text-center">
                             <img class="img-fluid" src="img/tech-solution.jpg" alt="">
                         </div>
                         <div class="text-center p-4">
@@ -214,7 +214,7 @@
 
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item bg-light">
-                        <div class="overflow-hidden">
+                        <div class="overflow-hidden text-center">
                             <img class="img-fluid" src="img/training-development.jpg" alt="">
                         </div>
                         <div class="text-center p-4">
@@ -226,7 +226,7 @@
 
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="team-item bg-light">
-                        <div class="overflow-hidden">
+                        <div class="overflow-hidden text-center">
                             <img class="img-fluid" src="img/research-development.jpg" alt="">
                         </div>
                         <div class="text-center p-4">
