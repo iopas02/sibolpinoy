@@ -92,7 +92,7 @@
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-box-open text-primary mb-4"></i>
-                            <h5 class="mb-3 second-header">Honesty & Openness</h5><br>
+                            <h5 class="mb-3 second-header">Honesty & Openness</h5>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, iste.</p>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
-                            <h5 class="mb-3 second-header">Dedicated Team</h5><br>
+                            <h5 class="mb-3 second-header">Dedicated Team</h5>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate neque obcaecati voluptas possimus qui labore impedit cumque! Esse.</p>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-hand-holding-heart text-primary mb-4"></i>
-                            <h5 class="mb-3 second-header">Practical Approach</h5><br>
+                            <h5 class="mb-3 second-header">Practical Approach</h5>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel suscipit mollitia quis commodi! Accusantium autem ipsa explicabo saepe quas quae?</p>
                         </div>
                     </div>
@@ -121,30 +121,30 @@
     <!-- Service End -->
 
     <!-- sibol-PINOY parallax video Start-->
-    <div class="container-fluid paraVideo">
+    <!-- <div class="container-fluid paraVideo">
         <video autoplay muted loop>
             <source src="video/video_2.mp4" type="video/mp4">
         </video>
-    </div>
+    </div> -->
     <!-- sibol-PINOY parallax video End-->
 
     <!-- About Start -->
     <div class="container-fluid bg-white py-5" id="about">
         <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6" style="min-height: 400px;">
+            <div class="row justify-content-center align-item-center">
+                <!-- <div class="col-lg-6" style="min-height: 400px;">
                     <div class="position-relative h-100">
                         <img class="img-fluid position-absolute w-100 h-100" src="video/head_banner_1.gif" alt="" style="object-fit: cover;">
                     </div>
-                </div>
-                <div class="col-lg-6" >
-                    <h6 class="bg-white text-start text-dark pe-3 secondary-font">About Us</h6>
+                </div> -->
+                <div class="col-md-10 text-center" >
+                    <!-- <h6 class="bg-white text-start text-dark pe-3 secondary-font">About Us</h6> -->
                     <h1 class="mb-4 header-font">Welcome to Sibol-PINOY Management Consultancy</h1>
                     <p class="mb-4">Sibol-PINOY is a training and management consultancy which seeks to make expensive tools and techniques on productivity, 
                     quality and performance excellence within the reach of micro, small and medium enterprises, including the government and NGOs. What we promotes are the following:</p>
                     
                     <div class="row gy-2 gx-4 mb-4">
-                        <div class="col-sm-6">
+                        <!-- <div class="col-sm-6">
                             <p class="mb-0"><i class="fa fa-arrow-right text-dark me-2"></i><a href="#check-promotes">Brave and Conquer</a></p>
                         </div>
                         <div class="col-sm-6">
@@ -152,7 +152,7 @@
                         </div>
                         <div class="col-sm-6">
                             <p class="mb-0"><i class="fa fa-arrow-right text-dark me-2"></i><a href="#check-promotes">Productivity and Result</a></p>
-                        </div>
+                        </div> -->
                         <!-- <div class="col-sm-6">
                             <p class="mb-0"><i class="fa fa-arrow-right text-dark me-2"></i>Skilled Instructors</p>
                         </div>
@@ -163,7 +163,7 @@
                             <p class="mb-0"><i class="fa fa-arrow-right text-dark me-2"></i>International Certificate</p>
                         </div> -->
                     </div>
-                    <a class="btn py-3 px-5 mt-2 text-light bg-blue" href="about.php">Read More</a>
+                    <a class="btn py-2 px-5 mt-1 text-light bg-blue" href="about.php">Read More</a>
                 </div>
             </div>
         </div>
@@ -212,87 +212,49 @@
     <!-- Categories End -->
 
     <!-- WHY CHOOSE SIBOL -->
-    <!-- <div class="ontainer-fluid bg-white py-5" id="check-services">
+    <div class="container-fluid bg-white py-5" id="check-services">
         <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h2 class="bg-white text-center text-dark px-3 header-font">
-                CHECK OUR SERVICES</h2>
-                <h6 class="mb-5 secondary-font">Here at SPMC we always present our services at its best</h6>
+            <div class="text-center">
+                <h6 class="mb-5 secondary-font">Partners and Serviced Clients</h6>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-1.jpg" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="py-2 second-header">Business Consultancy</h5><br>
-                            <p>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
-                            their objectives. We just do not partner with our
-                            clients, we engage and become one with them in
-                            their journey to quality improvement</p>
-                        </div>
-                    </div>
+
+            <div class="row col-md-12 d-flex justify-content-center align-items-center">
+
+                <div class="pt-1 col-md-1">   
+                    <img class="img-fluid" style="width:120px; height:80px;" src="img/DEPED_El_Salvador.png" alt="">   
                 </div>
 
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="team-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-2.jpg" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="py-2 second-header">Technological Solutions</h5>
-                            <p>Let Sibol-Pinoy help you provide complete
-                            customer solutions that span the IT life-cycle.
-                            Our technology experts will work with you to
-                            exceed the demand of high-growth technology in
-                            the vertical markets locally and around the world.</p>
-                        </div>
-                    </div>
+                <div class="pt-1 col-md-1">  
+                    <img class="img-fluid" style="width:120px; height:80px;" src="img/Bureau_Of_Customs.png" alt="">
                 </div>
 
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.05s">
-                    <div class="team-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-3.jpg" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="py-2 second-header">Training and Development</h5>
-                            <p>As we envision our client to be self-dependent, we put
-                            emphasis on capacity-building and capability-building
-                            activities. Thus, Ideation Philippines has carefully designed
-                            and developed training modules and short-term courses
-                            aligned with global standards.</p>
-                        </div>
-                    </div>
+                <div class="pt-1 col-md-1" >
+                    <img class="img-fluid" style="width:120px; height:80px;" src="img/Magna_Prime_Chemical_Tech._inc.png" alt="">
                 </div>
 
-                <div class="col-lg-3 col-md-6 wow fadeInUp">
-                    <div class="team-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-4.jpg" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="py-2 second-header">Research Development</h5>
-                            <p>Sibol Pinoy Management Consultancy highly engaged team members are
-                                specialized in providing technical assistance providing
-                                professional development and management support to public
-                                and private sector organizations in order to maximize resources
-                                and value, while minimizing cost and risk.</p>
-                        </div>
-                    </div>
+                <div class="pt-1 col-md-1">
+                    <img class="img-fluid" style="width:120px; height:80px;" src="img/National_Economic_Development_Authority.png" alt="">
                 </div>
+
+                <div class="pt-1 col-md-1">
+                    <img class="img-fluid" style="width:120px; height:80px;" src="img/RCDC.png" alt="">
+                </div>
+
+                <div class="pt-1 col-md-1">
+                    <img class="img-fluid" style="width:120px; height:80px;" src="img/Romblon_State_University.png" alt="">
+                </div>
+
+                <div class="pt-1 col-md-1">
+                    <img class="img-fluid" style="width:120px; height:80px;" src="img/Virgen_Milagrosa_University_Foundation.png" alt="">
+                </div>
+
+                <div class="pt-1 col-md-1">
+                    <img class="img-fluid" style="width:120px; height:80px;" src="img/ymca.png" alt="">
+                </div>
+
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- WHY CHOOSE SIBOL -->
 
 
@@ -326,6 +288,51 @@
         </div>
     </div> -->
     <!-- Testimonial End -->
+
+        <!-- Events Start -->
+    
+        <div class="container-fluid bg-white py-5">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="bg-white text-center text-dark px-3 secondary-font">Upcoming Events</h6>
+            </div>
+            
+            <div class="row col-md-12">
+                <?php
+                    $tatus = 'published';
+                    $load_event_query = "SELECT * FROM `events` WHERE `status`='$tatus' ORDER BY `date_start`";
+                    $load_event_query_result = mysqli_query($conn, $load_event_query );
+                    if(mysqli_num_rows($load_event_query_result) > 0 ){
+                        foreach($load_event_query_result as $published_event){
+                            ?>
+                                <div class="col-md-3 text-center py-2">
+                                    <img src="admin/upload/<?= $published_event['event_img']?>" style="width: 250px; height: 210px;" alt="">
+                                </div>
+                                <div class="col-md-7 py-2">
+                                    <div class="text-one"> <?= $published_event['header']?> </div>
+                                    <div class="text-two"><?= $published_event['event_title']?></div>
+                                    <div class="text-one"><?= $published_event['date_and_time']?></div>
+                                    <div class="text-one"><?= $published_event['reg_fee']?></div>
+                                    <div class="smaller-text"><?= $published_event['desc_1']?></div>
+                                    <div class="smaller-text"><?= $published_event['desc_2']?></div>
+  
+                                </div>
+                                <div class="col-md-2 text-center py-3">       
+                                    <div class="date-text"><?= date('d',  strtotime($published_event['date_start'])) ?></div>
+                                    <div class="month-text"><?= date('M',  strtotime($published_event['date_start'])) ?></div>
+                                </div>
+                                <hr class="dropdown-divider bg-dark" />
+                            <?php
+                        }
+                    }    
+
+                ?>
+            </div>
+            
+        </div>
+    </div>
+    
+    <!-- Events Start -->
         
 
     <?php
