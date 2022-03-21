@@ -321,13 +321,11 @@
     <!-- Categories End -->
 
     <!-- WHY CHOOSE SIBOL -->
-    <!-- <div class="ontainer-fluid bg-white py-5" id="check-services">
->>>>>>> 2420ac065c372e0f765823ef22f21fd7c664e4d3
+    <!-- <div class="ontainer-fluid bg-white py-5" id="check-services"> -->
         <div class="container">
             <div class="text-center">
                 <h6 class="mb-5 secondary-font">Partners and Serviced Clients</h6>
             </div>
-<<<<<<< HEAD
 
             <div class="col-md-12 col-sm-12 d-flex justify-content-center align-items-center">
 
@@ -345,78 +343,6 @@
 
                 <div class="pt-1 col-md-1">
                     <img class="img-fluid" style="width:120px; height:80px;" src="img/National_Economic_Development_Authority.png" alt="">
-=======
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item">
-                        <div class="overflow-hidden">
-                            
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="py-2 second-header">Business Consultancy</h5><br>
-                            <p>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
-                            their objectives. We just do not partner with our
-                            clients, we engage and become one with them in
-                            their journey to quality improvement</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="team-item">
-                        <div class="overflow-hidden">
-                           
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="py-2 second-header">Technological Solutions</h5>
-                            <p>Let Sibol-Pinoy help you provide complete
-                            customer solutions that span the IT life-cycle.
-                            Our technology experts will work with you to
-                            exceed the demand of high-growth technology in
-                            the vertical markets locally and around the world.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.05s">
-                    <div class="team-item">
-                        <div class="overflow-hidden">
-                            
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="py-2 second-header">Training and Development</h5>
-                            <p>As we envision our client to be self-dependent, we put
-                            emphasis on capacity-building and capability-building
-                            activities. Thus, Ideation Philippines has carefully designed
-                            and developed training modules and short-term courses
-                            aligned with global standards.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 wow fadeInUp">
-                    <div class="team-item">
-                        <div class="overflow-hidden">
-                            
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="py-2 second-header">Research Development</h5>
-                            <p>Sibol Pinoy Management Consultancy highly engaged team members are
-                                specialized in providing technical assistance providing
-                                professional development and management support to public
-                                and private sector organizations in order to maximize resources
-                                and value, while minimizing cost and risk.</p>
-                        </div>
-                    </div>
->>>>>>> 2420ac065c372e0f765823ef22f21fd7c664e4d3
                 </div>
 
                 <div class="pt-1 col-md-1">
