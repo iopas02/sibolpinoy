@@ -218,7 +218,7 @@
                 <h6 class="mb-5 secondary-font">Partners and Serviced Clients</h6>
             </div>
 
-            <div class="row col-md-12 d-flex justify-content-center align-items-center">
+            <div class="col-md-12 col-sm-12 d-flex justify-content-center align-items-center">
 
                 <div class="pt-1 col-md-1">   
                     <img class="img-fluid" style="width:120px; height:80px;" src="img/DEPED_El_Salvador.png" alt="">   

@@ -154,7 +154,7 @@
                             $total_number_of_page = ceil($total_records / $total_records_per_page);
                             $second_last = $total_number_of_page - 1;
 
-                            $prev_event_query = "SELECT * FROM `events` WHERE `status`='unpublished' ORDER BY `date_start` LIMIT $offset,$total_records_per_page";
+                            $prev_event_query = "SELECT * FROM `events` WHERE `status`='unpublished' LIMIT $offset,$total_records_per_page ";
                             $prev_event_query_result = mysqli_query($conn,$prev_event_query);
                             if(mysqli_num_rows($prev_event_query_result) > 0){
                                 foreach($prev_event_query_result as $prev_event){

@@ -74,3 +74,49 @@ if(isset($_POST['create_celeb'])){
         exit();
     }
 }
+
+if(isset($_POST['edit_celeb'])){
+    // echo "you are connected!";
+    if($_POST['eventID'] != ''){
+
+        date_default_timezone_set("Asia/Manila");
+
+        $eventID = mysqli_real_escape_string($conn, $_POST['eventID']);
+        $header = mysqli_real_escape_string($conn, $_POST['header']);
+        $celeb_title = mysqli_real_escape_string($conn, $_POST['celeb_title']);
+        $message1 = mysqli_real_escape_string($conn, $_POST['message1']);
+        $message2 = mysqli_real_escape_string($conn, $_POST['message2']);
+        $status = mysqli_real_escape_string($conn, $_POST['status']);
+
+        $loginid = mysqli_real_escape_string($conn, $_POST['loginid']);
+        $admin = mysqli_real_escape_string($conn, $_POST['admin']);
+        $action1 = mysqli_real_escape_string($conn, $_POST['action1']);
+
+        $update_date = date("Y-m-d H:i:s");
+
+        $update_celeb_query = "UPDATE `celebration` SET `commemoration`='$celeb_title', `header`='$header', `message1`='$message1', `message2`='$message2', `loginId`='$loginid', `action`='$action1', `updated`='$update_date' WHERE `keepingID`='$eventID' ";
+
+        $update_celeb_query_result = mysqli_query($conn, $update_celeb_query);
+        if(!$update_celeb_query_result){
+            header("Location: ../celebration.php?error=celebration_updated_failed");
+            exit();
+        }else{
+
+            $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$loginid', '$action1','$admin', '$update_date')";
+
+            $create_adminlog_result = mysqli_query($conn, $create_adminlog);
+            if(!$create_adminlog_result){
+                header("Location: ../celebration.php?error=adminlog_error");
+                exit(); 
+            }else{
+                header("Location: ../celebration.php?success=celebration_updated_successfully");
+                exit();
+            }
+
+        }
+
+    }else{
+        header("Location: ../celebration.php?error=id_empty_field");
+        exit();
+    }
+}

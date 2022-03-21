@@ -48,7 +48,7 @@
                         <div class="row">
                             <div class="col-lg-4" style="min-height: 400px;">
                                 <label for="#eventID">Celebration ID</label>
-                                <input type="text" id="eventID" name="eventID" class="form-control w-50" readonly>                           
+                                <input type="text" id="keepingID" name="eventID" class="form-control w-50" readonly>                           
                                 <div class="position-relative" >
                                     <div class="pb-2" >
                                         <label>Upload Image Here</label>
@@ -66,18 +66,18 @@
                                 </div>
                                 
                                 <div class="bg-white text-dark mb-2">
-                                    <label>Celbration Title:</label>
-                                    <input class="w-100 h-100 p-1" type="text" id="event_title" name="celeb_title" placeholder="e.g `Happy Mother's Day` ">  
+                                    <label>Celebration Title:</label>
+                                    <input class="w-100 h-100 p-1" type="text" id="commemoration" name="celeb_title" placeholder="e.g `Happy Mother's Day` ">  
                                 </div>
                                    
                                 <div class="mb-2">
                                     <label>Message 1</label>
-                                    <input class="w-100 p-1" type="text" id="desc_1" name="message1" placeholder="e.g `A simple Message and Celebration From Sibol-Pinoy` ">
+                                    <input class="w-100 p-1" type="text" id="message1" name="message1" placeholder="e.g `A simple Message and Celebration From Sibol-Pinoy` ">
                                 </div>
 
                                 <div class="mb-2">
                                     <label>Message 2</label>
-                                    <input class="w-100 p-1" type="text" id="desc_2" name="message2" placeholder="e.g `` ">
+                                    <input class="w-100 p-1" type="text" id="message2" name="message2" placeholder="e.g `` ">
                                 </div>
 
                                 <div class="mb-2"> 
@@ -103,7 +103,7 @@
                                         </button>
                                     </div>
                                     <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
-                                        <button  type="submit" name="edit_event" class="btn bg-coloured text-white my-2" "><i class="bi bi-vector-pen"></i> Update</button>
+                                        <button  type="submit" name="edit_celeb" class="btn bg-coloured text-white my-2" "><i class="bi bi-vector-pen"></i> Update</button>
                                         <button  type="submit" name="delete_services" class="btn bg-coloured text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
                                     </div>
                                 </div>
@@ -116,7 +116,7 @@
         <!-- THIS IS CREATE NEW EVENTS FORM END HERE -->
 
         <!-- THIS IS EVENTS TABLE START HERE -->
-        <!-- <div class="row col-md-12 my-3">
+        <div class="row col-md-12 my-3">
             <hr class="dropdown-divider bg-dark" />
             <div class="row col-md-12 px-5">
                 <h5>Events Table</h5>
@@ -128,53 +128,45 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Image</th>
-                                <th>Header</th>
                                 <th>Title</th>
-                                <th>Date Start</th>
-                                <th>Date and Time</th>
-                                <th>Reg Fee</th>
-                                <th>Desc One</th>
-                                <th>Desc Two</th>
+                                <th>Header</th>
+                                <th>Image</th>
+                                <th>msg One</th>
+                                <th>msg Two</th>
+                                <th>Status</th>
                                 <th hidden>admin id</th>
                                 <th hidden>Created By</th>
-                                <th>Status</th>
-                                <th>Date Created</th>
                                 <th hidden>Action</th>
-                                <th>Date Update</th>
+                                <th>Date Created</th>
+                                <th>Date Update</th>   
                                 <th>Log</th>
                                 <th>Read</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $event_reload_query = "SELECT tb1.eventID, tb1.event_img, tb1.header, tb1.event_title, tb1.date_start, tb1.date_and_time, tb1.reg_fee, tb1.desc_1, tb1.desc_2, tb2.loginId, tb2.username, tb1.status, tb1.date_published, tb1.action, tb1.date_update FROM events tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId";
+                            $celeb_reload_query = "SELECT tb1.keepingID, tb1.commemoration, tb1.header, tb1.image, tb1.message1, tb1.message2, tb1.status, tb1.loginId, tb2.username, tb1.action, tb1.uploaded, tb1.updated FROM celebration tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId";
 
-                            $event_reload_query_result = mysqli_query($conn, $event_reload_query);
-                            if(mysqli_num_rows($event_reload_query_result) > 0 ){
-                                foreach($event_reload_query_result as $event){
+                            $celeb_reload_query_result = mysqli_query($conn, $celeb_reload_query);
+                            if(mysqli_num_rows($celeb_reload_query_result) > 0 ){
+                                foreach($celeb_reload_query_result as $celebration){
                                     ?>
                                     <tr >  
-                                        <td><?= $event['eventID']?></td>
+                                        <td><?= $celebration['keepingID']?></td>
+                                        <td><?= $celebration['commemoration']?></td>
+                                        <td><?= $celebration['header']?></td>
                                         <td>
                                             <button type="button" class="btn tooltip-test imgs" title="UPDATE IMAGE" id="imgs">
-                                                <img src="./upload/<?= $event['event_img']?>" class="h-100 w-100">
+                                                <img src="./upload/<?= $celebration['image']?>" class="h-100 w-100">
                                             </button>
                                         </td>
-                                        <td><?= $event['header']?></td>
-                                        <td><?= $event['event_title']?></td>
-                                        <td><?= date('M d Y',  strtotime($event['date_start'])) ?></td>
-                                        <td><?= $event['date_and_time']?></td>
-                                        <td><?= $event['reg_fee']?></td>
-                                        <td><?= $event['desc_1']?></td>
-                                        <td><?= $event['desc_2']?></td>
-                                        <td hidden><?= $event['loginId']?></td>
-                                        <td hidden><?= $event['username']?></td>
-                                            <?php
-                                                if($event['status'] == 'published'){
+                                        <td><?= $celebration['message1']?></td>
+                                        <td><?= $celebration['message2']?></td>
+                                        <?php
+                                                if($celebration['status'] == 'published'){
                                                     $stats = "stats-orange";
                                                     $font = "P"; 
-                                                }else if($event['status'] == 'unpublished'){
+                                                }else if($celebration['status'] == 'unpublished'){
                                                     $stats = "stats-blue";
                                                     $font = "UP";
                                                 }else{
@@ -187,11 +179,14 @@
                                             <?= $font ?>
                                             </button>
                                         </td>
-                                        <td><?= date('M d Y',  strtotime($event['date_published'])) ?></td>
-                                        <td hidden><?= $event['action']?></td>
-                                        <td><?= date('M d Y',  strtotime($event['date_update'])) ?></td>
+                                        <td hidden><?= $celebration['loginId']?></td>
+                                        <td hidden><?= $celebration['username']?></td>
+                                        <td hidden><?= $celebration['action']?></td>      
+                                        <td><?= date('M d Y',  strtotime($celebration['uploaded'])) ?></td>
+                                        
+                                        <td><?= date('M d Y',  strtotime($celebration['updated'])) ?></td>
                                         <td>
-                                            <button type="button" class="border-0 bg-white p-2" data-bs-toggle="popover" title="Last Admin Log" data-bs-content="<?= $event['action']?> by <?= $event['username']?>"><i class="bi bi-exclamation-circle"></i></button>
+                                            <button type="button" class="border-0 bg-white p-2" data-bs-toggle="popover" title="Last Admin Log" data-bs-content="<?= $celebration['action']?> by <?= $celebration['username']?>"><i class="bi bi-exclamation-circle"></i></button>
                                         </td>
                                         <td>
                                             <button type="button" class="stats-white tooltip-test read" title="READ" id="read">
@@ -208,20 +203,17 @@
                         <tfoot>
                             <tr>
                                 <th>ID</th>
-                                <th>Image</th>
-                                <th>Header</th>
                                 <th>Title</th>
-                                <th>Date Start</th>
-                                <th>Date and Time</th>
-                                <th>Reg Fee</th>
-                                <th>Desc One</th>
-                                <th>Desc Two</th>
+                                <th>Header</th>
+                                <th>Image</th>
+                                <th>msg One</th>
+                                <th>msg Two</th>
+                                <th>Status</th>
                                 <th hidden>admin id</th>
                                 <th hidden>Created By</th>
-                                <th>Status</th>
-                                <th>Date Created</th>
                                 <th hidden>Action</th>
-                                <th>Date Update</th>
+                                <th>Date Created</th>
+                                <th>Date Update</th>   
                                 <th>Log</th>
                                 <th>Read</th>
                             </tr>
@@ -229,7 +221,7 @@
                     </table>
                 </div>
             </div>
-        </div> -->
+        </div>
         <!-- THIS IS EVENTS TABLE END HERE -->
 
         <!-- THIS IS FOR EDIT MODAL START HERE -->                        
@@ -361,16 +353,12 @@
 
                 console.log(data);
 
-                $('#eventID').val(data[0]);
+                $('#keepingID').val(data[0]);
+                $('#commemoration').val(data[1]);
                 $('#header').val(data[2]);
-                $('#event_title').val(data[3]);
-                $('#date_start').val(data[4]);
-                $('#date_and_time').val(data[5]);
-                $('#reg_fee').val(data[6]);
-                $('#desc_1').val(data[7]);
-                $('#desc_2').val(data[8]);
-                // $('#date_and_time').val(data[5]);
-                // $('#date_and_time').val(data[5]);
+                $('#message1').val(data[4]);
+                $('#message2').val(data[5]);
+              
            
             })
 

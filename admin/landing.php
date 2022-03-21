@@ -170,7 +170,7 @@
                     $total_visitors = mysqli_num_rows($query_results);
                   }
                 ?>
-                <h3 class="text-center pt-4 count-text"><?= $total_visitors ?></h3>
+                <h3 class="text-center pt-4 count-text"><?= number_format($total_visitors) ?></h3>
               </div>
             </div>
           </div>
