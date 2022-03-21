@@ -120,3 +120,57 @@ if(isset($_POST['edit_celeb'])){
         exit();
     }
 }
+
+if(isset($_POST['update_celeb_stats'])){
+    // echo "you are connected!";
+
+    if($_POST['celeID'] && $_POST['stats'] != ''){
+
+        date_default_timezone_set("Asia/Manila");
+
+        $celeID = mysqli_real_escape_string($conn, $_POST['celeID']);
+        $stats = mysqli_real_escape_string($conn, $_POST['stats']);
+
+        $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
+        $username = mysqli_real_escape_string($conn, $_POST['username']);
+        $status_update = mysqli_real_escape_string($conn, $_POST['status_update']);
+
+        $update_date = date("Y-m-d H:i:s");
+
+        $count_celeb_active_query = "SELECT * FROM `celebration` WHERE `status`='published' ";
+        if ($result=mysqli_query($conn, $count_celeb_active_query)) {
+            $rowcount=mysqli_num_rows($result);
+            // echo "The total number of rows are: ".$rowcount;
+            
+            if($rowcount>0){
+                header("Location: ../celebration.php?error=one_celebretion_is_still_published");
+                exit();
+            }else{
+
+                $celeb_update_stats_query = "UPDATE `celebration` SET `status`='$stats',`loginId`='$user_id',`action`='$status_update',`updated`='$update_date' WHERE `keepingID`='$celeID'";
+
+                $celeb_update_stats_query_result = mysqli_query($conn, $celeb_update_stats_query);
+                if(!$celeb_update_stats_query_result){
+                    header("Location: ../celebration.php?error=celebretion_status_update_failed");
+                    exit();
+                }else{
+                    $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$user_id , '$status_update','$username', '$update_date')";
+
+                    $create_adminlog_result = mysqli_query($conn, $create_adminlog);
+                    if(!$create_adminlog_result){
+                        header("Location: ../celebration.php?error=adminlog_error");
+                        exit(); 
+                    }else{
+                        header("Location: ../celebration.php?success=celebretion_status_update_successfully");
+                        exit();
+                    }
+                }
+            }
+        }
+     
+
+    }else{
+        header("Location: ../celebration.php?error=empty_field");
+        exit();
+    }
+}

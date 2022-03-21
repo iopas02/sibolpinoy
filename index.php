@@ -25,15 +25,39 @@
 
 
     <!-- Carousel Start -->
+<<<<<<< HEAD
+=======
+    <div class="container-fluid p-0 mb-0">
+        <div class="banner">
+            <div class="position-relative">
+                <img class="img-fluid" src="img/banner.jpg" alt="">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                        <div class="row justify-content-center">
+                            <div class="col-sm-10 col-lg-8">
+                                <h4 class="text-white animated slideInDown header-font">Take Your Business To The Next Level</h4> <br>
+                                <p class="text-white mb-4 pb-2 secondary-font"><i>Unlocking potentials, building oppurtunities.</i></p>
+                                <a href="#check-services" class="btn py-md-3 px-md-5 me-3 animated slideInLeft text-light bg-blue">Read More</a>
+                                <a href="consultation.php" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Consult Now</a>
+                            </div>  
+                        </div>  
+                    </div>  
+            </div>  
+        </div>
+    </div>
+>>>>>>> 8d51a73c07667ad7ef3c971e34eba90baccf0eda
     <!-- <div class="container-fluid p-0 mb-0">
         <div class="owl-carousel header-carousel position-relative">
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/new_carousel-1.jpg" alt="">
+                <img class="img-fluid" src="img/banner.jpg" alt="">
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-sm-10 col-lg-8">
+<<<<<<< HEAD
                             <h1 class="display-3 text-white animated slideInDown">Sibol-PINOY</h1>
+=======
+                            
+>>>>>>> 8d51a73c07667ad7ef3c971e34eba90baccf0eda
                                 <h4 class="text-white animated slideInDown header-font">Take Your Business To The Next Level</h4>
                                 <p class="text-white mb-4 pb-2 secondary-font">Unlocking potentials, building oppurtunities.</p>
                                 <a href="#check-services" class="btn py-md-3 px-md-5 me-3 animated slideInLeft text-light bg-blue">Read More</a>
@@ -42,14 +66,18 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="owl-carousel-item position-relative">
+            </div> -->
+            <!-- <div class="owl-carousel-item position-relative">
                 <img class="img-fluid" src="img/new_carousel-2.jpg" alt="">
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-sm-10 col-lg-8">
+<<<<<<< HEAD
                             <h1 class="display-3 text-white animated slideInDown">Sibol-PINOY</h1>
+=======
+                            
+>>>>>>> 8d51a73c07667ad7ef3c971e34eba90baccf0eda
                                 <h4 class="text-white animated slideInDown header-font">Take Your Business To The Next Level</h4>
                                 <p class="text-white mb-4 pb-2 secondary-font">Unlocking potentials, building oppurtunities.</p>
                                 <a href="#check-services" class="btn py-md-3 px-md-5 me-3 animated slideInLeft text-light bg-blue">Read More</a>
@@ -58,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div> -->
     <!-- Carousel End -->

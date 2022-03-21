@@ -229,19 +229,19 @@
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Update Event Status</h5>
+                        <h5 class="modal-title">Update Celebration Status</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>   
                     <div class="modal-body">
-                        <form action="comptroller/event.control.php" method="POST">
+                        <form action="comptroller/celebration.control.php" method="POST">
                             <div class="row col-md-12">
                                 <div class="col-md-3">
-                                    <label for="eventid" class="col-form-label">Event ID</label>
-                                    <input type="text" class="form-control" readonly name="eventid" id="eventid">
+                                    <label for="celeID" class="col-form-label">Celebration ID</label>
+                                    <input type="text" class="form-control" readonly name="celeID" id="celeID">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="eventtitle" class="col-form-label">Event Title</label>
-                                    <input type="text" class="form-control" readonly name="eventtitle" id="eventtitle">
+                                    <label for="celebttitle" class="col-form-label">Event Title</label>
+                                    <input type="text" class="form-control" readonly name="celebttitle" id="celebttitle">
                                 </div>
                                 <div class="col-md-3">
                                     <label for="stats" class="col-form-label">Status</label>
@@ -275,7 +275,7 @@
                     <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
 
                                 <div class="my-3 d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <button class="btn bg-coloured text-white" type="submit" name="update_event_stats" ><i class="bi bi-vector-pen"></i> Update Status</button>
+                                    <button class="btn bg-coloured text-white" type="submit" name="update_celeb_stats" ><i class="bi bi-vector-pen"></i> Update Status</button>
                                 </div>
                             </div>    
                         </form>     
@@ -375,8 +375,8 @@
                 }).get();
 
                 console.log(data);
-                $('#eventid').val(data[0]);
-                $('#eventtitle').val(data[3]);
+                $('#celeID').val(data[0]);
+                $('#celebttitle').val(data[1]);
             })
         })
 
