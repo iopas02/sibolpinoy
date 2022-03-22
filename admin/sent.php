@@ -85,42 +85,42 @@
                                                     <td><?=$sent['action']?></td>
                                                     <td><?=$sent['reply']?></td>
                                                     <?php
-                                                        // if(!empty($_GET['file'])){
-                                                        //     $fileName  = basename($_GET['file']);
-                                                        //     $filePath  = 'upload/'.$fileName;
+                                                        if(!empty($_GET['file'])){
+                                                            $fileName  = basename($_GET['file']);
+                                                            $filePath  = 'upload/'.$fileName;
 
-                                                        //     // $file_id = $_GET['file'];
-                                                        //     // $sql = "SELECT `attachment` FROM `sent_email` WHERE `attachment`='$file_id' ";
-                                                        //     // $sql_result = mysqli_query($conn, $sql);
-                                                        //     // $file = mysqli_fetch_assoc($sql_result);
+                                                            // $file_id = $_GET['file'];
+                                                            // $sql = "SELECT `attachment` FROM `sent_email` WHERE `attachment`='$file_id' ";
+                                                            // $sql_result = mysqli_query($conn, $sql);
+                                                            // $file = mysqli_fetch_assoc($sql_result);
 
-                                                        //     // $filepath = 'upload/'.$file['name'];
+                                                            // $filepath = 'upload/'.$file['name'];
                                                             
-                                                        //     if(!empty($fileName) && file_exists($filePath)){
-                                                        //         //define header
-                                                        //         header("Cache-Control: public");
-                                                        //         header("Content-Description: File Transfer");
-                                                        //         header("Content-Disposition: attachment; filename=$fileName");
-                                                        //         header("Content-Type: application/pdf");
-                                                        //         header("Content-Transfer-Encoding: binary");
-                                                                
-                                                        //         //read file 
-                                                        //         readfile($filePath);
-                                                        //         exit;
+                                                            if(!empty($fileName) && file_exists($filePath)){
+                                                                //define header
+                                                                header("Cache-Control: public");
+                                                                header("Content-Description: File Transfer");
+                                                                header("Content-Disposition: attachment; filename=$fileName");
+                                                                header("Content-Type: application/pdf");
+                                                                header("Content-Transfer-Encoding: binary");
+                                                                ob_end_flush();
+                                                                //read file 
+                                                                readfile($filePath);
+                                                                exit;
 
-                                                        //         // header('Content-Type: application/octet-stream');
-                                                        //         // header('Content-Description: File Transfer');
-                                                        //         // header('Content-Disposition: filename='.basename($filepath));
-                                                        //         // header('Expires: 0');
-                                                        //         // header('Cache-Control: must-revalidate');
-                                                        //         // header('Pragma:public');
+                                                                // header('Content-Type: application/octet-stream');
+                                                                // header('Content-Description: File Transfer');
+                                                                // header('Content-Disposition: filename='.basename($filepath));
+                                                                // header('Expires: 0');
+                                                                // header('Cache-Control: must-revalidate');
+                                                                // header('Pragma:public');
 
-                                                        //         // readfile('upload/'.$file['name']);
-                                                        //     }
-                                                        //     else{
-                                                        //         echo "file not exit";
-                                                        //     }
-                                                        // }
+                                                                // readfile('upload/'.$file['name']);
+                                                            }
+                                                            else{
+                                                                echo "file not exit";
+                                                            }
+                                                        }
                                                     ?>
                                                     <td> <a href="sent.php?file=<?php echo $sent['attachment'] ?>"><?= $sent['attachment'] ?></a>
                                                     <td><?=$sent['cc']?></td>
