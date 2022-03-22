@@ -76,8 +76,6 @@ if(isset($_POST['send_reply'])) {
             $mail->Password = 'xnhongbdpyodspfy';   // SMTP password
             $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted
             $mail->Port = 587;                    // TCP port to connect to
-            // $mail->addAttachment("../upload/".$attachment_name);
-            // Sender info
             $mail->setFrom($company_email, '');
             $mail->addReplyTo($company_email, $sender_name);
     
@@ -132,7 +130,7 @@ if(isset($_POST['send_reply'])) {
             $file_ex = pathinfo($attachment_name, PATHINFO_EXTENSION);
             $file_ex_loc = strtolower($file_ex );
 
-            $new_file_name = uniqid("file", true).'.'.$file_ex_loc;
+            $new_file_name = $attachment_name.'.'.$file_ex_loc;
             $file_upload_path = '../upload/'.$new_file_name;
             move_uploaded_file($attachments_tmp, $file_upload_path);
 

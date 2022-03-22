@@ -101,8 +101,10 @@
                                                                 header("Cache-Control: public");
                                                                 header("Content-Description: File Transfer");
                                                                 header("Content-Disposition: attachment; filename=$fileName");
-                                                                header("Content-Type: application/pdf");
-                                                                header("Content-Transfer-Encoding: binary");
+                                                                header('Content-Type: application/octet-stream');
+                                                                header('Cache-Control: must-revalidate');
+                                                                header('Expires: 0');
+                                                                // header("Content-Transfer-Encoding: binary");
                                                                 ob_end_flush();
                                                                 //read file 
                                                                 readfile($filePath);
