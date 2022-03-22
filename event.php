@@ -51,6 +51,8 @@
                             <th>Image</th>
                             <th>event Id</th>
                             <th>event title</th>
+                            <th>event date</th>
+                            <th>Payment</th>
                             <th>details</th>
                             <th>date</th>
                         </tr>
@@ -71,6 +73,8 @@
                                             </td>
                                             <td hidden><?= $published_event['eventID']?></td>
                                             <td hidden><?= $published_event['event_title']?></td>
+                                            <td hidden><?= $published_event['date_and_time']?></td>
+                                            <td hidden><?= $published_event['reg_fee']?></td>
                                             <td>
                                                 <div class="col-md-12 p-2">
                                                     <div class="text-one"> <?= $published_event['header']?> </div>
@@ -109,6 +113,8 @@
                             <th>Image</th>
                             <th>event Id</th>
                             <th>event title</th>
+                            <th>event date</th>
+                            <th>Payment</th>
                             <th>details</th>
                             <th>date</th>
                         </tr>
@@ -313,7 +319,15 @@
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" readonly id="eventID" name="eventID" hidden>
                                     <label for="event_title" class="form-label">Event Title</label>
-                                    <input type="text" class="form-control" readonly id="event_title" name="event_title">
+                                    <input type="text" class="col-md-12" readonly id="event_title" name="event_title">
+                                </div>
+                                <div class="col-md-8 mt-2">
+                                    <label for="date" class="form-label">Date and Time</label>
+                                    <input type="text" class="col-md-12" readonly id="date" name="date">
+                                </div>
+                                <div class="col-md-4 mt-2">
+                                    <label for="reg_fee" class="form-label">Other Details</label>
+                                    <input type="text" class="col-md-12" readonly id="reg_fee" name="reg_fee">
                                 </div>
                             </div>
                             <div class="row col-md-12 mb-2">
@@ -353,11 +367,17 @@
                             <div class="row col-md-12 mb-2">
                                 <div class="col-md-4">
                                     <label>Methods Of Payments: </label><br>
+                                    <input type="radio" id="myCheck0" name="payment" onclick="myFunction()"  value="Free">
+                                    <label for="myCheck0">Free</label><br>
                                     <input type="radio" id="myCheck" name="payment" onclick="myFunction()"  value="Bank Transfer">
                                     <label for="myCheck">Bank Transfer</label><br>
-                                    <input type="radio"  id="myCheckTwo" name="payment" onclick="myFunction()" value="GCash">
+                                    <input type="radio" id="myCheckTwo" name="payment" onclick="myFunction()" value="GCash">
                                     <label for="myCheckTwo">GCash</label> 
                                 </div>
+                                <div class="col-md-8" id="text0" style="display: none;"> 
+                                    FREE WEBINAR
+                                </div>
+                                
                                 <div class="col-md-8" id="text" style="display: none;"> 
                                     Account Number: <span>2000 2941 9654</span><br>
                                     Account Name: <span>Sibol-PINOY Management Consultancy</span><br>
@@ -427,15 +447,25 @@
                 console.log(data);
                 $('#eventID').val(data[1]);
                 $('#event_title').val(data[2]);
+                $('#date').val(data[3]);
+                $('#reg_fee').val(data[4]);
             })
         })
 
         function myFunction() {
+            var checkBox0 = document.getElementById("myCheck0");
             var checkBox = document.getElementById("myCheck");
             var checkBoxTwo = document.getElementById("myCheckTwo");
 
+            var text0 = document.getElementById("text0");
             var text = document.getElementById("text");
             var textTwo = document.getElementById("text-two");
+
+            if (checkBox0.checked == true){
+                text0.style.display = "block";
+            } else {
+                text0.style.display = "none";
+            }
 
             if (checkBox.checked == true){
                 text.style.display = "block";

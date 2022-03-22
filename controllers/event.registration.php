@@ -8,10 +8,12 @@ if(isset($_POST['register'])){
 
         $eventID = mysqli_real_escape_string($conn, $_POST['eventID']);
         $event_title = mysqli_real_escape_string($conn, $_POST['event_title']);
+        $date = mysqli_real_escape_string($conn, $_POST['date']);
 
         $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
         $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
         $mi = mysqli_real_escape_string($conn, $_POST['mi']);
+        $email_add = mysqli_real_escape_string($conn, $_POST['email_add']);
         $contact = mysqli_real_escape_string($conn, $_POST['contact']);
         $orgs = mysqli_real_escape_string($conn, $_POST['orgs']);
         $position = mysqli_real_escape_string($conn, $_POST['position']);
@@ -31,28 +33,101 @@ if(isset($_POST['register'])){
         $newcontact = $_POST['newcontact'];
         $payment1 = $_POST['payment1'];
         
-        echo $uniID."<br>";
-        echo $eventID."<br>";
-        echo $event_title."<br>";
-        echo $firstname."<br>";
-        echo $lastname."<br>";
-        echo $mi."<br>";
-        echo $contact."<br>";
-        echo $orgs."<br>";
-        echo $position."<br>";
-        echo $payment."<br><br>";
+        // echo $uniID."<br>";
+        // echo $eventID."<br>";
+        // echo $event_title."<br>";
+        // echo $firstname."<br>";
+        // echo $lastname."<br>";
+        // echo $mi."<br>";
+        // echo $contact."<br>";
+        // echo $orgs."<br>";
+        // echo $position."<br>";
+        // echo $payment."<br><br>";
 
         foreach($newname as $index => $member){
             
-            echo $eventID."<br>";
-            echo $event_title."<br>";
-            echo $member."<br>";
-            echo $newlastname[$index]."<br>";
-            echo $newmi[$index]."<br>";
-            echo $newemail_add[$index]."<br>";
-            echo $newcontact[$index]."<br>";
-            echo $payment1[$index]."<br>";
-            echo $uniID."<br><br>";
+            $eventID;
+            $event_title;
+            $s_name = $member;
+            $s_lastname = $newlastname[$index];
+            $s_mi = $newmi[$index];
+            $s_emailadd = $newemail_add[$index];
+            $s_contact = $newcontact[$index];
+            $s_payment = $payment1[$index];
+            $uniID;
+
+            $members = $s_name.' '.$s_mi.'. '.$s_lastname;
+        }
+        if($payment == "GCash"){
+            $payments = "<br>Account Number: <span>0917 113 9078</span><br>
+            Account Name: <span>SibolPINOY (Ceazar Valerie N.)</span>";
+        }else if($payments == "Bank Transfer"){
+            $payments =  "<br>Account Number: <span>2000 2941 9654</span><br>
+            Account Name: <span>Sibol-PINOY Management Consultancy</span><br>
+            Bank: <span>EastWest Bank, The Fort-PSE TOWER</span>";
+        }else{
+            $payments = "FREE WEBINAR";
+        }
+
+        $sender_name = $firstname.' '.$mi.' '.$lastname;
+        
+        $subject = "Thank you for registration";
+        $company_email = "treszeta28@gmail.com";
+
+        $message = '';
+        $message .= "Thank You for your registration on ".$event_title. " that will start on " .$date.".<br>";
+        $message .= "Please Settle your payment to your selected methods of payment whisch is ".$payment. " With the Following Details ". $payments .".<br>" ;
+        $message .="With the Following member " .$members. ". <br>";
+        $message .="Please Upload your Screen Shot Payment on the bellow link. Thank you very much.<br>";
+        $message .="http://localhost/sibolpinoy/event.php"; 
+
+        $body = '';
+
+        $body .="From: " .$sender_name. "<br>";
+        $body .="Email :" . $company_email. "<br>";
+        $body .="Message :" .$message. "<br>";
+        
+        // Import PHPMailer classes into the global namespace
+        // use PHPMailer\PHPMailer\PHPMailer;
+        // use PHPMailer\PHPMailer\Exception;
+
+        require '../PHPMailer/src/Exception.php';
+        require '../PHPMailer/src/PHPMailer.php';
+        require '../PHPMailer/src/SMTP.php';
+
+        $mail = new PHPMailer\PHPMailer\PHPMailer();
+
+        $mail->isSMTP();                      // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com';       // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;               // Enable SMTP authentication
+        $mail->Username = 'treszeta28@gmail.com';   // SMTP username
+        $mail->Password = 'xnhongbdpyodspfy';   // SMTP password
+        $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 587;                    // TCP port to connect to
+        $mail->setFrom($company_email, '');
+        $mail->addReplyTo($company_email, $sender_name);
+
+        // Add a recipient
+        $mail->addAddress($email_add);
+
+        $mail->addCC($carbon_copy);
+        //$mail->addBCC('bcc@example.com');
+
+        // Set email format to HTML
+        $mail->isHTML(true);
+
+        // Mail subject
+        $mail->Subject = $subject;
+
+        // Mail body content
+        // $bodyContent = '<h1>How to Send Email from Localhost using PHP by InfoTech</h1>';
+        // $bodyContent .= '<p>This HTML email is sent from the localhost server using PHP by <b>TechWAR</b></p>';
+        $mail->Body = $body;
+
+        if(!$mail->send()) {
+            header("Location: ../event.php?error=Message_not_sent");
+        } else {
+            header("Location: ../event.php?success=email_sent");
         }
 
     }else{
