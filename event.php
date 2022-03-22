@@ -44,37 +44,77 @@
                 <h1 class="mb-5 header-font">Check Our Upcoming Events</h1>
             </div>
             
-            <div class="row col-md-12">
-                <?php
-                    $tatus = 'published';
-                    $load_event_query = "SELECT * FROM `events` WHERE `status`='$tatus' ORDER BY `date_start`";
-                    $load_event_query_result = mysqli_query($conn, $load_event_query );
-                    if(mysqli_num_rows($load_event_query_result) > 0 ){
-                        foreach($load_event_query_result as $published_event){
-                            ?>
-                                <div class="col-md-3 text-center py-2">
-                                    <img src="admin/upload/<?= $published_event['event_img']?>" style="width: 250px; height: 210px;" alt="">
-                                </div>
-                                <div class="col-md-7 py-2">
-                                    <div class="text-one"> <?= $published_event['header']?> </div>
-                                    <div class="text-two"><?= $published_event['event_title']?></div>
-                                    <div class="text-one"><?= $published_event['date_and_time']?></div>
-                                    <div class="text-one"><?= $published_event['reg_fee']?></div>
-                                    <div class="smaller-text"><?= $published_event['desc_1']?></div>
-                                    <div class="smaller-text"><?= $published_event['desc_2']?></div>
+            <div class="row col-md-12 d-flex justify-content-center align-items-center">
+                <table id="example" class="table data-table" style="width: 80%">
+                    <thead>
+                        <tr hidden>
+                            <th>Image</th>
+                            <th>event Id</th>
+                            <th>event title</th>
+                            <th>details</th>
+                            <th>date</th>
+                        </tr>
+                    </thead>    
+                    <tbody>
+                        <?php
+                            $tatus = 'published';
+                            $load_event_query = "SELECT * FROM `events` WHERE `status`='$tatus' ORDER BY `date_start`";
+                            $load_event_query_result = mysqli_query($conn, $load_event_query );
+                            if(mysqli_num_rows($load_event_query_result) > 0 ){
+                                foreach($load_event_query_result as $published_event){
+                                    ?>
+                                        <tr>
+                                            <td>
+                                                <div class="">
+                                                    <img src="admin/upload/<?= $published_event['event_img']?>" style="width: 250px; height: 210px;" alt="">
+                                                </div>
+                                            </td>
+                                            <td hidden><?= $published_event['eventID']?></td>
+                                            <td hidden><?= $published_event['event_title']?></td>
+                                            <td>
+                                                <div class="col-md-12 p-2">
+                                                    <div class="text-one"> <?= $published_event['header']?> </div>
+                                                    <div class="text-two"><?= $published_event['event_title']?></div>
+                                                    <div class="text-one"><?= $published_event['date_and_time']?></div>
+                                                    <div class="text-one"><?= $published_event['reg_fee']?></div>
+                                                    <div class="smaller-text"><?= $published_event['desc_1']?></div>
+                                                    <div class="smaller-text"><?= $published_event['desc_2']?></div>
 
-                                    <button class="col-md-3 b-0 bg-blue p-1 mt-2 text-white">Register</button>    
-                                </div>
-                                <div class="col-md-2 text-center py-3">       
-                                    <div class="date-text"><?= date('d',  strtotime($published_event['date_start'])) ?></div>
-                                    <div class="month-text"><?= date('M',  strtotime($published_event['date_start'])) ?></div>
-                                </div>
-                                <hr class="dropdown-divider bg-dark" />
-                            <?php
-                        }
-                    }    
+                                                    <button class="col-md-4 b-0 bg-blue p-1 mt-2 text-white" >Individual Registration</button>
+                                                    <button class="col-md-4 b-0 bg-blue p-1 mt-2 text-white groupregis" id="groupregis" type="button">Group Registration</button>      
+                                                </div>
+                                                    
+                                            </td>
+                                            <td>
+                                                <div class="col-md-2 text-center py-3">       
+                                                    <div class="date-text"><?= date('d',  strtotime($published_event['date_start'])) ?></div>
+                                                    <div class="month-text"><?= date('M',  strtotime($published_event['date_start'])) ?></div>
+                                                </div>
 
-                ?>
+                                            </td>
+                                            
+                                        </tr>
+                                      
+                                      
+                                        
+                                        <hr class="dropdown-divider bg-dark" />
+                                    <?php
+                                }
+                            }    
+
+                        ?>
+                    </tbody>
+                    <tfoot>
+                        <tr hidden>
+                            <th>Image</th>
+                            <th>event Id</th>
+                            <th>event title</th>
+                            <th>details</th>
+                            <th>date</th>
+                        </tr>
+                    </tfoot>
+                </table>
+
             </div>
             
         </div>
@@ -85,6 +125,7 @@
     <!-- About Start -->
     <div class="container-fluid bg-white py-5" id="about">
         <div class="container d-flex justify-content-center align-items-center">
+          
             <?php
                 $header = $title = $message1 = $message2 = $img = '';
                 $status = 'published';
@@ -185,7 +226,7 @@
 
             <div class="d-flex justify-content-center align-items-center">
                 <ul class="pagination pull-right">
-                    <!-- <li class="pull-left btn btn-default disabled">Showing Page <?php echo $page_no." of ".$total_number_of_page;?></li> -->
+                   
                     <li class="p-2 <?php if($page_no <= 1) { echo "disabled";}?>">
                         <a <?php if($page_no > 1) { echo "href='?page_no=$previous_page'";} ?>>Previous</a>
                     </li>
@@ -251,95 +292,36 @@
                 </ul>
             </div>
             
-            <!-- <div class="owl-carousel testimonial-carousel position-relative" >
-                <div class="testimonial-item text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <img class="p-2 mx-auto mb-3" styel="width: 150px; height:180px;" src="img/past_event_1.png">
-                    <h5 class="mb-0 second-header">ISO 9001:2015 Requirements and Internal Quality Audit</h5>
-                    <p>February 19, 20, 26 & 27, 2022 | 9AM-5PM </p>
-                </div>
-                <div class="testimonial-item text-center wow fadeInUp" data-wow-delay="0.2s">
-                    <img class=" p-2 mx-auto mb-3" styel="width: 150px; height:180px;" src="img/past_event_2.png">
-                    <h5 class="mb-0 second-header">Strategic Planning and Risk-Based Management</h5>
-                    <p>February 21-25, 2022 | 5PM-9PM</p>
-                </div>
-                <div class="testimonial-item text-center wow fadeInUp" data-wow-delay="0.3s">
-                    <img class=" p-2 mx-auto mb-3" styel="width: 150px; height:180px;" src="img/past_event_3.png">
-                    <h5 class="mb-0 second-header">Building Organizational Resilience 101:Risk Management and Root Cause Analysis</h5>
-                    <p>16 February 2022 from 5PM to 8PM.</p>
-                </div>
-                <div class="testimonial-item text-center wow fadeInUp" data-wow-delay="0.4s"> 
-                    <img class="p-2 mx-auto mb-3" styel="width: 150px; height:180px;" src="img/past_event_4.png">
-                    <h5 class="mb-0 second-header">Building Organizational Resilience: Introducing Tools and Techniques in Risk Management and Root Cause Analysis</h5>
-                    <p> January 16, 2022, 9AM - 12NN</p>
-                </div>
-            </div> -->
         </div>
     </div>
     <!-- Previous Events End -->
 
     <!-- MOdal Services Start -->
         <!--Registration Form Modal Start -->
-        <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="registrationTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal fade" id="registration" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                 <div class="modal-content">
                     <div class="pt-3 text-center">
                         <img class="__logo" src="img/logo.png" alt="">
                     </div>
                     <div class="text-center">
-                        <h5 class="modal-title" id="registrationTitle">Events Registration Form</h5>
+                        <h5 class="modal-title" id="registrationTitle">Events Group Registration Form</h5>
                     </div>
                     <div class="modal-body">
-                        <div class="container">
-                            <form class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="" class="form-label">First Name</label>
-                                    <input class="form-control form-control-sm" type="text" placeholder="eg. Juan">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="" class="form-label">Last Name</label>
-                                    <input class="form-control form-control-sm" type="text" placeholder="eg. Dela Cruz">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="" class="form-label">Mobile Number</label>
-                                    <input class="form-control form-control-sm" type="text" placeholder="eg. +62942*******">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="" class="form-label">Email Address</label>
-                                    <input class="form-control form-control-sm" type="email" placeholder="eg. xxxxx@gmail.com">
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="inputState" class="form-label">Gender</label>
-                                    <select id="inputState" class="form-select">
-                                        <option selected>Choose...</option>
-                                        <option>Female</option>
-                                        <option>Male</option>
-                                        <option>LGBTQ</option>
-                                    </select>
-                                </div>
+                        <form>
+                            <div class="row col-md-12 mb-3">
                                 <div class="col-md-12">
-                                    <label for="inputState" class="form-label">Select Program</label>
-                                    <select id="inputState" class="form-select">
-                                        <option selected>Choose...</option>
-                                        <option>Building Organizational Resilience 101:Risk Management and Root Cause Analysis</option>
-                                        <option>Building Organizational Resilience: Introducing Tools and Techniques in Risk Management and Root Cause Analysis</option>
-                                    </select>
+                                    <input type="text" class="form-control" readonly id="eventID" name="eventID">
+                                    <label for="event_title" class="form-label">Event Title</label>
+                                    <input type="text" class="form-control" readonly id="event_title" name="event_title">
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                                    <label class="form-check-label" for="gridCheck">
-                                        Check me out
-                                    </label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Sign in</button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="container">
-                        </div>  
+                                
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
                     </div>
+                   
+                 
                     <div class="modal-footer">
                         <button type="button" class="btn bg-blue text-light" data-bs-dismiss="modal">Close</button>
                     </div>
@@ -355,6 +337,7 @@
     <?php
         require "includes/footer.php";
     ?>
+  
     <!-- Footer End -->
 
     <!-- Back to Top -->
@@ -362,7 +345,7 @@
 
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
@@ -370,6 +353,24 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
+    <script>
+        
+        $(document).ready(function(){
+            $('.groupregis').on('click', function(){
+                $('#registration').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data= $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+                $('#eventID').val(data[1]);
+                $('#event_title').val(data[2]);
+            })
+        })
+    </script>
     <script src="js/main.js"></script>
 </body>
 
