@@ -80,7 +80,7 @@ if(isset($_POST['email_submit'])) {
             $check_cmail = "SELECT `email_add` FROM `client` WHERE `email_add`=? ";
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt, $check_cmail)) {
-                header("Location: ../contact.ph?");
+                header("Location: ../contact.php?");
                 exit();
             }else {
                 mysqli_stmt_bind_param($stmt, "s", $cemail);

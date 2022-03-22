@@ -308,7 +308,7 @@
                         <h5 class="modal-title" id="registrationTitle">Events Group Registration Form</h5>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form action="controllers/event.registration.php" method="POST">
                             <div class="row col-md-12 mb-2">
                                 <div class="col-md-12">
                                     <input type="text" class="form-control" readonly id="eventID" name="eventID" hidden>
@@ -347,15 +347,15 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label>Position</label>
-                                    <input type="text" class="form-control"  name="contact" placeholder="Position">
+                                    <input type="text" class="form-control"  name="position" placeholder="Position">
                                 </div>
                             </div>
                             <div class="row col-md-12 mb-2">
                                 <div class="col-md-4">
                                     <label>Methods Of Payments: </label><br>
-                                    <input type="radio" id="myCheck" name="survey2" onclick="myFunction()"  value="Bank Transfer">
+                                    <input type="radio" id="myCheck" name="payment" onclick="myFunction()"  value="Bank Transfer">
                                     <label for="myCheck">Bank Transfer</label><br>
-                                    <input type="radio"  id="myCheckTwo" name="survey2" onclick="myFunction()" value="GCash">
+                                    <input type="radio"  id="myCheckTwo" name="payment" onclick="myFunction()" value="GCash">
                                     <label for="myCheckTwo">GCash</label> 
                                 </div>
                                 <div class="col-md-8" id="text" style="display: none;"> 
@@ -376,7 +376,7 @@
 
                            
                             
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary" name="register">Register</button>
                         </form>
                     </div>
                    
@@ -456,25 +456,35 @@
                 $('.new-forms').append(' <hr class="dropdown-divider bg-dark"/>\<label>New Member:</label>\<div class="row col-md-12 mb-2">\
                                 <div class="col-md-5">\
                                     <label>First Name</label>\
-                                    <input type="text" class="form-control" name="firstname" placeholder="First Name">\
+                                    <input type="text" class="form-control" name="newname[]" placeholder="First Name">\
                                 </div>\
                                 <div class="col-md-5">\
                                     <label>Last Name</label>\
-                                    <input type="text" class="form-control" name="lastname" placeholder="Last Name">\
+                                    <input type="text" class="form-control" name="newlastname[]" placeholder="Last Name">\
                                 </div>\
                                 <div class="col-md-2">\
                                     <label>M.I.</label>\
-                                    <input type="text" class="form-control" name="mi" placeholder="M.I.">\
+                                    <input type="text" class="form-control" name="newmi[]" placeholder="M.I.">\
                                 </div>\
                             </div>\
                             <div class="row col-md-12 mb-2">\
                                 <div class="col-md-6">\
                                     <label>Email Address</label>\
-                                    <input type="Email" class="form-control" name="email_add" placeholder="Email Address">\
+                                    <input type="Email" class="form-control" name="newemail_add[]" placeholder="Email Address">\
                                 </div>\
                                 <div class="col-md-6">\
                                     <label>Contact Number</label>\
-                                    <input type="text" class="form-control"  name="contact" placeholder="Contact Number">\
+                                    <input type="text" class="form-control"  name="newcontact[]" placeholder="Contact Number">\
+                                </div>\
+                            </div>\
+                            <div class="row col-md-12 mb-2">\
+                                <div class="col-md-4">\
+                                    <label>Methods Of Payments: </label><br>\
+                                    <select class="form-select" name="payment1[]">\
+                                        <option selected>Open this select menu</option>\
+                                        <option value="Bank Transfer">Bank Transfer</option>\
+                                        <option value="GCash">GCash</option>\
+                                    </select>\
                                 </div>\
                             </div>');
             })
