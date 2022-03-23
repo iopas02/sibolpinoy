@@ -45,7 +45,7 @@
             </div>
             
             <div class="row col-md-12 d-flex justify-content-center align-items-center">
-                <table id="example" class="table data-table" style="width: 80%">
+                <table class="table data-table" style="width: 80%">
                     <thead hidden>
                         <tr>
                             <th>Image</th>
@@ -492,42 +492,42 @@
                             <div class="row col-md-12 mb-2">\
                                 <div class="col-md-5">\
                                     <label>First Name</label>\
-                                    <input type="text" class="form-control" name="newname[]" placeholder="First Name" required>\
+                                    <input type="text" class="form-control" name="newname[]" placeholder="First Name" value="" required>\
                                 </div>\
                                 <div class="col-md-5">\
                                     <label>Last Name</label>\
-                                    <input type="text" class="form-control" name="newlastname[]" placeholder="Last Name" required>\
+                                    <input type="text" class="form-control" name="newlastname[]" placeholder="Last Name" value="" required>\
                                 </div>\
                                 <div class="col-md-2">\
                                     <label>M.I.</label>\
-                                    <input type="text" class="form-control" name="newmi[]" placeholder="M.I." required>\
+                                    <input type="text" class="form-control" name="newmi[]" placeholder="M.I." value="" required>\
                                 </div>\
                             </div>\
                             <div class="row col-md-12 mb-2">\
                                 <div class="col-md-6">\
                                     <label>Email Address</label>\
-                                    <input type="Email" class="form-control" name="newemail_add[]" placeholder="Email Address" required>\
+                                    <input type="Email" class="form-control" name="newemail_add[]" placeholder="Email Address" value="" required>\
                                 </div>\
                                 <div class="col-md-6">\
                                     <label>Contact Number</label>\
-                                    <input type="text" class="form-control"  name="newcontact[]" placeholder="Contact Number" required>\
+                                    <input type="text" class="form-control"  name="newcontact[]" placeholder="Contact Number" value="" required>\
                                 </div>\
                             </div>\
                             <div class="row col-md-12 mb-2">\
                                 <div class="col-md-6">\
                                     <label>Name Of Oragnization</label>\
-                                    <input type="text" class="form-control" name="neworgs[]" placeholder="Name Of Oragnization">\
+                                    <input type="text" class="form-control" name="neworgs[]" placeholder="Name Of Oragnization" value="" required>\
                                 </div>\
                                 <div class="col-md-6">\
                                     <label>Position</label>\
-                                    <input type="text" class="form-control"  name="newposition[]" placeholder="Position">\
+                                    <input type="text" class="form-control"  name="newposition[]" placeholder="Position" value="" required>\
                                 </div>\
                             </div>\
                             <div class="row col-md-12 mb-2">\
                                 <div class="col-md-4">\
                                     <label>Methods Of Payments: </label><br>\
                                     <select class="form-select" name="payment1[]" required>\
-                                        <option selected>Open this select menu</option>\
+                                        <option value="">Open this select menu</option>\
                                         <option value="Free">Free</option>\
                                         <option value="Bank Transfer">Bank Transfer</option>\
                                         <option value="GCash">GCash</option>\

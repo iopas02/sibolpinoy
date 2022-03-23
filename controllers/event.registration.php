@@ -43,15 +43,110 @@ if(isset($_POST['register'])){
             $resultcheck = mysqli_stmt_num_rows($stmt);
 
             if($resultcheck > 0){
-                $event_reservation_query = "INSER INTO `event_reservation`(`client_uniID`,`reservationID`,`eventID`,`ss_payment`,`payment_method`,`registered_by`,`date_registered`,`status`) VALUES ('$uniID',$reservationID','$eventID','$ss_payment','$payment','$uniID','$registered_date','$status'";
+                $get_uniID_query = "SELECT * FROM `client` WHERE `email_add`='$email_add'";
+                $get_uniID_query_result = mysqli_query($conn, $get_uniID_query);
+                if (mysqli_num_rows($get_uniID_query_result) > 0){
+                    while($row=mysqli_fetch_assoc($get_uniID_query_result)){
+                        $client_uniID = $row['client_uniID'];
+                        $email_add = $row['email_add'];
+                        
+                        $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `registered_by`, `date_registered`, `status`) VALUES ('$email_add ','$reservationID','$eventID','$ss_payment','$payment','$email_add ','$registered_date','$status')";
 
-                $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
-                if(!$event_reservation_query_result){
-                    header("Location: ../event.php?event_reservation_failed");
-                    exit();
-                }else{
-                    echo "addition member registration start here";
+                        $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
+                        if(!$event_reservation_query_result){
+                            header("Location: ../event.php?event_reservation_failed");
+                            exit();
+                        }else{
+
+                            if($_POST['newname'] && $_POST['newlastname'] && $_POST['newmi']  && $_POST['newemail_add']  && $_POST['newcontact'] && $_POST['neworgs'] && $_POST['newposition'] && $_POST['payment1'] !=''){
+
+                                $newname = $_POST['newname'];
+                                $newlastname = $_POST['newlastname'];
+                                $newmi = $_POST['newmi'];
+                                $newemail_add = $_POST['newemail_add'];
+                                $newcontact = $_POST['newcontact'];
+                                $neworgs = $_POST['neworgs'];
+                                $newposition = $_POST['newposition'];
+                                $payment1 = $_POST['payment1'];
+                                $newstatus = $_POST['newstatus'];
+
+                                foreach($newname as $index => $member){
+                                    $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+                                    // Output: 54esmdr0qf
+                                    $random_num1 = substr(str_shuffle($permitted_chars), 0, 5);
+                                    
+                                    $year = date("Y");
+                                    $uniID = $year."-".$random_num1; 
+                        
+                                    $eventID;    
+                                    $event_title;
+                                    $reservationID;
+                                    $s_name = $member;
+                                    $s_lastname = $newlastname[$index];
+                                    $s_mi = $newmi[$index];
+                                    $s_emailadd = $newemail_add[$index];
+                                    $s_contact = $newcontact[$index];
+                                    $s_neworgs = $neworgs[$index];
+                                    $s_neworgs = $neworgs[$index];
+                                    $s_newposition = $newposition[$index];
+                                    $s_payment = $payment1[$index];
+                                    $s_newstatus = $newstatus[$index];
+
+                                    $check_users_query = "SELECT * FROM `client` WHERE `email_add`=? ";
+                                    $stmt = mysqli_stmt_init($conn);
+                                    if(!mysqli_stmt_prepare($stmt, $check_users_query )){
+                                        exit();
+                                    }else{
+                                        mysqli_stmt_bind_param($stmt, "s", $s_emailadd);
+                                        mysqli_stmt_execute($stmt);
+                                        mysqli_stmt_store_result($stmt);
+                                        $resultcheck = mysqli_stmt_num_rows($stmt);
+                            
+                                        if($resultcheck > 0){
+
+                                            $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `registered_by`, `date_registered`, `status`) VALUES ('$s_emailadd','$reservationID','$eventID','$ss_payment','$s_payment','$email_add','$registered_date','$status')";
+
+                                            $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
+                                            if(!$event_reservation_query_result){
+                                                header("Location: ../event.php?event_reservation_failed");
+                                                exit();
+                                            }else{
+                                                echo "Start for sending email for group";
+                                            }
+
+
+                                        }else{
+                                            
+                                            $member_registration_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `m.i.`, `lastName`, `email_add`, `contact`, `organization`, `position`, `date_register`) VALUES ('$uniID','$s_name','$s_mi','$s_lastname','$s_emailadd','$s_contact','$s_neworgs','$s_newposition','$registered_date')";
+
+                                            $member_registration_query_result = mysqli_query($conn, $member_registration_query);
+                                            if(!$member_registration_query_result){
+                                                header("Location: ../event.php?members_add_failed");
+                                                exit();
+                                            }else{
+                                                 
+                                                $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `registered_by`, `date_registered`, `status`) VALUES ('$s_emailadd','$reservationID','$eventID','$ss_payment','$s_payment','$email_add','$registered_date','$status')";
+
+                                                $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
+                                                if(!$event_reservation_query_result){
+                                                    header("Location: ../event.php?event_reservation_failed");
+                                                    exit();
+                                                }else{
+                                                    echo "Start for sending email for group";
+                                                }
+                                            }
+                                            
+                                            
+                                        }
+                                    }
+                                }
+                            }else{
+                                echo "sending email message start here for solo";
+                            }
+                        }
+                    }
                 }
+
             }else{
                 $client_registration_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `m.i.`, `lastName`, `email_add`, `contact`, `organization`, `position`, `date_register`) VALUES ('$uniID','$firstname','$mi','$lastname','$email_add','$contact','$orgs','$position','$registered_date')";
 
@@ -61,14 +156,99 @@ if(isset($_POST['register'])){
                     exit();
                 }else{
 
-                    $event_reservation_query = "INSER INTO `event_reservation`(`client_uniID`,`reservationID`,`eventID`,`ss_payment`,`payment_method`,`registered_by`,`date_registered`,`status`) VALUES ('$uniID',$reservationID','$eventID','$ss_payment','$payment','$uniID','$registered_date','$status'";
+                    $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `registered_by`, `date_registered`, `status`) VALUES ('$email_add','$reservationID','$eventID','$ss_payment','$payment','$email_add','$registered_date','$status')";
 
                     $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
                     if(!$event_reservation_query_result){
                         header("Location: ../event.php?event_reservation_failed");
                         exit();
                     }else{
-                        echo "addition member registration start here";
+                        
+                        if($_POST['newname'] && $_POST['newlastname'] && $_POST['newmi']  && $_POST['newemail_add']  && $_POST['newcontact'] && $_POST['neworgs'] && $_POST['newposition'] && $_POST['payment1'] !=''){
+
+                            $newname = $_POST['newname'];
+                            $newlastname = $_POST['newlastname'];
+                            $newmi = $_POST['newmi'];
+                            $newemail_add = $_POST['newemail_add'];
+                            $newcontact = $_POST['newcontact'];
+                            $neworgs = $_POST['neworgs'];
+                            $newposition = $_POST['newposition'];
+                            $payment1 = $_POST['payment1'];
+                            $newstatus = $_POST['newstatus'];
+
+                            foreach($newname as $index => $member){
+                                $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+                                // Output: 54esmdr0qf
+                                $random_num1 = substr(str_shuffle($permitted_chars), 0, 5);
+                                
+                                $year = date("Y");
+                                $uniID = $year."-".$random_num1; 
+                    
+                                $eventID;    
+                                $event_title;
+                                $reservationID;
+                                $s_name = $member;
+                                $s_lastname = $newlastname[$index];
+                                $s_mi = $newmi[$index];
+                                $s_emailadd = $newemail_add[$index];
+                                $s_contact = $newcontact[$index];
+                                $s_neworgs = $neworgs[$index];
+                                $s_neworgs = $neworgs[$index];
+                                $s_newposition = $newposition[$index];
+                                $s_payment = $payment1[$index];
+                                $s_newstatus = $newstatus[$index];
+
+                                $check_users_query = "SELECT * FROM `client` WHERE `email_add`=? ";
+                                $stmt = mysqli_stmt_init($conn);
+                                if(!mysqli_stmt_prepare($stmt, $check_users_query )){
+                                    exit();
+                                }else{
+                                    mysqli_stmt_bind_param($stmt, "s", $s_emailadd);
+                                    mysqli_stmt_execute($stmt);
+                                    mysqli_stmt_store_result($stmt);
+                                    $resultcheck = mysqli_stmt_num_rows($stmt);
+                        
+                                    if($resultcheck > 0){
+
+                                        $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `registered_by`, `date_registered`, `status`) VALUES ('$s_emailadd','$reservationID','$eventID','$ss_payment','$s_payment','$email_add','$registered_date','$status')";
+
+                                        $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
+                                        if(!$event_reservation_query_result){
+                                            header("Location: ../event.php?event_reservation_failed");
+                                            exit();
+                                        }else{
+                                            echo "Start for sending email for group";
+                                        }
+
+
+                                    }else{
+                                        
+                                        $member_registration_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `m.i.`, `lastName`, `email_add`, `contact`, `organization`, `position`, `date_register`) VALUES ('$uniID','$s_name','$s_mi','$s_lastname','$s_emailadd','$s_contact','$s_neworgs','$s_newposition','$registered_date')";
+
+                                        $member_registration_query_result = mysqli_query($conn, $member_registration_query);
+                                        if(!$member_registration_query_result){
+                                            header("Location: ../event.php?members_add_failed");
+                                            exit();
+                                        }else{
+                                             
+                                            $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `registered_by`, `date_registered`, `status`) VALUES ('$s_emailadd','$reservationID','$eventID','$ss_payment','$s_payment','$email_add','$registered_date','$status')";
+
+                                            $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
+                                            if(!$event_reservation_query_result){
+                                                header("Location: ../event.php?event_reservation_failed");
+                                                exit();
+                                            }else{
+                                                echo "Start for sending email for group";
+                                            }
+                                        }
+                                        
+                                        
+                                    }
+                                }
+                            }
+                        }else{
+                            echo "sending email message start here for solo";
+                        }
                     }
                 }
 
