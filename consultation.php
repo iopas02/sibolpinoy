@@ -23,17 +23,27 @@
 
 
     <!-- Header Start -->
-    <div class="container-fluid ParaImage" style="background-image: url('img/consultation.jpg');"> 
+    <!-- <div class="container-fluid ParaImage" style="background-image: url('img/consultation.jpg');"> 
         <div class="container py-5">
             <div class="row justify-content-start">
                 <div class="col-sm-10 col-lg-8">
-                <!-- <h1 class="display-3 text-white animated slideInDown">Sibol-PINOY</h1> -->
+                <h1 class="display-3 text-white animated slideInDown">Sibol-PINOY</h1>
                 <h4 class="text-dark header-font">Consultation</h4>
                 <p class="mb-4 pb-2 text-dark secondary-font">Quality is a choice, Choose to be better, Choose <strong>SPMC</strong>.</p>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+     
+      <section>
+        <div class="consultContent" >
+            <div class="indexTextContent">
+                <h1 class="indexText">Unlocking Potential</h1>
+                <h1 class="indexText" style="padding-left: 25px;">Building Opportunities</h1>
+            </div>
+        </div>
+    </section>
+    
     <!-- Header End -->
 
 
