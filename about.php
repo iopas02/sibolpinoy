@@ -36,9 +36,27 @@
   
     <!-- Header End -->
 
+    <div class="container-fluid bg-white pt-5">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-12 text-center m-3">
+                    <h1 class="bg-white text-dark pe-3 header-font">Our Mission</h1>
+                    <p class="">Unlocking potentials of Organizations Both in the public and private sectors that will open limitless opportunity to yield superior results</p>
+                </div>
+
+                <div class="col-md-12 text-center m-3">
+                    <h1 class="bg-white text-dark pe-3 header-font">Our Vision</h1>
+                    <p class="">Become the Leading business Solution provider in the Philippines.</p>
+                </div>
+            </div>
+            <hr class="dropdown-divider bg-primary" />
+        </div>
+       
+    </div>
+
 
     <!-- Service Sibol-PINOY Start -->
-    <div class="container-fluid py-5 bg-white">
+    <div class="container-fluid py-2 pb-3 bg-white">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4 col-sm-6">
@@ -51,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-4 pt-3 col-sm-6">
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-globe text-primary mb-4"></i>
@@ -78,30 +96,9 @@
     <!-- About Sibol-PINOY Start -->
     <div class="ParaImage bg-white" style="background-image: url('img/iso.png')"></div>
     
-    <div class="container-fluid bg-white py-5">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6 text-center">
-                    <h1 class="bg-white text-dark pe-3 header-font">Our Mission</h1>
-                    <!-- <h1 class="mb-4">Welcome to eLEARNING</h1> -->
-                    <p class="mb-4">Unlocking potentials of Organizations Both in the public and private sectors that will open limitless opportunity to yield superior results</p>
-                </div>
-
-                <div class="col-lg-6 text-center" >
-                    <h1 class="bg-white text-dark pe-3 header-font">Our Vision</h1>
-                    <!-- <h1 class="mb-4">Welcome to eLEARNING</h1> -->
-                    <p class="mb-4">Become the Leading business Solution provider in the Philippines.</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="container-fluid bg-white py-3">
-        <div class="container">
-            <div class="embed-responsive embed-responsive-16by9" >
-                <iframe class="embed-responsive-item col-lg-12 col-sm-12 about-video" src="video/video_2.mp4" sandbox></iframe>
-            </div>
-        </div>
+        
     </div>
     <!-- About Sibol-PINOY End -->
 
@@ -110,27 +107,28 @@
         <div class="container">
             <div class="text-center" >
                 <!-- <h6 class="bg-white text-center text-dark px-3 secondary-font">Our Team</h6> -->
-                <h1 class="mb-5 header-font">Grow With Us!</h1>
+                <h1 class="mb-2 header-font">Grow With Us!</h1>
             </div>
 
-            <div class="container-xxl py-5 mb-5">
+            <div class="container-xxl py-3 mb-5">
                 <div class="container">
-                    <div class="row g-5">
-                        <div class="col-lg-6" >
-                            <div class="text-center">
-                                <img class="img-fluid border" src="img/spmc.gif" style="height:400px; width:350px;" alt="">
-                            </div>
+                    <div class="row">
+                        <div class="col-md-4" >
                             <!-- <div class="text-center">
-                                <h5 class="mb-0 secondary-font">Red One</h5>
-                                <small>Designation</small>
+                                <img class="img-fluid border" src="img/spmc.gif" style="height:400px; width:350px;" alt="">
                             </div> -->
-                        </div>
-                        <div class="col-lg-6 py-5">    
-                            <h1 class="text-center text-blue header-font">
+                            <h1 class="text-center text-blue py-5 header-font-two">
                                 <i class="fa fa-quote-left px-5 text-yellow"></i>
-                                    <br> We offer solutions, We are the solution. <br>
+                                    <br> Quality is a choice<br> Choose to be better<br> Choose SPMC!<br>
                                 <i class="fa fa-quote-right px-5 text-yellow"></i>     
                             </h1>
+                        </div>
+                        <div class="col-md-8 py-5">    
+                            <div class="container">
+                                <div class="embed-responsive embed-responsive-16by9" >
+                                    <iframe class="embed-responsive-item col-lg-12 col-sm-12 about-video" src="video/video_2.mp4" sandbox></iframe>
+                                </div>
+                            </div>
                         </div>    
                     </div>
                 </div>

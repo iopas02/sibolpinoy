@@ -25,11 +25,13 @@
 
 
     <!-- Header Start -->
-    <div class="container-fluid parallax-header">
-        <video autoplay muted loop>
-                <source src="video/head_banner_2.mp4" type="video/mp4">
-        </video>
-    </div>
+    <section>
+        <div class="contactContent" >
+            <div class="textContactContent">
+                <div class="textContact">Still Confused of What SPMC Can Offer?</div>
+            </div>
+        </div>
+    </section>
     <!-- Header End -->
 
 
