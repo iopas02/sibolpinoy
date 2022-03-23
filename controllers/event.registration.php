@@ -18,46 +18,93 @@ if(isset($_POST['register'])){
         $orgs = mysqli_real_escape_string($conn, $_POST['orgs']);
         $position = mysqli_real_escape_string($conn, $_POST['position']);
         $payment = mysqli_real_escape_string($conn, $_POST['payment']);
+        $status = mysqli_real_escape_string($conn, $_POST['status']);
+        $ss_payment = '';
+
+        $registered_date = date("Y-m-d H:i:s");
 
         $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
         // Output: 54esmdr0qf
-        $random_num1 = substr(str_shuffle($permitted_chars), 0, 5);
-        $random_num2 = substr(str_shuffle($permitted_chars), 0, 9);
+        $random_num1 = substr(str_shuffle($permitted_chars), 0, 10);
+        $random_num2 = substr(str_shuffle($permitted_chars), 0, 8);
         
         $year = date("Y");
         $uniID = $year."-".$random_num1;
-        $reservationID = $year."-".$random_num2; 
+        $reservationID = $year."-".$random_num2;
+        
+        $check_user_query = "SELECT `email_add` FROM `client` WHERE `email_add`=?";
+        $stmt = mysqli_stmt_init($conn);
+        if(!mysqli_stmt_prepare($stmt, $check_user_query)) {
+            exit();
+        }else{
+            mysqli_stmt_bind_param($stmt, "s", $email_add);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_store_result($stmt);
+            $resultcheck = mysqli_stmt_num_rows($stmt);
 
-        $newname = $_POST['newname'];
-        $newlastname =$_POST['newlastname'];
-        $newmi = $_POST['newmi'];
-        $newemail_add = $_POST['newemail_add'];
-        $newcontact = $_POST['newcontact'];
-        $payment1 = $_POST['payment1'];
+            if($resultcheck > 0){
+                $event_reservation_query = "INSER INTO `event_reservation`(`client_uniID`,`reservationID`,`eventID`,`ss_payment`,`payment_method`,`registered_by`,`date_registered`,`status`) VALUES ('$uniID',$reservationID','$eventID','$ss_payment','$payment','$uniID','$registered_date','$status'";
+
+                $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
+                if(!$event_reservation_query_result){
+                    header("Location: ../event.php?event_reservation_failed");
+                    exit();
+                }else{
+                    echo "addition member registration start here";
+                }
+            }else{
+                $client_registration_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `m.i.`, `lastName`, `email_add`, `contact`, `organization`, `position`, `date_register`) VALUES ('$uniID','$firstname','$mi','$lastname','$email_add','$contact','$orgs','$position','$registered_date')";
+
+                $client_registration_query_result = mysqli_query($conn, $client_registration_query);
+                if(!$client_registration_query_result){
+                    header("Location: ../event.php?user_info_is_invalid");
+                    exit();
+                }else{
+
+                    $event_reservation_query = "INSER INTO `event_reservation`(`client_uniID`,`reservationID`,`eventID`,`ss_payment`,`payment_method`,`registered_by`,`date_registered`,`status`) VALUES ('$uniID',$reservationID','$eventID','$ss_payment','$payment','$uniID','$registered_date','$status'";
+
+                    $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
+                    if(!$event_reservation_query_result){
+                        header("Location: ../event.php?event_reservation_failed");
+                        exit();
+                    }else{
+                        echo "addition member registration start here";
+                    }
+                }
+
+            }
+        }    
+
+        // $newname = $_POST['newname'];
+        // $newlastname =$_POST['newlastname'];
+        // $newmi = $_POST['newmi'];
+        // $newemail_add = $_POST['newemail_add'];
+        // $newcontact = $_POST['newcontact'];
+        // $payment1 = $_POST['payment1'];
         
 
-        foreach($newname as $index => $member){
-            $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
-            // Output: 54esmdr0qf
-            $random_num1 = substr(str_shuffle($permitted_chars), 0, 5);
+        // foreach($newname as $index => $member){
+        //     $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+        //     // Output: 54esmdr0qf
+        //     $random_num1 = substr(str_shuffle($permitted_chars), 0, 5);
             
-            $year = date("Y");
-            $uniID = $year."-".$random_num1; 
+        //     $year = date("Y");
+        //     $uniID = $year."-".$random_num1; 
 
-            $eventID;
-            $event_title;
-            $s_name = $member;
-            $s_lastname = $newlastname[$index];
-            $s_mi = $newmi[$index];
-            $s_emailadd = $newemail_add[$index];
-            $s_contact = $newcontact[$index];
-            $s_payment = $payment1[$index];
-            $reservationID;
+        //     $eventID;
+        //     $event_title;
+        //     $s_name = $member;
+        //     $s_lastname = $newlastname[$index];
+        //     $s_mi = $newmi[$index];
+        //     $s_emailadd = $newemail_add[$index];
+        //     $s_contact = $newcontact[$index];
+        //     $s_payment = $payment1[$index];
+        //     $reservationID;
 
-            $members = $uniID.' '.$s_name.' '.$s_mi.'. '.$s_lastname.' '.$s_payment.'<br>';
+        //     $members = $uniID.' '.$s_name.' '.$s_mi.'. '.$s_lastname.' '.$s_payment.'<br>';
 
-             echo $members;
-        }
+        //      echo $members;
+        // }
         // if($payment == "GCash"){
         //     $payments = "<br>Account Number: <span>0917 113 9078</span><br>
         //     Account Name: <span>SibolPINOY (Ceazar Valerie N.)</span>";

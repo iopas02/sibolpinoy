@@ -46,8 +46,8 @@
             
             <div class="row col-md-12 d-flex justify-content-center align-items-center">
                 <table id="example" class="table data-table" style="width: 80%">
-                    <thead>
-                        <tr hidden>
+                    <thead hidden>
+                        <tr>
                             <th>Image</th>
                             <th>event Id</th>
                             <th>event title</th>
@@ -107,8 +107,8 @@
 
                         ?>
                     </tbody>
-                    <tfoot>
-                        <tr hidden>
+                    <tfoot hidden>
+                        <tr>
                             <th>Image</th>
                             <th>event Id</th>
                             <th>event title</th>
@@ -319,6 +319,7 @@
                                     <input type="text" class="form-control" readonly id="eventID" name="eventID" hidden>
                                     <label for="event_title" class="form-label">Event Title</label>
                                     <input type="text" class="col-md-12" readonly id="event_title" name="event_title">
+                                    <input type="text" name="status" value="pending" hidden>
                                 </div>
                                 <div class="col-md-8 mt-2">
                                     <label for="date" class="form-label">Date and Time</label>
@@ -393,8 +394,6 @@
                                 <a href="javascript:void(0)" class="add-more-form float-end btn btn-primary">Add Member</a>
                             </div>
 
-                           
-                            
                             <button type="submit" class="btn btn-primary" name="register">Register</button>
                         </form>
                     </div>
@@ -480,9 +479,17 @@
         }
 
         $(document).ready(function(){
+
+            $(document).on('click', '.remove-btn' ,function(){
+                $(this).closest('.main-form').remove();
+            })
+
             $(document).on('click', '.add-more-form' ,function(){
                 // alert("Hello");
-                $('.new-forms').append(' <hr class="dropdown-divider bg-dark"/>\<label>New Member:</label>\<div class="row col-md-12 mb-2">\
+                $('.new-forms').append('<div class="main-form">\
+                            <hr class="dropdown-divider bg-dark"/>\<label class="col-md-9 col-sm-9">New Member:</label>\
+                            <button class="remove-btn col-md-2 bg-dark text-white border-0" type="button">Remove</button>\
+                            <div class="row col-md-12 mb-2">\
                                 <div class="col-md-5">\
                                     <label>First Name</label>\
                                     <input type="text" class="form-control" name="newname[]" placeholder="First Name" required>\
@@ -507,6 +514,16 @@
                                 </div>\
                             </div>\
                             <div class="row col-md-12 mb-2">\
+                                <div class="col-md-6">\
+                                    <label>Name Of Oragnization</label>\
+                                    <input type="text" class="form-control" name="neworgs[]" placeholder="Name Of Oragnization">\
+                                </div>\
+                                <div class="col-md-6">\
+                                    <label>Position</label>\
+                                    <input type="text" class="form-control"  name="newposition[]" placeholder="Position">\
+                                </div>\
+                            </div>\
+                            <div class="row col-md-12 mb-2">\
                                 <div class="col-md-4">\
                                     <label>Methods Of Payments: </label><br>\
                                     <select class="form-select" name="payment1[]" required>\
@@ -516,7 +533,9 @@
                                         <option value="GCash">GCash</option>\
                                     </select>\
                                 </div>\
-                            </div>');
+                            </div>\
+                            <input type="text" name="newstatus[]" value="pending" hidden>\
+                        </div>');
             })
         })
     </script>
