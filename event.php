@@ -84,8 +84,7 @@
                                                     <div class="smaller-text"><?= $published_event['desc_1']?></div>
                                                     <div class="smaller-text"><?= $published_event['desc_2']?></div>
 
-                                                    <button class="col-md-4 b-0 bg-blue p-1 mt-2 text-white" >Individual Registration</button>
-                                                    <button class="col-md-4 b-0 bg-blue p-1 mt-2 text-white groupregis" id="groupregis" type="button">Group Registration</button>      
+                                                    <button class="col-md-4 b-0 bg-blue p-1 mt-2 text-white groupregis" id="groupregis" type="button">Registration</button>      
                                                 </div>
                                                     
                                             </td>
@@ -486,32 +485,33 @@
                 $('.new-forms').append(' <hr class="dropdown-divider bg-dark"/>\<label>New Member:</label>\<div class="row col-md-12 mb-2">\
                                 <div class="col-md-5">\
                                     <label>First Name</label>\
-                                    <input type="text" class="form-control" name="newname[]" placeholder="First Name">\
+                                    <input type="text" class="form-control" name="newname[]" placeholder="First Name" required>\
                                 </div>\
                                 <div class="col-md-5">\
                                     <label>Last Name</label>\
-                                    <input type="text" class="form-control" name="newlastname[]" placeholder="Last Name">\
+                                    <input type="text" class="form-control" name="newlastname[]" placeholder="Last Name" required>\
                                 </div>\
                                 <div class="col-md-2">\
                                     <label>M.I.</label>\
-                                    <input type="text" class="form-control" name="newmi[]" placeholder="M.I.">\
+                                    <input type="text" class="form-control" name="newmi[]" placeholder="M.I." required>\
                                 </div>\
                             </div>\
                             <div class="row col-md-12 mb-2">\
                                 <div class="col-md-6">\
                                     <label>Email Address</label>\
-                                    <input type="Email" class="form-control" name="newemail_add[]" placeholder="Email Address">\
+                                    <input type="Email" class="form-control" name="newemail_add[]" placeholder="Email Address" required>\
                                 </div>\
                                 <div class="col-md-6">\
                                     <label>Contact Number</label>\
-                                    <input type="text" class="form-control"  name="newcontact[]" placeholder="Contact Number">\
+                                    <input type="text" class="form-control"  name="newcontact[]" placeholder="Contact Number" required>\
                                 </div>\
                             </div>\
                             <div class="row col-md-12 mb-2">\
                                 <div class="col-md-4">\
                                     <label>Methods Of Payments: </label><br>\
-                                    <select class="form-select" name="payment1[]">\
+                                    <select class="form-select" name="payment1[]" required>\
                                         <option selected>Open this select menu</option>\
+                                        <option value="Free">Free</option>\
                                         <option value="Bank Transfer">Bank Transfer</option>\
                                         <option value="GCash">GCash</option>\
                                     </select>\

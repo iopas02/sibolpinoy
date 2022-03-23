@@ -21,10 +21,12 @@ if(isset($_POST['register'])){
 
         $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
         // Output: 54esmdr0qf
-        $random_num = substr(str_shuffle($permitted_chars), 0, 10);
+        $random_num1 = substr(str_shuffle($permitted_chars), 0, 5);
+        $random_num2 = substr(str_shuffle($permitted_chars), 0, 9);
         
         $year = date("Y");
-        $uniID = $year."-".$random_num;
+        $uniID = $year."-".$random_num1;
+        $reservationID = $year."-".$random_num2; 
 
         $newname = $_POST['newname'];
         $newlastname =$_POST['newlastname'];
@@ -33,19 +35,15 @@ if(isset($_POST['register'])){
         $newcontact = $_POST['newcontact'];
         $payment1 = $_POST['payment1'];
         
-        // echo $uniID."<br>";
-        // echo $eventID."<br>";
-        // echo $event_title."<br>";
-        // echo $firstname."<br>";
-        // echo $lastname."<br>";
-        // echo $mi."<br>";
-        // echo $contact."<br>";
-        // echo $orgs."<br>";
-        // echo $position."<br>";
-        // echo $payment."<br><br>";
 
         foreach($newname as $index => $member){
+            $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+            // Output: 54esmdr0qf
+            $random_num1 = substr(str_shuffle($permitted_chars), 0, 5);
             
+            $year = date("Y");
+            $uniID = $year."-".$random_num1; 
+
             $eventID;
             $event_title;
             $s_name = $member;
@@ -54,81 +52,83 @@ if(isset($_POST['register'])){
             $s_emailadd = $newemail_add[$index];
             $s_contact = $newcontact[$index];
             $s_payment = $payment1[$index];
-            $uniID;
+            $reservationID;
 
-            $members = $s_name.' '.$s_mi.'. '.$s_lastname;
-        }
-        if($payment == "GCash"){
-            $payments = "<br>Account Number: <span>0917 113 9078</span><br>
-            Account Name: <span>SibolPINOY (Ceazar Valerie N.)</span>";
-        }else if($payments == "Bank Transfer"){
-            $payments =  "<br>Account Number: <span>2000 2941 9654</span><br>
-            Account Name: <span>Sibol-PINOY Management Consultancy</span><br>
-            Bank: <span>EastWest Bank, The Fort-PSE TOWER</span>";
-        }else{
-            $payments = "FREE WEBINAR";
-        }
+            $members = $uniID.' '.$s_name.' '.$s_mi.'. '.$s_lastname.' '.$s_payment.'<br>';
 
-        $sender_name = $firstname.' '.$mi.' '.$lastname;
+             echo $members;
+        }
+        // if($payment == "GCash"){
+        //     $payments = "<br>Account Number: <span>0917 113 9078</span><br>
+        //     Account Name: <span>SibolPINOY (Ceazar Valerie N.)</span>";
+        // }else if($payments == "Bank Transfer"){
+        //     $payments =  "<br>Account Number: <span>2000 2941 9654</span><br>
+        //     Account Name: <span>Sibol-PINOY Management Consultancy</span><br>
+        //     Bank: <span>EastWest Bank, The Fort-PSE TOWER</span>";
+        // }else{
+        //     $payments = "FREE WEBINAR";
+        // }
+
+        // $sender_name = $firstname.' '.$mi.' '.$lastname;
         
-        $subject = "Thank you for registration";
-        $company_email = "treszeta28@gmail.com";
+        // $subject = "Thank you for registration";
+        // $company_email = "treszeta28@gmail.com";
 
-        $message = '';
-        $message .= "Thank You for your registration on ".$event_title. " that will start on " .$date.".<br>";
-        $message .= "Please Settle your payment to your selected methods of payment whisch is ".$payment. " With the Following Details ". $payments .".<br>" ;
-        $message .="With the Following member " .$members. ". <br>";
-        $message .="Please Upload your Screen Shot Payment on the bellow link. Thank you very much.<br>";
-        $message .="http://localhost/sibolpinoy/event.php"; 
+        // $message = '';
+        // $message .= "Thank You for your registration on ".$event_title. " that will start on " .$date.".<br>";
+        // $message .= "Please Settle your payment to your selected methods of payment whisch is ".$payment. " With the Following Details ". $payments .".<br>" ;
+        // $message .="With the Following member " ."'<br> <br>";
+        // $message .="Please Upload your Screen Shot Payment on the bellow link. Thank you very much.<br>";
+        // $message .="http://localhost/sibolpinoy/event.php"; 
 
-        $body = '';
+        // $body = '';
 
-        $body .="From: " .$sender_name. "<br>";
-        $body .="Email :" . $company_email. "<br>";
-        $body .="Message :" .$message. "<br>";
+        // $body .="From: " .$sender_name. "<br>";
+        // $body .="Email :" . $company_email. "<br>";
+        // $body .="Message :" .$message. "<br>";
         
         // Import PHPMailer classes into the global namespace
         // use PHPMailer\PHPMailer\PHPMailer;
         // use PHPMailer\PHPMailer\Exception;
 
-        require '../PHPMailer/src/Exception.php';
-        require '../PHPMailer/src/PHPMailer.php';
-        require '../PHPMailer/src/SMTP.php';
+        // require '../PHPMailer/src/Exception.php';
+        // require '../PHPMailer/src/PHPMailer.php';
+        // require '../PHPMailer/src/SMTP.php';
 
-        $mail = new PHPMailer\PHPMailer\PHPMailer();
+        // $mail = new PHPMailer\PHPMailer\PHPMailer();
 
-        $mail->isSMTP();                      // Set mailer to use SMTP
-        $mail->Host = 'smtp.gmail.com';       // Specify main and backup SMTP servers
-        $mail->SMTPAuth = true;               // Enable SMTP authentication
-        $mail->Username = 'treszeta28@gmail.com';   // SMTP username
-        $mail->Password = 'xnhongbdpyodspfy';   // SMTP password
-        $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted
-        $mail->Port = 587;                    // TCP port to connect to
-        $mail->setFrom($company_email, '');
-        $mail->addReplyTo($company_email, $sender_name);
+        // $mail->isSMTP();                      // Set mailer to use SMTP
+        // $mail->Host = 'smtp.gmail.com';       // Specify main and backup SMTP servers
+        // $mail->SMTPAuth = true;               // Enable SMTP authentication
+        // $mail->Username = 'treszeta28@gmail.com';   // SMTP username
+        // $mail->Password = 'xnhongbdpyodspfy';   // SMTP password
+        // $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted
+        // $mail->Port = 587;                    // TCP port to connect to
+        // $mail->setFrom($company_email, '');
+        // $mail->addReplyTo($company_email, $sender_name);
 
-        // Add a recipient
-        $mail->addAddress($email_add);
+        // // Add a recipient
+        // $mail->addAddress($email_add);
 
-        $mail->addCC($carbon_copy);
-        //$mail->addBCC('bcc@example.com');
+        // $mail->addCC($carbon_copy);
+        // //$mail->addBCC('bcc@example.com');
 
-        // Set email format to HTML
-        $mail->isHTML(true);
+        // // Set email format to HTML
+        // $mail->isHTML(true);
 
-        // Mail subject
-        $mail->Subject = $subject;
+        // // Mail subject
+        // $mail->Subject = $subject;
 
-        // Mail body content
-        // $bodyContent = '<h1>How to Send Email from Localhost using PHP by InfoTech</h1>';
-        // $bodyContent .= '<p>This HTML email is sent from the localhost server using PHP by <b>TechWAR</b></p>';
-        $mail->Body = $body;
+        // // Mail body content
+        // // $bodyContent = '<h1>How to Send Email from Localhost using PHP by InfoTech</h1>';
+        // // $bodyContent .= '<p>This HTML email is sent from the localhost server using PHP by <b>TechWAR</b></p>';
+        // $mail->Body = $body;
 
-        if(!$mail->send()) {
-            header("Location: ../event.php?error=Message_not_sent");
-        } else {
-            header("Location: ../event.php?success=email_sent");
-        }
+        // if(!$mail->send()) {
+        //     header("Location: ../event.php?error=Message_not_sent");
+        // } else {
+        //     header("Location: ../event.php?success=email_sent");
+        // }
 
     }else{
         header("Location: ../event.php?error=empty_fields");
