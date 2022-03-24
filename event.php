@@ -391,16 +391,26 @@
                             </div>
                             <div class="new-forms mb-3"> </div>
                             <div class="row col-md-12 mb-2">
-                                <a href="javascript:void(0)" class="add-more-form float-end btn btn-primary">Add Member</a>
+                                <a href="javascript:void(0)" class="add-more-form float-end btn bg-blue text-white">Add Member</a>
+                            </div>
+                            
+                            <div class="col-12">
+                                <small>SPMC <a href=#>TERMS</a> and <a href="#poirty">PRIVACY POLICY</a></small>
+                                <div class="form-check">
+                                    <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+                                    <label class="form-check-label" for="invalidCheck3">
+                                        Agree to terms and conditions
+                                    </label>
+                                </div>
                             </div>
 
-                            <button type="submit" class="btn btn-primary" name="register">Register</button>
+                            <button type="submit" class="btn bg-blue text-white" name="register">Register</button>
                         </form>
                     </div>
                    
                  
                     <div class="modal-footer">
-                        <button type="button" class="btn bg-blue text-light" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn bg-dark text-light" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

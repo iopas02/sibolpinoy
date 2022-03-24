@@ -113,16 +113,8 @@ if(isset($_POST['register'])){
                                             }else{
                                                 // echo "Start for sending email for group";
 
-                                                if($payment == "GCash"){
-                                                    $payments = "<br>Account Number: <span>0917 113 9078</span><br>
-                                                    Account Name: <span>SibolPINOY (Ceazar Valerie N.)</span>";
-                                                }else if($payment == "Bank Transfer"){
-                                                    $payments =  "<br>Account Number: <span>2000 2941 9654</span><br>
-                                                    Account Name: <span>Sibol-PINOY Management Consultancy</span><br>
-                                                    Bank: <span>EastWest Bank, The Fort-PSE TOWER</span>";
-                                                }else{
-                                                    $payments = "FREE WEBINAR";
-                                                }
+                                                $payments1 = "GCash<br>Account Number: <span>0917 113 9078<br>SibolPINOY (Ceazar Valerie N.)<br>";
+                                                $payments2 = "Bank Transfer<br>Account Number:2000 2941 9654<br>SibolPINOY (Ceazar Valerie N.)<br>Sibol-PINOY Management Consultancy<br>EastWest Bank, The Fort-PSE TOWER<br>";
                     
                                                 // $sender_name = $firstname.' '.$mi.' '.$lastname;
                             
@@ -131,11 +123,16 @@ if(isset($_POST['register'])){
                                                 $company = "Sibol-PINOY Management Consultancy";
                     
                                                 $message = '';
-                                                $message .= "<p>Thank You for your registration on ". "<b>".$event_title."</b>". " that will start on ". "<b>".$date."</b>". "</p>";
-                                                $message .= "<p>With the Webinar type of ". "<b>".$payment."</b>". " With the Details of ". "<b>".$payments."</b>". "</p>" ;
-                                                // $message .="With the Following member " ."'<br> <br>";
-                                                $message .="<p>Please Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>";
-                                                $message .="http://localhost/sibolpinoy/event.php"; 
+                                                $message .= "<p>Thank You for your Registration, please refers to the following information below <br><br>".
+                                                "Event Title: "."<b>".$event_title."</b><br>". 
+                                                "Date and Time: ". "<b>".$date."</b><br>".
+                                                "Resevation ID: ". "<b>".$reservationID."</b><br>".
+                                                "Free/Reg Fee: ". "<b>".$payment."</b><br>".
+                                                "Method of Payment: <br>". "<b>".$payments1."</b><br>"."<b>".$payments2."</b>".
+                                                "<small>(Please ignore the following methods of payment if the Webinar is FREE.)</small>". 
+                                                "</p>".
+                                                "<p>Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>".
+                                                "http://localhost/sibolpinoy/event.php";
                     
                                                 // $body = '';
                     
@@ -166,32 +163,32 @@ if(isset($_POST['register'])){
                                                 $email_selection_query = "SELECT `email_add` FROM `event_reservation` WHERE `reservationID`='$reservationID'";
                                                 $result = $conn->query($email_selection_query);
                                                 if ($result->num_rows > 0) {
-                                                    while($row = $result->fetch_assoc()) {
-                                                        $emails = $row['email_add'];
-
+                                                    foreach($result as $reg_email) {
+      
                                                          // Add a recipient
-                                                        $mail->addAddress($emails);
+                                                        $mail->addAddress($reg_email['email_add']);
                             
-                                                        // $mail->addCC($carbon_copy);
-                                                        // //$mail->addBCC('bcc@example.com');
-                            
-                                                        // Set email format to HTML
-                                                        $mail->isHTML(true);
-                            
-                                                        // Mail subject
-                                                        $mail->Subject = $subject;
-                            
-                                                        // Mail body content
-                                                        // $bodyContent = '<h1>How to Send Email from Localhost using PHP by InfoTech</h1>';
-                                                        // $bodyContent .= '<p>This HTML email is sent from the localhost server using PHP by <b>TechWAR</b></p>';
-                                                        $mail->Body = $body;
-                            
-                                                        if(!$mail->send()) {
-                                                            header("Location: ../event.php?error=Message_not_sent");
-                                                        } else {
-                                                            header("Location: ../event.php?success=email_sent");
-                                                        }
                                                     }
+                                                }
+
+                                                // $mail->addCC($carbon_copy);
+                                                // //$mail->addBCC('bcc@example.com');
+                    
+                                                // Set email format to HTML
+                                                $mail->isHTML(true);
+                    
+                                                // Mail subject
+                                                $mail->Subject = $subject;
+                    
+                                                // Mail body content
+                                                // $bodyContent = '<h1>How to Send Email from Localhost using PHP by InfoTech</h1>';
+                                                // $bodyContent .= '<p>This HTML email is sent from the localhost server using PHP by <b>TechWAR</b></p>';
+                                                $mail->Body = $body;
+                    
+                                                if(!$mail->send()) {
+                                                    header("Location: ../event.php?error=Message_not_sent");
+                                                } else {
+                                                    header("Location: ../event.php?success=email_sent");
                                                 }
                                             }
 
@@ -215,16 +212,8 @@ if(isset($_POST['register'])){
                                                 }else{
                                                     // echo "Start for sending email for group";
 
-                                                    if($payment == "GCash"){
-                                                        $payments = "<br>Account Number: <span>0917 113 9078</span><br>
-                                                        Account Name: <span>SibolPINOY (Ceazar Valerie N.)</span>";
-                                                    }else if($payment == "Bank Transfer"){
-                                                        $payments =  "<br>Account Number: <span>2000 2941 9654</span><br>
-                                                        Account Name: <span>Sibol-PINOY Management Consultancy</span><br>
-                                                        Bank: <span>EastWest Bank, The Fort-PSE TOWER</span>";
-                                                    }else{
-                                                        $payments = "FREE WEBINAR";
-                                                    }
+                                                    $payments1 = "GCash<br>Account Number: <span>0917 113 9078<br>SibolPINOY (Ceazar Valerie N.)<br>";
+                                                    $payments2 = "Bank Transfer<br>Account Number:2000 2941 9654<br>SibolPINOY (Ceazar Valerie N.)<br>Sibol-PINOY Management Consultancy<br>EastWest Bank, The Fort-PSE TOWER<br>";
                         
                                                     // $sender_name = $firstname.' '.$mi.' '.$lastname;
                                 
@@ -233,11 +222,16 @@ if(isset($_POST['register'])){
                                                     $company = "Sibol-PINOY Management Consultancy";
                         
                                                     $message = '';
-                                                    $message .= "<p>Thank You for your registration on ". "<b>".$event_title."</b>". " that will start on ". "<b>".$date."</b>". "</p>";
-                                                    $message .= "<p>With the Webinar type of ". "<b>".$payment."</b>". " With the Details of ". "<b>".$payments."</b>". "</p>" ;
-                                                    // $message .="With the Following member " ."'<br> <br>";
-                                                    $message .="<p>Please Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>";
-                                                    $message .="http://localhost/sibolpinoy/event.php"; 
+                                                    $message .= "<p>Thank You for your Registration, please refers to the following information below <br><br>".
+                                                    "Event Title: "."<b>".$event_title."</b><br>". 
+                                                    "Date and Time: ". "<b>".$date."</b><br>".
+                                                    "Resevation ID: ". "<b>".$reservationID."</b><br>".
+                                                    "Free/Reg Fee: ". "<b>".$payment."</b><br>".
+                                                    "Method of Payment: <br>". "<b>".$payments1."</b><br>"."<b>".$payments2."</b>".
+                                                    "<small>(Please ignore the following methods of payment if the Webinar is FREE.)</small>". 
+                                                    "</p>".
+                                                    "<p>Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>".
+                                                    "http://localhost/sibolpinoy/event.php";
                         
                                                     // $body = '';
                         
@@ -268,32 +262,32 @@ if(isset($_POST['register'])){
                                                     $email_selection_query = "SELECT `email_add` FROM `event_reservation` WHERE `reservationID`='$reservationID'";
                                                     $result = $conn->query($email_selection_query);
                                                     if ($result->num_rows > 0) {
-                                                        while($row = $result->fetch_assoc()) {
-                                                            $emails = $row['email_add'];
-    
+                                                        foreach($result as $reg_email) {
+        
                                                              // Add a recipient
-                                                            $mail->addAddress($emails);
+                                                            $mail->addAddress($reg_email['email_add']);
                                 
-                                                            // $mail->addCC($carbon_copy);
-                                                            // //$mail->addBCC('bcc@example.com');
-                                
-                                                            // Set email format to HTML
-                                                            $mail->isHTML(true);
-                                
-                                                            // Mail subject
-                                                            $mail->Subject = $subject;
-                                
-                                                            // Mail body content
-                                                            // $bodyContent = '<h1>How to Send Email from Localhost using PHP by InfoTech</h1>';
-                                                            // $bodyContent .= '<p>This HTML email is sent from the localhost server using PHP by <b>TechWAR</b></p>';
-                                                            $mail->Body = $body;
-                                
-                                                            if(!$mail->send()) {
-                                                                header("Location: ../event.php?error=Message_not_sent");
-                                                            } else {
-                                                                header("Location: ../event.php?success=email_sent");
-                                                            }
                                                         }
+                                                    }
+
+                                                     // $mail->addCC($carbon_copy);
+                                                    // //$mail->addBCC('bcc@example.com');
+                        
+                                                    // Set email format to HTML
+                                                    $mail->isHTML(true);
+                        
+                                                    // Mail subject
+                                                    $mail->Subject = $subject;
+                        
+                                                    // Mail body content
+                                                    // $bodyContent = '<h1>How to Send Email from Localhost using PHP by InfoTech</h1>';
+                                                    // $bodyContent .= '<p>This HTML email is sent from the localhost server using PHP by <b>TechWAR</b></p>';
+                                                    $mail->Body = $body;
+                        
+                                                    if(!$mail->send()) {
+                                                        header("Location: ../event.php?error=Message_not_sent");
+                                                    } else {
+                                                        header("Location: ../event.php?success=email_sent");
                                                     }
                                                 }
                                             }
@@ -305,29 +299,26 @@ if(isset($_POST['register'])){
                             }else{
                                 // sending email message start here for solo
                             
-                                if($payment == "GCash"){
-                                    $payments = "<br>Account Number: <span>0917 113 9078</span><br>
-                                    Account Name: <span>SibolPINOY (Ceazar Valerie N.)</span>";
-                                }else if($payments == "Bank Transfer"){
-                                    $payments =  "<br>Account Number: <span>2000 2941 9654</span><br>
-                                    Account Name: <span>Sibol-PINOY Management Consultancy</span><br>
-                                    Bank: <span>EastWest Bank, The Fort-PSE TOWER</span>";
-                                }else{
-                                    $payments = "FREE WEBINAR";
-                                }
-
-                                $sender_name = $firstname.' '.$mi.' '.$lastname;
+                                $payments1 = "GCash<br>Account Number: <span>0917 113 9078<br>SibolPINOY (Ceazar Valerie N.)<br>";
+                                $payments2 = "Bank Transfer<br>Account Number:2000 2941 9654<br>SibolPINOY (Ceazar Valerie N.)<br>Sibol-PINOY Management Consultancy<br>EastWest Bank, The Fort-PSE TOWER<br>";
+    
+                                // $sender_name = $firstname.' '.$mi.' '.$lastname;
             
-                                $subject = "<h6>Thank You For Registration</h6>";
+                                $subject = "Thank You For Registration";
                                 $company_email = "sibolPINOY@gmail.com";
                                 $company = "Sibol-PINOY Management Consultancy";
-
+    
                                 $message = '';
-                                $message .= "<p>Thank You for your registration on ". "<b>".$event_title."</b>". " that will start on ". "<b>".$date."</b>". "</p><br>";
-                                $message .= "<p>With the Webinar type of ". "<b>".$payment."</b>". " With the Details of ". "<b>".$payments."</b>". "</p><br>" ;
-                                // $message .="With the Following member " ."'<br> <br>";
-                                $message .="<p>Please Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p><br>";
-                                $message .="http://localhost/sibolpinoy/event.php"; 
+                                $message .= "<p>Thank You for your Registration, please refers to the following information below <br><br>".
+                                "Event Title: "."<b>".$event_title."</b><br>". 
+                                "Date and Time: ". "<b>".$date."</b><br>".
+                                "Resevation ID: ". "<b>".$reservationID."</b><br>".
+                                "Free/Reg Fee: ". "<b>".$payment."</b><br>".
+                                "Method of Payment: <br>". "<b>".$payments1."</b><br>"."<b>".$payments2."</b>".
+                                "<small>(Please ignore the following methods of payment if the Webinar is FREE.)</small>". 
+                                "</p>".
+                                "<p>Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>".
+                                "http://localhost/sibolpinoy/event.php";
 
                                 // $body = '';
 
@@ -476,16 +467,8 @@ if(isset($_POST['register'])){
                                             }else{
                                                 // Start for sending email for group;
 
-                                                if($payment == "GCash"){
-                                                    $payments = "<br>Account Number: <span>0917 113 9078</span><br>
-                                                    Account Name: <span>SibolPINOY (Ceazar Valerie N.)</span>";
-                                                }else if($payment == "Bank Transfer"){
-                                                    $payments =  "<br>Account Number: <span>2000 2941 9654</span><br>
-                                                    Account Name: <span>Sibol-PINOY Management Consultancy</span><br>
-                                                    Bank: <span>EastWest Bank, The Fort-PSE TOWER</span>";
-                                                }else{
-                                                    $payments = "FREE WEBINAR";
-                                                }
+                                                $payments1 = "GCash<br>Account Number: <span>0917 113 9078<br>SibolPINOY (Ceazar Valerie N.)<br>";
+                                                $payments2 = "Bank Transfer<br>Account Number:2000 2941 9654<br>SibolPINOY (Ceazar Valerie N.)<br>Sibol-PINOY Management Consultancy<br>EastWest Bank, The Fort-PSE TOWER<br>";
                     
                                                 // $sender_name = $firstname.' '.$mi.' '.$lastname;
                             
@@ -494,11 +477,16 @@ if(isset($_POST['register'])){
                                                 $company = "Sibol-PINOY Management Consultancy";
                     
                                                 $message = '';
-                                                $message .= "<p>Thank You for your registration on ". "<b>".$event_title."</b>". " that will start on ". "<b>".$date."</b>". "</p>";
-                                                $message .= "<p>With the Webinar type of ". "<b>".$payment."</b>". " With the Details of ". "<b>".$payments."</b>". "</p>" ;
-                                                // $message .="With the Following member " ."'<br> <br>";
-                                                $message .="<p>Please Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>";
-                                                $message .="http://localhost/sibolpinoy/event.php"; 
+                                                $message .= "<p>Thank You for your Registration, please refers to the following information below <br><br>".
+                                                "Event Title: "."<b>".$event_title."</b><br>". 
+                                                "Date and Time: ". "<b>".$date."</b><br>".
+                                                "Resevation ID: ". "<b>".$reservationID."</b><br>".
+                                                "Free/Reg Fee: ". "<b>".$payment."</b><br>".
+                                                "Method of Payment: <br>". "<b>".$payments1."</b><br>"."<b>".$payments2."</b>".
+                                                "<small>(Please ignore the following methods of payment if the Webinar is FREE.)</small>". 
+                                                "</p>".
+                                                "<p>Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>".
+                                                "http://localhost/sibolpinoy/event.php"; 
                     
                                                 // $body = '';
                     
@@ -529,34 +517,34 @@ if(isset($_POST['register'])){
                                                 $email_selection_query = "SELECT `email_add` FROM `event_reservation` WHERE `reservationID`='$reservationID'";
                                                 $result = $conn->query($email_selection_query);
                                                 if ($result->num_rows > 0) {
-                                                    while($row = $result->fetch_assoc()) {
-                                                        $emails = $row['email_add'];
+                                                    foreach($result as $reg_email) {
 
                                                          // Add a recipient
-                                                        $mail->addAddress($emails);
-                            
-                                                        // $mail->addCC($carbon_copy);
-                                                        // //$mail->addBCC('bcc@example.com');
-                            
-                                                        // Set email format to HTML
-                                                        $mail->isHTML(true);
-                            
-                                                        // Mail subject
-                                                        $mail->Subject = $subject;
-                            
-                                                        // Mail body content
-                                                        // $bodyContent = '<h1>How to Send Email from Localhost using PHP by InfoTech</h1>';
-                                                        // $bodyContent .= '<p>This HTML email is sent from the localhost server using PHP by <b>TechWAR</b></p>';
-                                                        $mail->Body = $body;
-                            
-                                                        if(!$mail->send()) {
-                                                            header("Location: ../event.php?error=Message_not_sent");
-                                                        } else {
-                                                            header("Location: ../event.php?success=email_sent");
-                                                        }
+                                                        $mail->addAddress($reg_email['email_add']);
+                                                        
                                                     }
                                                 }
-                                               
+
+                                                // $mail->addCC($carbon_copy);
+                                                // //$mail->addBCC('bcc@example.com');
+                    
+                                                // Set email format to HTML
+                                                $mail->isHTML(true);
+                    
+                                                // Mail subject
+                                                $mail->Subject = $subject;
+                    
+                                                // Mail body content
+                                                // $bodyContent = '<h1>How to Send Email from Localhost using PHP by InfoTech</h1>';
+                                                // $bodyContent .= '<p>This HTML email is sent from the localhost server using PHP by <b>TechWAR</b></p>';
+                                                $mail->Body = $body;
+                    
+                                                if(!$mail->send()) {
+                                                    header("Location: ../event.php?error=Message_not_sent");
+                                                } else {
+                                                    header("Location: ../event.php?success=email_sent");
+                                                }
+                                        
                                             }
                                         }
                                             
@@ -566,16 +554,19 @@ if(isset($_POST['register'])){
                         }else{
                             // sending email message start here for solo
                             
-                            if($payment == "GCash"){
-                                $payments = "<br>Account Number: <span>0917 113 9078</span><br>
-                                Account Name: <span>SibolPINOY (Ceazar Valerie N.)</span>";
-                            }else if($payment == "Bank Transfer"){
-                                $payments =  "<br>Account Number: <span>2000 2941 9654</span><br>
-                                Account Name: <span>Sibol-PINOY Management Consultancy</span><br>
-                                Bank: <span>EastWest Bank, The Fort-PSE TOWER</span>";
-                            }else{
-                                $payments = "FREE WEBINAR";
-                            }
+                            // if($payment == "GCash"){
+                            //     $payments = "<br>Account Number: <span>0917 113 9078</span><br>
+                            //     Account Name: <span>SibolPINOY (Ceazar Valerie N.)</span>";
+                            // }else if($payment == "Bank Transfer"){
+                            //     $payments =  "<br>Account Number: <span>2000 2941 9654</span><br>
+                            //     Account Name: <span>Sibol-PINOY Management Consultancy</span><br>
+                            //     Bank: <span>EastWest Bank, The Fort-PSE TOWER</span>";
+                            // }else{
+                            //     $payments = "FREE WEBINAR";
+                            // }
+
+                            $payments1 = "GCash<br>Account Number: <span>0917 113 9078<br>SibolPINOY (Ceazar Valerie N.)<br>";
+                            $payments2 = "Bank Transfer<br>Account Number:2000 2941 9654<br>SibolPINOY (Ceazar Valerie N.)<br>Sibol-PINOY Management Consultancy<br>EastWest Bank, The Fort-PSE TOWER<br>";
 
                             // $sender_name = $firstname.' '.$mi.' '.$lastname;
         
@@ -584,11 +575,16 @@ if(isset($_POST['register'])){
                             $company = "Sibol-PINOY Management Consultancy";
 
                             $message = '';
-                            $message .= "<p>Thank You for your registration on ". "<b>".$event_title."</b>". " that will start on ". "<b>".$date."</b>". "</p>";
-                            $message .= "<p>With the Webinar type of ". "<b>".$payment."</b>". " With the Details of ". "<b>".$payments."</b>". "</p>" ;
-                            // $message .="With the Following member " ."'<br> <br>";
-                            $message .="<p>Please Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>";
-                            $message .="http://localhost/sibolpinoy/event.php"; 
+                            $message .= "<p>Thank You for your Registration, please refers to the following information below <br><br>".
+                            "Event Title: "."<b>".$event_title."</b><br>". 
+                            "Date and Time: ". "<b>".$date."</b><br>".
+                            "Resevation ID: ". "<b>".$reservationID."</b><br>".
+                            "Free/Reg Fee: ". "<b>".$payment."</b><br>".
+                            "Method of Payment: <br>". "<b>".$payments1."</b><br>"."<b>".$payments2."</b>".
+                            "<small>(Please ignore the following methods of payment if the Webinar is FREE.)</small>". 
+                            "</p>".
+                            "<p>Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>".
+                            "http://localhost/sibolpinoy/event.php"; 
 
                             // $body = '';
 

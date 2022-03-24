@@ -241,70 +241,27 @@
                 
 =======
             <div class="row g-4 mt-3 d-flex justify-content-center">
-                <div class="col-lg-3 col-md-8 wow fadeInUp d-flex flex-column flex-1 flex-grow-1"   data-wow-delay="0.1s">
-                    <div class="team-item bg-light d-flex flex-column flex-1 flex-grow-1">
-                        <div class="overflow-hidden text-center">
-                            <img class="img-fluid"  src="img/business-consultancy.jpg" alt="">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0 secondary-font">Business consultancy</h5>
-                            <br><small>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
-                            their objectives. We just do not partner with our
-                            clients, we engage and become one with them in
-                            their journey to quality improvement.</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 wow fadeInUp d-flex flex-column flex-1 flex-grow-1" data-wow-delay="0.3s">
-                    <div class="team-item bg-light d-flex flex-column flex-1 flex-grow-1">
-                        <div class="overflow-hidden text-center">
-                            <img class="img-fluid" src="img/tech-solution.jpg" alt="">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0 secondary-font">Technological solutions</h5>
-                            <br><small>Let Sibol-Pinoy help you provide complete
-                            customer solutions that span the IT life-cycle.
-                            Our technology experts will work with you to
-                            exceed the demand of high-growth technology in
-                            the vertical markets locally and around the world.</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 wow fadeInUp d-flex flex-column flex-1 flex-grow-1" data-wow-delay="0.5s">
-                    <div class="team-item bg-light d-flex flex-column flex-1 flex-grow-1">
-                        <div class="overflow-hidden text-center">
-                            <img class="img-fluid" src="img/training-development.jpg" alt="">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0 secondary-font">Training & development</h5>
-                            <br><small>As we envision our client to be self-dependent, we put
-                            emphasis on capacity-building and capability-building
-                            activities. Thus, Ideation Philippines has carefully designed
-                            and developed training modules and short-term courses
-                            aligned with global standards.</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 wow fadeInUp d-flex flex-column flex-1 flex-grow-1" data-wow-delay="0.7s">
-                    <div class="team-item bg-light d-flex flex-column flex-1 flex-grow-1">
-                        <div class="overflow-hidden text-center">
-                            <img class="img-fluid" src="img/research-development.jpg" alt="">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0 secondary-font">Research development</h5>
-                            <br><small>Sibol Pinoy Management Consultancy highly engaged team members are
-                                specialized in providing technical assistance providing
-                                professional development and management support to public
-                                and private sector organizations in order to maximize resources
-                                and value, while minimizing cost and risk.</small>
-                                
-                        </div>
-                    </div>
-                </div>
-             </div>
+                <?php
+                       $serv_reload_query = "SELECT * FROM `services` WHERE `status`='Active' ";
+                       $serv_reload_query_result = mysqli_query($conn, $serv_reload_query);
+                       if(mysqli_num_rows($serv_reload_query_result)>0){
+                           foreach($serv_reload_query_result as $service_offer){
+                            ?>
+                            <div class="col-lg-3 col-md-8 wow fadeInUp d-flex flex-column flex-1 flex-grow-1"   data-wow-delay="0.1s">
+                                <div class="team-item bg-light d-flex flex-column flex-1 flex-grow-1">
+                                    <div class="overflow-hidden text-center">
+                                        <img class="img-fluid"  src="admin/upload/<?= $service_offer['image']?>" alt="">
+                                    </div>
+                                    <div class="text-center p-4">
+                                        <h5 class="mb-0 secondary-font"><?= $service_offer['service_title']?></h5>
+                                        <br><small><?= $service_offer['service_desc']?></small>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                           }
+                        }
+                ?>   
 <<<<<<< HEAD
             </div>
 >>>>>>> ede31dfee6506cc1a07a3d4843b442a8daee902c

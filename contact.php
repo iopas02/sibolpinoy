@@ -74,26 +74,27 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <iframe class="position-relative rounded w-100 h-100"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
-                        frameborder="0" style="min-height: 300px; border:0;" allowfullscreen="" aria-hidden="false"
-                        tabindex="0"></iframe>
-                </div> -->
+        
                 <div class="col-lg-8 col-md-12" >
                  
                     <form action="controllers/mail.php" method="POST">
                         <div class="row g-3">
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name:">
                                     <label for="first_name">First Name*</label>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name">
                                     <label for="last_name">Last Name*</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="mi" name="mi" placeholder="M.I.">
+                                    <label for="mi">M.I.*</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -106,6 +107,18 @@
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact Number">
                                     <label for="contact">Contact Number</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="orgs" name="corgs" placeholder="Organization/Company">
+                                    <label for="orgs">Organization/Company*</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="position" name="position" placeholder="Position">
+                                    <label for="position">Position*</label>
                                 </div>
                             </div>
                             <div class="col-12">
