@@ -136,7 +136,7 @@ if(isset($_POST['register'])){
                                                 "<small>(Please ignore the following methods of payment if the Webinar is FREE.)</small>". 
                                                 "</p>".
                                                 "<p>Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>".
-                                                "http://localhost/sibolpinoy/event.php";
+                                                "http://localhost/sibolpinoy/ss_payment.link.php";
                     
                                                 // $body = '';
                     
@@ -235,7 +235,7 @@ if(isset($_POST['register'])){
                                                     "<small>(Please ignore the following methods of payment if the Webinar is FREE.)</small>". 
                                                     "</p>".
                                                     "<p>Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>".
-                                                    "http://localhost/sibolpinoy/event.php";
+                                                    "http://localhost/sibolpinoy/ss_payment.link.php";
                         
                                                     // $body = '';
                         
@@ -322,7 +322,7 @@ if(isset($_POST['register'])){
                                 "<small>(Please ignore the following methods of payment if the Webinar is FREE.)</small>". 
                                 "</p>".
                                 "<p>Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>".
-                                "http://localhost/sibolpinoy/event.php";
+                                "http://localhost/sibolpinoy/ss_payment.link.php";
 
                                 // $body = '';
 
@@ -492,7 +492,7 @@ if(isset($_POST['register'])){
                                                 "<small>(Please ignore the following methods of payment if the Webinar is FREE.)</small>". 
                                                 "</p>".
                                                 "<p>Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>".
-                                                "http://localhost/sibolpinoy/event.php"; 
+                                                "http://localhost/sibolpinoy/ss_payment.link.php"; 
                     
                                                 // $body = '';
                     
@@ -590,7 +590,7 @@ if(isset($_POST['register'])){
                             "<small>(Please ignore the following methods of payment if the Webinar is FREE.)</small>". 
                             "</p>".
                             "<p>Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>".
-                            "http://localhost/sibolpinoy/event.php"; 
+                            "http://localhost/sibolpinoy/ss_payment.link.php"; 
 
                             // $body = '';
 
