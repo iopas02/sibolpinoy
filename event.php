@@ -320,6 +320,7 @@
                                     <label for="event_title" class="form-label">Event Title</label>
                                     <input type="text" class="col-md-12" readonly id="event_title" name="event_title">
                                     <input type="text" name="status" value="pending" hidden>
+                                    <input type="text" name="action" value="New" hidden>
                                 </div>
                                 <div class="col-md-8 mt-2">
                                     <label for="date" class="form-label">Date and Time</label>
@@ -393,7 +394,7 @@
                             <div class="row col-md-12 mb-2">
                                 <a href="javascript:void(0)" class="add-more-form float-end btn bg-blue text-white">Add Member</a>
                             </div>
-                            
+
                             <div class="col-12">
                                 <small>SPMC <a href=#>TERMS</a> and <a href="#poirty">PRIVACY POLICY</a></small>
                                 <div class="form-check">
@@ -545,6 +546,7 @@
                                 </div>\
                             </div>\
                             <input type="text" name="newstatus[]" value="pending" hidden>\
+                            <input type="text" name="newaction[]" value="New" hidden>\
                         </div>');
             })
         })

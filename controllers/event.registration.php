@@ -19,6 +19,7 @@ if(isset($_POST['register'])){
         $position = mysqli_real_escape_string($conn, $_POST['position']);
         $payment = mysqli_real_escape_string($conn, $_POST['payment']);
         $status = mysqli_real_escape_string($conn, $_POST['status']);
+        $action = mysqli_real_escape_string($conn, $_POST['action']);
         $ss_payment = '';
 
         $registered_date = date("Y-m-d H:i:s");
@@ -50,7 +51,7 @@ if(isset($_POST['register'])){
                         $client_uniID = $row['client_uniID'];
                         $email_add = $row['email_add'];
                         
-                        $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `registered_by`, `date_registered`, `status`) VALUES ('$email_add ','$reservationID','$eventID','$ss_payment','$payment','$email_add','$registered_date','$status')";
+                        $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `registered_by`, `date_registered`, `status`, `action`) VALUES ('$email_add ','$reservationID','$eventID','$ss_payment','$payment','$email_add','$registered_date','$status','$action')";
 
                         $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
                         if(!$event_reservation_query_result){
@@ -69,6 +70,8 @@ if(isset($_POST['register'])){
                                 $newposition = $_POST['newposition'];
                                 $payment1 = $_POST['payment1'];
                                 $newstatus = $_POST['newstatus'];
+                                $newaction = $_POST['newaction'];
+
 
                                 foreach($newname as $index => $member){
                                     $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
@@ -91,6 +94,7 @@ if(isset($_POST['register'])){
                                     $s_newposition = $newposition[$index];
                                     $s_payment = $payment1[$index];
                                     $s_newstatus = $newstatus[$index];
+                                    $s_newaction = $newaction[$index];
 
                                     $check_users_query = "SELECT * FROM `client` WHERE `email_add`=? ";
                                     $stmt = mysqli_stmt_init($conn);
@@ -104,7 +108,7 @@ if(isset($_POST['register'])){
                             
                                         if($resultcheck > 0){
 
-                                            $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `registered_by`, `date_registered`, `status`) VALUES ('$s_emailadd','$reservationID','$eventID','$ss_payment','$s_payment','$email_add','$registered_date','$status')";
+                                            $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `registered_by`, `date_registered`, `status`, `action`) VALUES ('$s_emailadd','$reservationID','$eventID','$ss_payment','$s_payment','$email_add','$registered_date','$s_newstatus','$s_newaction')";
 
                                             $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
                                             if(!$event_reservation_query_result){
@@ -203,7 +207,7 @@ if(isset($_POST['register'])){
                                                 exit();
                                             }else{
                                                  
-                                                $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `registered_by`, `date_registered`, `status`) VALUES ('$s_emailadd','$reservationID','$eventID','$ss_payment','$s_payment','$email_add','$registered_date','$status')";
+                                                $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `registered_by`, `date_registered`, `status`, `action`) VALUES ('$s_emailadd','$reservationID','$eventID','$ss_payment','$s_payment','$email_add','$registered_date','$s_newstatus','$s_newaction')";
 
                                                 $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
                                                 if(!$event_reservation_query_result){
@@ -383,7 +387,7 @@ if(isset($_POST['register'])){
                     exit();
                 }else{
 
-                    $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `registered_by`, `date_registered`, `status`) VALUES ('$email_add','$reservationID','$eventID','$ss_payment','$payment','$email_add','$registered_date','$status')";
+                    $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `registered_by`, `date_registered`, `status`, `action`) VALUES ('$email_add','$reservationID','$eventID','$ss_payment','$payment','$email_add','$registered_date','$status','$action')";
 
                     $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
                     if(!$event_reservation_query_result){
@@ -402,6 +406,7 @@ if(isset($_POST['register'])){
                             $newposition = $_POST['newposition'];
                             $payment1 = $_POST['payment1'];
                             $newstatus = $_POST['newstatus'];
+                            $newaction = $_POST['newaction'];
 
                             foreach($newname as $index => $member){
                                 $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
@@ -424,6 +429,7 @@ if(isset($_POST['register'])){
                                 $s_newposition = $newposition[$index];
                                 $s_payment = $payment1[$index];
                                 $s_newstatus = $newstatus[$index];
+                                $s_newaction = $newaction[$index];
 
                                 $check_users_query = "SELECT * FROM `client` WHERE `email_add`=? ";
                                 $stmt = mysqli_stmt_init($conn);
@@ -437,7 +443,7 @@ if(isset($_POST['register'])){
                         
                                     if($resultcheck > 0){
 
-                                        $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `registered_by`, `date_registered`, `status`) VALUES ('$s_emailadd','$reservationID','$eventID','$ss_payment','$s_payment','$email_add','$registered_date','$status')";
+                                        $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `registered_by`, `date_registered`, `status`, `action`) VALUES ('$s_emailadd','$reservationID','$eventID','$ss_payment','$s_payment','$email_add','$registered_date','$s_newstatus','$s_newaction')";
 
                                         $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
                                         if(!$event_reservation_query_result){
@@ -458,7 +464,7 @@ if(isset($_POST['register'])){
                                             exit();
                                         }else{
                                              
-                                            $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `registered_by`, `date_registered`, `status`) VALUES ('$s_emailadd','$reservationID','$eventID','$ss_payment','$s_payment','$email_add','$registered_date','$status')";
+                                            $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `registered_by`, `date_registered`, `status`, `action`) VALUES ('$s_emailadd','$reservationID','$eventID','$ss_payment','$s_payment','$email_add','$registered_date','$s_newstatus','$s_newaction')";
 
                                             $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
                                             if(!$event_reservation_query_result){
