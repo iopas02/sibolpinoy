@@ -98,14 +98,12 @@
                                             
                                         </tr>
                                       
-                                      
-                                        
-                                        <hr class="dropdown-divider bg-dark" />
                                     <?php
                                 }
                             }    
 
                         ?>
+                        <hr class="dropdown-divider bg-dark" />
                     </tbody>
                     <tfoot hidden>
                         <tr>

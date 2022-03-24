@@ -9,6 +9,7 @@ if(isset($_POST['register'])){
         $eventID = mysqli_real_escape_string($conn, $_POST['eventID']);
         $event_title = mysqli_real_escape_string($conn, $_POST['event_title']);
         $date = mysqli_real_escape_string($conn, $_POST['date']);
+        $reg_fee = mysqli_real_escape_string($conn, $_POST['reg_fee']);
 
         $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
         $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
@@ -115,10 +116,10 @@ if(isset($_POST['register'])){
                                                 header("Location: ../event.php?event_reservation_failed");
                                                 exit();
                                             }else{
-                                                // echo "Start for sending email for group";
+                                                // Start for sending email for group
 
                                                 $payments1 = "GCash<br>Account Number: <span>0917 113 9078<br>SibolPINOY (Ceazar Valerie N.)<br>";
-                                                $payments2 = "Bank Transfer<br>Account Number:2000 2941 9654<br>SibolPINOY (Ceazar Valerie N.)<br>Sibol-PINOY Management Consultancy<br>EastWest Bank, The Fort-PSE TOWER<br>";
+                                                $payments2 = "Bank Transfer<br>Account Number:2000 2941 9654<br>Sibol-PINOY Management Consultancy<br>EastWest Bank, The Fort-PSE TOWER<br>";
                     
                                                 // $sender_name = $firstname.' '.$mi.' '.$lastname;
                             
@@ -131,22 +132,18 @@ if(isset($_POST['register'])){
                                                 "Event Title: "."<b>".$event_title."</b><br>". 
                                                 "Date and Time: ". "<b>".$date."</b><br>".
                                                 "Resevation ID: ". "<b>".$reservationID."</b><br>".
-                                                "Free/Reg Fee: ". "<b>".$payment."</b><br>".
+                                                "Free/Reg Fee: ". "<b>".$reg_fee."</b><br>".
                                                 "Method of Payment: <br>". "<b>".$payments1."</b><br>"."<b>".$payments2."</b>".
                                                 "<small>(Please ignore the following methods of payment if the Webinar is FREE.)</small>". 
                                                 "</p>".
                                                 "<p>Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>".
                                                 "http://localhost/sibolpinoy/ss_payment.link.php";
                     
-                                                // $body = '';
+                                                $body = '';
                     
                                                 $body .="From: " .$company. "<br>";
                                                 $body .="Email :" . $company_email. "<br>";
                                                 $body .="Message :" .$message."";
-                                                
-                                                // Import PHPMailer classes into the global namespace
-                                                // use PHPMailer\PHPMailer\PHPMailer;
-                                                // use PHPMailer\PHPMailer\Exception;
                     
                                                 require '../PHPMailer/src/Exception.php';
                                                 require '../PHPMailer/src/PHPMailer.php';
@@ -168,7 +165,7 @@ if(isset($_POST['register'])){
                                                 $result = $conn->query($email_selection_query);
                                                 if ($result->num_rows > 0) {
                                                     foreach($result as $reg_email) {
-      
+    
                                                          // Add a recipient
                                                         $mail->addAddress($reg_email['email_add']);
                             
@@ -183,10 +180,7 @@ if(isset($_POST['register'])){
                     
                                                 // Mail subject
                                                 $mail->Subject = $subject;
-                    
-                                                // Mail body content
-                                                // $bodyContent = '<h1>How to Send Email from Localhost using PHP by InfoTech</h1>';
-                                                // $bodyContent .= '<p>This HTML email is sent from the localhost server using PHP by <b>TechWAR</b></p>';
+
                                                 $mail->Body = $body;
                     
                                                 if(!$mail->send()) {
@@ -214,10 +208,10 @@ if(isset($_POST['register'])){
                                                     header("Location: ../event.php?event_reservation_failed");
                                                     exit();
                                                 }else{
-                                                    // echo "Start for sending email for group";
+                                                    // Start for sending email for group
 
                                                     $payments1 = "GCash<br>Account Number: <span>0917 113 9078<br>SibolPINOY (Ceazar Valerie N.)<br>";
-                                                    $payments2 = "Bank Transfer<br>Account Number:2000 2941 9654<br>SibolPINOY (Ceazar Valerie N.)<br>Sibol-PINOY Management Consultancy<br>EastWest Bank, The Fort-PSE TOWER<br>";
+                                                    $payments2 = "Bank Transfer<br>Account Number:2000 2941 9654<br>Sibol-PINOY Management Consultancy<br>EastWest Bank, The Fort-PSE TOWER<br>";
                         
                                                     // $sender_name = $firstname.' '.$mi.' '.$lastname;
                                 
@@ -230,22 +224,18 @@ if(isset($_POST['register'])){
                                                     "Event Title: "."<b>".$event_title."</b><br>". 
                                                     "Date and Time: ". "<b>".$date."</b><br>".
                                                     "Resevation ID: ". "<b>".$reservationID."</b><br>".
-                                                    "Free/Reg Fee: ". "<b>".$payment."</b><br>".
+                                                    "Free/Reg Fee: ". "<b>".$reg_fee."</b><br>".
                                                     "Method of Payment: <br>". "<b>".$payments1."</b><br>"."<b>".$payments2."</b>".
                                                     "<small>(Please ignore the following methods of payment if the Webinar is FREE.)</small>". 
                                                     "</p>".
                                                     "<p>Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>".
                                                     "http://localhost/sibolpinoy/ss_payment.link.php";
                         
-                                                    // $body = '';
+                                                    $body = '';
                         
                                                     $body .="From: " .$company. "<br>";
                                                     $body .="Email :" . $company_email. "<br>";
-                                                    $body .="Message :" .$message."";
-                                                    
-                                                    // Import PHPMailer classes into the global namespace
-                                                    // use PHPMailer\PHPMailer\PHPMailer;
-                                                    // use PHPMailer\PHPMailer\Exception;
+                                                    $body .="Message :" .$message."";                            
                         
                                                     require '../PHPMailer/src/Exception.php';
                                                     require '../PHPMailer/src/PHPMailer.php';
@@ -284,8 +274,6 @@ if(isset($_POST['register'])){
                                                     $mail->Subject = $subject;
                         
                                                     // Mail body content
-                                                    // $bodyContent = '<h1>How to Send Email from Localhost using PHP by InfoTech</h1>';
-                                                    // $bodyContent .= '<p>This HTML email is sent from the localhost server using PHP by <b>TechWAR</b></p>';
                                                     $mail->Body = $body;
                         
                                                     if(!$mail->send()) {
@@ -304,7 +292,7 @@ if(isset($_POST['register'])){
                                 // sending email message start here for solo
                             
                                 $payments1 = "GCash<br>Account Number: <span>0917 113 9078<br>SibolPINOY (Ceazar Valerie N.)<br>";
-                                $payments2 = "Bank Transfer<br>Account Number:2000 2941 9654<br>SibolPINOY (Ceazar Valerie N.)<br>Sibol-PINOY Management Consultancy<br>EastWest Bank, The Fort-PSE TOWER<br>";
+                                $payments2 = "Bank Transfer<br>Account Number:2000 2941 9654<br>Sibol-PINOY Management Consultancy<br>EastWest Bank, The Fort-PSE TOWER<br>";
     
                                 // $sender_name = $firstname.' '.$mi.' '.$lastname;
             
@@ -317,22 +305,18 @@ if(isset($_POST['register'])){
                                 "Event Title: "."<b>".$event_title."</b><br>". 
                                 "Date and Time: ". "<b>".$date."</b><br>".
                                 "Resevation ID: ". "<b>".$reservationID."</b><br>".
-                                "Free/Reg Fee: ". "<b>".$payment."</b><br>".
+                                "Free/Reg Fee: ". "<b>".$reg_fee."</b><br>".
                                 "Method of Payment: <br>". "<b>".$payments1."</b><br>"."<b>".$payments2."</b>".
                                 "<small>(Please ignore the following methods of payment if the Webinar is FREE.)</small>". 
                                 "</p>".
                                 "<p>Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>".
                                 "http://localhost/sibolpinoy/ss_payment.link.php";
 
-                                // $body = '';
+                                $body = '';
 
                                 $body .="From: " .$company. "<br>";
                                 $body .="Email :" . $company_email. "<br>";
                                 $body .="Message :" .$message. "<br>";
-                                
-                                // Import PHPMailer classes into the global namespace
-                                // use PHPMailer\PHPMailer\PHPMailer;
-                                // use PHPMailer\PHPMailer\Exception;
 
                                 require '../PHPMailer/src/Exception.php';
                                 require '../PHPMailer/src/PHPMailer.php';
@@ -363,8 +347,6 @@ if(isset($_POST['register'])){
                                 $mail->Subject = $subject;
 
                                 // Mail body content
-                                // $bodyContent = '<h1>How to Send Email from Localhost using PHP by InfoTech</h1>';
-                                // $bodyContent .= '<p>This HTML email is sent from the localhost server using PHP by <b>TechWAR</b></p>';
                                 $mail->Body = $body;
 
                                 if(!$mail->send()) {
@@ -450,7 +432,80 @@ if(isset($_POST['register'])){
                                             header("Location: ../event.php?event_reservation_failed");
                                             exit();
                                         }else{
-                                            echo "Start for sending email for group";
+                                            // Start for sending email for group
+
+                                            $payments1 = "GCash<br>Account Number: <span>0917 113 9078<br>SibolPINOY (Ceazar Valerie N.)<br>";
+                                            $payments2 = "Bank Transfer<br>Account Number:2000 2941 9654<br>Sibol-PINOY Management Consultancy<br>EastWest Bank, The Fort-PSE TOWER<br>";
+                
+                                            // $sender_name = $firstname.' '.$mi.' '.$lastname;
+                        
+                                            $subject = "Thank You For Registration";
+                                            $company_email = "sibolPINOY@gmail.com";
+                                            $company = "Sibol-PINOY Management Consultancy";
+                
+                                            $message = '';
+                                            $message .= "<p>Thank You for your Registration, please refers to the following information below <br><br>".
+                                            "Event Title: "."<b>".$event_title."</b><br>". 
+                                            "Date and Time: ". "<b>".$date."</b><br>".
+                                            "Resevation ID: ". "<b>".$reservationID."</b><br>".
+                                            "Free/Reg Fee: ". "<b>".$reg_fee."</b><br>".
+                                            "Method of Payment: <br>". "<b>".$payments1."</b><br>"."<b>".$payments2."</b>".
+                                            "<small>(Please ignore the following methods of payment if the Webinar is FREE.)</small>". 
+                                            "</p>".
+                                            "<p>Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>".
+                                            "http://localhost/sibolpinoy/ss_payment.link.php"; 
+                
+                                            $body = '';
+                
+                                            $body .="From: " .$company. "<br>";
+                                            $body .="Email :" . $company_email. "<br>";
+                                            $body .="Message :" .$message."";
+                                            
+                                            require '../PHPMailer/src/Exception.php';
+                                            require '../PHPMailer/src/PHPMailer.php';
+                                            require '../PHPMailer/src/SMTP.php';
+                
+                                            $mail = new PHPMailer\PHPMailer\PHPMailer();
+                
+                                            $mail->isSMTP();                      // Set mailer to use SMTP
+                                            $mail->Host = 'smtp.gmail.com';       // Specify main and backup SMTP servers
+                                            $mail->SMTPAuth = true;               // Enable SMTP authentication
+                                            $mail->Username = 'treszeta28@gmail.com';   // SMTP username
+                                            $mail->Password = 'xnhongbdpyodspfy';   // SMTP password
+                                            $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted
+                                            $mail->Port = 587;                    // TCP port to connect to
+                                            $mail->setFrom($company_email, $company);
+                                            $mail->addReplyTo($company_email, $company);
+                
+                                            $email_selection_query = "SELECT `email_add` FROM `event_reservation` WHERE `reservationID`='$reservationID'";
+                                            $result = $conn->query($email_selection_query);
+                                            if ($result->num_rows > 0) {
+                                                foreach($result as $reg_email) {
+
+                                                    // Add a recipient
+                                                    $mail->addAddress($reg_email['email_add']);
+                                                    
+                                                }
+                                            }
+
+                                            // $mail->addCC($carbon_copy);
+                                            // //$mail->addBCC('bcc@example.com');
+                
+                                            // Set email format to HTML
+                                            $mail->isHTML(true);
+                
+                                            // Mail subject
+                                            $mail->Subject = $subject;
+                
+                                            // Mail body content
+                                            $mail->Body = $body;
+                
+                                            if(!$mail->send()) {
+                                                header("Location: ../event.php?error=Message_not_sent");
+                                            } else {
+                                                header("Location: ../event.php?success=email_sent");
+                                            }
+
                                         }
 
 
@@ -474,7 +529,7 @@ if(isset($_POST['register'])){
                                                 // Start for sending email for group;
 
                                                 $payments1 = "GCash<br>Account Number: <span>0917 113 9078<br>SibolPINOY (Ceazar Valerie N.)<br>";
-                                                $payments2 = "Bank Transfer<br>Account Number:2000 2941 9654<br>SibolPINOY (Ceazar Valerie N.)<br>Sibol-PINOY Management Consultancy<br>EastWest Bank, The Fort-PSE TOWER<br>";
+                                                $payments2 = "Bank Transfer<br>Account Number:2000 2941 9654<br>Sibol-PINOY Management Consultancy<br>EastWest Bank, The Fort-PSE TOWER<br>";
                     
                                                 // $sender_name = $firstname.' '.$mi.' '.$lastname;
                             
@@ -487,23 +542,19 @@ if(isset($_POST['register'])){
                                                 "Event Title: "."<b>".$event_title."</b><br>". 
                                                 "Date and Time: ". "<b>".$date."</b><br>".
                                                 "Resevation ID: ". "<b>".$reservationID."</b><br>".
-                                                "Free/Reg Fee: ". "<b>".$payment."</b><br>".
+                                                "Free/Reg Fee: ". "<b>".$reg_fee."</b><br>".
                                                 "Method of Payment: <br>". "<b>".$payments1."</b><br>"."<b>".$payments2."</b>".
                                                 "<small>(Please ignore the following methods of payment if the Webinar is FREE.)</small>". 
                                                 "</p>".
                                                 "<p>Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>".
                                                 "http://localhost/sibolpinoy/ss_payment.link.php"; 
                     
-                                                // $body = '';
+                                                $body = '';
                     
                                                 $body .="From: " .$company. "<br>";
                                                 $body .="Email :" . $company_email. "<br>";
                                                 $body .="Message :" .$message."";
                                                 
-                                                // Import PHPMailer classes into the global namespace
-                                                // use PHPMailer\PHPMailer\PHPMailer;
-                                                // use PHPMailer\PHPMailer\Exception;
-                    
                                                 require '../PHPMailer/src/Exception.php';
                                                 require '../PHPMailer/src/PHPMailer.php';
                                                 require '../PHPMailer/src/SMTP.php';
@@ -541,8 +592,6 @@ if(isset($_POST['register'])){
                                                 $mail->Subject = $subject;
                     
                                                 // Mail body content
-                                                // $bodyContent = '<h1>How to Send Email from Localhost using PHP by InfoTech</h1>';
-                                                // $bodyContent .= '<p>This HTML email is sent from the localhost server using PHP by <b>TechWAR</b></p>';
                                                 $mail->Body = $body;
                     
                                                 if(!$mail->send()) {
@@ -558,21 +607,10 @@ if(isset($_POST['register'])){
                                 }
                             }
                         }else{
-                            // sending email message start here for solo
-                            
-                            // if($payment == "GCash"){
-                            //     $payments = "<br>Account Number: <span>0917 113 9078</span><br>
-                            //     Account Name: <span>SibolPINOY (Ceazar Valerie N.)</span>";
-                            // }else if($payment == "Bank Transfer"){
-                            //     $payments =  "<br>Account Number: <span>2000 2941 9654</span><br>
-                            //     Account Name: <span>Sibol-PINOY Management Consultancy</span><br>
-                            //     Bank: <span>EastWest Bank, The Fort-PSE TOWER</span>";
-                            // }else{
-                            //     $payments = "FREE WEBINAR";
-                            // }
 
                             $payments1 = "GCash<br>Account Number: <span>0917 113 9078<br>SibolPINOY (Ceazar Valerie N.)<br>";
-                            $payments2 = "Bank Transfer<br>Account Number:2000 2941 9654<br>SibolPINOY (Ceazar Valerie N.)<br>Sibol-PINOY Management Consultancy<br>EastWest Bank, The Fort-PSE TOWER<br>";
+                            $payments2 = "Bank Transfer<br>Account Number:2000 2941 9654<br>
+                            Sibol-PINOY Management Consultancy<br>EastWest Bank, The Fort-PSE TOWER<br>";
 
                             // $sender_name = $firstname.' '.$mi.' '.$lastname;
         
@@ -585,23 +623,20 @@ if(isset($_POST['register'])){
                             "Event Title: "."<b>".$event_title."</b><br>". 
                             "Date and Time: ". "<b>".$date."</b><br>".
                             "Resevation ID: ". "<b>".$reservationID."</b><br>".
-                            "Free/Reg Fee: ". "<b>".$payment."</b><br>".
+                            "Free/Reg Fee: ". "<b>".$reg_fee."</b><br>".
                             "Method of Payment: <br>". "<b>".$payments1."</b><br>"."<b>".$payments2."</b>".
                             "<small>(Please ignore the following methods of payment if the Webinar is FREE.)</small>". 
                             "</p>".
                             "<p>Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>".
                             "http://localhost/sibolpinoy/ss_payment.link.php"; 
 
-                            // $body = '';
+                            $body = '';
 
                             $body .="From: " .$company. "<br>";
                             $body .="Email :" . $company_email. "<br>";
                             $body .="Message :" .$message."";
                             
-                            // Import PHPMailer classes into the global namespace
-                            // use PHPMailer\PHPMailer\PHPMailer;
-                            // use PHPMailer\PHPMailer\Exception;
-
+                           
                             require '../PHPMailer/src/Exception.php';
                             require '../PHPMailer/src/PHPMailer.php';
                             require '../PHPMailer/src/SMTP.php';
@@ -631,8 +666,6 @@ if(isset($_POST['register'])){
                             $mail->Subject = $subject;
 
                             // Mail body content
-                            // $bodyContent = '<h1>How to Send Email from Localhost using PHP by InfoTech</h1>';
-                            // $bodyContent .= '<p>This HTML email is sent from the localhost server using PHP by <b>TechWAR</b></p>';
                             $mail->Body = $body;
 
                             if(!$mail->send()) {
