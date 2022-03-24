@@ -191,8 +191,10 @@
                         <div class="overflow-hidden text-center">
                             <img class="img-fluid"  src="img/business-consultancy.jpg" alt="">
                         </div>
+                        
+
                         <div class="text-center p-4">
-                            <h5 class="mb-0 secondary-font">Business consultancy</h5>
+                            <h5 class="mb-0 secondary-header">Business consultancy</h5>
                             <br><small>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
                             their objectives. We just do not partner with our
                             clients, we engage and become one with them in
@@ -200,6 +202,7 @@
                         </div>
                     </div>
                 </div>
+                
 
                 <div class="col-lg-3 col-md-6 wow fadeInUp d-flex flex-column flex-1 flex-grow-1" data-wow-delay="0.3s">
                     <div class="team-item bg-light d-flex flex-column flex-1 flex-grow-1">
@@ -207,7 +210,7 @@
                             <img class="img-fluid" src="img/tech-solution.jpg" alt="">
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="mb-0 secondary-font">Technological solutions</h5>
+                            <h5 class="mb-0 second-header">Technological solutions</h5>
                             <br><small>Let Sibol-Pinoy help you provide complete
                             customer solutions that span the IT life-cycle.
                             Our technology experts will work with you to
@@ -223,7 +226,7 @@
                             <img class="img-fluid" src="img/training-development.jpg" alt="">
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="mb-0 secondary-font">Training & development</h5>
+                            <h5 class="mb-0 second-header">Training & development</h5>
                             <br><small>As we envision our client to be self-dependent, we put
                             emphasis on capacity-building and capability-building
                             activities. Thus, Ideation Philippines has carefully designed
@@ -239,7 +242,7 @@
                             <img class="img-fluid" src="img/research-development.jpg" alt="">
                         </div>
                         <div class="text-center p-4">
-                            <h5 class="mb-0 secondary-font">Research development</h5>
+                            <h5 class="mb-0 second-header">Research development</h5>
                             <br><small>Sibol Pinoy Management Consultancy highly engaged team members are
                                 specialized in providing technical assistance providing
                                 professional development and management support to public
