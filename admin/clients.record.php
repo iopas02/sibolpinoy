@@ -66,7 +66,7 @@
                                                 <tr>
                                                     <td><?= $client_list['client_uniID'] ?></td>
                                                     <td><?= $client_list['firstName'] ?></td>
-                                                    <td><?= $client_list['m.i.'] ?></td>
+                                                    <td><?= $client_list['mi'] ?></td>
                                                     <td><?= $client_list['lastName'] ?></td>
                                                     <td><?= $client_list['email_add'] ?></td>
                                                     <td><?= $client_list['contact'] ?></td>
@@ -107,7 +107,7 @@
         </div>
 
         <!-- Modal Start Here -->
-        <div class="modal fade" id="exampleModalToggle" data-bs-backdrop="static" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <!-- <div class="modal fade" id="exampleModalToggle" data-bs-backdrop="static" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -197,7 +197,7 @@
                 </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Modal End Here -->
 
     </main>

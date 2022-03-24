@@ -193,7 +193,7 @@ if(isset($_POST['register'])){
 
                                         }else{
                                             
-                                            $member_registration_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `m.i.`, `lastName`, `email_add`, `contact`, `organization`, `position`, `date_register`) VALUES ('$uniID','$s_name','$s_mi','$s_lastname','$s_emailadd','$s_contact','$s_neworgs','$s_newposition','$registered_date')";
+                                            $member_registration_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `mi`, `lastName`, `email_add`, `contact`, `organization`, `position`, `date_register`) VALUES ('$uniID','$s_name','$s_mi','$s_lastname','$s_emailadd','$s_contact','$s_neworgs','$s_newposition','$registered_date')";
 
                                             $member_registration_query_result = mysqli_query($conn, $member_registration_query);
                                             if(!$member_registration_query_result){
@@ -361,7 +361,7 @@ if(isset($_POST['register'])){
                 }
 
             }else{
-                $client_registration_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `m.i.`, `lastName`, `email_add`, `contact`, `organization`, `position`, `date_register`) VALUES ('$uniID','$firstname','$mi','$lastname','$email_add','$contact','$orgs','$position','$registered_date')";
+                $client_registration_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `mi`, `lastName`, `email_add`, `contact`, `organization`, `position`, `date_register`) VALUES ('$uniID','$firstname','$mi','$lastname','$email_add','$contact','$orgs','$position','$registered_date')";
 
                 $client_registration_query_result = mysqli_query($conn, $client_registration_query);
                 if(!$client_registration_query_result){
@@ -511,7 +511,7 @@ if(isset($_POST['register'])){
 
                                     }else{
                                         
-                                        $member_registration_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `m.i.`, `lastName`, `email_add`, `contact`, `organization`, `position`, `date_register`) VALUES ('$uniID','$s_name','$s_mi','$s_lastname','$s_emailadd','$s_contact','$s_neworgs','$s_newposition','$registered_date')";
+                                        $member_registration_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `mi`, `lastName`, `email_add`, `contact`, `organization`, `position`, `date_register`) VALUES ('$uniID','$s_name','$s_mi','$s_lastname','$s_emailadd','$s_contact','$s_neworgs','$s_newposition','$registered_date')";
 
                                         $member_registration_query_result = mysqli_query($conn, $member_registration_query);
                                         if(!$member_registration_query_result){

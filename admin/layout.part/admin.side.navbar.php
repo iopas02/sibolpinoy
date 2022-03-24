@@ -74,7 +74,7 @@
                     <div class="collapse" id="email">
                         <ul class="navbar-nav ps-3">
                             <li>       
-                                <a href="404.php" class="nav-link px-3 text-normal">
+                                <a href="event.reservation.php" class="nav-link px-3 text-normal">
                                     <span class="me-2"><i class="bi bi-calendar-check"></i></span>
                                     <span>Event Reservation</span>
                                 </a>    
