@@ -45,5 +45,5 @@
 
     <!-- Template Stylesheet -->
     <link href="css/styler.css" rel="stylesheet">
-    <link href="css/alters.css" rel="stylesheet">
+    <link href="css/altering.css" rel="stylesheet">
 </head>

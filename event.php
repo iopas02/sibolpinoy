@@ -311,100 +311,117 @@
                         <h5 class="modal-title" id="registrationTitle">Events Group Registration Form</h5>
                     </div>
                     <div class="modal-body">
-                        <form action="controllers/event.registration.php" method="POST">
-                            <div class="row col-md-12 mb-2">
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" readonly id="eventID" name="eventID" hidden>
-                                    <label for="event_title" class="form-label">Event Title</label>
-                                    <input type="text" class="col-md-12" readonly id="event_title" name="event_title">
-                                    <input type="text" name="status" value="pending" hidden>
-                                    <input type="text" name="action" value="New" hidden>
-                                </div>
-                                <div class="col-md-8 mt-2">
-                                    <label for="date" class="form-label">Date and Time</label>
-                                    <input type="text" class="col-md-12" readonly id="date" name="date">
-                                </div>
-                                <div class="col-md-4 mt-2">
-                                    <label for="reg_fee" class="form-label">Other Details</label>
-                                    <input type="text" class="col-md-12" readonly id="reg_fee" name="reg_fee">
-                                </div>
-                            </div>
-                            <div class="row col-md-12 mb-2">
-                                <div class="col-md-5">
-                                    <label>First Name</label>
-                                    <input type="text" class="form-control" name="firstname" placeholder="First Name">
-                                </div>
-                                <div class="col-md-5">
-                                    <label>Last Name</label>
-                                    <input type="text" class="form-control" name="lastname" placeholder="Last Name">
-                                </div>
-                                <div class="col-md-2">
-                                    <label>M.I.</label>
-                                    <input type="text" class="form-control" name="mi" placeholder="M.I.">
-                                </div>
-                            </div>
-                            <div class="row col-md-12 mb-2">
-                                <div class="col-md-6">
-                                    <label>Email Address</label>
-                                    <input type="Email" class="form-control" name="email_add" placeholder="Email Address">
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Contact Number</label>
-                                    <input type="text" class="form-control"  name="contact" placeholder="Contact Number">
-                                </div>
-                            </div>
-                            <div class="row col-md-12 mb-2">
-                                <div class="col-md-6">
-                                    <label>Name Of Oragnization</label>
-                                    <input type="text" class="form-control" name="orgs" placeholder="Name Of Oragnization">
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Position</label>
-                                    <input type="text" class="form-control"  name="position" placeholder="Position">
-                                </div>
-                            </div>
-                            <div class="row col-md-12 mb-2">
-                                <div class="col-md-4">
-                                    <label>Methods Of Payments: </label><br>
-                                    <input type="radio" id="myCheck0" name="payment" onclick="myFunction()"  value="Free">
-                                    <label for="myCheck0">Free</label><br>
-                                    <input type="radio" id="myCheck" name="payment" onclick="myFunction()"  value="Bank Transfer">
-                                    <label for="myCheck">Bank Transfer</label><br>
-                                    <input type="radio" id="myCheckTwo" name="payment" onclick="myFunction()" value="GCash">
-                                    <label for="myCheckTwo">GCash</label> 
-                                </div>
-                                <div class="col-md-8" id="text0" style="display: none;"> 
-                                    FREE WEBINAR
-                                </div>
-                                
-                                <div class="col-md-8" id="text" style="display: none;"> 
-                                    Account Number: <span>2000 2941 9654</span><br>
-                                    Account Name: <span>Sibol-PINOY Management Consultancy</span><br>
-                                    Bank: <span>EastWest Bank, The Fort-PSE TOWER</span>
-                                </div>
-                                
-                                <div class="col-md-8" id="text-two" style="display: none;">
-                                    Account Number: <span>0917 113 9078</span><br>
-                                    Account Name: <span>SibolPINOY (Ceazar Valerie N.)</span>
-                                </div>
-                            </div>
-                            <div class="new-forms mb-3"> </div>
-                            <div class="row col-md-12 mb-2">
-                                <a href="javascript:void(0)" class="add-more-form float-end btn bg-blue text-white">Add Member</a>
-                            </div>
+                 
+                        <div id="exTab1" class="container">	
+                            <ul  class="nav nav-pills">
+                                <li class="px-2">
+                                    <a href="#1a" class="text-dark" data-toggle="tab">Solo</a>
+                                </li>
+                                <li class="px-2"> 
+                                    <a href="#2a" class="text-dark" data-toggle="tab">Group</a>
+                                </li>
+                            </ul>
 
-                            <div class="col-12">
-                                <small>SPMC <a href=#>TERMS</a> and <a href="#">PRIVACY POLICY</a></small>
-                                <div class="form-check">
-                                    <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
-                                    <label class="form-check-label" for="invalidCheck3">
-                                        Agree to terms and conditions
-                                    </label>
+                            <div class="tab-content clearfix">
+                                <div class="tab-pane active" id="1a">
+                                    <form action="controllers/event.registration.php" method="POST">
+                                        <div class="row col-md-12 mb-2">
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" readonly id="eventID" name="eventID" hidden>
+                                                <label for="event_title" class="form-label">Event Title</label>
+                                                <input type="text" class="col-md-12" readonly id="event_title" name="event_title">
+                                                <input type="text" name="status" value="pending" hidden>
+                                                <input type="text" name="action" value="New" hidden>
+                                            </div>
+                                            <div class="col-md-8 mt-2">
+                                                <label for="date" class="form-label">Date and Time</label>
+                                                <input type="text" class="col-md-12" readonly id="date" name="date">
+                                            </div>
+                                            <div class="col-md-4 mt-2">
+                                                <label for="reg_fee" class="form-label">Other Details</label>
+                                                <input type="text" class="col-md-12" readonly id="reg_fee" name="reg_fee">
+                                            </div>
+                                        </div>
+                                        <div class="row col-md-12 mb-2">
+                                            <div class="col-md-5">
+                                                <label>First Name</label>
+                                                <input type="text" class="form-control" name="firstname" placeholder="First Name">
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label>Last Name</label>
+                                                <input type="text" class="form-control" name="lastname" placeholder="Last Name">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label>M.I.</label>
+                                                <input type="text" class="form-control" name="mi" placeholder="M.I.">
+                                            </div>
+                                        </div>
+                                        <div class="row col-md-12 mb-2">
+                                            <div class="col-md-6">
+                                                <label>Email Address</label>
+                                                <input type="Email" class="form-control" name="email_add" placeholder="Email Address">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Contact Number</label>
+                                                <input type="text" class="form-control"  name="contact" placeholder="Contact Number">
+                                            </div>
+                                        </div>
+                                        <div class="row col-md-12 mb-2">
+                                            <div class="col-md-6">
+                                                <label>Name Of Oragnization</label>
+                                                <input type="text" class="form-control" name="orgs" placeholder="Name Of Oragnization">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Position</label>
+                                                <input type="text" class="form-control"  name="position" placeholder="Position">
+                                            </div>
+                                        </div>
+                                        <div class="row col-md-12 mb-2">
+                                            <div class="col-md-4">
+                                                <label>Methods Of Payments: </label><br>
+                                                <input type="radio" id="myCheck0" name="payment" onclick="myFunction()"  value="Free">
+                                                <label for="myCheck0">Free</label><br>
+                                                <input type="radio" id="myCheck" name="payment" onclick="myFunction()"  value="Bank Transfer">
+                                                <label for="myCheck">Bank Transfer</label><br>
+                                                <input type="radio" id="myCheckTwo" name="payment" onclick="myFunction()" value="GCash">
+                                                <label for="myCheckTwo">GCash</label> 
+                                            </div>
+                                            <div class="col-md-8" id="text0" style="display: none;"> 
+                                                FREE WEBINAR
+                                            </div>
+                                            
+                                            <div class="col-md-8" id="text" style="display: none;"> 
+                                                Account Number: <span>2000 2941 9654</span><br>
+                                                Account Name: <span>Sibol-PINOY Management Consultancy</span><br>
+                                                Bank: <span>EastWest Bank, The Fort-PSE TOWER</span>
+                                            </div>
+                                            
+                                            <div class="col-md-8" id="text-two" style="display: none;">
+                                                Account Number: <span>0917 113 9078</span><br>
+                                                Account Name: <span>SibolPINOY (Ceazar Valerie N.)</span>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="col-12">
+                                            <small>SPMC <a href=#>TERMS</a> and <a href="#">PRIVACY POLICY</a></small>
+                                            <div class="form-check">
+                                                <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+                                                <label class="form-check-label" for="invalidCheck3">
+                                                    Agree to terms and conditions
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn bg-blue text-white" name="register">Register</button>
+                                    </form>
+                                </div>
+                                <div class="tab-pane" id="2a">
+                                    <h3>For Group Rehistration</h3>
                                 </div>
                             </div>
+                        </div>
 
-                            <button type="submit" class="btn bg-blue text-white" name="register">Register</button>
-                        </form>
+
                     </div>
                    
                  
@@ -437,6 +454,9 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
     <!-- Template Javascript -->
     <script>

@@ -143,7 +143,13 @@
                 <div class="row col-md-12">
                     <div class="col-md-4">
                         <label class="col-md-12">SS_Payment:</label>
-                        <img src="svg/default_new_image.jpg" class="w-100 h-100">
+                        <?php
+                        if($ss_payment != ''){
+                            echo '<img src="upload/.$ss_payment" class="w-100 h-100">';
+                        }else {
+                            echo '<img src="svg/default_new_image.jpg" class="w-100 h-100">';
+                        }
+                        ?>
                     </div>
                     <div class="col-md-8">
                         <div class="col-md-12 d-flex">

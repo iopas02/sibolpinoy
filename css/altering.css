@@ -495,3 +495,15 @@ section{
         display: hidden;
     }
 } */
+
+#exTab1 .tab-content {
+    padding : 5px 15px;
+}
+   
+#exTab1 .nav-pills > li > a {
+    border-radius: 0;
+}
+  
+
+  
+  
