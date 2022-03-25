@@ -75,7 +75,6 @@
                                         <th hidden>Info</th>
                                         <th hidden>SS Payment</th>
                                         <th hidden>Payment</th>
-                                        <th>Registered by</th>
                                         <th>Status</th>
                                         <th hidden>Action</th>
                                         <th>Registered</th>
@@ -102,7 +101,7 @@
                                         $total_number_of_page = ceil($total_records / $total_records_per_page);
                                         $second_last = $total_number_of_page - 1;
 
-                                        $event_reservation_query = "SELECT tb1.entryID, tb2.client_uniID, tb2.firstName, tb2.mi, tb2.lastName, tb2.contact, tb2.organization, tb2.position, tb1.email_add, tb1.reservationID, tb3.eventID, tb3.event_title, tb3.date_and_time, tb3.reg_fee, tb1.ss_payment, tb1.payment_method, tb1.registered_by, tb1.date_registered, tb1.status, tb1.action FROM( event_reservation tb1 INNER JOIN client tb2 ON tb1.email_add = tb2.email_add) INNER JOIN events tb3 ON tb1.eventID = tb3.eventID ORDER BY entryID DESC";
+                                        $event_reservation_query = "SELECT tb1.entryID, tb2.client_uniID, tb2.firstName, tb2.mi, tb2.lastName, tb2.contact, tb2.organization, tb2.position, tb1.email_add, tb1.reservationID, tb3.eventID, tb3.event_title, tb3.date_and_time, tb3.reg_fee, tb1.ss_payment, tb1.payment_method, tb1.date_registered, tb1.status, tb1.action FROM( event_reservation tb1 INNER JOIN client tb2 ON tb1.email_add = tb2.email_add) INNER JOIN events tb3 ON tb1.eventID = tb3.eventID ORDER BY entryID DESC";
 
                                         $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
                                         if(mysqli_num_rows($event_reservation_query_result) > 0){
@@ -136,7 +135,6 @@
                                                     <td hidden><?= $event_reservation['reg_fee'] ?></td>
                                                     <td hidden><?= $event_reservation['ss_payment'] ?></td>
                                                     <td hidden><?= $event_reservation['payment_method'] ?></td>
-                                                    <td><?= $event_reservation['registered_by'] ?></td>
                                                     <td><?= $event_reservation['status'] ?></td>
                                                     <td hidden><?= $event_reservation['action'] ?></td>
                                                     <td><?= date('M d Y',  strtotime($event_reservation['date_registered'])) ?></td>
@@ -174,7 +172,6 @@
                                         <th hidden>Info</th>
                                         <th hidden>SS Payment</th>
                                         <th hidden>Payment</th>
-                                        <th>Registered by</th>
                                         <th>Status</th>
                                         <th hidden>Action</th>
                                         <th>Registered</th>

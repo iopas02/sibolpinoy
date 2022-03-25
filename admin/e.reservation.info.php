@@ -30,7 +30,7 @@
             $change_action_query = "UPDATE `event_reservation` SET `action`='Read' WHERE `entryID`='$entryID' ";
             if($conn->query($change_action_query) == TRUE ){
 
-                $reload_event_request_query = "SELECT tb1.entryID, tb2.client_uniID, tb2.firstName, tb2.mi, tb2.lastName, tb2.contact, tb2.organization, tb2.position, tb1.email_add, tb1.reservationID, tb3.eventID, tb3.event_title, tb3.date_and_time, tb3.reg_fee, tb1.ss_payment, tb1.payment_method, tb1.registered_by, tb1.date_registered, tb1.status, tb1.action FROM( event_reservation tb1 INNER JOIN client tb2 ON tb1.email_add = tb2.email_add) INNER JOIN events tb3 ON tb1.eventID = tb3.eventID WHERE entryID =$entryID";
+                $reload_event_request_query = "SELECT tb1.entryID, tb2.client_uniID, tb2.firstName, tb2.mi, tb2.lastName, tb2.contact, tb2.organization, tb2.position, tb1.email_add, tb1.reservationID, tb3.eventID, tb3.event_title, tb3.date_and_time, tb3.reg_fee, tb1.ss_payment, tb1.payment_method, tb1.date_registered, tb1.status, tb1.action FROM( event_reservation tb1 INNER JOIN client tb2 ON tb1.email_add = tb2.email_add) INNER JOIN events tb3 ON tb1.eventID = tb3.eventID WHERE entryID =$entryID";
 
                 $reload_event_request_query_result = $conn->query($reload_event_request_query);
                 if($reload_event_request_query_result->num_rows > 0){
@@ -51,7 +51,6 @@
                         $reg_fee = $row['reg_fee'];
                         $ss_payment = $row['ss_payment'];
                         $payment_method = $row['payment_method'];
-                        $registered_by = $row['registered_by'];
                         $status = $row['status'];
                         $date_registered = $row['date_registered'];
                     }
@@ -166,12 +165,6 @@
                                 <input class="col-md-12" type="text" value="<?= date('M d Y',  strtotime($date_registered)) ?>" readonly>
                             </div>
                            
-                        </div>
-                        <div class="col-md-12 d-flex">
-                            <div class="col-md-12">
-                                <label class="col-form-label">Registered By:</label>
-                                <input class="col-md-12" type="text" value="<?= $registered_by ?>" readonly>
-                            </div>
                         </div>
                         <div class="col-md-12 mt-5">
                             <button class="m-2 py-2 px-4 border-0 float-right text-white bg-coloured">Declined</button>

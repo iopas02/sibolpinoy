@@ -346,14 +346,14 @@
                                             <div class="col-md-5">
                                                 <label>First Name</label>
                                                 <input type="text" class="form-control" name="firstname" placeholder="First Name">
+                                            </div>                                   
+                                            <div class="col-md-2">
+                                                <label>M.I.</label>
+                                                <input type="text" class="form-control" name="mi" placeholder="M.I.">
                                             </div>
                                             <div class="col-md-5">
                                                 <label>Last Name</label>
                                                 <input type="text" class="form-control" name="lastname" placeholder="Last Name">
-                                            </div>
-                                            <div class="col-md-2">
-                                                <label>M.I.</label>
-                                                <input type="text" class="form-control" name="mi" placeholder="M.I.">
                                             </div>
                                         </div>
                                         <div class="row col-md-12 mb-2">
@@ -416,7 +416,100 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane" id="2a">
-                                    <h3>For Group Rehistration</h3>
+                                    <form action="controllers/event.registration.php" method="POST">
+                                        <div class="row col-md-12 mb-2">
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" readonly id="eID" name="eventID" hidden>
+                                                <label for="event_title" class="form-label">Event Title</label>
+                                                <input type="text" class="col-md-12" readonly id="eventTitle" name="event_title">
+                                                <input type="text" name="status" value="pending" hidden>
+                                                <input type="text" name="action" value="New" hidden>
+                                            </div>
+                                            <div class="col-md-8 mt-2">
+                                                <label for="date" class="form-label">Date and Time</label>
+                                                <input type="text" class="col-md-12" readonly id="dateStart" name="date">
+                                            </div>
+                                            <div class="col-md-4 mt-2">
+                                                <label for="reg_fee" class="form-label">Other Details</label>
+                                                <input type="text" class="col-md-12" readonly id="regFee" name="reg_fee">
+                                            </div>
+                                        </div>
+                                        <div class="row col-md-12 mb-2">
+                                            <div class="col-md-5">
+                                                <label>First Name</label>
+                                                <input type="text" class="form-control" name="firstname[]" placeholder="First Name">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label>M.I.</label>
+                                                <input type="text" class="form-control" name="mi[]" placeholder="M.I.">
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label>Last Name</label>
+                                                <input type="text" class="form-control" name="lastname[]" placeholder="Last Name">
+                                            </div>
+                                        </div>
+                                        <div class="row col-md-12 mb-2">
+                                            <div class="col-md-6">
+                                                <label>Email Address</label>
+                                                <input type="Email" class="form-control" name="email_add[]" placeholder="Email Address">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Contact Number</label>
+                                                <input type="text" class="form-control"  name="contact[]" placeholder="Contact Number">
+                                            </div>
+                                        </div>
+                                        <div class="row col-md-12 mb-2">
+                                            <div class="col-md-6">
+                                                <label>Name Of Oragnization</label>
+                                                <input type="text" class="form-control" name="orgs[]" placeholder="Name Of Oragnization">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Position</label>
+                                                <input type="text" class="form-control"  name="position[]" placeholder="Position">
+                                            </div>
+                                        </div>
+                                        <div class="row col-md-12 mb-2">
+                                            <div class="col-md-4">
+                                                <label>Methods Of Payments: </label><br>
+                                                <input type="radio" id="xCheck0" name="payment[]" onclick="myFunction()"  value="Free">
+                                                <label for="xCheck0">Free</label><br>
+                                                <input type="radio" id="xCheck1" name="payment[]" onclick="myFunction()"  value="Bank Transfer">
+                                                <label for="xCheck1">Bank Transfer</label><br>
+                                                <input type="radio" id="xCheck2" name="payment[]" onclick="myFunction()" value="GCash">
+                                                <label for="xCheck2">GCash</label> 
+                                            </div>
+                                            <div class="col-md-8" id="xtext" style="display: none;"> 
+                                                FREE WEBINAR
+                                            </div>
+                                            
+                                            <div class="col-md-8" id="xtext1" style="display: none;"> 
+                                                Account Number: <span>2000 2941 9654</span><br>
+                                                Account Name: <span>Sibol-PINOY Management Consultancy</span><br>
+                                                Bank: <span>EastWest Bank, The Fort-PSE TOWER</span>
+                                            </div>
+                                            
+                                            <div class="col-md-8" id="xtext2" style="display: none;">
+                                                Account Number: <span>0917 113 9078</span><br>
+                                                Account Name: <span>SibolPINOY (Ceazar Valerie N.)</span>
+                                            </div>
+                                        </div>
+                                        <div class="new-forms mb-3"> </div>
+                                        <div class="row col-md-12 mb-2">
+                                            <a href="javascript:void(0)" class="add-more-form float-end btn bg-blue text-white">Add Member</a>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <small>SPMC <a href=#>TERMS</a> and <a href="#">PRIVACY POLICY</a></small>
+                                            <div class="form-check">
+                                                <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+                                                <label class="form-check-label" for="invalidCheck3">
+                                                    Agree to terms and conditions
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn bg-blue text-white" name="group_register">Register</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -473,9 +566,13 @@
 
                 console.log(data);
                 $('#eventID').val(data[1]);
+                $('#eID').val(data[1]);
                 $('#event_title').val(data[2]);
+                $('#eventTitle').val(data[2]);
                 $('#date').val(data[3]);
+                $('#dateStart').val(data[3]);
                 $('#reg_fee').val(data[4]);
+                $('#regFee').val(data[4]);
             })
         })
 
@@ -484,9 +581,17 @@
             var checkBox = document.getElementById("myCheck");
             var checkBoxTwo = document.getElementById("myCheckTwo");
 
+            var checkBox00 = document.getElementById("xCheck0");
+            var checkBox01 = document.getElementById("xCheck1");
+            var checkBox02 = document.getElementById("xCheck2");
+
             var text0 = document.getElementById("text0");
             var text = document.getElementById("text");
             var textTwo = document.getElementById("text-two");
+
+            var text00 = document.getElementById("xtext");
+            var text01 = document.getElementById("xtext1");
+            var text02 = document.getElementById("xtext2");
 
             if (checkBox0.checked == true){
                 text0.style.display = "block";
@@ -505,6 +610,24 @@
             } else {
                 textTwo.style.display = "none";
             }
+
+            if (checkBox00.checked == true){
+                text00.style.display = "block";
+            } else {
+                text00.style.display = "none";
+            }
+
+            if (checkBox01.checked == true){
+                text01.style.display = "block";
+            } else {
+                text01.style.display = "none";
+            }
+
+            if (checkBox02.checked == true){
+                text02.style.display = "block";
+            } else {
+                text02.style.display = "none";
+            }
         }
 
         $(document).ready(function(){
@@ -521,41 +644,41 @@
                             <div class="row col-md-12 mb-2">\
                                 <div class="col-md-5">\
                                     <label>First Name</label>\
-                                    <input type="text" class="form-control" name="newname[]" placeholder="First Name" value="" required>\
-                                </div>\
-                                <div class="col-md-5">\
-                                    <label>Last Name</label>\
-                                    <input type="text" class="form-control" name="newlastname[]" placeholder="Last Name" value="" required>\
+                                    <input type="text" class="form-control" name="name[]" placeholder="First Name" value="" required>\
                                 </div>\
                                 <div class="col-md-2">\
                                     <label>M.I.</label>\
-                                    <input type="text" class="form-control" name="newmi[]" placeholder="M.I." value="" required>\
+                                    <input type="text" class="form-control" name="mi[]" placeholder="M.I." value="" required>\
+                                </div>\
+                                <div class="col-md-5">\
+                                    <label>Last Name</label>\
+                                    <input type="text" class="form-control" name="lastname[]" placeholder="Last Name" value="" required>\
                                 </div>\
                             </div>\
                             <div class="row col-md-12 mb-2">\
                                 <div class="col-md-6">\
                                     <label>Email Address</label>\
-                                    <input type="Email" class="form-control" name="newemail_add[]" placeholder="Email Address" value="" required>\
+                                    <input type="Email" class="form-control" name="email_add[]" placeholder="Email Address" value="" required>\
                                 </div>\
                                 <div class="col-md-6">\
                                     <label>Contact Number</label>\
-                                    <input type="text" class="form-control"  name="newcontact[]" placeholder="Contact Number" value="" required>\
+                                    <input type="text" class="form-control"  name="contact[]" placeholder="Contact Number" value="" required>\
                                 </div>\
                             </div>\
                             <div class="row col-md-12 mb-2">\
                                 <div class="col-md-6">\
                                     <label>Name Of Oragnization</label>\
-                                    <input type="text" class="form-control" name="neworgs[]" placeholder="Name Of Oragnization" value="" required>\
+                                    <input type="text" class="form-control" name="orgs[]" placeholder="Name Of Oragnization" value="" required>\
                                 </div>\
                                 <div class="col-md-6">\
                                     <label>Position</label>\
-                                    <input type="text" class="form-control"  name="newposition[]" placeholder="Position" value="" required>\
+                                    <input type="text" class="form-control"  name="position[]" placeholder="Position" value="" required>\
                                 </div>\
                             </div>\
                             <div class="row col-md-12 mb-2">\
                                 <div class="col-md-4">\
                                     <label>Methods Of Payments: </label><br>\
-                                    <select class="form-select" name="payment1[]" required>\
+                                    <select class="form-select" name="payment[]" required>\
                                         <option value="">Open this select menu</option>\
                                         <option value="Free">Free</option>\
                                         <option value="Bank Transfer">Bank Transfer</option>\
@@ -563,8 +686,8 @@
                                     </select>\
                                 </div>\
                             </div>\
-                            <input type="text" name="newstatus[]" value="pending" hidden>\
-                            <input type="text" name="newaction[]" value="New" hidden>\
+                            <input type="text" name="status" value="pending" hidden>\
+                            <input type="text" name="action" value="New" hidden>\
                         </div>');
             })
         })
