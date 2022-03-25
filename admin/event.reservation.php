@@ -8,7 +8,17 @@
   <!-- Header End -->
 
   <body>
-    <title>Sibol-PINOY Consultation Inbox</title>
+    <title>Sibol-PINOY Event Reservation</title>
+    <script>
+        $(document).ready(function(){
+            $(".inputSearch").on('keyup', function(){
+              var value =$(this).val().toLowerCase();
+              $("#myTable tr").filter(function(){
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              });    
+            });
+        });   
+    </script>
 
     <!-- top navigation bar -->
     <?php
@@ -38,6 +48,10 @@
                 <div class="card">
                     <div class="card-header">
                         <span><i class="bi bi-calendar-check"></i></span> Event Reservation List
+
+                        <div class="form-group float-end col-md-6">
+                            <input type="text" class="form-control form-control-sm inputSearch" id="inputSearch" placeholder="Search..">
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -61,16 +75,34 @@
                                         <th hidden>Info</th>
                                         <th hidden>SS Payment</th>
                                         <th hidden>Payment</th>
-                                        <th hidden>Registered by</th>
+                                        <th>Registered by</th>
                                         <th>Status</th>
                                         <th hidden>Action</th>
                                         <th>Registered</th>
                                         <th>Read</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="myTable">
                                     <?php
-                                        $event_reservation_query = "SELECT tb1.entryID, tb2.client_uniID, tb2.firstName, tb2.mi, tb2.lastName, tb2.contact, tb2.organization, tb2.position, tb1.email_add, tb1.reservationID, tb3.eventID, tb3.event_title, tb3.date_and_time, tb3.reg_fee, tb1.ss_payment, tb1.payment_method, tb1.registered_by, tb1.date_registered, tb1.status, tb1.action FROM( event_reservation tb1 INNER JOIN client tb2 ON tb1.email_add = tb2.email_add) INNER JOIN events tb3 ON tb1.eventID = tb3.eventID";
+                                        if(isset($_GET['page_no']) && $_GET['page_no'] !=''){
+                                            $page_no = $_GET['page_no'];
+                                        }else{
+                                            $page_no = 1;
+                                        }
+            
+                                        $total_records_per_page = 10;
+                                        $offset = ($page_no-1) * $total_records_per_page;
+                                        $previous_page = $page_no - 1;
+                                        $next_page = $page_no + 1;
+                                        $adjacents = "2";
+            
+                                        $result_count = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM `event_reservation`" );
+                                        $total_records = mysqli_fetch_array($result_count);
+                                        $total_records = $total_records['total_records'];
+                                        $total_number_of_page = ceil($total_records / $total_records_per_page);
+                                        $second_last = $total_number_of_page - 1;
+
+                                        $event_reservation_query = "SELECT tb1.entryID, tb2.client_uniID, tb2.firstName, tb2.mi, tb2.lastName, tb2.contact, tb2.organization, tb2.position, tb1.email_add, tb1.reservationID, tb3.eventID, tb3.event_title, tb3.date_and_time, tb3.reg_fee, tb1.ss_payment, tb1.payment_method, tb1.registered_by, tb1.date_registered, tb1.status, tb1.action FROM( event_reservation tb1 INNER JOIN client tb2 ON tb1.email_add = tb2.email_add) INNER JOIN events tb3 ON tb1.eventID = tb3.eventID ORDER BY entryID DESC";
 
                                         $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
                                         if(mysqli_num_rows($event_reservation_query_result) > 0){
@@ -104,7 +136,7 @@
                                                     <td hidden><?= $event_reservation['reg_fee'] ?></td>
                                                     <td hidden><?= $event_reservation['ss_payment'] ?></td>
                                                     <td hidden><?= $event_reservation['payment_method'] ?></td>
-                                                    <td hidden><?= $event_reservation['registered_by'] ?></td>
+                                                    <td><?= $event_reservation['registered_by'] ?></td>
                                                     <td><?= $event_reservation['status'] ?></td>
                                                     <td hidden><?= $event_reservation['action'] ?></td>
                                                     <td><?= date('M d Y',  strtotime($event_reservation['date_registered'])) ?></td>
@@ -142,7 +174,7 @@
                                         <th hidden>Info</th>
                                         <th hidden>SS Payment</th>
                                         <th hidden>Payment</th>
-                                        <th hidden>Registered by</th>
+                                        <th>Registered by</th>
                                         <th>Status</th>
                                         <th hidden>Action</th>
                                         <th>Registered</th>
@@ -151,6 +183,72 @@
                                 </tfoot>
                             </table>
                         </div>
+                        <ul class="pagination pull-right">
+                            <li class="pull-left btn btn-default disabled">Showing Page <?php echo $page_no." of ".$total_number_of_page;?></li>
+                            <li class=" p-2 <?php if($page_no <= 1) { echo "disabled";}?>">
+                                <a <?php if($page_no > 1) { echo "href='?page_no=$previous_page'";} ?>>Previous</a>
+                            </li>
+
+                            <?php
+                                if($total_number_of_page <=10){
+
+                                    for($counter = 1; $counter <=$total_number_of_page;$counter++){
+                                        if($counter == $page_no){
+                                            echo "<li class='active p-2'><a> $counter </a></li>";
+                                        }else{
+                                            echo "<li class='p-2'><a href='?page_no=$counter'> $counter </a></li>";
+                                        }
+                                    }
+                                }elseif($total_number_of_page > 10){
+                                    if($page_no <=4){
+                                        for($counter = 1; $counter < 8; $counter++){
+                                            if($counter == $page_no){
+                                                echo "<li class='active p-2'><a> $counter </a></li>";
+                                            }else {
+                                                echo "<li class='p-2'><a href'?page_no=$counter'> $counter </a></li>";
+                                            }
+                                        }
+                                        echo "<li class='p-2'><a>...</a></li>";
+                                        echo "<li class='p-2'><a href='?page_no=$second_last'>$second_last</a></li>";
+                                        echo "<li class='p-2'><a href='?page_no=$total_number_of_page'>$total_number_of_page</a></li>";
+                                    }
+                                }elseif($page_no > 4 && $page_no < $total_number_of_page -4 ){
+                                    echo "<li><a href='?page_no=1'>1</a></li>";
+                                    echo "<li><a href='?page_no=2'>2</a></li>";
+                                    echo "<li><a>...</a></li>";
+
+                                    for($counter = $page_no - $adjacents; $counter <=$page_no + $adjacents;$counter++){
+                                        if($counter == $page_no){
+                                            echo "<li class='active'><a> $counter </a></li>";
+                                        }else{
+                                            echo "<li><a href'?page_no=$counter'> $counter </a></li>";
+                                        }
+                                    }
+                                    echo "<li><a>...</a></li>";
+                                    echo "<li><a href='?page_no=$second_last'>$second_last</a></li>";
+                                    echo "<li><a href='?page_no=$total_number_of_page'>$total_number_of_page</a></li>";
+                                }else{
+                                    echo "<li><a href='?page_no=1'>1</a></li>";
+                                    echo "<li><a href='?page_no=2'>2</a></li>";
+                                    echo "<li><a>...</a></li>";
+
+                                    for($counter = $total_number_of_page - 6; $counter <= $total_number_of_page;$counter++){
+                                        if($counter == $page_no){
+                                            echo "<li class='active'><a> $counter </a></li>";
+                                        }else{
+                                            echo "<li><a href'?page_no=$counter'> $counter </a></li>";
+                                        }
+                                    }
+                                    
+                                } 
+                            ?>
+
+                            <li class="p-2 <?php if($page_no >= $total_number_of_page) {echo "disabled";} ?>" >
+                                <a <?php if($page_no < $total_number_of_page) {echo "href='?page_no=$next_page'";} ?>>Next</a>
+                            </li>
+                            <?php if($page_no < $total_number_of_page) {echo "<li class='p-2'><a href='?page_no=$total_number_of_page'>Last &rsaquo;</a?</li>";} ?>
+                            
+                        </ul>
                     </div>
                 </div>
             </div>

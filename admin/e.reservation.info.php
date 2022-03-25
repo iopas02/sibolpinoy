@@ -8,7 +8,7 @@
   <!-- Header End -->
 
   <body>
-    <title>Sibol-PINOY Consultation Inbox</title>
+    <title>Sibol-PINOY Reservation Info</title>
 
     <!-- top navigation bar -->
     <?php
@@ -98,21 +98,21 @@
                 </div>
                 <div class="col-md-12 d-flex">
                     <div class="col-md-6">
-                        <label class="col-form-label">Email Address</label>
+                        <label class="col-form-label">Email Address:</label>
                         <input class="col-md-12" type="text" value="<?= $email_add ?>"readonly>
                     </div>
                     <div class="col-md-6">
-                        <label class="col-form-label">Contact Number</label>
+                        <label class="col-form-label">Contact Number:</label>
                         <input class="col-md-12" type="text" value="<?= $contact ?>" readonly>
                     </div>
                 </div>
                 <div class="col-md-12 d-flex">
                     <div class="col-md-6">
-                        <label class="col-form-label">Organization</label>
+                        <label class="col-form-label">Organization:</label>
                         <input class="col-md-12" type="text" value="<?= $organization ?>" readonly>
                     </div>
                     <div class="col-md-6">
-                        <label class="col-form-label">Position</label>
+                        <label class="col-form-label">Position:</label>
                         <input class="col-md-12" type="text" value="<?= $position ?>" readonly>
                     </div>
                 </div>
@@ -120,21 +120,21 @@
                 <div>Event Information</div>
                 <div class="col-md-12 d-flex">
                     <div class="col-md-2">
-                        <label class="col-form-label">E-ID</label>
+                        <label class="col-form-label">E-ID:</label>
                         <input class="col-md-12" type="text" value="<?= $eventID  ?>" readonly>
                     </div>
                     <div class="col-md-10">
-                        <label class="col-form-label">Event Title</label>
+                        <label class="col-form-label">Event Title:</label>
                         <input class="col-md-12" type="text" value="<?= $event_title ?>" readonly>
                     </div>
                 </div>
                 <div class="col-md-12 d-flex">
                     <div class="col-md-6">
-                        <label class="col-form-label">Event Date and Time</label>
+                        <label class="col-form-label">Event Date and Time:</label>
                         <input class="col-md-12" type="text" value="<?= $date_and_time ?>" readonly>
                     </div>
                     <div class="col-md-6">
-                        <label class="col-form-label">Event Reg Fee</label>
+                        <label class="col-form-label">Event Reg Fee:</label>
                         <input class="col-md-12" type="text" value="<?= $reg_fee ?>" readonly>
                     </div>
                 </div>
@@ -142,27 +142,27 @@
                 <div>Reservation Information</div>
                 <div class="row col-md-12">
                     <div class="col-md-4">
-                        <label class="col-md-12">SS_Payment</label>
+                        <label class="col-md-12">SS_Payment:</label>
                         <img src="svg/default_new_image.jpg" class="w-100 h-100">
                     </div>
                     <div class="col-md-8">
                         <div class="col-md-12 d-flex">
                             <div class="col-md-6">
-                                <label class="col-form-label">Reservation ID</label>
+                                <label class="col-form-label">Reservation ID:</label>
                                 <input class="col-md-12" type="text" value="<?= $reservationID ?>" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label class="col-form-label">Status</label>
+                                <label class="col-form-label">Status:</label>
                                 <input class="col-md-12" type="text" value="<?= $status?>" readonly>
                             </div>
                         </div>
                         <div class="col-md-12 d-flex">
                             <div class="col-md-6">
-                                <label class="col-form-label">Payment Method</label>
+                                <label class="col-form-label">Payment Method:</label>
                                 <input class="col-md-12" type="text" value="<?= $payment_method ?>" readonly>
                             </div>
                             <div class="col-md-6">
-                                <label class="col-form-label">Date Registered</label>
+                                <label class="col-form-label">Date Registered:</label>
                                 <input class="col-md-12" type="text" value="<?= date('M d Y',  strtotime($date_registered)) ?>" readonly>
                             </div>
                            

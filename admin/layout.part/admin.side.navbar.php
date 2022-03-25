@@ -4,12 +4,29 @@
     $count_inbox = "SELECT * FROM `email` WHERE `status`='$stats' ";
     $count_inbox_run = mysqli_query($conn, $count_inbox);
     $result_count = mysqli_num_rows($count_inbox_run);
-    
     if($result_count > 0){
         $add_class = '';
     }else{
         $add_class = 'visually-hidden';
     }
+
+    $a = 'New';
+    $count_er = "SELECT * FROM `event_reservation` WHERE `action`='$a' ";
+    $count_er_run = mysqli_query($conn, $count_er);
+    $er_count = mysqli_num_rows($count_er_run);
+    if($er_count > 0){
+        $a_class = '';
+    }else{
+        $a_class = 'visually-hidden';
+    }
+
+    $all_count = $result_count + $er_count;
+    if($all_count > 0){
+        $e_class = '';
+    }else{
+        $e_class = 'visually-hidden';
+    }
+
 ?>
 /********THIS PART IS FOR THE COUNTING NEW EMAIL IN EMAIL TABLE END HERE*************/
 
@@ -59,8 +76,8 @@
                     <a class="nav-link px-3 text-light text-normal position-relative" data-bs-toggle="collapse" href="#email">
                         <span class="me-2"><i class="bi bi-archive"></i></span>
                             <span>Email 
-                                <span class="position-absolute top-0 stranslate-middle badge rounded-pill bg-danger <?= $add_class ?>" style="width: 25px; height: 25px;">
-                                <p class="mt-1"><?= $result_count ?></p>
+                                <span class="position-absolute top-0 stranslate-middle badge rounded-pill bg-danger <?= $e_class ?>" style="width: 25px; height: 25px;">
+                                <p class="mt-1"><?= $all_count ?></p>
                                 <span class="visually-hidden">unread messages</span>
                             </span>
                         </span>
@@ -75,19 +92,23 @@
                         <ul class="navbar-nav ps-3">
                             <li>       
                                 <a href="event.reservation.php" class="nav-link px-3 text-normal">
-                                    <span class="me-2"><i class="bi bi-calendar-check"></i></span>
-                                    <span>Event Reservation</span>
+                                    <span class="me-1"><i class="bi bi-calendar-check"></i></span>
+                                    <span>Event Reservation
+                                        <span class="top-0 stranslate-middle badge rounded-pill bg-danger <?= $a_class ?>" style="width: 20px; height: 15px; margin-left: -16px;">
+                                        <p class=""><?= $er_count ?></p>
+                                        <span class="visually-hidden">unread messages</span>
+                                    </span>
                                 </a>    
                             </li>
                             <li>
                                 <a href="consultation.php" class="nav-link px-3 text-normal">
-                                    <span class="me-2"><i class="bi bi-clipboard-check"></i></span>
+                                    <span class="me-1"><i class="bi bi-clipboard-check"></i></span>
                                     <span>Consultation</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="inbox.php" class="nav-link px-3 text-normal position-relative">
-                                    <span class="me-2"><i class="bi bi-envelope"></i></span>
+                                    <span class="me-1"><i class="bi bi-envelope"></i></span>
                                     <span>Inbox
                                         <span class="position-absolute top-0 stranslate-middle badge bg-danger <?= $add_class ?>"  style="width: 20px; height: 15px;">
                                         <p class=""><?= $result_count ?></p>
@@ -97,7 +118,7 @@
                             </li>
                             <li>         
                                 <a href="sent.php" class="nav-link px-3 text-normal">
-                                    <span class="me-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-check" viewBox="0 0 16 16">
+                                    <span class="me-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-check" viewBox="0 0 16 16">
                                     <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855a.75.75 0 0 0-.124 1.329l4.995 3.178 1.531 2.406a.5.5 0 0 0 .844-.536L6.637 10.07l7.494-7.494-1.895 4.738a.5.5 0 1 0 .928.372l2.8-7Zm-2.54 1.183L5.93 9.363 1.591 6.602l11.833-4.733Z"/>
                                     <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686Z"/>
                                     </svg></span>
