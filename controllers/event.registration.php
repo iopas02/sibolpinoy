@@ -161,7 +161,7 @@ if(isset($_POST['register'])){
                                                 $mail->setFrom($company_email, $company);
                                                 $mail->addReplyTo($company_email, $company);
                     
-                                                $email_selection_query = "SELECT `email_add` FROM `event_reservation` WHERE `reservationID`='$reservationID'";
+                                                $email_selection_query = "SELECT `email_add` FROM `event_reservation` WHERE `reservationID`='$reservationID' AND `registered_by`='$email_add'";
                                                 $result = $conn->query($email_selection_query);
                                                 if ($result->num_rows > 0) {
                                                     foreach($result as $reg_email) {
@@ -253,7 +253,7 @@ if(isset($_POST['register'])){
                                                     $mail->setFrom($company_email, $company);
                                                     $mail->addReplyTo($company_email, $company);
                         
-                                                    $email_selection_query = "SELECT `email_add` FROM `event_reservation` WHERE `reservationID`='$reservationID'";
+                                                    $email_selection_query = "SELECT `email_add` FROM `event_reservation` WHERE `reservationID`='$reservationID' AND `registered_by`='$email_add'";
                                                     $result = $conn->query($email_selection_query);
                                                     if ($result->num_rows > 0) {
                                                         foreach($result as $reg_email) {
@@ -477,7 +477,7 @@ if(isset($_POST['register'])){
                                             $mail->setFrom($company_email, $company);
                                             $mail->addReplyTo($company_email, $company);
                 
-                                            $email_selection_query = "SELECT `email_add` FROM `event_reservation` WHERE `reservationID`='$reservationID'";
+                                            $email_selection_query = "SELECT `email_add` FROM `event_reservation` WHERE `reservationID`='$reservationID' AND `registered_by`='$email_add' ";
                                             $result = $conn->query($email_selection_query);
                                             if ($result->num_rows > 0) {
                                                 foreach($result as $reg_email) {
@@ -571,7 +571,7 @@ if(isset($_POST['register'])){
                                                 $mail->setFrom($company_email, $company);
                                                 $mail->addReplyTo($company_email, $company);
                     
-                                                $email_selection_query = "SELECT `email_add` FROM `event_reservation` WHERE `reservationID`='$reservationID'";
+                                                $email_selection_query = "SELECT `email_add` FROM `event_reservation` WHERE `reservationID`='$reservationID' AND `registered_by`='$email_add'";
                                                 $result = $conn->query($email_selection_query);
                                                 if ($result->num_rows > 0) {
                                                     foreach($result as $reg_email) {

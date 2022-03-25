@@ -394,7 +394,7 @@
                             </div>
 
                             <div class="col-12">
-                                <small>SPMC <a href=#>TERMS</a> and <a href="#poirty">PRIVACY POLICY</a></small>
+                                <small>SPMC <a href=#>TERMS</a> and <a href="#">PRIVACY POLICY</a></small>
                                 <div class="form-check">
                                     <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
                                     <label class="form-check-label" for="invalidCheck3">
