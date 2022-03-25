@@ -122,8 +122,10 @@ if(isset($_POST['register'])){
 
                             if(!$mail->send()) {
                                 header("Location: ../event.php?error=Message_not_sent");
+                                exit();
                             } else {
                                 header("Location: ../event.php?success=email_sent");
+                                exit();
                             }
                                 
                             

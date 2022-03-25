@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <div class="card border-0 pt-5" style="width: 25rem;">
-                        <form>
+                        <form action="controllers/payment.control.php" method="POST" enctype="multipart/form-data">
                             <div class="form-outline mb-2">
                                 <label class="form-label" for="form1Example1">Email Address</label>
                                 <input type="email" class="form-control" name="email" placeholder="Email Address"/>
@@ -44,7 +44,7 @@
 
                             <div class="form-outline mb-2">
                                 <label class="form-label" for="form1Example2">Upload yoou SS Payments here</label>
-                                <input type="file" class="form-control" name="rev_id" />
+                                <input type="file" class="form-control" name="sspayment" />
                                 <small>("jpg", "jpeg", "png", are allowed files)</small>   
                             </div>
 
