@@ -85,16 +85,16 @@
                                     <label for="first_name">First Name*</label>
                                 </div>
                             </div>
-                            <div class="col-md-5">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name">
-                                    <label for="last_name">Last Name*</label>
-                                </div>
-                            </div>
                             <div class="col-md-2">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="mi" name="mi" placeholder="M.I.">
                                     <label for="mi">M.I.*</label>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name">
+                                    <label for="last_name">Last Name*</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -111,7 +111,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="orgs" name="corgs" placeholder="Organization/Company">
+                                    <input type="text" class="form-control" id="orgs" name="orgs" placeholder="Organization/Company">
                                     <label for="orgs">Organization/Company*</label>
                                 </div>
                             </div>

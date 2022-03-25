@@ -57,7 +57,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $inbox_mail = "SELECT tb2.emailID, tb1.client_uniID, tb1.firstName, tb1.lastName, tb1.email_add, tb2.subject, tb2.message, tb2.status, tb2.date_mailed  FROM client tb1 INNER JOIN email tb2 ON tb1.client_uniID = tb2.client_uniID";
+                                    $inbox_mail = "SELECT tb2.emailID, tb1.client_uniID, tb1.firstName, tb1.mi, tb1.lastName, tb1.email_add, tb2.subject, tb2.message, tb2.status, tb2.date_mailed  FROM client tb1 INNER JOIN email tb2 ON tb1.client_uniID = tb2.client_uniID";
 
                                     $inbox_mail_result = mysqli_query($conn, $inbox_mail);
                                     if(mysqli_num_rows($inbox_mail_result) > 0 ){
@@ -76,7 +76,7 @@
                                                 <td hidden><?= $email['emailID']?></td>
                                                 <td hidden><?= $email['client_uniID']?></td>
                                                 <?php
-                                                    $sender = $email['firstName']." ".$email['lastName'];
+                                                    $sender = $email['firstName']." ".$email['mi']." ".$email['lastName'];
                                                 ?>
                                                 <td><?= $sender ?></td>
                                                 <td hidden><?= $email['email_add']?></td>

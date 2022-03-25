@@ -94,7 +94,7 @@
                                 <a href="event.reservation.php" class="nav-link px-3 text-normal">
                                     <span class="me-1"><i class="bi bi-calendar-check"></i></span>
                                     <span>Event Reservation
-                                        <span class="top-0 stranslate-middle badge rounded-pill bg-danger <?= $a_class ?>" style="width: 20px; height: 15px; margin-left: -16px;">
+                                        <span class="position-absolute stranslate-middle badge bg-danger <?= $a_class ?>" style="width: 20px; height: 15px;">
                                         <p class=""><?= $er_count ?></p>
                                         <span class="visually-hidden">unread messages</span>
                                     </span>
