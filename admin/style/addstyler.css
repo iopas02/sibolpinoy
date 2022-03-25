@@ -98,6 +98,11 @@ body{
     font-size: 16px;
     font-weight: 600;
 }
+.card-tex2{
+    font-family: var(--roboto);
+    font-size: 16px;
+    font-weight: 300;
+}
 
 .welcome-text{
     font-family: var(--roboto);

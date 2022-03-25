@@ -50,7 +50,7 @@
                                         <th hidden>MI</th>
                                         <th hidden>Lastname</th>
                                         <th>Full Name</th>
-                                        <th>Email</th>
+                                        <th hidden>Email</th>
                                         <th hidden>Contatc</th>
                                         <th hidden>Organization</th>
                                         <th hidden>Position</th>
@@ -59,12 +59,12 @@
                                         <th>Event Name</th>
                                         <th hidden>Date</th>
                                         <th hidden>Info</th>
-                                        <th>SS Payment</th>
+                                        <th hidden>SS Payment</th>
                                         <th hidden>Payment</th>
                                         <th hidden>Registered by</th>
                                         <th>Status</th>
                                         <th hidden>Action</th>
-                                        <th>Date Registered</th>
+                                        <th>Registered</th>
                                         <th>Read</th>
                                     </tr>
                                 </thead>
@@ -76,14 +76,24 @@
                                         if(mysqli_num_rows($event_reservation_query_result) > 0){
                                             foreach($event_reservation_query_result as $event_reservation){
                                                 ?>
-                                                <tr>
+                                                <tr class="
+                                                    <?php
+                                                        $a = $event_reservation['action'];
+
+                                                        if($a == "New"){
+                                                            echo 'card-text';
+                                                        }else{
+                                                            echo 'card-tex2';
+                                                        }   
+                                                ?>
+                                                ">
                                                     <td><?= $event_reservation['entryID'] ?></td>
                                                     <td hidden><?= $event_reservation['client_uniID'] ?></td>
                                                     <td hidden><?= $event_reservation['firstName'] ?></td>
                                                     <td hidden><?= $event_reservation['mi'] ?></td>
                                                     <td hidden><?= $event_reservation['lastName'] ?></td>
                                                     <td><?= $event_reservation['firstName'].' '.$event_reservation['mi'].' '.$event_reservation['lastName'] ?></td>
-                                                    <td><?= $event_reservation['email_add'] ?></td>
+                                                    <td hidden><?= $event_reservation['email_add'] ?></td>
                                                     <td hidden><?= $event_reservation['contact'] ?></td>
                                                     <td hidden><?= $event_reservation['organization'] ?></td>
                                                     <td hidden><?= $event_reservation['position'] ?></td>
@@ -92,7 +102,7 @@
                                                     <td><?= $event_reservation['event_title'] ?></td>
                                                     <td hidden><?= $event_reservation['date_and_time'] ?></td>
                                                     <td hidden><?= $event_reservation['reg_fee'] ?></td>
-                                                    <td><?= $event_reservation['ss_payment'] ?></td>
+                                                    <td hidden><?= $event_reservation['ss_payment'] ?></td>
                                                     <td hidden><?= $event_reservation['payment_method'] ?></td>
                                                     <td hidden><?= $event_reservation['registered_by'] ?></td>
                                                     <td><?= $event_reservation['status'] ?></td>
@@ -121,7 +131,7 @@
                                         <th hidden>MI</th>
                                         <th hidden>Lastname</th>
                                         <th>Full Name</th>
-                                        <th>Email</th>
+                                        <th hidden>Email</th>
                                         <th hidden>Contatc</th>
                                         <th hidden>Organization</th>
                                         <th hidden>Position</th>
@@ -130,12 +140,12 @@
                                         <th>Event Name</th>
                                         <th hidden>Date</th>
                                         <th hidden>Info</th>
-                                        <th>SS Payment</th>
+                                        <th hidden>SS Payment</th>
                                         <th hidden>Payment</th>
                                         <th hidden>Registered by</th>
                                         <th>Status</th>
                                         <th hidden>Action</th>
-                                        <th>Date Registered</th>
+                                        <th>Registered</th>
                                         <th>Read</th>
                                     </tr>
                                 </tfoot>

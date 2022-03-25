@@ -63,7 +63,7 @@
                                     if(mysqli_num_rows($inbox_mail_result) > 0 ){
                                         foreach($inbox_mail_result as $email){
                                             ?>
-                                            <tr <?= 
+                                            <tr <?php 
                                                 $status = $email['status'];
                                                 
                                                 if($status == 'New'){
