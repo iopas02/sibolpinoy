@@ -29,7 +29,7 @@
         <div class="content" >
             <div class="text-container">
                 <h1 class="text-design">We Offer Solution</h1>
-                <h1 class="text-design" style="padding-left: 25px;">We Are The Solution</h1>
+                <h1 class="text-design" style="padding-left: 15px;">We Are The Solution</h1>
             </div>
         </div>
     </section>
@@ -41,12 +41,12 @@
             <div class="row ">
                 <div class="col-md-12 text-center m-3">
                     <h1 class="bg-white text-dark pe-3 header-font">Our Mission</h1>
-                    <p class="">Unlocking potentials of Organizations Both in the public and private sectors that will open limitless opportunity to yield superior results</p>
+                    <p class="desc-font-two">Unlocking potentials of Organizations Both in the public and private sectors that will open limitless opportunity to yield superior results</p>
                 </div>
 
                 <div class="col-md-12 text-center m-3">
                     <h1 class="bg-white text-dark pe-3 header-font">Our Vision</h1>
-                    <p class="">Become the Leading business Solution provider in the Philippines.</p>
+                    <p class="desc-font-two">Become the Leading business Solution provider in the Philippines.</p>
                 </div>
             </div>
             <hr class="dropdown-divider bg-primary" />
@@ -64,8 +64,8 @@
                         <div class="p-4">
                             <i class="fa fa-3x fa-comment text-primary mb-4" aria-hidden="true"></i>
                             <!-- <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i> -->
-                            <h5 class="mb-3 second-header">What We Do?</h5>
-                            <p>We are here to help you establish your business on your own</p>
+                            <h5 class="mb-3 secondary-font-two">What We Do?</h5>
+                            <p class="desc-font-two">We are here to help you establish your business on your own</p>
                         </div>
                     </div>
                 </div>
@@ -73,8 +73,8 @@
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-globe text-primary mb-4"></i>
-                            <h5 class="mb-3 second-header">Our Culture</h5>
-                            <p>You’ll find our core values expressed in everything we do, whether it’s building our product, designing a new office, or planning team outings.</p>
+                            <h5 class="mb-3 secondary-font-two">Our Culture</h5>
+                            <p class="desc-font-two">You’ll find our core values expressed in everything we do, whether it’s building our product, designing a new office, or planning team outings.</p>
                         </div>
                     </div>
                 </div>
@@ -82,8 +82,8 @@
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-home text-primary mb-4"></i>
-                            <h5 class="mb-3 second-header">All Services</h5>
-                            <p>We have different services we can offer depends on your need</p>
+                            <h5 class="mb-3 secondary-font-two">All Services</h5>
+                            <p class="desc-font-two">We have different services we can offer depends on your need</p>
                         </div>
                     </div>
                 </div>
@@ -105,8 +105,7 @@
     <!-- Sibol Start -->
     <div class="container-fluid py-5 bg-white">
         <div class="container">
-            <div class="text-center" >
-                <!-- <h6 class="bg-white text-center text-dark px-3 secondary-font">Our Team</h6> -->
+            <div class="text-center">
                 <h1 class="mb-2 header-font">Grow With Us!</h1>
             </div>
 
@@ -114,9 +113,6 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4" >
-                            <!-- <div class="text-center">
-                                <img class="img-fluid border" src="img/spmc.gif" style="height:400px; width:350px;" alt="">
-                            </div> -->
                             <h1 class="text-center text-blue py-5 header-font-two">
                                 <i class="fa fa-quote-left px-5 text-yellow"></i>
                                     <br> Quality is a choice<br> Choose to be better<br> Choose SPMC!<br>
@@ -135,88 +131,6 @@
             </div>
         </div>
     </div>    
-        
-    <!-- Team Start -->
-    <!-- <div class="container-fluid py-5 bg-white">
-        <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="bg-white text-center text-dark px-3 secondary-font">Our Team</h6>
-                <h1 class="mb-5 header-font">Our Team Profile</h1>
-            </div>
-
-            <div class="container-xxl py-5 mb-5 wow fadeInUp">
-                <div class="container">
-                    <div class="row g-5">
-                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="text-center">
-                                <img class="img-fluid border rounded-circle" src="img/ceo.jpg" style="height:400px; width:370px;" alt="">
-                            </div>
-                            <div class="text-center">
-                                <h5 class="mb-0 secondary-font">Red One</h5>
-                                <small>Designation</small>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 py-5 wow fadeInUp" data-wow-delay="0.3s">    
-                            <h1 class="text-center text-blue header-font">
-                                <i class="fa fa-quote-left px-5 text-yellow"></i>
-                                    <br> I believe the children are our future, Teach them well and let them lead the way <br>
-                                <i class="fa fa-quote-right px-5 text-yellow"></i>     
-                            </h1>
-                        </div>    
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row g-4 mt-3">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-4.jpg" alt="">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0 secondary-font">Green Two</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-3.jpg" alt="">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0 secondary-font">Blue Three</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-2.jpg" alt="">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0 secondary-font">Yellow Four</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/team-1.jpg" alt="">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0 secondary-font">Pink Five</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Team End -->
         
 
     <!-- Footer Start -->

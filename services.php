@@ -60,15 +60,15 @@
                                             <div class="overflow-hidden text-center">
                                                 <img class="img-fluid" style="width: 450px;" src="admin/upload/<?= $serv_load['image']?>" alt="">
                                                 <div class="bg-white text-center position-absolute py-2 px-3" style="margin-left: 85px; margin-top: -60px">
-                                                    <h5 class="py-1 secondary-font"><?= $serv_load['service_title']?></h5>
+                                                    <h5 class="py-1 mt-1 secondary-font-two"><?= $serv_load['service_title']?></h5>
                                                 </div>
                                             </div>
                                             <div class="col-md-10 mx-5 pt-3 small-container">
-                                                <small><?= $serv_load['service_desc']?>
+                                                <small class="smaller-text"><?= $serv_load['service_desc']?>
                                                 </small>  
                                             </div>
                                             <div class="">
-                                                <h5 class="py-2 mx-5 second-header">What do we offer here?</h5>
+                                                <h5 class="py-2 mx-5 secondary-font-two">What do we offer here?</h5>
                                             </div>
                                             <div class="accordion col-md-10 mx-5" id="" >
                                                 <?php
@@ -141,13 +141,13 @@
                 <div class="col-lg-3 col-md-6 py-2" >
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/client_1.PNG" alt="">
+                            <img class="img-fluid w-100" src="img/client_1.PNG" alt="">
                         </div>
                         <div class="text-center p-4 pb-0 course-message">
-                            <h5 class="mb-4 second-header">Y.M.C.A Manila</h5>
-                            <p>Young Men’s Christian Association of Manila on ISO 9001:2015 Quality Management, Thank you for trusting us.</p>
+                            <h5 class="mb-4 secondary-font-two">Y.M.C.A Manila</h5>
+                            <p class="smaller-text">Young Men’s Christian Association of Manila on ISO 9001:2015 Quality Management, Thank you for trusting us.</p>
                         </div>
-                        <div class="d-flex border-top">
+                        <div class="d-flex border-top py-2">
                             <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>Mr. ------</small>
                             <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>2.49 Hrs</small>
                             <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>15 Participants</small>
@@ -157,11 +157,11 @@
                 <div class="col-lg-3 col-md-6 py-2">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/client_2.PNG" alt="">
+                            <img class="img-fluid w-100" src="img/client_2.PNG" alt="">
                         </div>
                         <div class="text-center p-4 pb-0 course-message">
-                            <h5 class="mb-4 second-header">Virgen Milagrosa University Foundation</h5>
-                            <p>Thank you for trusting Us on your journey to ISO 9001:2015 certification.</p>
+                            <h5 class="mb-4 secondary-font-two">Virgen Milagrosa University Foundation</h5>
+                            <p class="smaller-text">Thank you for trusting Us on your journey to ISO 9001:2015 certification.</p>
                         </div>
                         <div class="d-flex border-top">
                             <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>Mrs. ------</small>
@@ -173,11 +173,11 @@
                 <div class="col-lg-3 col-md-6 py-2">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/client_3.PNG" alt="">
+                            <img class="img-fluid w-100" src="img/client_3.PNG" alt="">
                         </div>
                         <div class="text-center p-4 pb-0 course-message">
-                            <h5 class="mb-4 second-header">Magna Prime Chemical Tech. inc.</h5>
-                            <p>Thank you for trusting Us on your journey Magna prime chemical tech. inc.</p>
+                            <h5 class="mb-4 secondary-font-two">Magna Prime Chemical Tech. inc.</h5>
+                            <p class="smaller-text">Thank you for trusting Us on your journey Magna prime chemical tech. inc.</p>
                         </div>
                         <div class="d-flex border-top">
                             <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>Engr. -----</small>
@@ -189,11 +189,11 @@
                 <div class="col-lg-3 col-md-6 py-2" >
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/client_4.PNG" alt="">
+                            <img class="img-fluid w-100" src="img/client_4.PNG" alt="">
                         </div>
                         <div class="text-center p-4 pb-0 course-message">
-                            <h5 class="mb-4 second-header">Romblon State University</h5>
-                            <p>Thank you for trusting us on Quality Management, ISO 9001:2015.</p>
+                            <h5 class="mb-4 secondary-font-two">Romblon State University</h5>
+                            <p class="smaller-text">Thank you for trusting us on Quality Management, ISO 9001:2015.</p>
                         </div>
                         <div class="d-flex border-top">
                             <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>Engr. -----</small>
@@ -205,11 +205,11 @@
                 <div class="col-lg-3 col-md-6 py-2">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/client_5.PNG" alt="">
+                            <img class="img-fluid w-100" src="img/client_5.PNG" alt="">
                         </div>
                         <div class="text-center p-4 pb-0 course-message">
-                            <h5 class="mb-4 second-header">Bureau Of Customs</h5>
-                            <p>Thank you for trusting us In-house Program Orientation and Consultation ISO 9001:2015-Quality Management</p>
+                            <h5 class="mb-4 secondary-font-two">Bureau Of Customs</h5>
+                            <p class="smaller-text">Thank you for trusting us In-house Program Orientation and Consultation ISO 9001:2015-Quality Management</p>
                         </div>
                         <div class="d-flex border-top">
                             <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>Mrs. -----</small>
@@ -221,11 +221,11 @@
                 <div class="col-lg-3 col-md-6 py-2">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/client_6.PNG" alt="">
+                            <img class="img-fluid w-100" src="img/client_6.PNG" alt="">
                         </div>
                         <div class="text-center p-4 pb-0 course-message">
-                            <h5 class="mb-4 second-header">RCDC</h5>
-                            <p>Thank you for trusting us in Training on Knowledge Management.</p>
+                            <h5 class="mb-4 secondary-font-two">RCDC</h5>
+                            <p class="smaller-text">Thank you for trusting us in Training on Knowledge Management.</p>
                         </div>
                         <div class="d-flex border-top">
                             <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>Mr. -----</small>
@@ -237,11 +237,11 @@
                 <div class="col-lg-3 col-md-6 py-2" >
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/client_7.PNG" alt="">
+                            <img class="img-fluid w-100" src="img/client_7.PNG" alt="">
                         </div>
                         <div class="text-center p-4 pb-0 course-message">
-                            <h5 class="mb-4 second-header">DEPED El Salvador</h5>
-                            <p>Thank you for trusting us on General Orientation on ISO 9001:2015</p>
+                            <h5 class="mb-4 secondary-font-two">DEPED El Salvador</h5>
+                            <p class="smaller-text">Thank you for trusting us on General Orientation on ISO 9001:2015</p>
                         </div>
                         <div class="d-flex border-top">
                             <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>Mr. -----</small>
@@ -253,11 +253,11 @@
                 <div class="col-lg-3 col-md-6 py-2">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/client_8.PNG" alt="">
+                            <img class="img-fluid w-100" src="img/client_8.PNG" alt="">
                         </div>
                         <div class="text-center p-4 pb-0 course-message">
-                            <h5 class="mb-4 second-header">National Economic Development Authority</h5>
-                            <p>Thank you for trusting us on Quality Management, ISO 9001:2015.</p>
+                            <h5 class="mb-4 secondary-font-two">National Economic Development Authority</h5>
+                            <p class="smaller-text">Thank you for trusting us on Quality Management, ISO 9001:2015.</p>
                         </div>
                         <div class="d-flex border-top">
                             <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>Mr. -----</small>

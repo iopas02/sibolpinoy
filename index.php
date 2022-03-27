@@ -24,73 +24,6 @@
     <!-- Navbar End -->
 
 
-    <!-- Carousel Start -->
-<<<<<<< HEAD
-=======
-    <!-- <div class="container-fluid p-0 mb-0">
-        <div class="banner">
-            <div class="position-relative">
-                <img class="img-fluid" src="img/banner.jpg" alt="">
-                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-                        <div class="row justify-content-center">
-                            <div class="col-sm-10 col-lg-8">
-                                <h4 class="text-white animated slideInDown header-font">Take Your Business To The Next Level</h4> <br>
-                                <p class="text-white mb-4 pb-2 secondary-font"><i>Unlocking potentials, building oppurtunities.</i></p>
-                                <a href="#check-services" class="btn py-md-3 px-md-5 me-3 animated slideInLeft text-light bg-blue">Read More</a>
-                                <a href="consultation.php" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Consult Now</a>
-                            </div>  
-                        </div>  
-                    </div>  
-            </div>  
-        </div>
-    </div> -->
->>>>>>> 8d51a73c07667ad7ef3c971e34eba90baccf0eda
-    <!-- <div class="container-fluid p-0 mb-0">
-        <div class="owl-carousel header-carousel position-relative">
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/banner.jpg" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-sm-10 col-lg-8">
-<<<<<<< HEAD
-                            <h1 class="display-3 text-white animated slideInDown">Sibol-PINOY</h1>
-=======
-                            
->>>>>>> 8d51a73c07667ad7ef3c971e34eba90baccf0eda
-                                <h4 class="text-white animated slideInDown header-font">Take Your Business To The Next Level</h4>
-                                <p class="text-white mb-4 pb-2 secondary-font">Unlocking potentials, building oppurtunities.</p>
-                                <a href="#check-services" class="btn py-md-3 px-md-5 me-3 animated slideInLeft text-light bg-blue">Read More</a>
-                                <a href="#" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <!-- <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/new_carousel-2.jpg" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-sm-10 col-lg-8">
-<<<<<<< HEAD
-                            <h1 class="display-3 text-white animated slideInDown">Sibol-PINOY</h1>
-=======
-                            
->>>>>>> 8d51a73c07667ad7ef3c971e34eba90baccf0eda
-                                <h4 class="text-white animated slideInDown header-font">Take Your Business To The Next Level</h4>
-                                <p class="text-white mb-4 pb-2 secondary-font">Unlocking potentials, building oppurtunities.</p>
-                                <a href="#check-services" class="btn py-md-3 px-md-5 me-3 animated slideInLeft text-light bg-blue">Read More</a>
-                                <a href="#" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-        </div>
-    </div> -->
-    <!-- Carousel End -->
-
     <!-- Header Start -->
     <section>
         <div class="indexContent" >
@@ -148,220 +81,110 @@
     </div>
     <!-- Service End -->
 
-    <!-- sibol-PINOY parallax video Start-->
-    <!-- <div class="container-fluid paraVideo">
-        <video autoplay muted loop>
-            <source src="video/video_2.mp4" type="video/mp4">
-        </video>
-    </div> -->
-    <!-- sibol-PINOY parallax video End-->
-
     <!-- About Start -->
     <div class="container-fluid bg-white py-5" id="about">
         <div class="container">
-            <div class="row justify-content-center align-item-center">
-                <!-- <div class="col-lg-6" style="min-height: 400px;">
-                    <div class="position-relative h-100">
-                        <img class="img-fluid position-absolute w-100 h-100" src="video/head_banner_1.gif" alt="" style="object-fit: cover;">
+                <div class="row justify-content-center align-item-center">
+                    <div class="col-md-10 text-center" >
+                        <!-- <h6 class="bg-white text-start text-dark pe-3 secondary-font">About Us</h6> -->
+                        <h1 class="mb-4 header-fonts">Welcome to Sibol-PINOY Management Consultancy</h1>
+                        <p class="mb-4 desc-font">Sibol-PINOY is a training and management consultancy which seeks to make expensive tools and techniques on productivity, 
+                        quality and performance excellence within the reach of micro, small and medium enterprises, including the government and NGOs. What we promotes are the following:</p>
+                        
+                        <a class="btn py-2 px-5 mt-1 text-light bg-blue" href="about.php">Read More</a>
                     </div>
-                </div> -->
-                <div class="col-md-10 text-center" >
-                    <!-- <h6 class="bg-white text-start text-dark pe-3 secondary-font">About Us</h6> -->
-                    <h1 class="mb-4 header-fonts">Welcome to Sibol-PINOY Management Consultancy</h1>
-                    <p class="mb-4 desc-font">Sibol-PINOY is a training and management consultancy which seeks to make expensive tools and techniques on productivity, 
-                    quality and performance excellence within the reach of micro, small and medium enterprises, including the government and NGOs. What we promotes are the following:</p>
-                    
-                    <div class="row gy-2 gx-4 mb-4">
-                        <!-- <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-dark me-2"></i><a href="#check-promotes">Brave and Conquer</a></p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-dark me-2"></i><a href="#check-promotes">Organized Goals</a></p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-dark me-2"></i><a href="#check-promotes">Productivity and Result</a></p>
-                        </div> -->
-                        <!-- <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-dark me-2"></i>Skilled Instructors</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-dark me-2"></i>Online Classes</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-dark me-2"></i>International Certificate</p>
-                        </div> -->
-                    </div>
-                    <a class="btn py-2 px-5 mt-1 text-light bg-blue" href="about.php">Read More</a>
                 </div>
             </div>
         </div>
-    </div>
     <!-- About End -->
 
 
-   <!-- Categories Start -->
+   
     <div class="ontainer-fluid bg-white py-5 category" id="services">
+        <!-- Categories Start -->
+        <div class="container-fluid bg-white py-5 category" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h6 class="text-center text-dark px-3 secondary-font">Services</h6>
+                    <h1 class="mb-5 header-font">Here at SPMC we always present our services at its best</h1>
+                </div>
 
-    <div class="container-fluid bg-white py-5 category" id="services">
-        <div class="container">
-            <div class="text-center">
-                <h6 class="text-center text-dark px-3 secondary-font">Services</h6>
-                <h1 class="mb-5 header-font">Here at SPMC we always present our services at its best</h1>
+                <div class="container col-md-12">
+
+                    <div class="row col-md-12 d-flex justify-content-center align-items-center">
+                        <?php
+                            $serv_reload_query = "SELECT * FROM `services` WHERE `status`='Active' ";
+                            $serv_reload_query_result = mysqli_query($conn, $serv_reload_query);
+                            if(mysqli_num_rows($serv_reload_query_result)>0){
+                                foreach($serv_reload_query_result as $service_offer){
+                                    ?>
+                                        <div class="col-md-5 p-4">
+                                            <a class="position-relative d-block text-center overflow-hidden" href="services.php">
+                                                <img class="" style="width: 380px; height: 230px;" src="admin/upload/<?= $service_offer['image']?>" alt="">
+                                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin-left: 45px;">
+                                                    <h5 class="m-0 secondary-font-two"><?= $service_offer['service_title']?></h5>
+                                                </div>
+                                            </a>
+                                            <p class="desc-font-two pt-3" style="height: 150px;"><?= $service_offer['service_desc']?></p>
+                                        </div>
+
+                                    <?php
+                                }
+                            }
+                        ?>
+                    </div>
+                    
+            
+                </div>
             </div>
+        </div>
+        <!-- Categories End -->
 
-            <div class="container col-md-12">
 
-                <div class="row col-md-12 d-flex justify-content-center align-items-center">
+
+    <!-- Events Start -->
+
+        <div class="container-fluid bg-white py-5">
+            <div class="container">
+                <div class="text-center">
+                    <h6 class="bg-white text-center text-dark px-3 secondary-font">Upcoming Events</h6>
+                </div>
+                
+                <div class="row col-md-12">
                     <?php
-                        $serv_reload_query = "SELECT * FROM `services` WHERE `status`='Active' ";
-                        $serv_reload_query_result = mysqli_query($conn, $serv_reload_query);
-                        if(mysqli_num_rows($serv_reload_query_result)>0){
-                            foreach($serv_reload_query_result as $service_offer){
+                        $tatus = 'published';
+                        $load_event_query = "SELECT * FROM `events` WHERE `status`='$tatus' ORDER BY `date_start`";
+                        $load_event_query_result = mysqli_query($conn, $load_event_query );
+                        if(mysqli_num_rows($load_event_query_result) > 0 ){
+                            foreach($load_event_query_result as $published_event){
                                 ?>
-                                    <div class="col-md-5 p-4">
-                                        <a class="position-relative d-block text-center overflow-hidden" href="services.php">
-                                            <img class="" style="width: 380px; height: 230px;" src="admin/upload/<?= $service_offer['image']?>" alt="">
-                                            <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin-left: 45px;">
-                                                <h5 class="m-0 secondary-font-two"><?= $service_offer['service_title']?></h5>
-                                            </div>
-                                        </a>
-                                        <p class="desc-font-two pt-3"><?= $service_offer['service_desc']?></p>
+                                    <div class="col-md-3 text-center py-2 img-content">
+                                        <img src="admin/upload/<?= $published_event['event_img']?>" style="width: 250px; height: 210px;" alt="">
                                     </div>
-
+                                    <div class="col-md-7 py-2 event-content">
+                                        <div class="text-one"> <?= $published_event['header']?> </div>
+                                        <div class="text-two"><?= $published_event['event_title']?></div>
+                                        <div class="text-one"><?= $published_event['date_and_time']?></div>
+                                        <div class="text-one"><?= $published_event['reg_fee']?></div>
+                                        <div class="smaller-text"><?= $published_event['desc_1']?></div>
+                                        <div class="smaller-text"><?= $published_event['desc_2']?></div>
+    
+                                    </div>
+                                    <div class="col-md-2 text-center py-3 date">       
+                                        <div class="date-text"><?= date('d',  strtotime($published_event['date_start'])) ?></div>
+                                        <div class="month-text"><?= date('M',  strtotime($published_event['date_start'])) ?></div>
+                                    </div>
+                                    <hr class="dropdown-divider bg-dark" />
                                 <?php
                             }
-                        }
+                        }    
+
                     ?>
                 </div>
                 
-        
             </div>
         </div>
-    </div>
-    <!-- Categories End -->
-
-
-    <!-- WHY CHOOSE SIBOL -->
-    <!-- <div class="ontainer-fluid bg-white py-5" id="check-services">
-        <div class="container">
-            <div class="text-center">
-                <h6 class="mb-5 secondary-font">Partners and Serviced Clients</h6>
-            </div>
-
-            <div class="col-md-12 col-sm-12 d-flex justify-content-center align-items-center">
-
-                <div class="pt-1 col-md-1">   
-                    <img class="img-fluid" style="width:120px; height:80px;" src="img/DEPED_El_Salvador.png" alt="">   
-                </div>
-
-                <div class="pt-1 col-md-1">  
-                    <img class="img-fluid" style="width:120px; height:80px;" src="img/Bureau_Of_Customs.png" alt="">
-                </div>
-
-                <div class="pt-1 col-md-1" >
-                    <img class="img-fluid" style="width:120px; height:80px;" src="img/Magna_Prime_Chemical_Tech._inc.png" alt="">
-                </div>
-
-                <div class="pt-1 col-md-1">
-                    <img class="img-fluid" style="width:120px; height:80px;" src="img/National_Economic_Development_Authority.png" alt="">
-                </div>
-
-                <div class="pt-1 col-md-1">
-                    <img class="img-fluid" style="width:120px; height:80px;" src="img/RCDC.png" alt="">
-                </div>
-
-                <div class="pt-1 col-md-1">
-                    <img class="img-fluid" style="width:120px; height:80px;" src="img/Romblon_State_University.png" alt="">
-                </div>
-
-                <div class="pt-1 col-md-1">
-                    <img class="img-fluid" style="width:120px; height:80px;" src="img/Virgen_Milagrosa_University_Foundation.png" alt="">
-                </div>
-
-                <div class="pt-1 col-md-1">
-                    <img class="img-fluid" style="width:120px; height:80px;" src="img/ymca.png" alt="">
-                </div>
-
-            </div>
-        </div>
-    </div> -->
-    <!-- WHY CHOOSE SIBOL -->
-
-
-    <!-- WHAT SIBOL PROMOTES -->
-    <!-- <div class="ontainer-fluid bg-white py-5" id="check-promotes">
-        <div class="container">
-            <div class="text-center wow fadeInUp">
-                <h2 class="bg-white text-center text-dark px-3 header-font">WHAT WE PROMOTES?</h2>
-                <h6 class="mb-5 secondary-font">Sibol-Pinoy Management Consultancy promotes</h6>
-            </div>
-            <div class="owl-carousel testimonial-carousel position-relative wow fadeInUp">
-                <div class="testimonial-item text-center">
-                    <h5 class="my-4 second-header">Organized Goals</h5>
-                    <div class="testimonial-text text-dark text-center p-4">
-                        <p class="mb-0">Don’t wait until you’ve reached your goals to be proud of yourself. Be proud of each step you take to get to the top.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <h5 class="my-4 second-header">Productivity and Result</h5>
-                    <div class="testimonial-text text-dark text-center p-4">
-                        <p class="mb-0">It is not about how much time you have, It is How you use it. Here at SPMC we ensure productivity at every minute that passes.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <h5 class="my-4 second-header">Brave and Conquer</h5>
-                    <div class="testimonial-text text-dark text-center p-4">
-                        <p class="mb-0">Have the confidence, Look up and see the new light in the midst of problems. Conquer new Opportunities with SPMC.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Testimonial End -->
-
-        <!-- Events Start -->
-    
-        <div class="container-fluid bg-white py-5">
-        <div class="container">
-            <div class="text-center">
-                <h6 class="bg-white text-center text-dark px-3 secondary-font">Upcoming Events</h6>
-            </div>
-            
-            <div class="row col-md-12">
-                <?php
-                    $tatus = 'published';
-                    $load_event_query = "SELECT * FROM `events` WHERE `status`='$tatus' ORDER BY `date_start`";
-                    $load_event_query_result = mysqli_query($conn, $load_event_query );
-                    if(mysqli_num_rows($load_event_query_result) > 0 ){
-                        foreach($load_event_query_result as $published_event){
-                            ?>
-                                <div class="col-md-3 text-center py-2 img-content">
-                                    <img src="admin/upload/<?= $published_event['event_img']?>" style="width: 250px; height: 210px;" alt="">
-                                </div>
-                                <div class="col-md-7 py-2 event-content">
-                                    <div class="text-one"> <?= $published_event['header']?> </div>
-                                    <div class="text-two"><?= $published_event['event_title']?></div>
-                                    <div class="text-one"><?= $published_event['date_and_time']?></div>
-                                    <div class="text-one"><?= $published_event['reg_fee']?></div>
-                                    <div class="smaller-text"><?= $published_event['desc_1']?></div>
-                                    <div class="smaller-text"><?= $published_event['desc_2']?></div>
-  
-                                </div>
-                                <div class="col-md-2 text-center py-3 date">       
-                                    <div class="date-text"><?= date('d',  strtotime($published_event['date_start'])) ?></div>
-                                    <div class="month-text"><?= date('M',  strtotime($published_event['date_start'])) ?></div>
-                                </div>
-                                <hr class="dropdown-divider bg-dark" />
-                            <?php
-                        }
-                    }    
-
-                ?>
-            </div>
-            
-        </div>
-    </div>
-    
+    </div> 
     <!-- Events Start -->
         
 

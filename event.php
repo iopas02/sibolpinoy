@@ -67,7 +67,7 @@
                                 foreach($load_event_query_result as $published_event){
                                     ?>
                                         <tr>
-                                            <td>
+                                            <td class="img-content">
                                                 <div class="">
                                                     <img src="admin/upload/<?= $published_event['event_img']?>" style="width: 250px; height: 210px;" alt="">
                                                 </div>
@@ -90,7 +90,7 @@
                                                 </div>
                                                     
                                             </td>
-                                            <td>
+                                            <td class="date">
                                                 <div class="col-md-2 text-center py-3">       
                                                     <div class="date-text"><?= date('d',  strtotime($published_event['date_start'])) ?></div>
                                                     <div class="month-text"><?= date('M',  strtotime($published_event['date_start'])) ?></div>
@@ -210,8 +210,8 @@
                                                 <img class="" style="width: 250px; height: 150px;" src="admin/upload/<?= $prev_event['event_img']?>">
                                             </td>
                                             <td>
-                                                <h5 class="mb-0 second-header"><?= $prev_event['event_title']?></h5>
-                                                <p><?= $prev_event['date_and_time']?> </p>
+                                                <h5 class="mb-0 desc-font-two"><?= $prev_event['event_title']?></h5>
+                                                <p class="smaller-text"><?= $prev_event['date_and_time']?> </p>
                                             </td>
                                         </tr>
                                     <?php
