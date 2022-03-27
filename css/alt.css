@@ -36,7 +36,13 @@ font-family: 'Abril Fatface', cursive;
 
 /*** font-style-and-family ***/
 .header-font{
-    font-family: var(--robotoSlab);
+    font-family: var(--roboto);
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.header-fonts{
+    font-family: var(--roboto);
     font-size: 35px;
     font-weight: 500;
 }
@@ -60,6 +66,23 @@ font-family: 'Abril Fatface', cursive;
     font-weight: 300;
 }
 
+.desc-font{
+    font-family: var(--roboto);
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.desc-font-two{
+    font-family: var(--roboto);
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.secondary-font-two{
+    font-family: var(--roboto);
+    font-size: 20px;
+    font-weight: 400;
+}
 
 p,
 li{
@@ -296,15 +319,15 @@ section{
 }
 
 
-@media(max-width: 900px){
+@media(max-width: 990px){
     .indexContent .indexTextContent{
         padding-top: 200px;
         padding-left: 35px;
-        width: 500px;
+        width: 400px;
     }
     
     .indexContent .indexTextContent .indexText{
-        font-size: 40px;
+        font-size: 35px;
         line-height: 45px;
     }
 
@@ -354,6 +377,14 @@ section{
     .contactContent .textContactContent .textContact{
         font-size: 40px;
         line-height: 45px;
+    }
+
+    .event-content {
+        width: 100vw;
+    }
+    .img-content,
+    .date{
+        display: none;
     }
 }
 

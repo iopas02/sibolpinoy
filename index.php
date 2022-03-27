@@ -27,7 +27,7 @@
     <!-- Carousel Start -->
 <<<<<<< HEAD
 =======
-    <div class="container-fluid p-0 mb-0">
+    <!-- <div class="container-fluid p-0 mb-0">
         <div class="banner">
             <div class="position-relative">
                 <img class="img-fluid" src="img/banner.jpg" alt="">
@@ -43,7 +43,7 @@
                     </div>  
             </div>  
         </div>
-    </div>
+    </div> -->
 >>>>>>> 8d51a73c07667ad7ef3c971e34eba90baccf0eda
     <!-- <div class="container-fluid p-0 mb-0">
         <div class="owl-carousel header-carousel position-relative">
@@ -96,7 +96,7 @@
         <div class="indexContent" >
             <div class="indexTextContent">
                 <h1 class="indexText">Unlocking Potential</h1>
-                <h1 class="indexText" style="padding-left: 25px;">Building Opportunities</h1>
+                <h1 class="indexText">Building Opportunities</h1>
             </div>
         </div>
     </section>
@@ -111,8 +111,8 @@
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-comments text-primary mb-4"></i>
-                            <h5 class="mb-3 second-header">Passion & Commitment</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus nostrum autem, ab vel voluptates molestias?</p>
+                            <h5 class="mb-3 secondary-font-two">Passion & Commitment</h5>
+                            <p class="smaller-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus nostrum autem, ab vel voluptates molestias?</p>
                         </div>
                     </div>
                 </div>
@@ -120,8 +120,8 @@
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-box-open text-primary mb-4"></i>
-                            <h5 class="mb-3 second-header">Honesty & Openness</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, iste.</p>
+                            <h5 class="mb-3 secondary-font-two">Honesty & Openness</h5>
+                            <p class="smaller-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, iste.</p>
                         </div>
                     </div>
                 </div>
@@ -129,8 +129,8 @@
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
-                            <h5 class="mb-3 second-header">Dedicated Team</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate neque obcaecati voluptas possimus qui labore impedit cumque! Esse.</p>
+                            <h5 class="mb-3 secondary-font-two">Dedicated Team</h5>
+                            <p class="smaller-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate neque obcaecati voluptas possimus qui labore impedit cumque! Esse.</p>
                         </div>
                     </div>
                 </div>
@@ -138,8 +138,8 @@
                     <div class="text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-hand-holding-heart text-primary mb-4"></i>
-                            <h5 class="mb-3 second-header">Practical Approach</h5>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel suscipit mollitia quis commodi! Accusantium autem ipsa explicabo saepe quas quae?</p>
+                            <h5 class="mb-3 secondary-font-two">Practical Approach</h5>
+                            <p class="smaller-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel suscipit mollitia quis commodi! Accusantium autem ipsa explicabo saepe quas quae?</p>
                         </div>
                     </div>
                 </div>
@@ -167,8 +167,8 @@
                 </div> -->
                 <div class="col-md-10 text-center" >
                     <!-- <h6 class="bg-white text-start text-dark pe-3 secondary-font">About Us</h6> -->
-                    <h1 class="mb-4 header-font">Welcome to Sibol-PINOY Management Consultancy</h1>
-                    <p class="mb-4">Sibol-PINOY is a training and management consultancy which seeks to make expensive tools and techniques on productivity, 
+                    <h1 class="mb-4 header-fonts">Welcome to Sibol-PINOY Management Consultancy</h1>
+                    <p class="mb-4 desc-font">Sibol-PINOY is a training and management consultancy which seeks to make expensive tools and techniques on productivity, 
                     quality and performance excellence within the reach of micro, small and medium enterprises, including the government and NGOs. What we promotes are the following:</p>
                     
                     <div class="row gy-2 gx-4 mb-4">
@@ -200,18 +200,15 @@
 
 
    <!-- Categories Start -->
-<<<<<<< HEAD
     <div class="ontainer-fluid bg-white py-5 category" id="services">
-=======
-<div class="container-fluid bg-white py-5 category" id="services">
->>>>>>> ede31dfee6506cc1a07a3d4843b442a8daee902c
+
+    <div class="container-fluid bg-white py-5 category" id="services">
         <div class="container">
             <div class="text-center">
                 <h6 class="text-center text-dark px-3 secondary-font">Services</h6>
                 <h1 class="mb-5 header-font">Here at SPMC we always present our services at its best</h1>
             </div>
 
-<<<<<<< HEAD
             <div class="container col-md-12">
 
                 <div class="row col-md-12 d-flex justify-content-center align-items-center">
@@ -225,10 +222,10 @@
                                         <a class="position-relative d-block text-center overflow-hidden" href="services.php">
                                             <img class="" style="width: 380px; height: 230px;" src="admin/upload/<?= $service_offer['image']?>" alt="">
                                             <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin-left: 45px;">
-                                                <h5 class="m-0"><?= $service_offer['service_title']?></h5>
+                                                <h5 class="m-0 secondary-font-two"><?= $service_offer['service_title']?></h5>
                                             </div>
                                         </a>
-                                        <p><?= $service_offer['service_desc']?></p>
+                                        <p class="desc-font-two pt-3"><?= $service_offer['service_desc']?></p>
                                     </div>
 
                                 <?php
@@ -237,118 +234,15 @@
                     ?>
                 </div>
                 
-              
-                
-=======
-            <div class="row g-4 mt-3 d-flex justify-content-center">
-<<<<<<< HEAD
-                <?php
-                       $serv_reload_query = "SELECT * FROM `services` WHERE `status`='Active' ";
-                       $serv_reload_query_result = mysqli_query($conn, $serv_reload_query);
-                       if(mysqli_num_rows($serv_reload_query_result)>0){
-                           foreach($serv_reload_query_result as $service_offer){
-                            ?>
-                            <div class="col-lg-3 col-md-8 wow fadeInUp d-flex flex-column flex-1 flex-grow-1"   data-wow-delay="0.1s">
-                                <div class="team-item bg-light d-flex flex-column flex-1 flex-grow-1">
-                                    <div class="overflow-hidden text-center">
-                                        <img class="img-fluid"  src="admin/upload/<?= $service_offer['image']?>" alt="">
-                                    </div>
-                                    <div class="text-center p-4">
-                                        <h5 class="mb-0 secondary-font"><?= $service_offer['service_title']?></h5>
-                                        <br><small><?= $service_offer['service_desc']?></small>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php
-                           }
-                        }
-                ?>   
-<<<<<<< HEAD
-            </div>
->>>>>>> ede31dfee6506cc1a07a3d4843b442a8daee902c
+        
             </div>
         </div>
     </div>
     <!-- Categories End -->
 
-    <!-- WHY CHOOSE SIBOL -->
-    <div class="container-fluid bg-white py-5" id="check-services">
-=======
-=======
-                <div class="col-lg-3 col-md-8 wow fadeInUp d-flex flex-column flex-1 flex-grow-1"   data-wow-delay="0.1s">
-                    <div class="team-item bg-light d-flex flex-column flex-1 flex-grow-1">
-                        <div class="overflow-hidden text-center">
-                            <img class="img-fluid"  src="img/business-consultancy.jpg" alt="">
-                        </div>
-                        
-
-                        <div class="text-center p-4">
-                            <h5 class="mb-0 secondary-header">Business consultancy</h5>
-                            <br><small>In Sibol-Pinoy, we boast of our world class approach in helping organizations achieve
-                            their objectives. We just do not partner with our
-                            clients, we engage and become one with them in
-                            their journey to quality improvement.</small>
-                        </div>
-                    </div>
-                </div>
-                
-
-                <div class="col-lg-3 col-md-6 wow fadeInUp d-flex flex-column flex-1 flex-grow-1" data-wow-delay="0.3s">
-                    <div class="team-item bg-light d-flex flex-column flex-1 flex-grow-1">
-                        <div class="overflow-hidden text-center">
-                            <img class="img-fluid" src="img/tech-solution.jpg" alt="">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0 second-header">Technological solutions</h5>
-                            <br><small>Let Sibol-Pinoy help you provide complete
-                            customer solutions that span the IT life-cycle.
-                            Our technology experts will work with you to
-                            exceed the demand of high-growth technology in
-                            the vertical markets locally and around the world.</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 wow fadeInUp d-flex flex-column flex-1 flex-grow-1" data-wow-delay="0.5s">
-                    <div class="team-item bg-light d-flex flex-column flex-1 flex-grow-1">
-                        <div class="overflow-hidden text-center">
-                            <img class="img-fluid" src="img/training-development.jpg" alt="">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0 second-header">Training & development</h5>
-                            <br><small>As we envision our client to be self-dependent, we put
-                            emphasis on capacity-building and capability-building
-                            activities. Thus, Ideation Philippines has carefully designed
-                            and developed training modules and short-term courses
-                            aligned with global standards.</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 wow fadeInUp d-flex flex-column flex-1 flex-grow-1" data-wow-delay="0.7s">
-                    <div class="team-item bg-light d-flex flex-column flex-1 flex-grow-1">
-                        <div class="overflow-hidden text-center">
-                            <img class="img-fluid" src="img/research-development.jpg" alt="">
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0 second-header">Research development</h5>
-                            <br><small>Sibol Pinoy Management Consultancy highly engaged team members are
-                                specialized in providing technical assistance providing
-                                professional development and management support to public
-                                and private sector organizations in order to maximize resources
-                                and value, while minimizing cost and risk.</small>
-                                
-                        </div>
-                    </div>
-                </div>
-             </div>
->>>>>>> 7ee57a18e396e3a0edf4b86c2d0fff8269b38286
-    </div>
-</div>
-    <!-- Categories End -->
 
     <!-- WHY CHOOSE SIBOL -->
-    <!-- <div class="ontainer-fluid bg-white py-5" id="check-services"> -->
+    <!-- <div class="ontainer-fluid bg-white py-5" id="check-services">
         <div class="container">
             <div class="text-center">
                 <h6 class="mb-5 secondary-font">Partners and Serviced Clients</h6>
@@ -441,10 +335,10 @@
                     if(mysqli_num_rows($load_event_query_result) > 0 ){
                         foreach($load_event_query_result as $published_event){
                             ?>
-                                <div class="col-md-3 text-center py-2">
+                                <div class="col-md-3 text-center py-2 img-content">
                                     <img src="admin/upload/<?= $published_event['event_img']?>" style="width: 250px; height: 210px;" alt="">
                                 </div>
-                                <div class="col-md-7 py-2">
+                                <div class="col-md-7 py-2 event-content">
                                     <div class="text-one"> <?= $published_event['header']?> </div>
                                     <div class="text-two"><?= $published_event['event_title']?></div>
                                     <div class="text-one"><?= $published_event['date_and_time']?></div>
@@ -453,7 +347,7 @@
                                     <div class="smaller-text"><?= $published_event['desc_2']?></div>
   
                                 </div>
-                                <div class="col-md-2 text-center py-3">       
+                                <div class="col-md-2 text-center py-3 date">       
                                     <div class="date-text"><?= date('d',  strtotime($published_event['date_start'])) ?></div>
                                     <div class="month-text"><?= date('M',  strtotime($published_event['date_start'])) ?></div>
                                 </div>

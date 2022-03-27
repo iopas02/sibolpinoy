@@ -59,6 +59,7 @@
                     </thead>    
                     <tbody>
                         <?php
+                           
                             $tatus = 'published';
                             $load_event_query = "SELECT * FROM `events` WHERE `status`='$tatus' ORDER BY `date_start`";
                             $load_event_query_result = mysqli_query($conn, $load_event_query );
@@ -84,7 +85,8 @@
                                                     <div class="smaller-text"><?= $published_event['desc_1']?></div>
                                                     <div class="smaller-text"><?= $published_event['desc_2']?></div>
 
-                                                    <button class="col-md-4 b-0 bg-blue p-1 mt-2 text-white groupregis" id="groupregis" type="button">Registration</button>      
+                                                    <button class="col-md-4 b-0 bg-blue p-1 mt-2 text-white groupregis" id="groupregis" type="button">Registration</button>  
+                                                    <a href="<?= $published_event['desc_2'] ?>" class="text-dark" >Register</a>    
                                                 </div>
                                                     
                                             </td>
@@ -411,7 +413,7 @@
                                                 </label>
                                             </div>
                                         </div>
-
+                                        <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdqLqzo_tThI7llZqSueGjvUJkY2n5MbSsZmysQ1tApFpcX0Q/viewform?embedded=true" width="640" height="2522" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> -->
                                         <button type="submit" class="btn bg-blue text-white" name="register">Register</button>
                                     </form>
                                 </div>
