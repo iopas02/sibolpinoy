@@ -646,7 +646,7 @@
                             <div class="row col-md-12 mb-2">\
                                 <div class="col-md-5">\
                                     <label>First Name</label>\
-                                    <input type="text" class="form-control" name="name[]" placeholder="First Name" value="" required>\
+                                    <input type="text" class="form-control" name="firstname[]" placeholder="First Name" value="" required>\
                                 </div>\
                                 <div class="col-md-2">\
                                     <label>M.I.</label>\

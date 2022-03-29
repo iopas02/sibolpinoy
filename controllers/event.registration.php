@@ -275,6 +275,15 @@ if(isset($_POST['group_register'])){
             $s_position =  $position[$index];
             $s_payment = $payment[$index];
 
+
+            $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+            // Output: 54esmdr0qf
+            $random_num1 = substr(str_shuffle($permitted_chars), 0, 10);
+            
+            $year = date("Y");
+            $eachuniID = $year."-".$random_num1;
+            
+
             $check_users_query = "SELECT * FROM `client` WHERE `email_add`=? ";
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt, $check_users_query )){
@@ -369,105 +378,114 @@ if(isset($_POST['group_register'])){
                         header("Location: ../event.php?error=reservation_failed");
                         exit();
                     }
+
                 }else{
 
-                    echo $s_name."<br>";
-                    echo $s_mi."<br>";
-                    echo $s_lastname."<br>";
-                    echo $s_emailadd."<br>";
-                    echo $s_contact."<br>";
-                    echo $s_orgs."<br>";
-                    echo $s_position."<br>";
-                    // $member_register_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `mi`, `lastName`, `email_add`, `contact`, `organization`, `position`, `date_register`) VALUES ('$uniID','$s_name','$s_mi','$s_lastname','$s_emailadd','$s_contact','$s_orgs','$s_position','$registered_date')";
+                    // echo $eachuniID."<br>";
+                    // echo $reservationID ."<br>";       
+                    // echo $s_name."<br>";
+                    // echo $s_mi."<br>";
+                    // echo $s_lastname."<br>";
+                    // echo $s_emailadd."<br>";
+                    // echo $s_contact."<br>";
+                    // echo $s_orgs."<br>";
+                    // echo $s_position."<br>";
+                    // echo $registered_date."<br><br><br>";
 
-                    // if($conn->query($member_register_query) === TRUE) {
+                    $member_register_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `mi`, `lastName`, `email_add`, `contact`, `organization`, `position`, `date_register`) VALUES ('$eachuniID','$s_name','$s_mi','$s_lastname','$s_emailadd','$s_contact','$s_orgs','$s_position','$registered_date')";
 
-                    //     $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `date_registered`, `status`, `action`) VALUES ('$s_emailadd','$reservationID','$eventID','$ss_payment','$s_payment','$registered_date','$status','$action')";
+                    $member_register_query_result = mysqli_query($conn, $member_register_query);
 
-                    //     if($conn->query($event_reservation_query) === TRUE) {
+                    if($member_register_query_result) {
 
-                    //         // Start for sending email for group
+                        $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `date_registered`, `status`, `action`) VALUES ('$s_emailadd','$reservationID','$eventID','$ss_payment','$s_payment','$registered_date','$status','$action')";
 
-                    //         $payments1 = "GCash<br>Account Number: <span>0917 113 9078<br>SibolPINOY (Ceazar Valerie N.)<br>";
-                    //         $payments2 = "Bank Transfer<br>Account Number:2000 2941 9654<br>Sibol-PINOY Management Consultancy<br>EastWest Bank, The Fort-PSE TOWER<br>";
+                        $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
 
-                    //         // $sender_name = $firstname.' '.$mi.' '.$lastname;
+                        if($event_reservation_query_result) {
+
+                            // Start for sending email for group
+
+                            $payments1 = "GCash<br>Account Number: <span>0917 113 9078<br>SibolPINOY (Ceazar Valerie N.)<br>";
+                            $payments2 = "Bank Transfer<br>Account Number:2000 2941 9654<br>Sibol-PINOY Management Consultancy<br>EastWest Bank, The Fort-PSE TOWER<br>";
+
+                            // $sender_name = $firstname.' '.$mi.' '.$lastname;
         
-                    //         $subject = "Thank You For Registration";
-                    //         $company_email = "sibolPINOY@gmail.com";
-                    //         $company = "Sibol-PINOY Management Consultancy";
+                            $subject = "Thank You For Registration";
+                            $company_email = "sibolPINOY@gmail.com";
+                            $company = "Sibol-PINOY Management Consultancy";
 
-                    //         $message = '';
-                    //         $message .= "<p>Thank You for your Registration, please refers to the following information below <br><br>".
-                    //         "Event Title: "."<b>".$event_title."</b><br>". 
-                    //         "Date and Time: ". "<b>".$date."</b><br>".
-                    //         "Resevation ID: ". "<b>".$reservationID."</b><br>".
-                    //         "Free/Reg Fee: ". "<b>".$reg_fee."</b><br>".
-                    //         "Method of Payment: <br>". "<b>".$payments1."</b><br>"."<b>".$payments2."</b>".
-                    //         "<small>(Please ignore the following methods of payment if the Webinar is FREE.)</small>". 
-                    //         "</p>".
-                    //         "<p>Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>".
-                    //         "http://localhost/sibolpinoy/ss_payment.link.php";
+                            $message = '';
+                            $message .= "<p>Thank You for your Registration, please refers to the following information below <br><br>".
+                            "Event Title: "."<b>".$event_title."</b><br>". 
+                            "Date and Time: ". "<b>".$date."</b><br>".
+                            "Resevation ID: ". "<b>".$reservationID."</b><br>".
+                            "Free/Reg Fee: ". "<b>".$reg_fee."</b><br>".
+                            "Method of Payment: <br>". "<b>".$payments1."</b><br>"."<b>".$payments2."</b>".
+                            "<small>(Please ignore the following methods of payment if the Webinar is FREE.)</small>". 
+                            "</p>".
+                            "<p>Upload your Screen Shot Payment on the bellow link.(if the Webinar is FREE please ignore the link below), Thank you very much.</p>".
+                            "http://localhost/sibolpinoy/ss_payment.link.php";
 
-                    //         $body = '';
+                            $body = '';
 
-                    //         $body .="From: " .$company. "<br>";
-                    //         $body .="Email :" . $company_email. "<br>";
-                    //         $body .="Message :" .$message."";
+                            $body .="From: " .$company. "<br>";
+                            $body .="Email :" . $company_email. "<br>";
+                            $body .="Message :" .$message."";
 
-                    //         require '../PHPMailer/src/Exception.php';
-                    //         require '../PHPMailer/src/PHPMailer.php';
-                    //         require '../PHPMailer/src/SMTP.php';
+                            require '../PHPMailer/src/Exception.php';
+                            require '../PHPMailer/src/PHPMailer.php';
+                            require '../PHPMailer/src/SMTP.php';
 
-                    //         $mail = new PHPMailer\PHPMailer\PHPMailer();
+                            $mail = new PHPMailer\PHPMailer\PHPMailer();
 
-                    //         $mail->isSMTP();                      // Set mailer to use SMTP
-                    //         $mail->Host = 'smtp.gmail.com';       // Specify main and backup SMTP servers
-                    //         $mail->SMTPAuth = true;               // Enable SMTP authentication
-                    //         $mail->Username = 'treszeta28@gmail.com';   // SMTP username
-                    //         $mail->Password = 'xnhongbdpyodspfy';   // SMTP password
-                    //         $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted
-                    //         $mail->Port = 587;                    // TCP port to connect to
-                    //         $mail->setFrom($company_email, $company);
-                    //         $mail->addReplyTo($company_email, $company);
+                            $mail->isSMTP();                      // Set mailer to use SMTP
+                            $mail->Host = 'smtp.gmail.com';       // Specify main and backup SMTP servers
+                            $mail->SMTPAuth = true;               // Enable SMTP authentication
+                            $mail->Username = 'treszeta28@gmail.com';   // SMTP username
+                            $mail->Password = 'xnhongbdpyodspfy';   // SMTP password
+                            $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted
+                            $mail->Port = 587;                    // TCP port to connect to
+                            $mail->setFrom($company_email, $company);
+                            $mail->addReplyTo($company_email, $company);
 
-                    //         $email_selection_query = "SELECT `email_add` FROM `event_reservation` WHERE `reservationID`='$reservationID'";
-                    //         $result = $conn->query($email_selection_query);
-                    //         if ($result->num_rows > 0) {
-                    //             foreach($result as $reg_email) {
+                            $email_selection_query = "SELECT `email_add` FROM `event_reservation` WHERE `reservationID`='$reservationID'";
+                            $result = $conn->query($email_selection_query);
+                            if ($result->num_rows > 0) {
+                                foreach($result as $reg_email) {
 
-                    //                 // Add a recipient
-                    //                 $mail->addAddress($reg_email['email_add']);
-                    //             }
-                    //         }
+                                    // Add a recipient
+                                    $mail->addAddress($reg_email['email_add']);
+                                }
+                            }
 
-                    //         // $mail->addCC($carbon_copy);
-                    //         // //$mail->addBCC('bcc@example.com');
+                            // $mail->addCC($carbon_copy);
+                            // //$mail->addBCC('bcc@example.com');
 
-                    //         // Set email format to HTML
-                    //         $mail->isHTML(true);
+                            // Set email format to HTML
+                            $mail->isHTML(true);
 
-                    //         // Mail subject
-                    //         $mail->Subject = $subject;
+                            // Mail subject
+                            $mail->Subject = $subject;
 
-                    //         $mail->Body = $body;
+                            $mail->Body = $body;
 
-                    //         if(!$mail->send()) {
-                    //             header("Location: ../event.php?error=Message_not_sent");
-                    //             exit();
-                    //         } else {
-                    //             header("Location: ../event.php?success=email_sent");
-                    //             exit();
-                    //         }
-                    //     }else{
-                    //         header("Location: ../event.php?error=reservation_failed");
-                    //     exit();
-                    //     }    
+                            if(!$mail->send()) {
+                                header("Location: ../event.php?error=Message_not_sent");
+                                exit();
+                            } else {
+                                header("Location: ../event.php?success=email_sent");
+                                exit();
+                            }
+                        }else{
+                            header("Location: ../event.php?error=reservation_failed");
+                        exit();
+                        }    
 
-                    // }else{
-                    //     header("Location: ../event.php?error=members_query_failed");
-                    //     exit();
-                    // }
+                    }else{
+                        header("Location: ../event.php?error=members_query_failed");
+                        exit();
+                    }
 
                 }
             }
