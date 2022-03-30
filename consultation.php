@@ -23,18 +23,7 @@
 
 
     <!-- Header Start -->
-    <!-- <div class="container-fluid ParaImage" style="background-image: url('img/consultation.jpg');"> 
-        <div class="container py-5">
-            <div class="row justify-content-start">
-                <div class="col-sm-10 col-lg-8">
-                <h1 class="display-3 text-white animated slideInDown">Sibol-PINOY</h1>
-                <h4 class="text-dark header-font">Consultation</h4>
-                <p class="mb-4 pb-2 text-dark secondary-font">Quality is a choice, Choose to be better, Choose <strong>SPMC</strong>.</p>
-                </div>
-            </div>
-        </div>
-    </div> -->
-     
+
       <section>
         <div class="consultContent" >
             <div class="indexTextContent">
@@ -150,39 +139,78 @@
             <div class="row g-5">
                 <div class="col-lg-6" style="min-height: 400px;">
                     <div class="position-relative h-100">
-                        <img class="img-fluid position-absolute w-100 h-100" src="img/sibol-GIF.gif" alt="" style="object-fit: cover;">
+                        <img class="img-fluid position-absolute py-5" src="img/sibol-GIF.gif" alt="" >
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <h6 class="bg-white text-start text-dark pe-3 secondary-font">You Can leave A Message</h6>
-                    <form>
+                    <form action="controllers/mail.php" method="POST">
                         <div class="row g-3">
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                    <label for="name">Your Name</label>
+                                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name:">
+                                    <label for="first_name">First Name*</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="mi" name="mi" placeholder="M.I.">
+                                    <label for="mi">M.I.*</label>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name">
+                                    <label for="last_name">Last Name*</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                    <label for="email">Your Email</label>
+                                    <input type="email" class="form-control" id="email" name="cemail" placeholder="Email Address">
+                                    <label for="email">Email Address*</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact Number">
+                                    <label for="contact">Contact Number</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="orgs" name="orgs" placeholder="Organization/Company">
+                                    <label for="orgs">Organization/Company*</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="position" name="position" placeholder="Position">
+                                    <label for="position">Position*</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                    <label for="subject">Subject</label>
+                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
+                                    <label for="subject">Subject*</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
-                                    <label for="message">Message</label>
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 120px"></textarea>
+                                    <label for="message">Message*</label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn w-100 py-3 text-light bg-blue" type="submit">Send Message</button>
+                                <small>SPMC <a href=#>TERMS</a> and <a href="#poirty">PRIVACY POLICY</a></small>
+                                <div class="form-check">
+                                    <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+                                    <label class="form-check-label" for="invalidCheck3">
+                                        Agree to terms and conditions
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn w-100 py-3 text-light bg-blue" type="submit" name="consult_submit" >Send Message</button>
                             </div>
                         </div>
                     </form>

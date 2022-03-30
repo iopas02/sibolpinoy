@@ -266,7 +266,7 @@ if(isset($_POST['group_register'])){
 
         foreach($firstname as $index => $member){
 
-            $s_name =  $member;
+            $s_name = $member;
             $s_lastname = $lastname[$index];
             $s_mi = $mi[$index];
             $s_emailadd = $email_add[$index];
@@ -392,13 +392,13 @@ if(isset($_POST['group_register'])){
                     // echo $s_position."<br>";
                     // echo $registered_date."<br><br><br>";
 
-                    $member_register_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `mi`, `lastName`, `email_add`, `contact`, `organization`, `position`, `date_register`) VALUES ('$eachuniID','$s_name','$s_mi','$s_lastname','$s_emailadd','$s_contact','$s_orgs','$s_position','$registered_date')";
+                    $member_register_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `mi`, `lastName`, `email_add`, `contact`, `organization`, `position`, `date_register`) VALUES ('$eachuniID','$s_name = $member','$s_mi = $mi[$index]','$s_lastname = $lastname[$index]','$s_emailadd = $email_add[$index]','$s_contact =  $contact[$index]','$s_orgs = $orgs[$index]','$s_position =  $position[$index]','$registered_date')";
 
                     $member_register_query_result = mysqli_query($conn, $member_register_query);
 
                     if($member_register_query_result) {
 
-                        $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `date_registered`, `status`, `action`) VALUES ('$s_emailadd','$reservationID','$eventID','$ss_payment','$s_payment','$registered_date','$status','$action')";
+                        $event_reservation_query = "INSERT INTO `event_reservation`(`email_add`, `reservationID`, `eventID`, `ss_payment`, `payment_method`, `date_registered`, `status`, `action`) VALUES ('$s_emailadd = $email_add[$index]','$reservationID','$eventID','$ss_payment','$s_payment = $payment[$index]','$registered_date','$status','$action')";
 
                         $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
 

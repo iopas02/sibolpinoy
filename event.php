@@ -85,8 +85,7 @@
                                                     <div class="smaller-text"><?= $published_event['desc_1']?></div>
                                                     <div class="smaller-text"><?= $published_event['desc_2']?></div>
 
-                                                    <button class="col-md-4 b-0 bg-blue p-1 mt-2 text-white groupregis" id="groupregis" type="button">Registration</button>  
-                                                    <a href="<?= $published_event['desc_2'] ?>" class="text-dark" >Register</a>    
+                                                    <button class="col-md-4 b-0 bg-blue p-1 mt-2 text-white groupregis" id="groupregis" type="button">Registration</button>    
                                                 </div>
                                                     
                                             </td>
@@ -318,9 +317,6 @@
                             <ul  class="nav nav-pills">
                                 <li class="px-2">
                                     <a href="#1a" class="text-dark" data-toggle="tab">Solo</a>
-                                </li>
-                                <li class="px-2"> 
-                                    <a href="#2a" class="text-dark" data-toggle="tab">Group</a>
                                 </li>
                             </ul>
 

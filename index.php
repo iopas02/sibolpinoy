@@ -45,7 +45,7 @@
                         <div class="p-4">
                             <i class="fa fa-3x fa-comments text-primary mb-4"></i>
                             <h5 class="mb-3 secondary-font-two">Passion & Commitment</h5>
-                            <p class="smaller-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus nostrum autem, ab vel voluptates molestias?</p>
+                            <!-- <p class="smaller-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus nostrum autem, ab vel voluptates molestias?</p> -->
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                         <div class="p-4">
                             <i class="fa fa-3x fa-box-open text-primary mb-4"></i>
                             <h5 class="mb-3 secondary-font-two">Honesty & Openness</h5>
-                            <p class="smaller-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, iste.</p>
+                            <!-- <p class="smaller-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, iste.</p> -->
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                         <div class="p-4">
                             <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
                             <h5 class="mb-3 secondary-font-two">Dedicated Team</h5>
-                            <p class="smaller-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate neque obcaecati voluptas possimus qui labore impedit cumque! Esse.</p>
+                            <!-- <p class="smaller-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate neque obcaecati voluptas possimus qui labore impedit cumque! Esse.</p> -->
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                         <div class="p-4">
                             <i class="fa fa-3x fa-hand-holding-heart text-primary mb-4"></i>
                             <h5 class="mb-3 secondary-font-two">Practical Approach</h5>
-                            <p class="smaller-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel suscipit mollitia quis commodi! Accusantium autem ipsa explicabo saepe quas quae?</p>
+                            <!-- <p class="smaller-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel suscipit mollitia quis commodi! Accusantium autem ipsa explicabo saepe quas quae?</p> -->
                         </div>
                     </div>
                 </div>
