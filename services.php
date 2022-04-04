@@ -100,7 +100,7 @@
                                                                         if(mysqli_num_rows($sub_cat_query_run) > 0 ){
                                                                             foreach($sub_cat_query_run as $sub_cat){
                                                                                 ?>
-                                                                                    <div class="accordion-collapse collapse px-4" id="<?= $clear ?>">
+                                                                                    <div class="accordion-collapse collapse px-4 smaller-text" id="<?= $clear ?>">
                                                                                         <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i><?= $sub_cat['sub_cat_title']?></li>
                                                                                     </div>
 

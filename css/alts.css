@@ -291,7 +291,6 @@ section{
     color: #fff;
 }
 
-
 .consultContent{
     height: 100%;
     width: 100%;
@@ -300,21 +299,21 @@ section{
     linear-gradient(135deg,  rgb(4, 4, 120) 50%, transparent 25%),
     linear-gradient(200deg,  rgb(255, 127, 0) 20%, transparent 5%),
     linear-gradient(135deg, transparent 75%, rgb(4, 4, 120) 5%),
-    url('../img/index_banner.gif');
+    url('../img/consultation.gif');
     background-size: 100% 100%; 
 }
 
-.indexContent .indexTextContent{
-    padding-top: 125px;
-    padding-left: 75px;
+.consultContent .consultTextContent{
+    padding-top: 40px;
+    padding-left: 65px;
     width: 760px;
 }
 
-.indexContent .indexTextContent .indexText{
+.consultContent .consultTextContent .consultText{
     font-family: var(--roboto);
     font-size: 60px;
     font-weight: 400;
-    line-height: 55px;
+    line-height: 65px;
     color: white;
 }
 
@@ -377,6 +376,20 @@ section{
     .contactContent .textContactContent .textContact{
         font-size: 40px;
         line-height: 45px;
+    }
+
+    .consultContent .consultTextContent{
+        padding-top: 170px;
+        padding-left: 25px;
+        width: 760px;
+    }
+    
+    .consultContent .consultTextContent .consultText{
+        font-family: var(--roboto);
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 45px;
+        color: var(--blueColor)
     }
 
     .event-content {

@@ -24,11 +24,10 @@
 
     <!-- Header Start -->
 
-      <section>
+    <section>
         <div class="consultContent" >
-            <div class="indexTextContent">
-                <h1 class="indexText">Unlocking Potential</h1>
-                <h1 class="indexText" style="padding-left: 25px;">Building Opportunities</h1>
+            <div class="consultTextContent">
+                <h1 class="consultText"> <br> Quality is a choice<br> Choose to be better<br> Choose SPMC!<br></h1>
             </div>
         </div>
     </section>
@@ -41,7 +40,7 @@
         <div class="container">
             <div class="text-center" >
                 <h6 class="bg-white text-center text-dark px-3 secondary-font">Our Services</h6>
-                <h1 class="mb-5 header-font">We have 15 mins Free Consultation, Hurry and Book now!</h1>
+                <h1 class="mb-5 header-font">We have 30 mins Free Consultation, Hurry and Book now!</h1>
             </div>
             
             <div class="row g-4 mt-3">
@@ -58,11 +57,11 @@
                                             <div class="overflow-hidden text-center">
                                                 <img class="img-fluid" src="admin/upload/<?= $serv_load['image']?>" alt="">
                                                 <div class="bg-white text-center position-absolute py-2 px-3" style="margin-left: 85px; margin-top: -60px">
-                                                    <h5 class="py-2 second-header"><?= $serv_load['service_title']?></h5>
+                                                    <h5 class="py-2 secondary-font-two"><?= $serv_load['service_title']?></h5>
                                                 </div>
                                             </div>
                                             <div class="col-md-10 mx-5 small-container">
-                                                <small><?= $serv_load['service_desc']?>
+                                                <small class="smaller-text"><?= $serv_load['service_desc']?>
                                                 </small>  
                                             </div>
                                             <div class="">
@@ -98,7 +97,7 @@
                                                                         if(mysqli_num_rows($sub_cat_query_run) > 0 ){
                                                                             foreach($sub_cat_query_run as $sub_cat){
                                                                                 ?>
-                                                                                    <div class="accordion-collapse collapse px-4" id="<?= $clear ?>">
+                                                                                    <div class="accordion-collapse collapse px-4 smaller-text" id="<?= $clear ?>">
                                                                                         <li style="list-style-type: none;"><i class="fa fa-check text-dark"></i><?= $sub_cat['sub_cat_title']?></li>
                                                                                     </div>
 
