@@ -56,57 +56,59 @@
                 <img class="__logo" src="img/logo.png" alt="">
             </div>
             <div class="text-center">
-                <h5 class="modal-title" id="registrationTitle"><?= $service_name ?></h5>
+                <h5 class="modal-title" id="registrationTitle" value=""><?= $service_name ?></h5>
             </div>
 
             <div class="container-fluid">
                 <div class="col-md-12 p-5 d-flex justify-content-center align-items-center">
-                    <form class="">
+                    <form action="controllers/consultation.control.php" method="POST">
                         <div class="row col-md-12 mb-3">
                             <div class="col-md-5">
+                                <input class="form-control form-control-sm" type="text" name="services" value="<?= $service_uniID?>" hidden>
+                                <input class="form-control form-control-sm" type="text" name="services_name" value="<?= $service_name?>" hidden>
                                 <label for="" class="form-label">First Name</label>
-                                <input class="form-control form-control-sm" type="text" placeholder="First Name">
+                                <input class="form-control form-control-sm" type="text" name="firstName" placeholder="First Name" required>
                             </div>
                             <div class="col-md-2">
                                 <label for="" class="form-label">M.I.</label>
-                                <input class="form-control form-control-sm" type="text" placeholder="M.I.">
+                                <input class="form-control form-control-sm" type="text" name="mi" placeholder="M.I." required>
                             </div>
                             <div class="col-md-5">
                                 <label for="" class="form-label">Last Name</label>
-                                <input class="form-control form-control-sm" type="text" placeholder="Last Name">
+                                <input class="form-control form-control-sm" type="text" name="lastName" placeholder="Last Name" required>
                             </div>
                         </div>
 
                         <div class="row col-md-12 mb-3">
                             <div class="col-md-6">
                                 <label for="" class="form-label">Email Address</label>
-                                <input class="form-control form-control-sm" type="email" placeholder="Email Address">
+                                <input class="form-control form-control-sm" type="email" name="email" placeholder="Email Address" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="" class="form-label">Contact Number</label>
-                                <input class="form-control form-control-sm" type="text" placeholder="Contact Number">
+                                <input class="form-control form-control-sm" type="text" name="contact" placeholder="Contact Number">
                             </div>  
                         </div>
                         
                         <div class="row col-md-12 mb-3">
                             <div class="col-md-6">
                                 <label for="" class="form-label">Organization</label>
-                                <input class="form-control form-control-sm" type="email" placeholder="Organization">
+                                <input class="form-control form-control-sm" type="text" name="orgs" placeholder="Organization" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="" class="form-label">Position</label>
-                                <input class="form-control form-control-sm" type="email" placeholder="Position">
+                                <input class="form-control form-control-sm" type="text" name="position" placeholder="Position" required>
                             </div>
                         </div>
 
                         <div class="row col-md-12 mb-3">
                             <div class="col-md-6">
                                 <label for="" class="form-label">Consultation Date</label>
-                                <input class="form-control form-control-sm" type="date" >
+                                <input class="form-control form-control-sm" type="date" name="date" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="" class="form-label">Consultation Time</label>
-                                <input class="form-control form-control-sm" type="time" >
+                                <input class="form-control form-control-sm" type="time" name="time" required>
                             </div>
                         </div>
                       
@@ -129,7 +131,7 @@
                                                 if($sub_cat_result->num_rows > 0 ){
                                                     foreach($sub_cat_result as $sub_cat){
                                                         ?>
-                                                            <input class="form-check-input" type="checkbox" name=sub_cat[] id="flexSwitchCheckDefault" value="<?= $sub_cat['sub_cat_title'] ?>">
+                                                            <input class="form-check-input" type="checkbox" name=sub_cat[] id="flexSwitchCheckDefault" value="<?= $sub_cat['sub_cat_uniID'] ?>">
                                                             <label class="form-check-label" for="flexSwitchCheckDefault"><?= $sub_cat['sub_cat_title'] ?></label><br>
                                                         <?php
                                                     }
@@ -143,11 +145,12 @@
                             } 
                         ?>
                        
-                      
                         <div class="mb-1">
                             <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3"></textarea>
                         </div>
+                        <input type="text" name="status" value="pending" hidden>
+                        <input type="text" name="action" value="New" hidden>
                         <div class="col-12">
                             <small>SPMC <a href=#>TERMS</a> and <a href="#">PRIVACY POLICY</a></small>
                             <div class="form-check">
@@ -158,7 +161,7 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <button type="submit" class="btn bg-blue text-white">Book Me</button>
+                            <button type="submit" class="btn bg-blue text-white" name="book_me">Book Me</button>
                         </div>
                     </form>
                 </div>    

@@ -13,6 +13,6 @@
             <a href="event" class="nav-item nav-link second-header <?= $event?>">Events</a>
             <a href="contact" class="nav-item nav-link second-header <?= $contact?>">Contact</a>
         </div>
-        <a href="consultation.php" class="btn py-4 text-white bg-yellow">Book Consultation<i class="fa fa-arrow-right ms-3 text-light"></i></a>
+        <a href="consultation" class="btn py-4 text-white bg-yellow">Book Consultation<i class="fa fa-arrow-right ms-3 text-light"></i></a>
     </div>
 </nav>

@@ -56,7 +56,7 @@ if(isset($_POST['register'])){
 
                         $event_reservation_query_result = mysqli_query($conn, $event_reservation_query);
                         if(!$event_reservation_query_result){
-                            header("Location: ../event.php?event_reservation_failed");
+                            header("Location: ../event.php?error=event_reservation_failed");
                             exit();
                         }else{
 
