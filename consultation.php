@@ -114,7 +114,7 @@
                                             </div>
                                             <div class="text-center py-2">
                                                 <form action="consultation.form" method="POST"> 
-                                                    <input type="text" name="service_uniID" value="<?=  $serv_load['service_uniID'] ?>" hidden>
+                                                    <input type="text" name="service_uniID" value="<?=  $serv_load['service_uniID'] ?>" >
                                                     <button class="text-dark bg-yellow border-0 py-2 px-2" style="border-top-left-radius: 15px; border-bottom-right-radius: 15px" data-bs-toggle="modal" type="submit" name="consult">Book Consultation</button>
                                                 </form>
                                             </div>

@@ -34,129 +34,140 @@
     
     <!-- Header End -->
         <?php
+
             if(isset($_POST['consult'])){
-                $service_id = mysqli_real_escape_string($conn, $_POST['consult']);
+                $service_id = mysqli_real_escape_string($conn, $_POST['service_uniID']);
+                $status = 'Active';
+
+                $append_service_query = "SELECT * FROM `services` WHERE `service_uniID`='$service_id' AND `status`='$status' ";
+                $append_result = $conn->query($append_service_query);
+                if($append_result->num_rows > 0){
+                    while($data = $append_result->fetch_assoc()){
+                        $service_uniID = $data['service_uniID'];
+                        $service_name = $data['service_title'];
+                    }
+                }
+
             }
         ?>
-        <div class="pt-3 text-center">
-            <img class="__logo" src="img/logo.png" alt="">
-        </div>
-        <div class="text-center">
-            <h5 class="modal-title" id="registrationTitle">Business Consultation Form</h5>
-        </div>
-        <div class="modal-body">
-            <div class="container">
-                <form class="row g-3">
-                    <div class="col-md-6">
-                        <label for="" class="form-label">First Name</label>
-                        <input class="form-control form-control-sm" type="text" placeholder="First Name">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="" class="form-label">M.I.</label>
-                        <input class="form-control form-control-sm" type="text" placeholder="M.I.">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="" class="form-label">Last Name</label>
-                        <input class="form-control form-control-sm" type="text" placeholder="Last Name">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="" class="form-label">Contact Number</label>
-                        <input class="form-control form-control-sm" type="text" placeholder="Contact Number">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="" class="form-label">Email Address</label>
-                        <input class="form-control form-control-sm" type="email" placeholder="Email Address">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="" class="form-label">Organization</label>
-                        <input class="form-control form-control-sm" type="email" placeholder="Organization">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="" class="form-label">Position</label>
-                        <input class="form-control form-control-sm" type="email" placeholder="Position">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="" class="form-label">Consultation Date</label>
-                        <input class="form-control form-control-sm" type="date" >
-                    </div>
-                    <div class="col-md-6">
-                        <label for="" class="form-label">Consultation Time</label>
-                        <input class="form-control form-control-sm" type="time" >
-                    </div>
-                    <h5 class="modal-title" id="registrationTitle">Select Your Agenda</h5>
-                    <div class="form-check form-switch">
-                        <h6 class="py-2 second_header">Compliance and Standards</h6>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Automotive Quality Management System Standard (IATF 16949:2016)</label><br>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Energy Management System (ISO 50001:2011)</label><br>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Environmental Management System (ISO 14001:2015)</label><br>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Food Safety Management System (ISO 22000:2005) & HACCP</label><br>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Food Safety Systems Certification (FSSC 22000)</label><br>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Information Security Management System (ISO 27001:2013)</label><br>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Occupational Health & Safety Management System (OHSAS 18001)/ISO 45001:2016)</label><br>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Quality Management System (ISO 9001:2015)</label><br>
-                    </div>
-                    <div class="form-check form-switch">
-                        <h6 class="py-2 second_header">Performance Excellence</h6>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Business Excellence Self-Assessment</label><br>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Third-Party BE Assessment</label><br>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Leadership Excellence</label><br>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Strategic Planning</label><br>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Customer-Focused Excellence</label><br>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Knowledge Management</label><br>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">HR Excellence</label><br>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Operations Excellence</label><br>
-                    </div>
-                    <div class="form-check form-switch">
-                        <h6 class="py-2 second_header">Productivity & Quality</h6>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">P&Q Diagnosis</label><br>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">5s</label><br>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">SS</label><br>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">WIT</label><br>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Lean Management</label><br>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Labor-Management Cooperation</label><br>
-                    </div>
-                    <div class="mb-1">
-                        <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck">
-                        <label class="form-check-label" for="gridCheck">
-                            Check me out
-                        </label>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Book Me</button>
-                    </div>
-                </form>
+        <div class="row col-md-12">
+            
+            <div class="pt-3 text-center">
+                <img class="__logo" src="img/logo.png" alt="">
             </div>
-            <div class="container">
-            </div>  
+            <div class="text-center">
+                <h5 class="modal-title" id="registrationTitle"><?= $service_name ?></h5>
+            </div>
+
+            <div class="container-fluid">
+                <div class="col-md-12 p-5 d-flex justify-content-center align-items-center">
+                    <form class="">
+                        <div class="row col-md-12 mb-3">
+                            <div class="col-md-5">
+                                <label for="" class="form-label">First Name</label>
+                                <input class="form-control form-control-sm" type="text" placeholder="First Name">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="" class="form-label">M.I.</label>
+                                <input class="form-control form-control-sm" type="text" placeholder="M.I.">
+                            </div>
+                            <div class="col-md-5">
+                                <label for="" class="form-label">Last Name</label>
+                                <input class="form-control form-control-sm" type="text" placeholder="Last Name">
+                            </div>
+                        </div>
+
+                        <div class="row col-md-12 mb-3">
+                            <div class="col-md-6">
+                                <label for="" class="form-label">Email Address</label>
+                                <input class="form-control form-control-sm" type="email" placeholder="Email Address">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="form-label">Contact Number</label>
+                                <input class="form-control form-control-sm" type="text" placeholder="Contact Number">
+                            </div>  
+                        </div>
+                        
+                        <div class="row col-md-12 mb-3">
+                            <div class="col-md-6">
+                                <label for="" class="form-label">Organization</label>
+                                <input class="form-control form-control-sm" type="email" placeholder="Organization">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="form-label">Position</label>
+                                <input class="form-control form-control-sm" type="email" placeholder="Position">
+                            </div>
+                        </div>
+
+                        <div class="row col-md-12 mb-3">
+                            <div class="col-md-6">
+                                <label for="" class="form-label">Consultation Date</label>
+                                <input class="form-control form-control-sm" type="date" >
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="form-label">Consultation Time</label>
+                                <input class="form-control form-control-sm" type="time" >
+                            </div>
+                        </div>
+                      
+                        <h5 class="modal-title" id="registrationTitle">Select Your Agenda</h5>
+                        <?php
+                            $service_uniID;
+                            $status = 'Active';
+                            $append_categories_query = "SELECT * FROM `services_category` WHERE `service_uniID`='$service_uniID' AND `status`='$status' ";
+                            $category_results = $conn->query($append_categories_query);
+                            if($category_results->num_rows > 0){
+                                foreach($category_results as $service_cat){
+                                    ?>
+                                        <div class="form-check form-switch">
+                                            <h6 class="py-2 second_header"><?= $service_cat['category_title'] ?></h6>
+                                            <?php
+                                                $cat_uniID = $service_cat['category_uniID'];
+                                                $status = 'Active';
+                                                $append_sub_cat_query = "SELECT * FROM `services_sub_category` WHERE `category_uniID`='$cat_uniID' AND `status`='$status' ";
+                                                $sub_cat_result = $conn->query($append_sub_cat_query);
+                                                if($sub_cat_result->num_rows > 0 ){
+                                                    foreach($sub_cat_result as $sub_cat){
+                                                        ?>
+                                                            <input class="form-check-input" type="checkbox" name=sub_cat[] id="flexSwitchCheckDefault" value="<?= $sub_cat['sub_cat_title'] ?>">
+                                                            <label class="form-check-label" for="flexSwitchCheckDefault"><?= $sub_cat['sub_cat_title'] ?></label><br>
+                                                        <?php
+                                                    }
+                                                }
+                                            ?>
+                                           
+                                        </div>
+
+                                    <?php
+                                }
+                            } 
+                        ?>
+                       
+                      
+                        <div class="mb-1">
+                            <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <small>SPMC <a href=#>TERMS</a> and <a href="#">PRIVACY POLICY</a></small>
+                            <div class="form-check">
+                                <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+                                <label class="form-check-label" for="invalidCheck3">
+                                    Agree to terms and conditions
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn bg-blue text-white">Book Me</button>
+                        </div>
+                    </form>
+                </div>    
+            </div> 
         </div>
+
+        </div>
+       
+        
        
     <!-- Footer Start -->
     <?php

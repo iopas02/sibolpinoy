@@ -163,7 +163,7 @@
     <!-- About End -->
 
     <!-- Previous Events Start -->
-    <div class="container-fliud bg-white py-5" >
+    <div class="container-fluid bg-white py-5" >
         <div class="container">
             <div class="text-center">
                 <h6 class="bg-white text-center text-dark px-3 secondary-font">Previous Events</h6>
