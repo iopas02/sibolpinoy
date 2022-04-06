@@ -411,38 +411,7 @@
                     </div>
                 </div>                
             </div>
-        </div>
-
-        <!-- <div class="modal fade" id="editImage" data-bs-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Update Image</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>   
-                    <div class="modal-body">
-                        <form action="comptroller/service.control.php" method="POST" enctype="multipart/form-data">
-                            <div class="row col-sm-12 px-2">
-                                <label for="sunid" class="col-form-label">uniID</label>
-                                <input type="text" class="form-control" readonly name="sunid" id="sunid">
-                            </div>
-                            <div class="row col-sm-12 px-2">
-                                <label for="stitle" class="col-form-label">Title</label>
-                                <input type="text" class="form-control" readonly name="stitle" id="stitle">
-                            </div>
-                            <div class="row col-sm-12 px-2">
-                                <label for="uimg" class="col-form-label">Update Image</label>
-                                <input type="file" class="form-control" name="uimg" id="uimg">
-                            </div>
-                            <div class="my-3 d-grid gap-2 d-md-flex justify-content-md-end">
-                                <button class="btn bg-coloured text-white" type="submit" name="update_image" ><i class="bi bi-vector-pen"></i> Update Image</button>
-                            </div>
-                        </form>     
-                    </div>
-                </div>                
-            </div>
-        </div> -->
-    <!-- THIS IS FOR EDIT MODAL END HERE -->                         
+        </div>                     
     
     </main>
 

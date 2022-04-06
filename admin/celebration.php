@@ -9,6 +9,16 @@
 
   <body>
     <title>Sibol-PINOY Create Celebration</title>
+    <script>
+        $(document).ready(function(){
+            $(".inputSearch").on('keyup', function(){
+              var value =$(this).val().toLowerCase();
+              $("#myTable tr").filter(function(){
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              });    
+            });
+        });   
+    </script>
 
     <!-- top navigation bar -->
     <?php
@@ -82,12 +92,12 @@
 
                                 <div class="mb-2"> 
                                     <label>Status</label>
-                                        <select class="w-40 p-2" name="status" id="">
-                                                <option value="">Select Status</option>
-                                                <option value="sample">sample</option>
-                                                <option value="published">published</option>
-                                                <option value="unpublished">unpublished</option>
-                                        </select> 
+                                    <select class="w-40 p-2" name="status" id="">
+                                        <option value="">Select Status</option>
+                                        <option value="sample">sample</option>
+                                        <option value="published">published</option>
+                                        <option value="unpublished">unpublished</option>
+                                    </select> 
                                 </div>
            
                                 <input type="text" hidden name="loginid" value="<?= $id?>">
@@ -118,8 +128,12 @@
         <!-- THIS IS EVENTS TABLE START HERE -->
         <div class="row col-md-12 my-3">
             <hr class="dropdown-divider bg-dark" />
-            <div class="row col-md-12 px-5">
+            <div class="col-md-6 px-5">
                 <h5>Events Table</h5>
+            </div>
+
+            <div class="form-group float-end col-md-6">
+                <input type="text" class="form-control inputSearch" id="inputSearch" placeholder="Search..">
             </div>
 
             <div class="card-body">
@@ -143,8 +157,26 @@
                                 <th>Read</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="myTable">
                             <?php
+                             if(isset($_GET['page_no']) && $_GET['page_no'] !=''){
+                                $page_no = $_GET['page_no'];
+                            }else{
+                                $page_no = 1;
+                            }
+
+                            $total_records_per_page = 25;
+                            $offset = ($page_no-1) * $total_records_per_page;
+                            $previous_page = $page_no - 1;
+                            $next_page = $page_no + 1;
+                            $adjacents = "2";
+
+                            $result_count = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM `celebration`" );
+                            $total_records = mysqli_fetch_array($result_count);
+                            $total_records = $total_records['total_records'];
+                            $total_number_of_page = ceil($total_records / $total_records_per_page);
+                            $second_last = $total_number_of_page - 1;
+
                             $celeb_reload_query = "SELECT tb1.keepingID, tb1.commemoration, tb1.header, tb1.image, tb1.message1, tb1.message2, tb1.status, tb1.loginId, tb2.username, tb1.action, tb1.uploaded, tb1.updated FROM celebration tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId";
 
                             $celeb_reload_query_result = mysqli_query($conn, $celeb_reload_query);
@@ -220,6 +252,72 @@
                         </tfoot>
                     </table>
                 </div>
+                <ul class="pagination pull-right">
+                    <li class="pull-left btn btn-default disabled">Showing Page <?php echo $page_no." of ".$total_number_of_page;?></li>
+                    <li class=" p-2 <?php if($page_no <= 1) { echo "disabled";}?>">
+                        <a <?php if($page_no > 1) { echo "href='?page_no=$previous_page'";} ?>>Previous</a>
+                    </li>
+
+                    <?php
+                        if($total_number_of_page <=10){
+
+                            for($counter = 1; $counter <=$total_number_of_page;$counter++){
+                                if($counter == $page_no){
+                                    echo "<li class='active p-2'><a> $counter </a></li>";
+                                }else{
+                                    echo "<li class='p-2'><a href='?page_no=$counter'> $counter </a></li>";
+                                }
+                            }
+                        }elseif($total_number_of_page > 10){
+                            if($page_no <=4){
+                                for($counter = 1; $counter < 8; $counter++){
+                                    if($counter == $page_no){
+                                        echo "<li class='active p-2'><a> $counter </a></li>";
+                                    }else {
+                                        echo "<li class='p-2'><a href'?page_no=$counter'> $counter </a></li>";
+                                    }
+                                }
+                                echo "<li class='p-2'><a>...</a></li>";
+                                echo "<li class='p-2'><a href='?page_no=$second_last'>$second_last</a></li>";
+                                echo "<li class='p-2'><a href='?page_no=$total_number_of_page'>$total_number_of_page</a></li>";
+                            }
+                        }elseif($page_no > 4 && $page_no < $total_number_of_page -4 ){
+                            echo "<li><a href='?page_no=1'>1</a></li>";
+                            echo "<li><a href='?page_no=2'>2</a></li>";
+                            echo "<li><a>...</a></li>";
+
+                            for($counter = $page_no - $adjacents; $counter <=$page_no + $adjacents;$counter++){
+                                if($counter == $page_no){
+                                    echo "<li class='active'><a> $counter </a></li>";
+                                }else{
+                                    echo "<li><a href'?page_no=$counter'> $counter </a></li>";
+                                }
+                            }
+                            echo "<li><a>...</a></li>";
+                            echo "<li><a href='?page_no=$second_last'>$second_last</a></li>";
+                            echo "<li><a href='?page_no=$total_number_of_page'>$total_number_of_page</a></li>";
+                        }else{
+                            echo "<li><a href='?page_no=1'>1</a></li>";
+                            echo "<li><a href='?page_no=2'>2</a></li>";
+                            echo "<li><a>...</a></li>";
+
+                            for($counter = $total_number_of_page - 6; $counter <= $total_number_of_page;$counter++){
+                                if($counter == $page_no){
+                                    echo "<li class='active'><a> $counter </a></li>";
+                                }else{
+                                    echo "<li><a href'?page_no=$counter'> $counter </a></li>";
+                                }
+                            }
+                               
+                        } 
+                    ?>
+
+                    <li class="p-2 <?php if($page_no >= $total_number_of_page) {echo "disabled";} ?>" >
+                        <a <?php if($page_no < $total_number_of_page) {echo "href='?page_no=$next_page'";} ?>>Next</a>
+                    </li>
+                    <?php if($page_no < $total_number_of_page) {echo "<li class='p-2'><a href='?page_no=$total_number_of_page'>Last &rsaquo;</a?</li>";} ?>
+                    
+                </ul>
             </div>
         </div>
         <!-- THIS IS EVENTS TABLE END HERE -->

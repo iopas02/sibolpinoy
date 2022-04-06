@@ -97,9 +97,7 @@
             </div>
         </div>
     <!-- About End -->
-
-
-   
+    
     <div class="ontainer-fluid bg-white py-5 category" id="services">
         <!-- Categories Start -->
         <div class="container-fluid bg-white py-5 category" id="services">
@@ -142,8 +140,7 @@
 
 
 
-    <!-- Events Start -->
-
+        <!-- Events Start -->
         <div class="container-fluid bg-white py-5">
             <div class="container">
                 <div class="text-center">
@@ -184,8 +181,9 @@
                 
             </div>
         </div>
+        <!-- Events Start -->
     </div> 
-    <!-- Events Start -->
+    
         
 
     <?php
