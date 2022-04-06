@@ -21,7 +21,6 @@ if(isset($_GET["error"])){
 
 ?>
 
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -52,18 +51,15 @@ if(isset($_GET["error"])){
                     <div class="">
                         <h4 class="welcome-note text-center">Welcome To Login Form</h4>
                     </div>
-                    <form action="login.php" method="POST">
+                    <form action="comptroller/login.php" method="POST">
                         <div class="form-row my-3">
                             <div class="col-lg-7">
-
                                 <label for="admin-email" class="login-text">Username</label>
                                 <input id="admin-email" name="username" type="text" placeholder="Enter username" class="form-control text-normal input-form">
                             </div>
                         </div>
                         <div class="form-row my-3">
                             <div class="col-lg-7">
-
-                            
                                 <label for="admin-password" class="login-text">Password</label>
                                 <input id="admin-password" name="password" type="password" placeholder="Enter password" class="form-control text-normal input-form">
                             </div>
@@ -81,7 +77,6 @@ if(isset($_GET["error"])){
                             unset($_GET["error"]);    
                         }
                         ?>
-                    
                         <a href="#" class="text-normal">Forgot Password</a>
                     </form>
                 </div>

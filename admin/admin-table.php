@@ -3,6 +3,7 @@
 require "../connection.php";
 $disabled = "";
 $sql = "SELECT adminlog.actionBy,adminlog.action, login.lastLoginDate, login.dateAdded, profile.id, login.loginId, profile.firstName, profile.lastName, login.username, login.level, login.status FROM login INNER JOIN profile ON login.loginId = profile.loginId INNER JOIN adminlog ON login.loginId = adminlog.loginId WHERE adminlog.action = 'create' ORDER BY login.loginId";
+
 if($result = $conn->query($sql)){
     if($result->num_rows >= 1){
         while($row = $result->fetch_assoc()){  ?>

@@ -7,6 +7,9 @@ ob_start();
         $lastName = $_SESSION["lastName"];
         $username = $_SESSION["username"];
         $level = $_SESSION["level"];
+    }else{
+        header("Location: index?error=you_must_log_in_first");
+        exit();
     }
 ?>
   <head>

@@ -1,17 +1,20 @@
 <?php
 session_start();
-    require "../connection.php";
+    include_once('../../connection.php');
 
     if(isset($_POST["submit"])){
+
         if(!isset($_POST["username"]) || $_POST["username"] == null){
-            header("location: index.php?error=username_null");
+            header("location: ../index?error=username_null");
+            exit();
         }
         else if(!isset($_POST["password"]) || $_POST["password"] == null){
-            header("location: index.php?error=password_null");
+            header("location: ../index?error=password_null");
+            exit();
         }
         else{
-            $username = $_POST["username"];
-            $password = $_POST["password"];
+            $username = mysqli_real_escape_string($conn, $_POST["username"]);
+            $password = mysqli_real_escape_string($conn, $_POST["password"]);
             $sql = "SELECT * FROM login where username = '$username' AND password = '$password'";
             if($result = $conn->query($sql)){
                 if($result->num_rows == 1){
@@ -37,7 +40,7 @@ session_start();
                                             if($conn->query($sql)){
                                                 //Set Refresh header using PHP.
                                                 //header( "refresh:3;url=landing.php" );
-                                                header("location:landing.php");
+                                                header("location: ../landing?success=login_success");
                                                 //Print out some content for example purposes.
                                                 //echo 'Successful Login';
                                             }
@@ -47,12 +50,12 @@ session_start();
                             }
                         }
                         else if($row["status"] == "inactive"){
-                            header("location: index.php?error=inactive");
+                            header("location: ../index?error=inactive");
                         }
                     }
                 }
                 else if($result->num_rows == 0){
-                    header("location: index.php?error=no_account");
+                    header("location: ../index?error=no_account");
                 }
             }
             else{
@@ -60,9 +63,9 @@ session_start();
             }
         }
 
-    }
-    else{
-        echo "wala ka sinubmit";
+    }else{
+        header("location: ../index");
+        exit();
     }
 
 ?>

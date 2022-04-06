@@ -61,7 +61,7 @@
                                 if($conn->query($sql)){
                                     $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($id, 'updated account', '$by', '$date')";
                                     if($conn->query($sql)){
-                                        hheader("location:index.php");      
+                                        header("location:index.php");      
                                     }
                                 }
                                 else{
