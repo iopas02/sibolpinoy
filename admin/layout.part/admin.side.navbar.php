@@ -1,6 +1,7 @@
 /********THIS PART IS FOR THE COUNTING NEW EMAIL IN EMAIL TABLE START HERE*************/
 <?php
     $stats = 'New';
+
     $count_inbox = "SELECT * FROM `email` WHERE `status`='$stats' ";
     $count_inbox_run = mysqli_query($conn, $count_inbox);
     $result_count = mysqli_num_rows($count_inbox_run);
@@ -10,8 +11,7 @@
         $add_class = 'visually-hidden';
     }
 
-    $a = 'New';
-    $count_er = "SELECT * FROM `event_reservation` WHERE `action`='$a' ";
+    $count_er = "SELECT * FROM `event_reservation` WHERE `action`='$stats' ";
     $count_er_run = mysqli_query($conn, $count_er);
     $er_count = mysqli_num_rows($count_er_run);
     if($er_count > 0){
@@ -20,7 +20,16 @@
         $a_class = 'visually-hidden';
     }
 
-    $all_count = $result_count + $er_count;
+    $counter_consult = "SELECT * FROM `consultation` WHERE `action`='$stats' ";
+    $counter_consult_run = mysqli_query($conn, $counter_consult);
+    $consult_count = mysqli_num_rows($counter_consult_run);
+    if($consult_count > 0) {
+        $c_class = '';
+    }else{
+        $c_class = 'visually-hidden';
+    }
+
+    $all_count = $result_count + $er_count + $consult_count;
     if($all_count > 0){
         $e_class = '';
     }else{
@@ -78,7 +87,6 @@
                             <span>Email 
                                 <span class="position-absolute top-0 stranslate-middle badge rounded-pill bg-danger <?= $e_class ?>" style="width: 25px; height: 25px;">
                                 <p class="mt-1"><?= $all_count ?></p>
-                                <span class="visually-hidden">unread messages</span>
                             </span>
                         </span>
                         
@@ -96,14 +104,16 @@
                                     <span>Event Reservation
                                         <span class="position-absolute stranslate-middle badge bg-danger <?= $a_class ?>" style="width: 20px; height: 15px;">
                                         <p class=""><?= $er_count ?></p>
-                                        <span class="visually-hidden">unread messages</span>
                                     </span>
                                 </a>    
                             </li>
                             <li>
                                 <a href="consultation.php" class="nav-link px-3 text-normal">
                                     <span class="me-1"><i class="bi bi-clipboard-check"></i></span>
-                                    <span>Consultation</span>
+                                    <span>Consultation
+                                        <span class="position-absolute stranslate-middle badge bg-danger <?= $e_class ?>" style="width: 20px; height: 15px;">
+                                        <p class=""><?= $consult_count ?></p>
+                                    </span>
                                 </a>
                             </li>
                             <li>
@@ -112,7 +122,6 @@
                                     <span>Inbox
                                         <span class="position-absolute top-0 stranslate-middle badge bg-danger <?= $add_class ?>"  style="width: 20px; height: 15px;">
                                         <p class=""><?= $result_count ?></p>
-                                        <span class="visually-hidden">unread messages</span>
                                     </span>
                                 </a>
                             </li>
