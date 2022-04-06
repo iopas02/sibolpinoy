@@ -57,7 +57,7 @@
                     CORE
                 </div>  
                 <li>
-                    <a href="landing.php" class="nav-link px-3 text-light text-normal">
+                    <a href="landing" class="nav-link px-3 text-light text-normal">
                         <span class="me-2"><i class="bi bi-speedometer2"></i></span>
                         <span>Dashboard</span>
                     </a>
@@ -65,14 +65,14 @@
                         if(isset($_SESSION["level"])){
                             $check_level = $_SESSION["level"];                        
                             if($check_level == '1'){
-                                echo ' <a href="admin.con.php" class="nav-link px-3 text-light text-normal">
+                                echo ' <a href="admin.con" class="nav-link px-3 text-light text-normal">
                                             <span class="me-2"><i class="bi bi-person-bounding-box"></i></span>
                                             <span>Manage admin</span>
                                         </a>';
                             }
                         }
                     ?>
-                    <a href="clients.record.php" class="nav-link px-3 text-light text-normal">
+                    <a href="clients.record" class="nav-link px-3 text-light text-normal">
                         <span class="me-2"><i class="bi bi-people"></i></span>
                         <span>Clients</span>
                     </a>
@@ -99,7 +99,7 @@
                     <div class="collapse" id="email">
                         <ul class="navbar-nav ps-3">
                             <li>       
-                                <a href="event.reservation.php" class="nav-link px-3 text-normal">
+                                <a href="event.reservation" class="nav-link px-3 text-normal">
                                     <span class="me-1"><i class="bi bi-calendar-check"></i></span>
                                     <span>Event Reservation
                                         <span class="position-absolute stranslate-middle badge bg-danger <?= $a_class ?>" style="width: 20px; height: 15px;">
@@ -108,7 +108,7 @@
                                 </a>    
                             </li>
                             <li>
-                                <a href="consultation.php" class="nav-link px-3 text-normal">
+                                <a href="consultation" class="nav-link px-3 text-normal">
                                     <span class="me-1"><i class="bi bi-clipboard-check"></i></span>
                                     <span>Consultation
                                         <span class="position-absolute stranslate-middle badge bg-danger <?= $e_class ?>" style="width: 20px; height: 15px;">
@@ -117,7 +117,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="inbox.php" class="nav-link px-3 text-normal position-relative">
+                                <a href="inbox" class="nav-link px-3 text-normal position-relative">
                                     <span class="me-1"><i class="bi bi-envelope"></i></span>
                                     <span>Inbox
                                         <span class="position-absolute top-0 stranslate-middle badge bg-danger <?= $add_class ?>"  style="width: 20px; height: 15px;">
@@ -126,7 +126,7 @@
                                 </a>
                             </li>
                             <li>         
-                                <a href="sent.php" class="nav-link px-3 text-normal">
+                                <a href="sent" class="nav-link px-3 text-normal">
                                     <span class="me-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-check" viewBox="0 0 16 16">
                                     <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855a.75.75 0 0 0-.124 1.329l4.995 3.178 1.531 2.406a.5.5 0 0 0 .844-.536L6.637 10.07l7.494-7.494-1.895 4.738a.5.5 0 1 0 .928.372l2.8-7Zm-2.54 1.183L5.93 9.363 1.591 6.602l11.833-4.733Z"/>
                                     <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686Z"/>
@@ -150,20 +150,20 @@
                     Interface and Events
                 </div>
                 <li>
-                    <a href="calender.php" class="nav-link px-3 text-light text-normal">
+                    <a href="calender" class="nav-link px-3 text-light text-normal">
                             <span class="me-2"><i class="bi bi-calendar4-week"></i></span>
                             <span>Calendar</span>
                     </a>
-                    <a href="404.php" class="nav-link px-3 text-light text-normal">
+                    <a href="404" class="nav-link px-3 text-light text-normal">
                             <span class="me-2"><i class="bi bi-bar-chart"></i></span>
                             <span>Reports</span>
                     </a>
-                    <a href="services.tools.php" class="nav-link px-3 sidebar-link text-light text-normal" >
+                    <a href="services.tools" class="nav-link px-3 sidebar-link text-light text-normal" >
                         <span class="me-2"><i class="bi bi-tags"></i></span>
                         <span>Services</span>            
                     </a>
                 
-                    <a href="events.php" class="nav-link px-3 sidebar-link text-light text-normal">
+                    <a href="events" class="nav-link px-3 sidebar-link text-light text-normal">
                         <span class="me-2"><i class="bi bi-table"></i></span>
                         <span>Events</span>
                     </a>
@@ -189,7 +189,7 @@
                                 if(isset($_SESSION["level"])){
                                     $check_level = $_SESSION["level"];                        
                                     if($check_level == '1'){
-                                        echo ' <a href="user.archive.php" class="nav-link px-2 text-normal">
+                                        echo ' <a href="user.archive" class="nav-link px-2 text-normal">
                                         <span class="me-2"><i class="bi bi-person-dash"></i></span>
                                         <span>Users</span>
                                     </a>';
@@ -198,19 +198,19 @@
                             ?>    
                             </li>
                             <li>
-                            <a href="404.php" class="nav-link px-2 text-normal">
+                            <a href="404" class="nav-link px-2 text-normal">
                                 <span class="me-2"><i class="bi bi-clipboard-check"></i></span>
                                 <span>Consultation request</span>
                             </a>
                             </li>
                             <li>
-                            <a href="404.php" class="nav-link px-2 text-normal">
+                            <a href="404" class="nav-link px-2 text-normal">
                                 <span class="me-2"><i class="bi bi-calendar-check"></i></span>
                                 <span>Event Reservation</span>
                             </a>
                             </li>
                             <li>
-                            <a href="404.php" class="nav-link px-2 text-normal">
+                            <a href="404" class="nav-link px-2 text-normal">
                                 <span class="me-2"><i class="bi bi-envelope"></i></span>
                                 <span>Message</span>
                             </a>
