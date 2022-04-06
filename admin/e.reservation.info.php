@@ -70,7 +70,7 @@
                 <h4 class="page-header">Event Reservation Information</h4>
             </div>
             <div class="col-md-2 my-2">
-                <a href="event.reservation.php" style="text-decoration: none; color:black; ">Back to Reservation List</a>
+                <a href="event.reservation" style="text-decoration: none; color:black; ">Back to Reservation List</a>
             </div> 
         </div>
         <hr class="dropdown-divider bg-dark" />

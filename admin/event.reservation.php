@@ -63,7 +63,7 @@
                                         <th hidden>Name</th>
                                         <th hidden>MI</th>
                                         <th hidden>Lastname</th>
-                                        <th>Full Name</th>
+                                        <th>From</th>
                                         <th hidden>Email</th>
                                         <th hidden>Contatc</th>
                                         <th hidden>Organization</th>
@@ -77,7 +77,7 @@
                                         <th hidden>Payment</th>
                                         <th>Status</th>
                                         <th hidden>Action</th>
-                                        <th>Registered</th>
+                                        <th>Date Send</th>
                                         <th>Read</th>
                                     </tr>
                                 </thead>
@@ -139,7 +139,7 @@
                                                     <td hidden><?= $event_reservation['action'] ?></td>
                                                     <td><?= date('M d Y',  strtotime($event_reservation['date_registered'])) ?></td>
                                                     <td>
-                                                        <form action="e.reservation.info.php" method="POST">
+                                                        <form action="e.reservation.info" method="POST">
                                                             <input name="entryID" value="<?= $event_reservation['entryID'] ?>" hidden>
                                                             <button type="submit" class="stats-white tooltip-test" title="READ" id="read" name="read">
                                                                 <i class="bi bi-arrow-repeat"></i>
@@ -160,7 +160,7 @@
                                         <th hidden>Name</th>
                                         <th hidden>MI</th>
                                         <th hidden>Lastname</th>
-                                        <th>Full Name</th>
+                                        <th>From</th>
                                         <th hidden>Email</th>
                                         <th hidden>Contatc</th>
                                         <th hidden>Organization</th>
@@ -174,7 +174,7 @@
                                         <th hidden>Payment</th>
                                         <th>Status</th>
                                         <th hidden>Action</th>
-                                        <th>Registered</th>
+                                        <th>Date Send</th>
                                         <th>Read</th>
                                     </tr>
                                 </tfoot>
