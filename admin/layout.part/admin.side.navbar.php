@@ -107,7 +107,7 @@
                                 <a href="consultation" class="nav-link px-3 text-normal">
                                     <span class="me-1"><i class="bi bi-clipboard-check"></i></span>
                                     <span>Consultation
-                                        <span class="position-absolute stranslate-middle badge bg-danger <?= $e_class ?>" style="width: 20px; height: 15px;">
+                                        <span class="position-absolute stranslate-middle badge bg-danger <?= $c_class ?>" style="width: 20px; height: 15px;">
                                         <p class=""><?= $consult_count ?></p>
                                     </span>
                                 </a>

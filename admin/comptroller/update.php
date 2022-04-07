@@ -18,24 +18,4 @@ if(isset($_POST["id"]))
 }
 /********THIS PART IS FOR THE UPDATE CALENDAR EVENT and EVENT TABLE END HERE*************/
 
-
-/********THIS PART IS FOR THE CHANGE STATUS IN THE EMAIL TABLE START HERE*************/
-if(isset($_POST["cstatus"])){
-    include_once('../../connection.php');
-
-    $emailID = $_POST['emailID']; 
-    $newStat = "Read";
-    
-    $change_stats = "UPDATE email SET status='$newStat' WHERE emailID='$emailID' ";
-    $change_stats_results = mysqli_query($conn, $change_stats);
-    if(!$change_stats_results){
-        header("Location: ../inbox.php");
-        exit();
-    }else{
-        header("Location: ../inbox.php");
-        exit();
-    }
-}
-/********THIS PART IS FOR THE CHANGE STATUS IN THE EMAIL TABLE END HERE*************/
-
 ?>

@@ -46,7 +46,7 @@ if(isset($_POST['email_submit'])) {
                     while($row = $result->fetch_assoc()) {
                         $client_uniID = $row['client_uniID'];
 
-                        $email_request = "INSERT INTO `email`(`client_uniID`, `subject`, `message`, `status`, `date_mailed`) VALUES ('$client_uniID', '$subject', '$message', '$status', '$date')";
+                        $email_request = "INSERT INTO `email`(`client_uniID`, `subject`, `message`, `status`, `date_mailed``) VALUES ('$client_uniID', '$subject', '$message', '$status', '$date')";
 
                         $email_result = mysqli_query($conn, $email_request);
                         if(!$email_result){
@@ -93,7 +93,7 @@ if(isset($_POST['email_submit'])) {
                             $mail->Subject = $subject;
 
                             // Mail body content
-                            $mail->Body    = $body;
+                            $mail->Body = $body;
 
                             if(!$mail->send()) {
                                 header("Location: ../contact.php?error=Message_not_sent");
@@ -161,7 +161,7 @@ if(isset($_POST['email_submit'])) {
                         $mail->Subject = $subject;
 
                         // Mail body content
-                        $mail->Body    = $body;
+                        $mail->Body = $body;
 
                         if(!$mail->send()) {
                             header("Location: ../contact.php?error=Message_not_sent");

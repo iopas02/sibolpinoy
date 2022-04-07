@@ -227,7 +227,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
 
-                    <form action="comptroller/update.php" method="POST"> 
+                    <form action="comptroller/send.mail.php" method="POST"> 
                         <div class="modal-header">
                             <h5 class="modal-title">New message</h5>
                             <button type="submit" name="cstatus" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -276,17 +276,19 @@
                     <div class="modal-body">
                         <div class="row col-md-12">
                             <div class="col-md-6 mb-1">
-                                <label for="recipient_name" name="sender_email" class="col-form-label">Recipient Name:</label>
-                                <input type="text" class="form-control" readonly name="recipient_name" id="client_name" >
-                                <input type="text" class="form-control" hidden name="client_uniID" id="client_uniID" >
-                                <input type="text" class="form-control" hidden name="emailID" id="emailid" >
+                                <label for="recipient_name" name="sender_email" class="col-form-label">Client uniID:</label>
+                                <input type="text" class="form-control" readonly name="client_uniID" id="client_uniID" >
                             </div>
                             <div class="col-md-6 mb-1">
-                                <label for="sender_email" name="sender_email" class="col-form-label">Recipient Email Address:</label>
-                                <input type="text" class="form-control" readonly name="recipient_email" id="email_address" >
+                                <label for="sender_email" name="sender_email" class="col-form-label">Recipient Name:</label>
+                                <input type="text" class="form-control" readonly name="recipient_name" id="client_name" >
                             </div>
                         </div>
                         <div class="row col-md-12">
+                            <div class="col-md-12 mb-1">
+                                <label for="sender_email" name="sender_email" class="col-form-label">Recipient Email Address:</label>
+                                <input type="text" class="form-control" readonly name="recipient_email" id="email_address" >
+                            </div>
                             <div class="col-md-12 mb-2">
                                 <label for="sender_email" name="sender_email" class="col-form-label">Subject:</label>
                                 <input type="text" class="form-control" readonly name="subject" id="follow_subject" >
@@ -296,29 +298,20 @@
                             <div class="form-floating col-md-6 mb-1 px-2">
                                 <input type="text" class="form-control" hidden id="floatingInput" name="adminid" value="<?= $id ?>">
                                 <input type="text" class="form-control" hidden id="floatingInput" name="username" value="<?= $rusername ?>">
-                                <input type="text" class="form-control" readonly id="floatingInput" name="sender" value="<?= $firstName." ".$lastName ?>">
-                                <label for="floatingInput">Sender Name</label>
-                            </div>
-                            <div class="form-floating col-md-6 mb-1 px-2">
-                                <input type="email" class="form-control" readonly id="floatingInput" name="sender_email" value="irecommend.ahis.als@gmail.com">
-                                <label for="floatingInput">Email address</label>
                             </div>
                             <div class="form-floating col-md-12 mb-1 px-2">
-                                <input type="email" class="form-control" id="floatingPassword" name="cc" placeholder="cc:">
-                                <label for="floatingPassword">cc:</label>
+                                <input type="email" class="form-control" id="floatingInput" name="companyEmail" value="" required>
+                                <label for="floatingInput">Company Email address</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="mb-2 px-2">
                                 <label for="message" class="col-form-label">Message:</label>
-                                <textarea class="form-control" rows="4" name="message" id="message"></textarea>
+                                <textarea class="form-control" rows="4" name="message" id="message" required></textarea>
                             </div>
                         </div>
-                        <div class="mb-2 px-2">
-                            <input class="form-control" type="file" name="attach_file">
-                        </div>
                         <div class="mb-2 px-2" hidden>
-                            <input class="form-control" type="text" name="reply_email" value="Reply Email">
+                            <input class="form-control" type="text" name="action" value="Reply client email from contact page">
                         </div>
                         
                         <div class="row col-md-12 mt-3">
