@@ -131,7 +131,7 @@
                                                 if($sub_cat_result->num_rows > 0 ){
                                                     foreach($sub_cat_result as $sub_cat){
                                                         ?>
-                                                            <input class="form-check-input" type="checkbox" name=sub_cat[] id="flexSwitchCheckDefault" value="<?= $sub_cat['sub_cat_uniID'] ?>">
+                                                            <input class="form-check-input" type="checkbox" name="sub_cat[]" id="flexSwitchCheckDefault" value="<?= $sub_cat['sub_cat_uniID'] ?>">
                                                             <label class="form-check-label" for="flexSwitchCheckDefault"><?= $sub_cat['sub_cat_title'] ?></label><br>
                                                         <?php
                                                     }
@@ -149,7 +149,7 @@
                             <label for="exampleFormControlTextarea1" class="form-label">Message</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3"></textarea>
                         </div>
-                        <input type="text" name="status" value="pending" hidden>
+                        <input type="text" name="status" value="Pending" hidden>
                         <input type="text" name="action" value="New" hidden>
                         <div class="col-12">
                             <small>SPMC <a href=#>TERMS</a> and <a href="#">PRIVACY POLICY</a></small>

@@ -90,7 +90,7 @@
                                         $total_number_of_page = ceil($total_records / $total_records_per_page);
                                         $second_last = $total_number_of_page - 1;
 
-                                        $clients_list_query = "SELECT * FROM `client` ";
+                                        $clients_list_query = "SELECT * FROM `client` ORDER BY c_count DESC";
                                         $clients_list_query_result = mysqli_query($conn, $clients_list_query);
                                         if(mysqli_num_rows($clients_list_query_result) > 0){
                                             foreach($clients_list_query_result as $client_list){

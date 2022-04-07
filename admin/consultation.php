@@ -87,7 +87,7 @@
                                         $total_number_of_page = ceil($total_records / $total_records_per_page);
                                         $second_last = $total_number_of_page - 1;
 
-                                        $consultation_query = "SELECT tb3.entryID, tb1.firstName, tb1.mi, tb1.lastName, tb1.email_add, tb2.service_uniID, tb2.service_title, tb3.consultation_id, tb3.status, tb3.action, tb3.registered_date FROM (client tb1 INNER JOIN consultation tb3 ON tb1.email_add = tb3.email_add) INNER JOIN services tb2 ON tb2.service_uniID = tb3.service_uniID";
+                                        $consultation_query = "SELECT tb3.entryID, tb1.firstName, tb1.mi, tb1.lastName, tb1.email_add, tb2.service_uniID, tb2.service_title, tb3.consultation_id, tb3.status, tb3.action, tb3.registered_date FROM (client tb1 INNER JOIN consultation tb3 ON tb1.email_add = tb3.email_add) INNER JOIN services tb2 ON tb2.service_uniID = tb3.service_uniID ORDER BY entryID DESC";
 
                                         $consultation_query_results = $conn->query($consultation_query);
                                         if($consultation_query_results->num_rows > 0){
