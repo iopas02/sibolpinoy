@@ -425,7 +425,7 @@
                     return $(this).text();
                 }).get();
 
-                console.log(data);
+                // console.log(data);
 
                 $('#service_uniID').val(data[0]);
                 $('#service_title').val(data[1]);
@@ -446,7 +446,7 @@
                     return $(this).text();
                 }).get();
 
-                console.log(data);
+                // console.log(data);
                 $('#uniID').val(data[0]);
                 $('#title').val(data[1]);
             })
@@ -462,7 +462,7 @@
                     return $(this).text();
                 }).get();
 
-                console.log(data);
+                // console.log(data);
                 $('#sunid').val(data[0]);
                 $('#stitle').val(data[1]);
             })

@@ -52,7 +52,6 @@
                         $consultationID = $row['consultation_id']; 
                         $set_date = $row['set_date'];
                         $set_time = $row['set_time'];
-                        $reg_fee = $row['reg_fee'];
                         $status = $row['status'];
                         $memo = $row['memo'];
                         $date_registered = $row['registered_date'];
@@ -65,6 +64,7 @@
         
         }
     ?>
+  
 
     <main class="my-5">
         <div class="container-fluid p-4">
@@ -169,7 +169,7 @@
                             </div>
                             <div class="col-md-2">
                                 <label class="col-form-label">Set Date: <small>(Editable Date)</small></label>
-                                <input class="col-md-12" type="text" name="setdate" value="<?= date('F d Y',  strtotime($set_date)) ?>">
+                                <input class="col-md-12" type="text" name="setdate" value="<?= date('F d Y', strtotime($set_date)) ?>">
                             </div>
                             <div class="col-md-2">
                                 <label class="col-form-label">Set Time: <small>(Editable Time)</small></label>
@@ -197,21 +197,164 @@
                             <input class="col-md-12" type="text" name="action2" value="approved  consultation" hidden>                           
                         </div>
                         <div class="col-md-12 mt-5">
-                            <button type="submit" name="declined" class="m-2 py-2 px-4 border-0 float-right text-white bg-coloured">Declined</button>
-                            <button type="submit" name="approved" class="m-2 py-2 px-4 border-0 float-right text-white bg-blue">Approved</button>
+                            <table class="table data-table">
+                                <thead hidden>
+                                    <tr>
+                                        <th>Email</th>
+                                        <th>Full Name</th>
+                                        <th>Service Name</th>
+                                        <th>Set Date</th>
+                                        <th>Set Time</th>
+                                        <th>Set Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody >
+                                    <tr>
+                                        <td hidden><?= $email_add ?></td>
+                                        <td hidden><?= $firstName ?> <?= $mi ?> <?= $lastName ?></td>
+                                        <td hidden><?= $service_title ?></td>
+                                        <td hidden><?= date('F d Y', strtotime($set_date)) ?></td>
+                                        <td hidden><?= date('g:i a',  strtotime($set_time)) ?></td>
+                                        <td hidden><?= $client_uniID ?></td>
+                                        <td hidden><?= $id ?></td>
+                                        <td hidden><?= $rusername ?></td>
+                                        <td hidden><?= $consultationID ?></td>
+                                        <td> 
+                                            <input type="btn" class="m-2 py-2 px-1 float-right text-center text-dark bg-white sendMail" style="cursor: pointer; width: 100px; height: 40px;" placeholder="Send Mail" >
+                                            <button type="submit" name="declined" class="m-2 py-2 px-4 border-0 float-right text-white bg-coloured">Declined</button>
+                                            <button type="submit" name="approved" class="m-2 py-2 px-4 border-0 float-right text-white bg-blue">Approved</button>
+                                        </td>
+                                        
+                                    </tr>
+                                </tbody>
+                                <tfoot hidden>
+                                    <tr>
+                                        <th>Email</th>
+                                        <th>Full Name</th>
+                                        <th>Service Name</th>
+                                        <th>Set Date</th>
+                                        <th>Set Time</th>
+                                        <th>Set Time</th>
+                                    </tr>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                           
+                            
                         </div>
                     </div>
-                </form>    
+                </form>
+                
             </div>
         </div>
 
     </main>
 
+    <div class="modal fade" id="sendingMail" data-bs-backdrop="static">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Sending Email</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="comptroller/consultation.control.php" method="POST">
+                        <div class="cold-md-12 d-flex">
+                            <div class="col-md-6 mb-1">
+                                <label for="cuniID" class="col-form-label">Client uniID:</label>
+                                <input type="text" class="form-control" id="cuniID" name="cuniID" readonly>
+                            </div>
+                            <div class="col-md-6 mb-1">
+                                <label for="fullname" class="col-form-label">Recipient Fullname:</label>
+                                <input type="text" class="form-control" id="fullname" name="fullname" readonly>
+                            </div>
+                        </div>
+                        <div class="mb-1">
+                            <label for="$email_add" class="col-form-label">Recipient Email Address:</label>
+                            <input type="text" class="form-control" id="emailadd" name="emailadd" readonly>
+                        </div>
+                        <div class="cold-md-12 d-flex">
+                            <div class="col-md-8 mb-1">
+                                <label for="service" class="col-form-label">Subject:</label>
+                                <input type="text" class="form-control" id="service" name="service" readonly>
+                            </div>
+                            <div class="col-md-4 mb-1">
+                                <label for="consulid" class="col-form-label">Consultation ID:</label>
+                                <input type="text" class="form-control" id="consulid" name="consulid" readonly>
+                            </div>
+                        </div>    
+                        
+                        <div class="cold-md-12 d-flex">
+                            <div class="col-md-6 mb-1">
+                                <label for="setdate" class="col-form-label">Set Date:</label>
+                                <input type="text" class="form-control" id="setdate" name="setdate" readonly>
+                            </div>
+                            <div class="col-md-6 mb-1">
+                                <label for="settime" class="col-form-label">Set Time:</label>
+                                <input type="text" class="form-control" id="settime" name="settime" readonly>
+                            </div>
+                        </div>
+                        <div class="cold-md-12 d-flex">
+                            <div class="col-md-6 mb-1"  hidden>
+                                <label for="adminID" class="col-form-label">admin ID:</label>
+                                <input type="text" class="form-control" id="adminID" name="adminID" readonly>
+                            </div>
+                            <div class="col-md-6 mb-1" hidden>
+                                <label for="admin" class="col-form-label">Admin:</label>
+                                <input type="text" class="form-control" id="admin" name="admin" readonly>
+                            </div>
+                        </div>
+                        <div class="mb-1">
+                            <label for="companymail" class="col-form-label">Sender Email Address:</label>
+                            <input type="text" class="form-control" id="companymail" name="companymail" required>
+                        </div>
+                        <div class="mb-1" hidden>
+                            <label for="action" class="col-form-label">action:</label>
+                            <input type="text" class="form-control" id="action" name="action" value="reply consultation request" placeholder="reply consultation request">
+                        </div>
+                       
+                        <div class="mb-1">
+                            <label for="message-text" class="col-form-label">Message:</label>
+                            <textarea class="form-control" rows="4" id="message-text"  name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn bg-blue text-white mt-2" name="send">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer and JS Script Start Here -->
     <?php
       require "layout.part/admin.footer.php";
     ?>
-  
+     <script>
+       
+        $(document).ready(function(){
+            $('.sendMail').on('click', function(){
+                $('#sendingMail').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data= $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+                $('#emailadd').val(data[0]);
+                $('#fullname').val(data[1]);
+                $('#service').val(data[2]);
+                $('#setdate').val(data[3]);
+                $('#settime').val(data[4]);
+                $('#cuniID').val(data[5]);
+                $('#adminID').val(data[6])
+                $('#admin').val(data[7])
+                $('#consulid').val(data[8])
+            })
+        })
+
+         
+    </script>
     <!-- Footer and JS Script End Here -->
   </body>
 </html>

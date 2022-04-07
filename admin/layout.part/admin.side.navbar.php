@@ -1,4 +1,3 @@
-/********THIS PART IS FOR THE COUNTING NEW EMAIL IN EMAIL TABLE START HERE*************/
 <?php
     $stats = 'New';
 
@@ -35,10 +34,7 @@
     }else{
         $e_class = 'visually-hidden';
     }
-
 ?>
-/********THIS PART IS FOR THE COUNTING NEW EMAIL IN EMAIL TABLE END HERE*************/
-
 <div class="offcanvas offcanvas-start sidebar-nav bg-coloured" id="sidebar">
     <div class="offcanvas-body p-0">
 

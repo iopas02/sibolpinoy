@@ -92,8 +92,8 @@ if(isset($_POST['book_me'])){
                             $mail->isSMTP();                      // Set mailer to use SMTP
                             $mail->Host = 'smtp.gmail.com';       // Specify main and backup SMTP servers
                             $mail->SMTPAuth = true;               // Enable SMTP authentication
-                            $mail->Username = 'treszeta28@gmail.com';   // SMTP username
-                            $mail->Password = 'xnhongbdpyodspfy';   // SMTP password
+                            $mail->Username = 'itdept.sibolpinoy@gmail.com';   // SMTP username
+                            $mail->Password = 'gsmprrixmbecdpzc';   // SMTP password
                             $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted
                             $mail->Port = 587;                    // TCP port to connect to
                             $mail->setFrom($company_email, $company);
@@ -182,8 +182,8 @@ if(isset($_POST['book_me'])){
                                 $mail->isSMTP();                      // Set mailer to use SMTP
                                 $mail->Host = 'smtp.gmail.com';       // Specify main and backup SMTP servers
                                 $mail->SMTPAuth = true;               // Enable SMTP authentication
-                                $mail->Username = 'treszeta28@gmail.com';   // SMTP username
-                                $mail->Password = 'xnhongbdpyodspfy';   // SMTP password
+                                $mail->Username = 'itdept.sibolpinoy@gmail.com';   // SMTP username
+                                $mail->Password = 'gsmprrixmbecdpzc';   // SMTP password
                                 $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted
                                 $mail->Port = 587;                    // TCP port to connect to
                                 $mail->setFrom($company_email, $company);

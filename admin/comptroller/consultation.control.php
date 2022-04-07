@@ -29,6 +29,8 @@ if(isset($_POST['approved'])){
 
     $date = date("Y-m-d H:i:s");
 
+    $title = "Consultation about: ".''.$service_title.''." Consultation ID: ".''.$consulID; 
+
     $check_subcat_id = 0;
     $subcat_id = $_POST['subcatid'];
     $check_subcat_id = count($subcat_id);
@@ -60,15 +62,25 @@ if(isset($_POST['approved'])){
                     
                     if($conn->query($update_consul_query)===TRUE){
                         
-                        $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$action2','$admin', '$date')";
-        
-                        if($conn->query($create_adminlog)===TRUE){
-                            header("Location: ../consultation?success=consultation_report_successfully");
-                            exit(); 
+                       $scheduler_query = "INSERT INTO `scheduler`(`title`, `start_event`, `end_event`) VALUES ('$title','$setdate','$setdate')";
+
+                       if($conn->query($scheduler_query )===TRUE){
+
+                            $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$action2','$admin', '$date')";
+            
+                            if($conn->query($create_adminlog)===TRUE){
+                                header("Location: ../consultation?success=consultation_report_successfully");
+                                exit(); 
+                            }else{
+                                header("Location: ../consultation?error=adminlog_error");
+                                exit();
+                            }
+
                         }else{
-                            header("Location: ../consultation?error=adminlog_error");
+                            header("Location: ../consultation?error=scheduler_failed_to_add");
                             exit();
                         }
+
         
                     }else{
                         header("Location: ../consultation?error=consultation_update_status_failed");
@@ -124,4 +136,105 @@ if(isset($_POST['declined'])){
         exit();
     }
 
+}
+
+if(isset($_POST['send'])){
+    if($_POST['message'] && $_POST['companymail'] !=''){
+        date_default_timezone_set("Asia/Manila");
+
+        $cuniID = mysqli_real_escape_string($conn, $_POST['cuniID']);
+        $fullname = mysqli_real_escape_string($conn, $_POST['fullname']);
+        $emailadd = mysqli_real_escape_string($conn, $_POST['emailadd']);
+        $service = mysqli_real_escape_string($conn, $_POST['service']);
+        $consulid = mysqli_real_escape_string($conn, $_POST['consulid']);
+        $setdate = mysqli_real_escape_string($conn, $_POST['setdate']);
+        $settime = mysqli_real_escape_string($conn, $_POST['settime']);
+        $companymail = mysqli_real_escape_string($conn, $_POST['companymail']);
+        $sentmessage = mysqli_real_escape_string($conn, $_POST['message']);
+
+        $adminID = mysqli_real_escape_string($conn, $_POST['adminID']);
+        $admin = mysqli_real_escape_string($conn, $_POST['admin']);
+        $action = mysqli_real_escape_string($conn, $_POST['action']);
+
+        $date = date("Y-m-d H:i:s");
+
+        $subject = $service;
+        $company_email = $companymail;
+        $company = "Sibol-PINOY Management Consultancy";
+
+        $message = '';
+        $message .= "<p>".$sentmessage."<br>".
+        "Services: "."<b>".$service."</b><br>". 
+        "Date: ". "<b>".$setdate."</b><br>".
+        "Time: ". "<b>".$settime."</b><br>".
+        "Consultation ID: ". "<b>".$consulid."</b><br>".
+        "</p>".
+
+        $body = '';
+
+        $body .="From: " .$company. "<br>";
+        $body .="Email :" . $company_email. "<br>";
+        $body .="Message :" .$message. "<br>";
+
+        require '../../PHPMailer/src/Exception.php';
+        require '../../PHPMailer/src/PHPMailer.php';
+        require '../../PHPMailer/src/SMTP.php';
+
+        $mail = new PHPMailer\PHPMailer\PHPMailer();
+
+        $mail->isSMTP();                      // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com';       // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;               // Enable SMTP authentication
+        $mail->Username = 'itdept.sibolpinoy@gmail.com';   // SMTP username
+        $mail->Password = 'gsmprrixmbecdpzc';   // SMTP password
+        $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 587;                    // TCP port to connect to
+        $mail->setFrom($company_email, $company);
+        $mail->addReplyTo($company_email, $company);
+
+        // Add a recipient
+        $mail->addAddress($emailadd);
+
+        // $mail->addCC($carbon_copy);
+        // //$mail->addBCC('bcc@example.com');
+
+        // Set email format to HTML
+        $mail->isHTML(true);
+
+        // Mail subject
+        $mail->Subject = $subject;
+
+        // Mail body content
+        $mail->Body = $body;
+
+        if(!$mail->send()) {
+            header("Location: ../consultation?error=email_is_invalid");
+            exit();
+        } else {
+
+            $email_query = "INSERT INTO `sent_email`(`client_uniID`, `email_add`, `loginId`, `company_email`, `subject`, `reply`, `action`, `date_reply`) VALUES ('$cuniID','$emailadd','$adminID','$companymail','$service','$sentmessage','$action','$date')";
+
+            if($conn->query($email_query)===TRUE){
+
+                $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$action','$admin', '$date')";
+                
+                if($conn->query($create_adminlog)===TRUE){
+                    header("Location: ../consultation?success=email_sent_successfully");
+                    exit(); 
+                }else{
+                    header("Location: ../consultation?error=adminlog_error");
+                    exit();
+                }
+
+            }else{
+                header("Location: ../consultation?error=email_query)failed");
+                exit();
+            }
+        }
+        
+
+    }else{
+        header("Location: ../consultation?error=textarea_or_company_email_is_empty_field");
+        exit();
+    }
 }

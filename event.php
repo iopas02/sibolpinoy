@@ -562,7 +562,7 @@
                     return $(this).text();
                 }).get();
 
-                console.log(data);
+                // console.log(data);
                 $('#eventID').val(data[1]);
                 $('#eID').val(data[1]);
                 $('#event_title').val(data[2]);

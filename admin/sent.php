@@ -9,6 +9,16 @@
 
   <body>
     <title>Sibol-PINOY Sent Box</title>
+    <script>
+        $(document).ready(function(){
+            $(".inputSearch").on('keyup', function(){
+              var value =$(this).val().toLowerCase();
+              $("#myTable tr").filter(function(){
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              });    
+            });
+        });   
+    </script>
 
     <!-- top navigation bar -->
     <?php
@@ -43,29 +53,48 @@
                             <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686Z"/>
                             </svg>
                         </span>Email Sent
+
+                        <div class="form-group float-end col-md-6">
+                            <input type="text" class="form-control inputSearch" id="inputSearch" placeholder="Search..">
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="example" class="table data-table" style="width: 100%">
                                 <thead>
                                     <tr>
-                                        <th hidden>Client ID/th>
-                                        <th hidden>C_email_add</th>
+                                        <th hidden>Client ID</th>
+                                        <th>Sent ID</th>
                                         <th>To:</th>
+                                        <th>Client Email</th>
                                         <th>Subject</th>
-                                        <th>Message</th>
-                                        <th>Status</th>
-                                        <th>Replied</th>
+                                        <th>Reply</th>
                                         <th>Action</th>
-                                        <th>Replied</th>
-                                        <th>Attachment</th>
-                                        <th>CC</th>
+                                        <th>Replied by</th>
                                         <th>Date Reply</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="myTable">
                                     <?php
-                                        $sent_table_query = "SELECT tb1.client_uniID, tb1.email_add, tb1.firstName, tb1.lastName, tb2.subject, tb2.message, tb2.status, tb3.username, tb4.action, tb4.reply, tb4.attachment, tb4.cc, tb4.date_reply FROM (((client tb1 INNER JOIN sent_email tb4 ON tb1.client_uniID = tb4.client_uniID) INNER JOIN email tb2 ON tb2.emailID = tb4.emailID) INNER JOIN login tb3 ON tb3.loginId = tb4.loginId)";
+                                        if(isset($_GET['page_no']) && $_GET['page_no'] !=''){
+                                            $page_no = $_GET['page_no'];
+                                        }else{
+                                            $page_no = 1;
+                                        }
+            
+                                        $total_records_per_page = 25;
+                                        $offset = ($page_no-1) * $total_records_per_page;
+                                        $previous_page = $page_no - 1;
+                                        $next_page = $page_no + 1;
+                                        $adjacents = "2";
+            
+                                        $result_count = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM `sent_email`" );
+                                        $total_records = mysqli_fetch_array($result_count);
+                                        $total_records = $total_records['total_records'];
+                                        $total_number_of_page = ceil($total_records / $total_records_per_page);
+                                        $second_last = $total_number_of_page - 1;
+
+                                        $sent_table_query = "SELECT tb1.sentID, tb2.client_uniID, tb2.email_add, tb2.firstName, tb2.mi, tb2.lastName, tb3.username, tb1.subject, tb1.reply, tb1.action, tb1.date_reply FROM (sent_email tb1 INNER JOIN client tb2 ON tb1.client_uniID = tb2.client_uniID) INNER JOIN login tb3 ON tb1.loginId = tb3.loginId ORDER BY tb1.sentID DESC";
 
                                         $sent_table_query_result = mysqli_query($conn, $sent_table_query);
                                         if(mysqli_num_rows($sent_table_query_result) > 0 ){
@@ -73,108 +102,103 @@
                                             ?>
                                                 <tr>
                                                     <td hidden><?=$sent['client_uniID']?></td>
-                                                    <td hidden><?=$sent['email_add']?></td>
-                                                    <?php
-                                                        $to = $sent['firstName']." ".$sent['lastName'];
-                                                    ?>
-                                                    <td><?= $to ?></td>
+                                                    <td><?=$sent['sentID']?></td>
+                                                    <td><?= $sent['firstName'] ?> <?= $sent['mi'] ?> <?= $sent['lastName'] ?></td>
+                                                    <td><?=$sent['email_add']?></td>
                                                     <td><?=$sent['subject']?></td>
-                                                    <td><?=$sent['message']?></td>
-                                                    <td><?=$sent['status']?></td>
-                                                    <td><?=$sent['username']?></td>
-                                                    <td><?=$sent['action']?></td>
                                                     <td><?=$sent['reply']?></td>
-                                                    <?php
-                                                        if(!empty($_GET['file'])){
-                                                            $fileName  = basename($_GET['file']);
-                                                            $filePath  = 'upload/'.$fileName;
-
-                                                            // $file_id = $_GET['file'];
-                                                            // $sql = "SELECT `attachment` FROM `sent_email` WHERE `attachment`='$file_id' ";
-                                                            // $sql_result = mysqli_query($conn, $sql);
-                                                            // $file = mysqli_fetch_assoc($sql_result);
-
-                                                            // $filepath = 'upload/'.$file['name'];
-                                                            
-                                                            if(!empty($fileName) && file_exists($filePath)){
-                                                                //define header
-                                                                header("Cache-Control: public");
-                                                                header("Content-Description: File Transfer");
-                                                                header("Content-Disposition: attachment; filename=$fileName");
-                                                                header('Content-Type: application/octet-stream');
-                                                                header('Cache-Control: must-revalidate');
-                                                                header('Expires: 0');
-                                                                // header("Content-Transfer-Encoding: binary");
-                                                                ob_end_flush();
-                                                                //read file 
-                                                                readfile($filePath);
-                                                                exit;
-
-                                                                // header('Content-Type: application/octet-stream');
-                                                                // header('Content-Description: File Transfer');
-                                                                // header('Content-Disposition: filename='.basename($filepath));
-                                                                // header('Expires: 0');
-                                                                // header('Cache-Control: must-revalidate');
-                                                                // header('Pragma:public');
-
-                                                                // readfile('upload/'.$file['name']);
-                                                            }
-                                                            else{
-                                                                echo "file not exit";
-                                                            }
-                                                        }
-                                                    ?>
-                                                    <td> <a href="sent.php?file=<?php echo $sent['attachment'] ?>"><?= $sent['attachment'] ?></a>
-                                                    <td><?=$sent['cc']?></td>
-                                                    <td><?= date('M d Y H:i', strtotime($sent['date_reply'])) ?></td>
+                                                    <td><?=$sent['action']?></td>
+                                                    <td><?=$sent['username']?></td>
+                                                    <td><?= date('M d Y', strtotime($sent['date_reply'])) ?></td>
                                                 </tr>
 
                                             <?php
                                             }
                                         }
                                     ?>
-                                    <!-- <tr>
-                                        <td>1</td>
-                                        <td>Peter Pan</td>
-                                        <td>Business Consultation</td>
-                                        <td>Pending</td>
-                                        <td>2:00 pm</td>
-                                        <td>
-                                            <button type="button" class="btn tooltip-test" title="Read" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-                                                <i class="bi bi-bookmark"></i>
-                                            </button>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="update status">
-                                                <i class="bi bi-vector-pen"></i>
-                                            </button>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr> -->
 
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th hidden>Client ID/th>
-                                        <th hidden>C_email_add</th>
+                                        <th hidden>Client ID</th>
+                                        <th>Sent ID</th>
                                         <th>To:</th>
+                                        <th>Client Email</th>
                                         <th>Subject</th>
-                                        <th>Message</th>
-                                        <th>Status</th>
-                                        <th>Replied</th>
+                                        <th>Reply</th>
                                         <th>Action</th>
-                                        <th>Replied</th>
-                                        <th>Attachment</th>
-                                        <th>CC</th>
+                                        <th>Replied by</th>
                                         <th>Date Reply</th>
                                     </tr>
                                 </tfoot>
                             </table>
                         </div>
+                        <ul class="pagination pull-right">
+                            <li class="pull-left btn btn-default disabled">Showing Page <?php echo $page_no." of ".$total_number_of_page;?></li>
+                            <li class=" p-2 <?php if($page_no <= 1) { echo "disabled";}?>">
+                                <a <?php if($page_no > 1) { echo "href='?page_no=$previous_page'";} ?>>Previous</a>
+                            </li>
+
+                            <?php
+                                if($total_number_of_page <=10){
+
+                                    for($counter = 1; $counter <=$total_number_of_page;$counter++){
+                                        if($counter == $page_no){
+                                            echo "<li class='active p-2'><a> $counter </a></li>";
+                                        }else{
+                                            echo "<li class='p-2'><a href='?page_no=$counter'> $counter </a></li>";
+                                        }
+                                    }
+                                }elseif($total_number_of_page > 10){
+                                    if($page_no <=4){
+                                        for($counter = 1; $counter < 8; $counter++){
+                                            if($counter == $page_no){
+                                                echo "<li class='active p-2'><a> $counter </a></li>";
+                                            }else {
+                                                echo "<li class='p-2'><a href'?page_no=$counter'> $counter </a></li>";
+                                            }
+                                        }
+                                        echo "<li class='p-2'><a>...</a></li>";
+                                        echo "<li class='p-2'><a href='?page_no=$second_last'>$second_last</a></li>";
+                                        echo "<li class='p-2'><a href='?page_no=$total_number_of_page'>$total_number_of_page</a></li>";
+                                    }
+                                }elseif($page_no > 4 && $page_no < $total_number_of_page -4 ){
+                                    echo "<li><a href='?page_no=1'>1</a></li>";
+                                    echo "<li><a href='?page_no=2'>2</a></li>";
+                                    echo "<li><a>...</a></li>";
+
+                                    for($counter = $page_no - $adjacents; $counter <=$page_no + $adjacents;$counter++){
+                                        if($counter == $page_no){
+                                            echo "<li class='active'><a> $counter </a></li>";
+                                        }else{
+                                            echo "<li><a href'?page_no=$counter'> $counter </a></li>";
+                                        }
+                                    }
+                                    echo "<li><a>...</a></li>";
+                                    echo "<li><a href='?page_no=$second_last'>$second_last</a></li>";
+                                    echo "<li><a href='?page_no=$total_number_of_page'>$total_number_of_page</a></li>";
+                                }else{
+                                    echo "<li><a href='?page_no=1'>1</a></li>";
+                                    echo "<li><a href='?page_no=2'>2</a></li>";
+                                    echo "<li><a>...</a></li>";
+
+                                    for($counter = $total_number_of_page - 6; $counter <= $total_number_of_page;$counter++){
+                                        if($counter == $page_no){
+                                            echo "<li class='active'><a> $counter </a></li>";
+                                        }else{
+                                            echo "<li><a href'?page_no=$counter'> $counter </a></li>";
+                                        }
+                                    }
+                                    
+                                } 
+                            ?>
+
+                            <li class="p-2 <?php if($page_no >= $total_number_of_page) {echo "disabled";} ?>" >
+                                <a <?php if($page_no < $total_number_of_page) {echo "href='?page_no=$next_page'";} ?>>Next</a>
+                            </li>
+                            <?php if($page_no < $total_number_of_page) {echo "<li class='p-2'><a href='?page_no=$total_number_of_page'>Last &rsaquo;</a?</li>";} ?>
+                            
+                        </ul>
                     </div>
                 </div>
             </div>
