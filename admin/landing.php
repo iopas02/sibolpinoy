@@ -44,19 +44,19 @@
       <!-- FIRST FOUR CARDS START HERE -->
       <div class="row">
 
-        <div class="col-md-3 mt-4">
+        <div class="col-md-2 mt-4">
           <div class="container">
             <div class="row">
               <div class="col-lg-12 text-center py-2 bg-coloured text-white card-text">
                 Number of Visitors
               </div>
-              <div class="col-md-6 bg-coloured text-white">
+              <div class="col-md-3 bg-coloured text-white">
               <hr class="dropdown-divider bg-light" />
                   <div class="text-center py-3">
-                    <img class="svg-img" src="svg/visitors.png" alt="">
+                    <img src="svg/visitors.png" style="width: 25px; height: 35px;">
                   </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-9">
                 <?php
                   $count_visitors = "SELECT * FROM `visitors`";
                   $query_results = mysqli_query($conn, $count_visitors);
@@ -70,19 +70,19 @@
           </div>
         </div>
 
-        <div class="col-md-3 mt-4">
+        <div class="col-md-2 mt-4">
           <div class="container">
             <div class="row">
               <div class="col-lg-12 text-center py-2 bg-coloured text-white card-text">
-                Total Number of Emails
+                Number of Emails
               </div>
-              <div class="col-md-6 bg-coloured text-white">
+              <div class="col-md-3 bg-coloured text-white">
               <hr class="dropdown-divider bg-light" />
                   <div class="text-center py-3">
-                    <img class="svg-img" src="svg/envelope.png" alt="">
+                    <img src="svg/envelope.png" style="width: 25px; height: 35px;" >
                   </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-9">
               <?php
                   $count_inbox = "SELECT * FROM `email`";
                   $count_inbox_run = mysqli_query($conn, $count_inbox);
@@ -104,19 +104,19 @@
           </div>
         </div>
 
-        <div class="col-md-3 mt-4">
+        <div class="col-md-2 mt-4">
           <div class="container">
             <div class="row">
               <div class="col-lg-12 text-center py-2 bg-coloured text-white card-text">
                 Number of Clients
               </div>
-              <div class="col-md-6 bg-coloured text-white">
+              <div class="col-md-3 bg-coloured text-white">
               <hr class="dropdown-divider bg-light" />
                   <div class="text-center py-3">
-                    <img class="svg-img" src="svg/user.png" alt="">
+                    <img src="svg/user.png" style="width: 25px; height: 35px;">
                   </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-9">
                 <?php
                   $client_query = "SELECT * FROM `client`";
                   $client_query_run = mysqli_query($conn, $client_query);
@@ -128,7 +128,7 @@
           </div>
         </div>
 
-        <div class="col-md-3 mb-3">
+        <div class="col-md-6 mb-3">
           <div class="container">
             <div class="row ">
                <?php
@@ -141,21 +141,54 @@
               <div class="col-lg-12 text-center bg-coloured text-white page-header" style="border-top-right-radius: 45px;">
                 <?php echo $year ?>
               </div>
-              <div class="col-md-4 bg-coloured text-white" style="border-bottom-left-radius: 45px;">
+              <div class="col-md-2 bg-coloured text-white" style="border-bottom-left-radius: 45px;">
               <hr class="dropdown-divider bg-light" />
                   <div class="text-center py-5">
                     <div class="count-text"><?php echo $date ?></div>
                     <div class="user-text"> <?php echo $month ?></div>
                   </div>
               </div>
-              <div class="col-md-8">
-                <h3 class="page-header">Event for Today</h3>
+              <div class="col-md-10">
+                <h6 class="d-flex justify-content-center">Previous Admin Logs</h6>
 
-                <div class="card-text">
-                  ISO 9001:2015 Requirements and Internal Quality Audit
+                <div class="">
+                  <table>
+                    <thead hidden>
+                      <tr>
+                        <th>Admin</th>
+                        <th>Action</th>
+                        <th>Date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php
+                        $adminlog_query = "SELECT actionBy, action, date FROM `adminlog` ORDER BY date DESC LIMIT 5";
+                        $adminlog_query_result = $conn->query($adminlog_query);
+                        if($adminlog_query_result->num_rows > 0){
+                          foreach($adminlog_query_result as $adminlog){
+                            ?>
+                            <tr>
+                              <td class="p-2 text-small"><?= $adminlog['actionBy']?></td>
+                              <td class="p-2 text-small"><?= $adminlog['action']?></td>
+                              <td class="p-2 text-small"><?= date('M d Y g:i a' ,  strtotime($adminlog['date'])) ?></td>
+                            </tr>
+                            <?php
+                          }
+                        }
+                      ?>
+                      
+                    </tbody>
+                    <tfoot hidden>
+                      <tr>
+                        <th>Admin</th>
+                        <th>Action</th>
+                        <th>Date</th>
+                      </tr>
+                    </tfoot>
+                  </table>
                 </div>
 
-                <div class="pt-3 login-text">
+                <div class="pt-3 login-text d-flex justify-content-center">
                   <img src="svg/watch.svg" style="width: 18px; height: 18px;" alt="" /> <?php echo $time ?>
                 </div>
               </div>
