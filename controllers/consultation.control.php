@@ -32,7 +32,7 @@ if(isset($_POST['book_me'])){
             $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
             // Output: 54esmdr0qf
             $random_num1 = substr(str_shuffle($permitted_chars), 0, 10);
-            $random_num2 = substr(str_shuffle($permitted_chars), 0, 8);
+            $random_num2 = substr(str_shuffle($permitted_chars), 0, 15);
             
             $year = date("Y");
             $uniID = $year."-".$random_num1;

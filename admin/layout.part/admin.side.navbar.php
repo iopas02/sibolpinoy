@@ -150,7 +150,7 @@
                             <span class="me-2"><i class="bi bi-calendar4-week"></i></span>
                             <span>Calendar</span>
                     </a>
-                    <a href="404" class="nav-link px-3 text-light text-normal">
+                    <a href="reports" class="nav-link px-3 text-light text-normal">
                             <span class="me-2"><i class="bi bi-bar-chart"></i></span>
                             <span>Reports</span>
                     </a>
