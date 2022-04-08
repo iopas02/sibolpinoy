@@ -192,7 +192,7 @@
                             $total_number_of_page = ceil($total_records / $total_records_per_page);
                             $second_last = $total_number_of_page - 1;
 
-                            $event_reload_query = "SELECT tb1.eventID, tb1.event_img, tb1.header, tb1.event_title, tb1.date_start, tb1.date_and_time, tb1.reg_fee, tb1.desc_1, tb1.desc_2, tb2.loginId, tb2.username, tb1.status, tb1.date_published, tb1.action, tb1.date_update FROM events tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId";
+                            $event_reload_query = "SELECT tb1.eventID, tb1.event_img, tb1.header, tb1.event_title, tb1.date_start, tb1.date_and_time, tb1.reg_fee, tb1.desc_1, tb1.desc_2, tb2.loginId, tb2.username, tb1.status, tb1.date_published, tb1.action, tb1.date_update FROM events tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId ORDER BY tb1.date_start DESC";
 
                             $event_reload_query_result = mysqli_query($conn, $event_reload_query);
                             if(mysqli_num_rows($event_reload_query_result) > 0 ){

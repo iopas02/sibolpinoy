@@ -46,16 +46,28 @@ if(isset($_POST['event_published'])){
 
             }else {
 
-                $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$loginid', '$action','$admin', '$date')";
+               $scheduler_query = "INSERT INTO `scheduler`(`title`, `start_event`, `end_event`) VALUES ('$event_title','$start_date','$start_date')";
 
-                $create_adminlog_result = mysqli_query($conn, $create_adminlog);
-                if(!$create_adminlog_result){
-                    header("Location: ../events.php?error=adminlog_error");
-                    exit(); 
-                }else{
-                    header("Location: ../events.php?success=new_event_created_successfully");
+               $scheduler_query_result = mysqli_query($conn, $scheduler_query);
+               if(!$scheduler_query_result){
+
+                    header("Location: ../events.php?error=failed_to_insert_in calendar");
                     exit();
-                }
+                    
+               }else {
+
+                    $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$loginid', '$action','$admin', '$date')";
+
+                    $create_adminlog_result = mysqli_query($conn, $create_adminlog);
+                    if(!$create_adminlog_result){
+                        header("Location: ../events.php?error=adminlog_error");
+                        exit(); 
+                    }else{
+                        header("Location: ../events.php?success=new_event_created_successfully");
+                        exit();
+                    }
+
+               }
 
             }
 

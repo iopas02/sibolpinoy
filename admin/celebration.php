@@ -90,15 +90,23 @@
                                     <input class="w-100 p-1" type="text" id="message2" name="message2" placeholder="e.g `` ">
                                 </div>
 
-                                <div class="mb-2"> 
-                                    <label>Status</label>
-                                    <select class="w-40 p-2" name="status" id="">
-                                        <option value="">Select Status</option>
-                                        <option value="sample">sample</option>
-                                        <option value="published">published</option>
-                                        <option value="unpublished">unpublished</option>
-                                    </select> 
+                                <div class="col-md-12 d-flex">
+                                    <div class="m-2">
+                                        <label>Date Starts</label>
+                                        <input class="w-60 p-1" type="date" id="" name="datestart">
+                                    </div>
+
+                                    <div class="m-2"> 
+                                        <label>Status</label>
+                                        <select class="w-40 p-2" name="status" id="">
+                                            <option value="">Select Status</option>
+                                            <option value="sample">sample</option>
+                                            <option value="published">published</option>
+                                            <option value="unpublished">unpublished</option>
+                                        </select> 
+                                    </div>
                                 </div>
+                                
            
                                 <input type="text" hidden name="loginid" value="<?= $id?>">
                                 <input type="text" hidden name="admin" value="<?= $rusername?>">
@@ -147,6 +155,7 @@
                                 <th>Image</th>
                                 <th>msg One</th>
                                 <th>msg Two</th>
+                                <th>Start Date</th>
                                 <th>Status</th>
                                 <th hidden>admin id</th>
                                 <th hidden>Created By</th>
@@ -177,7 +186,7 @@
                             $total_number_of_page = ceil($total_records / $total_records_per_page);
                             $second_last = $total_number_of_page - 1;
 
-                            $celeb_reload_query = "SELECT tb1.keepingID, tb1.commemoration, tb1.header, tb1.image, tb1.message1, tb1.message2, tb1.status, tb1.loginId, tb2.username, tb1.action, tb1.uploaded, tb1.updated FROM celebration tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId";
+                            $celeb_reload_query = "SELECT tb1.keepingID, tb1.commemoration, tb1.header, tb1.image, tb1.message1, tb1.message2, tb1.date_start, tb1.status, tb1.loginId, tb2.username, tb1.action, tb1.uploaded, tb1.updated FROM celebration tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId";
 
                             $celeb_reload_query_result = mysqli_query($conn, $celeb_reload_query);
                             if(mysqli_num_rows($celeb_reload_query_result) > 0 ){
@@ -194,6 +203,7 @@
                                         </td>
                                         <td><?= $celebration['message1']?></td>
                                         <td><?= $celebration['message2']?></td>
+                                        <td><?= date('M d Y',  strtotime($celebration['date_start'])) ?></td>
                                         <?php
                                                 if($celebration['status'] == 'published'){
                                                     $stats = "stats-orange";
@@ -240,6 +250,7 @@
                                 <th>Image</th>
                                 <th>msg One</th>
                                 <th>msg Two</th>
+                                <th>Start Date</th>
                                 <th>Status</th>
                                 <th hidden>admin id</th>
                                 <th hidden>Created By</th>
@@ -390,18 +401,18 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>   
                     <div class="modal-body">
-                        <form action="comptroller/event.control.php" method="POST" enctype="multipart/form-data">
+                        <form action="comptroller/celebration.control.php" method="POST" enctype="multipart/form-data">
                             <div class="row col-sm-12 px-2">
-                                <label for="eid" class="col-form-label">Event uniID</label>
-                                <input type="text" class="form-control" readonly name="eid" id="eid">
+                                <label for="kID" class="col-form-label">Keeping ID</label>
+                                <input type="text" class="form-control" readonly name="kID" id="kID">
                             </div>
                             <div class="row col-sm-12 px-2">
-                                <label for="etitle" class="col-form-label">Event Title</label>
-                                <input type="text" class="form-control" readonly name="etitle" id="etitle">
+                                <label for="comme" class="col-form-label">Commemoration Title</label>
+                                <input type="text" class="form-control" readonly name="comme" id="comme">
                             </div>
                             <div class="row col-sm-12 px-2">
-                                <label for="uimg" class="col-form-label">Update Image</label>
-                                <input type="file" class="form-control" name="event_img" id="event_img">
+                                <label for="comme_img" class="col-form-label">Update Image</label>
+                                <input type="file" class="form-control" name="comme_img" id="comme_img">
                             </div>
                             
                     <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
@@ -420,7 +431,7 @@
                                 </div>
                                 <div class="col-md-2 m-2">
                                     <label for="image_update" class="form-label">Action 1</label>
-                                    <input type="text" class="form-control" id="image_update" name="image_update" value="update event image">
+                                    <input type="text" class="form-control" id="image_update" name="image_update" value="update commemoration image">
                                 </div>
                             </div>
                     <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
@@ -489,8 +500,8 @@
                 }).get();
 
                 console.log(data);
-                $('#eid').val(data[0]);
-                $('#etitle').val(data[3]);
+                $('#kID').val(data[0]);
+                $('#comme').val(data[1]);
             })
         })
 
