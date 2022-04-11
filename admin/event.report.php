@@ -8,7 +8,7 @@
   <!-- Header End -->
 
   <body>
-    <title>Sibol-PINOY Consultation Reports Table</title>
+    <title>Sibol-PINOY Consultation Events Reports Table</title>
     <script>
         $(document).ready(function(){
             $(".inputSearch").on('keyup', function(){
@@ -45,7 +45,7 @@
         <div class="container-fluid">
             <div class="row">
             <div class="col-md-12 mb-4">
-                <h5 class="page-header">Consultation Reports Table</h5>
+                <h5 class="page-header">Events Reservation Reports Table</h5>
             </div>
         </div>
         <!-- THIS IS HEADER PAGE END HERE -->
@@ -112,7 +112,8 @@
                                     <input class="w-100 p-1" type="text" id="desc_2" name="desc_two" placeholder="e.g Student & Group Registration (Min. of 3 pax | 50% OFF): P1,000.00/Pax.">
                                 </div>
                                
-                              
+                                
+                                <input type="text" hidden name="action" value="created new event">
                                 <input type="text" hidden name="action1" value="update event">   
                                 <input type="text" hidden name="action2" value="delete event"> 
                                 
@@ -139,7 +140,7 @@
         <div class="row col-md-12 my-3">
             <hr class="dropdown-divider bg-dark" />
             <div class="col-md-6 px-5">
-                <h5><span><i class="bi bi-bar-chart"></i></span> Reports Table</h5>
+                <h5><span><i class="bi bi-bar-chart"></i></span>Event Report Table</h5>
             </div>
 
             <div class="form-group float-end col-md-6">
@@ -151,15 +152,15 @@
                     <table id="datatableid" class="table data-table" style="width: 100%">
                         <thead>
                             <tr>
-                                <th>CR_ID</th>
+                                <th>ER_ReportsID</th>
                                 <th>Client ID</th>
                                 <th>Client Fullname</th>
                                 <th>Client Email</th>
-                                <th>Service Title</th>
-                                <th>Sub-Category Title</th>
-                                <th>Consultation ID</th>
-                                <th>Set Date</th>
-                                <th>Set Time</th>
+                                <th>Event ID</th>
+                                <th>Event Title</th>
+                                <th>Reservation ID</th>
+                                <th>Date and Time</th>
+                                <th>Payment Method</th>
                                 <th>Approved by</th>
                                 <th>Status</th>
                                 <th>Approved Date</th>
@@ -179,31 +180,31 @@
                             $next_page = $page_no + 1;
                             $adjacents = "2";
 
-                            $result_count = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM `events`" );
+                            $result_count = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM `event_reservation_reports`" );
                             $total_records = mysqli_fetch_array($result_count);
                             $total_records = $total_records['total_records'];
                             $total_number_of_page = ceil($total_records / $total_records_per_page);
                             $second_last = $total_number_of_page - 1;
 
-                            $consul_reports_query = "SELECT tb1.consul_reportID, tb.client_uniID, tb.firstName, tb.mi, tb.lastName, tb.email_add, tb3.service_title, tb4.sub_cat_title, tb1.consultation_id, tb1.set_date, tb1.set_time, tb5.username, tb1.status, tb1.approved_date FROM (((consultation_reports tb1 INNER JOIN client tb ON tb1.client_uniID = tb.client_uniID) INNER JOIN services tb3 ON tb1.service_uniID = tb3.service_uniID)INNER JOIN services_sub_category tb4 ON tb1.sub_cat_uniID = tb4.sub_cat_uniID)INNER JOIN login tb5 ON tb1.loginId = tb5.loginId ORDER BY tb1.consul_reportID DESC";
+                            $er_reports_query = "SELECT tb1.er_reportID, tb2.client_uniID, tb2.firstName, tb2.mi, tb2.lastName, tb2.email_add, tb3.eventID, tb3.event_title, tb1.reservationid, tb1.date_and_time, tb1.payment_method, tb4.loginId, tb4.username, tb1.status, tb1.approved_date FROM ((event_reservation_reports tb1 INNER JOIN client tb2 ON tb1.client_uniID = tb2.client_uniID) INNER JOIN events tb3 ON tb1.eventID = tb3.eventID)INNER JOIN login tb4 ON tb1.loginId = tb4.loginId ORDER BY tb1.er_reportID DESC";
 
-                            $consul_reports_query_result = mysqli_query($conn, $consul_reports_query);
-                            if(mysqli_num_rows($consul_reports_query_result) > 0 ){
-                                foreach($consul_reports_query_result as $consul_reports){
+                            $er_reports_query_result = mysqli_query($conn, $er_reports_query);
+                            if(mysqli_num_rows($er_reports_query_result) > 0 ){
+                                foreach($er_reports_query_result as $er_reports){
                                     ?>
                                     <tr >  
-                                        <td><?= $consul_reports['consul_reportID']?></td>
-                                        <td><?= $consul_reports['client_uniID']?></td>
-                                        <td><?= $consul_reports['firstName']?> <?= $consul_reports['mi']?> <?= $consul_reports['lastName']?></td>
-                                        <td><?= $consul_reports['email_add']?></td>
-                                        <td><?= $consul_reports['service_title']?></td>
-                                        <td><?= $consul_reports['sub_cat_title']?></td>
-                                        <td><?= $consul_reports['consultation_id']?></td>
-                                        <td><?= $consul_reports['set_date']?></td>
-                                        <td><?= $consul_reports['set_time']?></td>
-                                        <td><?= $consul_reports['username']?></td>
-                                        <td><?= $consul_reports['status']?></td>
-                                        <td><?= date('M d Y',  strtotime($consul_reports['approved_date'])) ?></td>
+                                        <td><?= $er_reports['er_reportID']?></td>
+                                        <td><?= $er_reports['client_uniID']?></td>
+                                        <td><?= $er_reports['firstName']?> <?= $er_reports['mi']?> <?= $er_reports['lastName']?></td>
+                                        <td><?= $er_reports['email_add']?></td>
+                                        <td><?= $er_reports['eventID']?></td>
+                                        <td><?= $er_reports['event_title']?></td>
+                                        <td><?= $er_reports['reservationid']?></td>
+                                        <td><?= $er_reports['date_and_time']?></td>
+                                        <td><?= $er_reports['payment_method']?></td>
+                                        <td><?= $er_reports['username']?></td>
+                                        <td><?= $er_reports['status']?></td>
+                                        <td><?= date('M d Y',  strtotime($er_reports['approved_date'])) ?></td>
                                     </tr>
                                     <?php
                                 }
@@ -213,15 +214,15 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>CR_ID</th>
+                                <th>ER_ReportsID</th>
                                 <th>Client ID</th>
                                 <th>Client Fullname</th>
                                 <th>Client Email</th>
-                                <th>Service Title</th>
-                                <th>Sub-Category Title</th>
-                                <th>Consultation ID</th>
-                                <th>Set Date</th>
-                                <th>Set Time</th>
+                                <th>Event ID</th>
+                                <th>Event Title</th>
+                                <th>Reservation ID</th>
+                                <th>Date and Time</th>
+                                <th>Payment Method</th>
                                 <th>Approved by</th>
                                 <th>Status</th>
                                 <th>Approved Date</th>

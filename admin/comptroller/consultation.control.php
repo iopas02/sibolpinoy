@@ -237,4 +237,6 @@ if(isset($_POST['send'])){
         header("Location: ../consultation?error=textarea_or_company_email_is_empty_field");
         exit();
     }
+}else{
+    header("Location: ../consultation");
 }

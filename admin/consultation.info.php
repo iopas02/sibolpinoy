@@ -239,8 +239,6 @@
                                     </tr>
                                 </tfoot>
                             </table>
-                           
-                            
                         </div>
                     </div>
                 </form>
@@ -329,7 +327,6 @@
       require "layout.part/admin.footer.php";
     ?>
      <script>
-       
         $(document).ready(function(){
             $('.sendMail').on('click', function(){
                 $('#sendingMail').modal('show');
@@ -352,8 +349,6 @@
                 $('#consulid').val(data[8])
             })
         })
-
-         
     </script>
     <!-- Footer and JS Script End Here -->
   </body>

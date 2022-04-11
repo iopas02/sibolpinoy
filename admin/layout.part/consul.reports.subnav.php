@@ -6,7 +6,7 @@
             <div class="navbar-nav">
                 <!-- <a class="nav-link active" aria-current="page" href="services.category.php">Services Category Tool</a> -->
                 <a class="nav-link active" aria-current="page" href="reports">Consultation Reports Table</a>
-                <a class="nav-link active" aria-current="page" href="#">Events Reports Table</a>
+                <a class="nav-link active" aria-current="page" href="event.report">Events Reports Table</a>
             </div>
         </div>
     </nav>
