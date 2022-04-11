@@ -318,6 +318,9 @@
                                 <li class="px-2">
                                     <a href="#1a" class="text-dark" data-toggle="tab">Solo</a>
                                 </li>
+                                <li class="px-2">
+                                    <a href="#2a" class="text-dark" data-toggle="tab">Group</a>
+                                </li>
                             </ul>
 
                             <div class="tab-content clearfix">
@@ -326,53 +329,57 @@
                                         <div class="row col-md-12 mb-2">
                                             <div class="col-md-12">
                                                 <input type="text" class="form-control" readonly id="eventID" name="eventID" hidden>
-                                                <label for="event_title" class="form-label">Event Title</label>
+                                                <label for="event_title" class="form-label">Event Title: </label>
                                                 <input type="text" class="col-md-12" readonly id="event_title" name="event_title">
                                                 <input type="text" name="status" value="pending" hidden>
                                                 <input type="text" name="action" value="New" hidden>
                                             </div>
                                             <div class="col-md-8 mt-2">
-                                                <label for="date" class="form-label">Date and Time</label>
+                                                <label for="date" class="form-label">Date and Time: </label>
                                                 <input type="text" class="col-md-12" readonly id="date" name="date">
                                             </div>
                                             <div class="col-md-4 mt-2">
-                                                <label for="reg_fee" class="form-label">Other Details</label>
+                                                <label for="reg_fee" class="form-label">Other Details: </label>
                                                 <input type="text" class="col-md-12" readonly id="reg_fee" name="reg_fee">
                                             </div>
                                         </div>
                                         <div class="row col-md-12 mb-2">
                                             <div class="col-md-5">
-                                                <label>First Name</label>
+                                                <label>First Name: </label>
                                                 <input type="text" class="form-control" name="firstname" placeholder="First Name">
                                             </div>                                   
                                             <div class="col-md-2">
-                                                <label>M.I.</label>
+                                                <label>M.I. :</label>
                                                 <input type="text" class="form-control" name="mi" placeholder="M.I.">
                                             </div>
                                             <div class="col-md-5">
-                                                <label>Last Name</label>
+                                                <label>Last Name: </label>
                                                 <input type="text" class="form-control" name="lastname" placeholder="Last Name">
                                             </div>
                                         </div>
                                         <div class="row col-md-12 mb-2">
                                             <div class="col-md-6">
-                                                <label>Email Address</label>
+                                                <label>Email Address: </label>
                                                 <input type="Email" class="form-control" name="email_add" placeholder="Email Address">
                                             </div>
                                             <div class="col-md-6">
-                                                <label>Contact Number</label>
+                                                <label>Contact Number: </label>
                                                 <input type="text" class="form-control"  name="contact" placeholder="Contact Number">
                                             </div>
                                         </div>
                                         <div class="row col-md-12 mb-2">
                                             <div class="col-md-6">
-                                                <label>Name Of Oragnization</label>
+                                                <label>Name Of Oragnization: </label>
                                                 <input type="text" class="form-control" name="orgs" placeholder="Name Of Oragnization">
                                             </div>
                                             <div class="col-md-6">
-                                                <label>Position</label>
+                                                <label>Position: </label>
                                                 <input type="text" class="form-control"  name="position" placeholder="Position">
                                             </div>
+                                        </div>
+                                        <div class="row col-md-12 mb-2">
+                                            <label>Reservation ID: <br><span><small>(Please enter your partner's Rerservation ID if you have one, keep it blank if you don't have one)</small></span></label>
+                                            <input type="text" class="form-control" name="reservationid" placeholder="e.g. 2022-2jsyr1****">
                                         </div>
                                         <div class="row col-md-12 mb-2">
                                             <div class="col-md-4">
@@ -400,6 +407,7 @@
                                             </div>
                                         </div>
                                        
+                                       
                                         <div class="col-12">
                                             <small>SPMC <a href=#>TERMS</a> and <a href="#">PRIVACY POLICY</a></small>
                                             <div class="form-check">
@@ -409,7 +417,6 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdqLqzo_tThI7llZqSueGjvUJkY2n5MbSsZmysQ1tApFpcX0Q/viewform?embedded=true" width="640" height="2522" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> -->
                                         <button type="submit" class="btn bg-blue text-white" name="register">Register</button>
                                     </form>
                                 </div>
@@ -492,6 +499,7 @@
                                             </div>
                                         </div>
                                         <div class="new-forms mb-3"> </div>
+                                        
                                         <div class="row col-md-12 mb-2">
                                             <a href="javascript:void(0)" class="add-more-form float-end btn bg-blue text-white">Add Member</a>
                                         </div>
@@ -511,11 +519,8 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                    
-                 
                     <div class="modal-footer">
                         <button type="button" class="btn bg-dark text-light" data-bs-dismiss="modal">Close</button>
                     </div>
