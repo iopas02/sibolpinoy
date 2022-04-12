@@ -48,6 +48,17 @@ if(isset($_GET["error"])){
 
   <body>
     <title>Sibol-PINOY Admin Inbox</title>
+    <script>
+        $(document).ready(function(){
+            $(".inputSearch").on('keyup', function(){
+              var value =$(this).val().toLowerCase();
+              $("#myTable tr").filter(function(){
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              });    
+            });
+        });   
+    </script>
+   
 
     <!-- top navigation bar -->
     <?php
@@ -82,7 +93,7 @@ if(isset($_GET["error"])){
 
         <div class="row">
             <div class="col-md-12 mb-3 px-4">
-                <form action="admin-add.php" method="POST">
+                <form action="comptroller/admin-add.php" method="POST">
                     <div class="row col-md-12">
                         <div class="col-md-6 mb-1">
                             <label for="first_name" class="form-label">First Name</label>
@@ -116,6 +127,7 @@ if(isset($_GET["error"])){
                         </div>
                     </div>
                     <br>
+                    <input type="text" class="form-control" id="" name="password"  aria-describedby="emailHelp" value="SPMC123" hidden>
                     <p>Note: Default password is "<strong class="text-primary">SPMC123</strong>"</p>
                     <button type="submit" class="btn bg-coloured text-white mt-1" name="submit">Create New Admin</button>
                 </form>    
@@ -127,39 +139,43 @@ if(isset($_GET["error"])){
                 <div class="card">
                     <div class="card-header">
                         <i class="bi bi-person-lines-fill"></i></span> Admin User List
+
+                        <div class="form-group float-end col-md-6">
+                            <input type="text" class="form-control inputSearch" id="inputSearch" placeholder="Search..">
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="example" class="table table-striped data-table" style="width: 100%">
+                            <table id="example" class="table data-table" style="width: 100%">
                                 <thead>
                                     <tr>
-                                        <th ></th>
-                                        <th >Id</th>
-                                        <th >First Name</th>
-                                        <th >Last Name</th>
-                                        <th >Username</th>
-                                        <th >Level</th>
-                                        <th >Status</th>
+                                        <th></th>
+                                        <th>Id</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Username</th>
+                                        <th>Level</th>
+                                        <th>Status</th>
                                         <th>Date Added</th>
                                         <th>Last Logged in</th>
                                         <th>Created by</th>
                                         <th class="text-center" colspan="2">Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="myTable">
                                     <?php
                                         require "admin-table.php";
                                     ?>
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th ></th>
-                                        <th >Id</th>
-                                        <th >First Name</th>
-                                        <th >Last Name</th>
-                                        <th  >Username</th>
-                                        <th  >Level</th>
-                                        <th >Status</th>
+                                        <th></th>
+                                        <th>Id</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Username</th>
+                                        <th>Level</th>
+                                        <th>Status</th>
                                         <th>Date Added </th>
                                         <th>Last Logged in</th>
                                         <th>Created by</th>
@@ -168,6 +184,72 @@ if(isset($_GET["error"])){
                                 </tfoot>
                             </table>
                         </div>
+                        <ul class="pagination pull-right">
+                            <li class="pull-left btn btn-default disabled">Showing Page <?php echo $page_no." of ".$total_number_of_page;?></li>
+                            <li class=" p-2 <?php if($page_no <= 1) { echo "disabled";}?>">
+                                <a <?php if($page_no > 1) { echo "href='?page_no=$previous_page'";} ?>>Previous</a>
+                            </li>
+
+                            <?php
+                                if($total_number_of_page <=10){
+
+                                    for($counter = 1; $counter <=$total_number_of_page;$counter++){
+                                        if($counter == $page_no){
+                                            echo "<li class='active p-2'><a> $counter </a></li>";
+                                        }else{
+                                            echo "<li class='p-2'><a href='?page_no=$counter'> $counter </a></li>";
+                                        }
+                                    }
+                                }elseif($total_number_of_page > 10){
+                                    if($page_no <=4){
+                                        for($counter = 1; $counter < 8; $counter++){
+                                            if($counter == $page_no){
+                                                echo "<li class='active p-2'><a> $counter </a></li>";
+                                            }else {
+                                                echo "<li class='p-2'><a href'?page_no=$counter'> $counter </a></li>";
+                                            }
+                                        }
+                                        echo "<li class='p-2'><a>...</a></li>";
+                                        echo "<li class='p-2'><a href='?page_no=$second_last'>$second_last</a></li>";
+                                        echo "<li class='p-2'><a href='?page_no=$total_number_of_page'>$total_number_of_page</a></li>";
+                                    }
+                                }elseif($page_no > 4 && $page_no < $total_number_of_page -4 ){
+                                    echo "<li><a href='?page_no=1'>1</a></li>";
+                                    echo "<li><a href='?page_no=2'>2</a></li>";
+                                    echo "<li><a>...</a></li>";
+
+                                    for($counter = $page_no - $adjacents; $counter <=$page_no + $adjacents;$counter++){
+                                        if($counter == $page_no){
+                                            echo "<li class='active'><a> $counter </a></li>";
+                                        }else{
+                                            echo "<li><a href'?page_no=$counter'> $counter </a></li>";
+                                        }
+                                    }
+                                    echo "<li><a>...</a></li>";
+                                    echo "<li><a href='?page_no=$second_last'>$second_last</a></li>";
+                                    echo "<li><a href='?page_no=$total_number_of_page'>$total_number_of_page</a></li>";
+                                }else{
+                                    echo "<li><a href='?page_no=1'>1</a></li>";
+                                    echo "<li><a href='?page_no=2'>2</a></li>";
+                                    echo "<li><a>...</a></li>";
+
+                                    for($counter = $total_number_of_page - 6; $counter <= $total_number_of_page;$counter++){
+                                        if($counter == $page_no){
+                                            echo "<li class='active'><a> $counter </a></li>";
+                                        }else{
+                                            echo "<li><a href'?page_no=$counter'> $counter </a></li>";
+                                        }
+                                    }
+                                    
+                                } 
+                            ?>
+
+                            <li class="p-2 <?php if($page_no >= $total_number_of_page) {echo "disabled";} ?>" >
+                                <a <?php if($page_no < $total_number_of_page) {echo "href='?page_no=$next_page'";} ?>>Next</a>
+                            </li>
+                            <?php if($page_no < $total_number_of_page) {echo "<li class='p-2'><a href='?page_no=$total_number_of_page'>Last &rsaquo;</a?</li>";} ?>
+                            
+                        </ul>
                     </div>
                 </div>
             </div>

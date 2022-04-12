@@ -15,52 +15,61 @@ session_start();
         else{
             $username = mysqli_real_escape_string($conn, $_POST["username"]);
             $password = mysqli_real_escape_string($conn, $_POST["password"]);
-            $sql = "SELECT * FROM login where username = '$username' AND password = '$password'";
-            if($result = $conn->query($sql)){
-                if($result->num_rows == 1){
-                    if($row = $result->fetch_assoc()){
-                        if($row["status"] == "active"){
-                            $_SESSION["id"] = $row["loginId"];
-                            $_SESSION["username"] = $row["username"];
-                            $_SESSION["level"] = $row["level"];
-                            $_SESSION["status"] = $row["status"];
-                            $id = $row["loginId"];
-                            $sql ="SELECT firstName, lastName FROM profile WHERE loginId = $id";
-                            if($result = $conn->query($sql)){
-                                if($result->num_rows == 1){
-                                    if($row = $result->fetch_assoc()){
-                                        $_SESSION["firstName"] = $row["firstName"];
-                                        $_SESSION["lastName"] = $row["lastName"];
-                                        date_default_timezone_set('Asia/Manila');
-                                        $date = date("Y-m-d H:i:s");;
-                                        $by = $_SESSION["username"];
-                                        $sql = "UPDATE login SET lastLoginDate = '$date' WHERE loginId = $id";
+
+            $admin_log_query = "SELECT * FROM login where username =?";
+            $stmt = mysqli_stmt_init($conn);
+            if(!mysqli_stmt_prepare($stmt, $admin_log_query)) {
+                header("Location: ../index?error=sqlerror");
+                exit();
+            }else{
+                mysqli_stmt_bind_param($stmt, "s", $username);
+                mysqli_stmt_execute($stmt);
+                $log_result = mysqli_stmt_get_result($stmt);
+            }if($row = mysqli_fetch_assoc($log_result)){
+                $passwordCkeck = password_verify($password, $row['password']);
+                if ($passwordCkeck == false) {
+                    header("Location: ../index?error=wrong_password");
+                    exit();  
+                }else if($passwordCkeck == true){
+                    if($row['status'] == "active"){
+                        $_SESSION["id"] = $row["loginId"];
+                        $_SESSION["username"] = $row["username"];
+                        $_SESSION["level"] = $row["level"];
+                        $_SESSION["status"] = $row["status"];
+                        $id = $row["loginId"];
+
+                        $sql ="SELECT firstName, lastName FROM profile WHERE loginId = $id";
+
+                        if($result = $conn->query($sql)){
+                            if($result->num_rows == 1){
+                                if($row = $result->fetch_assoc()){
+                                    $_SESSION["firstName"] = $row["firstName"];
+                                    $_SESSION["lastName"] = $row["lastName"];
+                                    date_default_timezone_set('Asia/Manila');
+                                    $date = date("Y-m-d H:i:s");;
+                                    $by = $_SESSION["username"];
+                                    $sql = "UPDATE login SET lastLoginDate = '$date' WHERE loginId = $id";
+                                    
+                                    if($conn->query($sql)){
+                                        $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($id, 'logged in', '$by', '$date')";
                                         if($conn->query($sql)){
-                                            $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($id, 'logged in', '$by', '$date')";
-                                            if($conn->query($sql)){
-                                                //Set Refresh header using PHP.
-                                                //header( "refresh:3;url=landing.php" );
-                                                header("location: ../landing?success=login_success");
-                                                //Print out some content for example purposes.
-                                                //echo 'Successful Login';
-                                            }
+                                            //Set Refresh header using PHP.
+                                            //header( "refresh:3;url=landing.php" );
+                                            header("location: ../landing?success=login_success");
+                                            //Print out some content for example purposes.
+                                            //echo 'Successful Login';
                                         }
                                     }
                                 }
                             }
                         }
-                        else if($row["status"] == "inactive"){
-                            header("location: ../index?error=inactive");
-                        }
+                    }else if($row["status"] == "inactive"){
+                        header("location: ../index?error=inactive");
                     }
-                }
-                else if($result->num_rows == 0){
-                    header("location: ../index?error=no_account");
+                        
                 }
             }
-            else{
-                echo "error sa sql";
-            }
+
         }
 
     }else{

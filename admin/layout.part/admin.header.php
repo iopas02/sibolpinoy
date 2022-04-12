@@ -3,6 +3,7 @@ session_start();
 ob_start();
     $firstName = $lastName = $level ="";
     if(isset($_SESSION["firstName"]) && isset($_SESSION["lastName"]) && isset($_SESSION["level"]) && isset($_SESSION["username"])){
+        $loginid = $_SESSION["id"];
         $firstName = $_SESSION["firstName"];
         $lastName = $_SESSION["lastName"];
         $username = $_SESSION["username"];
@@ -54,6 +55,7 @@ function levelCheck($lev){
     }
     echo $lev;
   }
+  
   date_default_timezone_set('Asia/Manila');
   function relativeTime($time, $short = false){
     $SECOND = 1;

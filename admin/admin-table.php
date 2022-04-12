@@ -1,8 +1,27 @@
 <tbody>
 <?php
 require "../connection.php";
+
+if(isset($_GET['page_no']) && $_GET['page_no'] !=''){
+    $page_no = $_GET['page_no'];
+}else{
+    $page_no = 1;
+}
+
+$total_records_per_page = 25;
+$offset = ($page_no-1) * $total_records_per_page;
+$previous_page = $page_no - 1;
+$next_page = $page_no + 1;
+$adjacents = "2";
+
+$result_count = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM `login`" );
+$total_records = mysqli_fetch_array($result_count);
+$total_records = $total_records['total_records'];
+$total_number_of_page = ceil($total_records / $total_records_per_page);
+$second_last = $total_number_of_page - 1;
+
 $disabled = "";
-$sql = "SELECT adminlog.actionBy,adminlog.action, login.lastLoginDate, login.dateAdded, profile.id, login.loginId, profile.firstName, profile.lastName, login.username, login.level, login.status FROM login INNER JOIN profile ON login.loginId = profile.loginId INNER JOIN adminlog ON login.loginId = adminlog.loginId WHERE adminlog.action = 'create' ORDER BY login.loginId";
+$sql = "SELECT tb1.id, tb1.loginId, tb1.firstName, tb1.lastName, tb2.username, tb2.level, tb2.status, tb2.dateAdded, tb2.lastLoginDate, tb2.createdBy FROM login tb2 INNER JOIN profile tb1 ON tb1.loginId = tb2.loginId ORDER BY tb1.id DESC";
 
 if($result = $conn->query($sql)){
     if($result->num_rows >= 1){
@@ -54,7 +73,7 @@ if($result = $conn->query($sql)){
                     ?>
                 </td>
                 <td>
-                        <?= $row["actionBy"] ?>
+                        <?= $row["createdBy"] ?>
                 </td>
                 <td class="text-center">
                     <button type="button" class="btn tooltip-test editBtn" title="EDIT" data-bs-toggle="modal" data-bs-target="#editAdmin" <?= $disabled ?>>
