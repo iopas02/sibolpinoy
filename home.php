@@ -43,7 +43,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="text-center pt-3">
                         <div class="p-4">
-                            <i class="fa fa-3x fa-comments text-primary mb-4"></i>
+                            <i class="fa fa-3x fa-comments text-primary mb-4 " style='color:darkblue !important'></i>
                             <h5 class="mb-3 secondary-font-two">Passion & Commitment</h5>
                             <!-- <p class="smaller-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus nostrum autem, ab vel voluptates molestias?</p> -->
                         </div>
@@ -52,7 +52,7 @@
                 <div class="col-lg-3 col-sm-6" >
                     <div class="text-center pt-3">
                         <div class="p-4">
-                            <i class="fa fa-3x fa-box-open text-primary mb-4"></i>
+                            <i class="fa fa-3x fa-box-open text-primary mb-4 " style='color:darkblue !important'></i>
                             <h5 class="mb-3 secondary-font-two">Honesty & Openness</h5>
                             <!-- <p class="smaller-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, iste.</p> -->
                         </div>
@@ -61,7 +61,7 @@
                 <div class="col-lg-3 col-sm-6" >
                     <div class="text-center pt-3">
                         <div class="p-4">
-                            <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
+                            <i class="fa fa-3x fa-user-tie text-primary mb-4" style='color:darkblue !important'></i>
                             <h5 class="mb-3 secondary-font-two">Dedicated Team</h5>
                             <!-- <p class="smaller-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate neque obcaecati voluptas possimus qui labore impedit cumque! Esse.</p> -->
                         </div>
@@ -70,7 +70,7 @@
                 <div class="col-lg-3 col-sm-6" >
                     <div class="text-center pt-3">
                         <div class="p-4">
-                            <i class="fa fa-3x fa-hand-holding-heart text-primary mb-4"></i>
+                            <i class="fa fa-3x fa-hand-holding-heart text-primary mb-4" style='color:darkblue !important'></i>
                             <h5 class="mb-3 secondary-font-two">Practical Approach</h5>
                             <!-- <p class="smaller-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel suscipit mollitia quis commodi! Accusantium autem ipsa explicabo saepe quas quae?</p> -->
                         </div>
