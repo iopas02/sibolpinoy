@@ -31,7 +31,9 @@ session_start();
                     header("Location: ../index?error=wrong_password");
                     exit();  
                 }else if($passwordCkeck == true){
-                    if($row['status'] == "active"){
+                    $status = "active";
+                    $status1 = "inactive";
+                    if($row['status'] == $status){
                         $_SESSION["id"] = $row["loginId"];
                         $_SESSION["username"] = $row["username"];
                         $_SESSION["level"] = $row["level"];
@@ -63,7 +65,7 @@ session_start();
                                 }
                             }
                         }
-                    }else if($row["status"] == "inactive"){
+                    }else if($row["status"] == $status1){
                         header("location: ../index?error=inactive");
                     }
                         

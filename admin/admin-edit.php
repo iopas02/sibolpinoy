@@ -4,6 +4,7 @@
 
     if(isset($_POST["update"])){
         $username = $_POST["username"];
+
         if(!isset($_POST["firstName"]) || $_POST["firstName"] == null){
             header("location: admin.con.php?error=firstName_null");
         }
@@ -16,6 +17,7 @@
         else if(!isset($_POST["level"]) || $_POST["level"] == null){
             header("location: admin.con.php?error=level_null");
         }
+        
         else{
             $id = $_POST["id"];
             $firstName = $_POST["firstName"];

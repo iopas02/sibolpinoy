@@ -344,8 +344,9 @@ if(isset($_GET["error"])){
                         <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#editAdmin" aria-label="Close"></button>
                     </div>
                 <div class="modal-body">
-                    <form action="admin-edit-password.php" method="POST">
+                    <form action="comptroller/admin-edit-password.php" method="POST">
                         <input type="hidden" id="ssid" name="id">
+                        <input type="hidden" id="" name="resetpass" value="SPMC123">
                             <h5>Are you sure you want to <strong class="text-danger">reset</strong> the password of this user?</h5>   
                             <br>
                             <h5>Default password: <strong class="text-primary">SPMC123</strong></h5>

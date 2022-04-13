@@ -119,7 +119,7 @@
           <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#editProfile" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-          <form action="user-edit-password.php" method="POST">
+          <form action="comptroller/user-edit-password.php" method="POST">
               <div class="row col-md-12">
                   <div class="col-md-6 mb-1">
                       <label for="password" class="form-label">New Password</label>

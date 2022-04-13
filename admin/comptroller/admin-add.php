@@ -5,19 +5,19 @@
     if(isset($_POST["submit"])){
         
         if(!isset($_POST["firstName"]) || $_POST["firstName"] == null){
-            header("location: admin.con?error=firstName_null");
+            header("location: ../admin.con?error=firstName_null");
         }
         else if(!isset($_POST["lastName"]) || $_POST["lastName"] == null){
-            header("location: admin.con?error=lastName_null");
+            header("location: ../admin.con?error=lastName_null");
         }
         else if(!isset($_POST["username"]) || $_POST["username"] == null){
-            header("location: admin.con?error=username_null");
+            header("location: ../admin.con?error=username_null");
         }
         else if(!isset($_POST["level"]) || $_POST["level"] == null){
-            header("location: admin.con?error=level_null");
+            header("location: ../admin.con?error=level_null");
         }
         else if(!isset($_POST["status"]) || $_POST["status"] == null){
-            header("location: admin.con?error=status_null");
+            header("location: ../admin.con?error=status_null");
         }
         
         else{
@@ -45,7 +45,7 @@
             $sql = "SELECT * FROM `login` WHERE `username`=?";
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt, $sql)) {
-                header("Location: ../admin.con.php?error=sql_error");
+                header("Location: ../admin.con?error=sql_error");
                 exit();
             }else{
                 mysqli_stmt_bind_param($stmt, "s", $username);
@@ -54,7 +54,7 @@
                 $resultcheck = mysqli_stmt_num_rows($stmt);
 
                 if($resultcheck > 0){
-                    header("Location: ../admin.con.php?username_already_exist");
+                    header("Location: ../admin.con?username_already_exist");
                     exit();
                 }else{
                     //check username duplicate
