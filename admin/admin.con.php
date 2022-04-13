@@ -74,7 +74,17 @@ if(isset($_GET["error"])){
 
     <!-- THIS IS FOR SIDE NAV-BAR and OFF CANVA END HERE -->
     <main class="mt-5 pt-3">
-        <div class="container-fluid p-4">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container-fluid border-bottom border-3 border-dark mb-2">
+                <a class="navbar-brand" href="admin.con">Admin Tools</a>
+                
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="admin.log">Admin Log</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid px-4">
             
             <div class="row">
             <?php if(isset($err_message)){?>
@@ -90,6 +100,7 @@ if(isset($_GET["error"])){
                 <hr class="dropdown-divider bg-dark" />
             </div>
         </div>
+
 
         <div class="row">
             <div class="col-md-12 mb-3 px-4">

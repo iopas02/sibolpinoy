@@ -68,6 +68,9 @@ session_start();
                     }
                         
                 }
+            }else{
+                header("location: ../index?error=username_not_exist");
+                exit();
             }
 
         }
