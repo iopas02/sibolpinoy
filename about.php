@@ -62,7 +62,7 @@
                 <div class="col-lg-4 col-sm-6">
                     <div class="text-center pt-3">
                         <div class="p-4">
-                            <i class="fa fa-3x fa-comment text-primary mb-4" aria-hidden="true"></i>
+                            <i class="fa fa-3x fa-comment text-primary mb-4" aria-hidden="true" style='color:darkblue !important'></i>
                             <!-- <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i> -->
                             <h5 class="mb-3 secondary-font-two">What We Do?</h5>
                             <p class="desc-font-two">We are here to help you establish your business on your own</p>
@@ -72,7 +72,7 @@
                 <div class="col-lg-4 pt-3 col-sm-6">
                     <div class="text-center pt-3">
                         <div class="p-4">
-                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                            <i class="fa fa-3x fa-globe text-primary mb-4" style='color:darkblue !important'></i>
                             <h5 class="mb-3 secondary-font-two">Our Culture</h5>
                             <p class="desc-font-two">You’ll find our core values expressed in everything we do, whether it’s building our product, designing a new office, or planning team outings.</p>
                         </div>
@@ -81,7 +81,7 @@
                 <div class="col-lg-4 col-sm-6" >
                     <div class="text-center pt-3">
                         <div class="p-4">
-                            <i class="fa fa-3x fa-home text-primary mb-4"></i>
+                            <i class="fa fa-3x fa-home text-primary mb-4" style='color:darkblue !important'></i>
                             <h5 class="mb-3 secondary-font-two">All Services</h5>
                             <p class="desc-font-two">We have different services we can offer depends on your need</p>
                         </div>
