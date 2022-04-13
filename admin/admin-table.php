@@ -21,7 +21,9 @@ $total_number_of_page = ceil($total_records / $total_records_per_page);
 $second_last = $total_number_of_page - 1;
 
 $disabled = "";
-$sql = "SELECT tb1.id, tb1.loginId, tb1.firstName, tb1.lastName, tb2.username, tb2.level, tb2.status, tb2.dateAdded, tb2.lastLoginDate, tb2.createdBy FROM login tb2 INNER JOIN profile tb1 ON tb1.loginId = tb2.loginId ORDER BY tb1.id DESC";
+$status1 = 'active';
+$status0 = 'inactive';
+$sql = "SELECT tb1.id, tb1.loginId, tb1.firstName, tb1.lastName, tb2.username, tb2.level, tb2.status, tb2.dateAdded, tb2.lastLoginDate, tb2.createdBy FROM login tb2 INNER JOIN profile tb1 ON tb1.loginId = tb2.loginId WHERE tb2.status='$status1' OR tb2.status='$status0' ORDER BY tb1.id DESC";
 
 if($result = $conn->query($sql)){
     if($result->num_rows >= 1){

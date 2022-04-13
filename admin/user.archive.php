@@ -41,43 +41,60 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="example" class="table table-striped data-table" style="width: 100%">
+                            <table id="example" class="table data-table" style="width: 100%">
                                 <thead>
                                     <tr>
                                         <th>A_ID</th>
-                                        <th>Profile_ID</th>
+                                        <th>loginID</th>
+                                        <th>ProfileID</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
                                         <th>User Name</th>
                                         <th>Level</th>
                                         <th>Reason</th>
+                                        <th>Status</th>
                                         <th>Date Added</th>
                                         <th>Date Deleted</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                        $archive_query = "SELECT * FROM `archiveuser` ORDER BY `id` DESC";
+                                        $archive_query_result = mysqli_query($conn, $archive_query);
+                                        if(mysqli_num_rows($archive_query_result) > 0){
+                                            foreach($archive_query_result as $archive_user){
+                                                ?>
+                                                    <tr>
+                                                        <td><?= $archive_user['id']?></td>
+                                                        <td><?= $archive_user['loginId']?></td>
+                                                        <td><?= $archive_user['profileId']?></td>
+                                                        <td><?= $archive_user['firstName']?></td>
+                                                        <td><?= $archive_user['lastName']?></td>
+                                                        <td><?= $archive_user['username']?></td>
+                                                        <td><?= $archive_user['level']?></td>
+                                                        <td><?= $archive_user['status']?></td>
+                                                        <td><?= $archive_user['reason']?></td>
+                                                        <td><?= date('M d Y', strtotime($archive_user['dateAdded'])) ?></td>
+                                                        <td><?= date('M d Y', strtotime($archive_user['dateDeleted'])) ?></td>
+                                                    </tr>
+                                                <?php
+                                            }
+                                        }
 
-                                    <tr>
-                                        <td>1</td>
-                                        <td>4</td>
-                                        <td>Jason</td>
-                                        <td>Orioste</td>
-                                        <td>jason</td>
-                                        <td>admin</td>
-                                        <td>This is a testing</td>
-                                        <td>March 2, 2022</td>
-                                        <td>March 9, 2022</td>
-                                    </tr>
+                                    ?>
+                                    
                                 </tbody>
                                 <tfoot>
                                     <tr>
                                         <th>A_ID</th>
-                                        <th>Profile_ID</th>
+                                        <th>loginID</th>
+                                        <th>ProfileID</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
                                         <th>User Name</th>
                                         <th>Level</th>
                                         <th>Reason</th>
+                                        <th>Status</th>
                                         <th>Date Added</th>
                                         <th>Date Deleted</th>
                                     </tr>

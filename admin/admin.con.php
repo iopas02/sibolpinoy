@@ -368,10 +368,12 @@ if(isset($_GET["error"])){
                         <button type="button" class="btn-close"  data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                 <div class="modal-body">
-                    <form action="admin-delete.php" method="POST">
+                    <form action="comptroller/admin-delete.php" method="POST">
                         <input type="hidden" id="delId" name="loginId">
                         <input type="hidden" id="delprofid" name="profileId">
                         <input type="hidden" id="deldate" name="dateAdded">
+                        <input type="hidden" name="status" value="archive">
+
                             <div class="row col-md-12">
                                 <div class="col-md-6 mb-1">
                                     <label for="delfn" class="form-label">First Name:</label>

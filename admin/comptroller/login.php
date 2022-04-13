@@ -31,9 +31,10 @@ session_start();
                     header("Location: ../index?error=wrong_password");
                     exit();  
                 }else if($passwordCkeck == true){
-                    $status = "active";
-                    $status1 = "inactive";
-                    if($row['status'] == $status){
+                    $status1 = "active";
+                    $status0 = "inactive";
+                    $status = "archive";
+                    if($row['status'] == $status1){
                         $_SESSION["id"] = $row["loginId"];
                         $_SESSION["username"] = $row["username"];
                         $_SESSION["level"] = $row["level"];
@@ -65,8 +66,8 @@ session_start();
                                 }
                             }
                         }
-                    }else if($row["status"] == $status1){
-                        header("location: ../index?error=inactive");
+                    }else if($row["status"] == $status0 || $row["status"] == $status ){
+                        header("location: ../index?error=inactive_or_deleted");
                     }
                         
                 }

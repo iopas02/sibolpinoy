@@ -146,8 +146,7 @@ if(isset($_GET["error"])){
                                                     <td><?= $adminlog['loginId'] ?></td>
                                                     <td><?= $adminlog['actionBy'] ?></td>
                                                     <td><?= $adminlog['action'] ?></td>
-                                                    <td><?= $adminlog['date'] ?></td>
-
+                                                    <td><?= date('M d Y g:i a',  strtotime($adminlog['date'])) ?></td>
                                                 </tr>
                                                 <?php
                                             }

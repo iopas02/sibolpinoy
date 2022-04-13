@@ -149,46 +149,112 @@
                   </div>
               </div>
               <div class="col-md-10">
-                <h6 class="d-flex justify-content-center">Previous Admin Logs</h6>
 
-                <div class="">
-                  <table>
-                    <thead hidden>
-                      <tr>
-                        <th>Admin</th>
-                        <th>Action</th>
-                        <th>Date</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                        $adminlog_query = "SELECT actionBy, action, date FROM `adminlog` ORDER BY date DESC LIMIT 5";
-                        $adminlog_query_result = $conn->query($adminlog_query);
-                        if($adminlog_query_result->num_rows > 0){
-                          foreach($adminlog_query_result as $adminlog){
-                            ?>
-                            <tr>
-                              <td class="p-2 text-small"><?= $adminlog['actionBy']?></td>
-                              <td class="p-2 text-small"><?= $adminlog['action']?></td>
-                              <td class="p-2 text-small"><?= date('M d Y g:i a' ,  strtotime($adminlog['date'])) ?></td>
-                            </tr>
-                            <?php
-                          }
-                        }
-                      ?>
-                      
-                    </tbody>
-                    <tfoot hidden>
-                      <tr>
-                        <th>Admin</th>
-                        <th>Action</th>
-                        <th>Date</th>
-                      </tr>
-                    </tfoot>
-                  </table>
+              <div id="carouselExampleIndicators" class="carousel slide" style="height: 270px;" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="col-md-12">
+                      <h3 class="page-header">Activity for Today</h3>
+
+                      <table>
+                        <thead hidden>
+                          <tr>
+                            <th>Event Title</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php
+                            date_default_timezone_set("Asia/Manila");
+
+                            $date = date("Y-m-d"); 
+                            $activity_query = "SELECT * FROM `scheduler` ORDER BY `start_event` ASC";
+                            $activity_query_result = $conn->query($activity_query);
+                            if($activity_query_result->num_rows > 0){
+                              foreach($activity_query_result as $activity){
+                                ?>
+                                <tr
+                                <?php
+                                $event = date('Y-m-d', strtotime($activity['start_event']));
+                                if($event == $date){
+                                  echo '';
+                                }else{
+                                  echo 'hidden';
+                                }
+                                ?>
+                                >
+                                  <td class="p-2 text-small"><?= $activity['title']?></td>
+                                  <td class="p-2 text-small"><?= date('M d Y', strtotime($activity['start_event'])) ?></td>
+                                  <td class="p-2 text-small"><?= date('g:i a', strtotime($activity['start_event'])) ?></td>
+                                </tr>
+                                <?php
+                              }
+                            }
+                          ?>
+                          
+                        </tbody>
+                        <tfoot hidden>
+                          <tr>
+                          <th>Event Title</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+            
+                  </div>
+
+                  <div class="carousel-item">                    
+                    <div class="">
+                      <h6 class="d-flex justify-content-center">Previous Admin Logs</h6>
+                      <table>
+                        <thead hidden>
+                          <tr>
+                            <th>Admin</th>
+                            <th>Action</th>
+                            <th>Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php
+                            $adminlog_query = "SELECT actionBy, action, date FROM `adminlog` ORDER BY date DESC LIMIT 5";
+                            $adminlog_query_result = $conn->query($adminlog_query);
+                            if($adminlog_query_result->num_rows > 0){
+                              foreach($adminlog_query_result as $adminlog){
+                                ?>
+                                <tr>
+                                  <td class="p-2 text-small"><?= $adminlog['actionBy']?></td>
+                                  <td class="p-2 text-small"><?= $adminlog['action']?></td>
+                                  <td class="p-2 text-small"><?= date('M d Y g:i a' ,  strtotime($adminlog['date'])) ?></td>
+                                </tr>
+                                <?php
+                              }
+                            }
+                          ?>
+                          
+                        </tbody>
+                        <tfoot hidden>
+                          <tr>
+                            <th>Admin</th>
+                            <th>Action</th>
+                            <th>Date</th>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+
+                  </div>
                 </div>
+                <div class="carousel-indicators bg-coloured">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active " aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="bg-coloured" aria-label="Slide 2"></button>
+                </div>
+              </div>
+                
 
-                <div class="pt-3 login-text d-flex justify-content-center">
+                <div class="login-text d-flex justify-content-center">
                   <img src="svg/watch.svg" style="width: 18px; height: 18px;" alt="" /> <?php echo $time ?>
                 </div>
               </div>
@@ -302,7 +368,7 @@
               <tbody>
                 <?php
                   $tatus = 'published';
-                  $load_event_query = "SELECT * FROM `events` WHERE `status`='$tatus' ORDER BY `date_start`";
+                  $load_event_query = "SELECT * FROM `events` WHERE `status`='$tatus' ORDER BY `date_start` DESC  ";
                   $load_event_query_result = mysqli_query($conn, $load_event_query );
                   if(mysqli_num_rows($load_event_query_result) > 0 ){
                       foreach($load_event_query_result as $published_event){
