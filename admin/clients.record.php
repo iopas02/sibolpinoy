@@ -58,7 +58,7 @@
                             <table id="example" class="table data-table" style="width: 100%">
                                 <thead>
                                     <tr>
-                                        <th>Client uniID</th>
+                                        <th style="white-space: nowrap; !important">Client uniID</th>
                                         <th>First Name</th>
                                         <th>M.I.</th>
                                         <th>Last Name</th>
@@ -66,7 +66,7 @@
                                         <th>Contact No.</th>
                                         <th>Organization</th>
                                         <th>Position</th>
-                                        <th>Date Register</th>
+                                        <th style="white-space: nowrap; !important">Date Register</th>
                                         <th>Read</th>
                                     </tr>
                                 </thead>
@@ -119,7 +119,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>Client uniID</th>
+                                        <th style="white-space: nowrap; !important">Client uniID</th>
                                         <th>First Name</th>
                                         <th>M.I.</th>
                                         <th>Last Name</th>
@@ -127,7 +127,7 @@
                                         <th>Contact No.</th>
                                         <th>Organization</th>
                                         <th>Position</th>
-                                        <th>Date Register</th>
+                                        <th style="white-space: nowrap; !important">Date Register</th>
                                         <th>Read</th>
                                     </tr>
                                 </tfoot>
