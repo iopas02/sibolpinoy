@@ -15,7 +15,7 @@
         <div class="container-fluid bg-white py-2">
             <div class="container">
                 <div class="row g-5">
-                    <div class="wow fadeInUp p-5" data-wow-delay="0.2s" >
+                    <div class="p-5">
                         <h6 class="bg-white pe-3">PLEASE READ THESE TERMS OF USE CAREFULLY BEFORE USING, REGISTERING, OR SUBMITTING CONTENT TO THE SERVICES FROM THE SPMC. BY USING, REGISTERING, OR SUBMITTING CONTENT TO THE SERVICES, OR OTHERWISE INDICATING YOUR ACCEPTANCE OF THESE TERMS OF USE.</h6>
 
                         <h3 class="bg-white text-dark pt-3">1. General</h3>                      

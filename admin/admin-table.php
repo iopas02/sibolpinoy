@@ -23,19 +23,29 @@ $second_last = $total_number_of_page - 1;
 $disabled = "";
 $status1 = 'active';
 $status0 = 'inactive';
-$sql = "SELECT tb1.id, tb1.loginId, tb1.firstName, tb1.lastName, tb2.username, tb2.level, tb2.status, tb2.dateAdded, tb2.lastLoginDate, tb2.createdBy FROM login tb2 INNER JOIN profile tb1 ON tb1.loginId = tb2.loginId WHERE tb2.status='$status1' OR tb2.status='$status0' ORDER BY tb1.id DESC";
+$sql = "SELECT tb1.id, tb1.loginId, tb1.firstName, tb1.lastName, tb2.monitor, tb2.username, tb2.level, tb2.status, tb2.dateAdded, tb2.lastLoginDate, tb2.createdBy FROM login tb2 INNER JOIN profile tb1 ON tb1.loginId = tb2.loginId WHERE tb2.status='$status1' OR tb2.status='$status0' ORDER BY tb1.id DESC";
 
 if($result = $conn->query($sql)){
     if($result->num_rows >= 1){
         while($row = $result->fetch_assoc()){  ?>
-            <tr>   
+            <tr class="<?php
+                $monitor = 'In';
+                $monitoring = $row["monitor"];
+
+                if($monitoring == $monitor){
+                    echo 'bg-info';
+                }else{
+                    echo '';
+                }
+            
+            ?>">    
                 <td class="text-center">
                     <?php 
                         $currentUser = $_SESSION["username"];
                         if($currentUser == $row["username"]){ 
                             $disabled = "disabled";
                             ?>
-                            <span class="border border-danger text-danger rounded-3 p-1">You</span>
+                            <span class="border-0 text-dark rounded-3 p-1"><i class="bi bi-person-circle"></i></span>
                         <?php } 
                     
                     ?>

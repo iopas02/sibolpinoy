@@ -51,7 +51,8 @@ session_start();
                                     date_default_timezone_set('Asia/Manila');
                                     $date = date("Y-m-d H:i:s");;
                                     $by = $_SESSION["username"];
-                                    $sql = "UPDATE login SET lastLoginDate = '$date' WHERE loginId = $id";
+                                    $monitor = "In";
+                                    $sql = "UPDATE `login` SET `lastLoginDate`='$date', `monitor`='$monitor' WHERE loginId = $id";
                                     
                                     if($conn->query($sql)){
                                         $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($id, 'logged in', '$by', '$date')";
