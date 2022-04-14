@@ -79,7 +79,7 @@
         <hr class="dropdown-divider bg-dark" />
         <div class="col-md-12">
             <div class="row">
-                <form action="comptroller/consultation.control.php" method="POST">
+                <form action="comptroller/consultation.control.php" method="POST" >
                     <div>Client Information</div>
                     <div class="col-md-12 d-flex">
                         <div class="col-md-3">
@@ -137,7 +137,7 @@
                         <div class="col-md-8 d-grid">
                             <div>Sub Categories Information</div>
                             <div class="col-md-12">
-                                <label class="col-form-label">Sub Categories Tittle <small>(Please select Sub Categories Tittle before approving)</small></label>
+                                <label class="col-form-label">Sub Categories Tittle <small>(Please select Sub Categories Tittle that "NEED TO REMOVE" if any, then click "EDIT" before approving)</small></label>
                                 <?php
                                     $consul_list_query = "SELECT tb1.sub_cat_uniID, tb2.sub_cat_title FROM consul_list_category tb1 INNER JOIN services_sub_category tb2 ON tb1.sub_cat_uniID = tb2.sub_cat_uniID WHERE tb1.email_add='$email_add' AND tb1.consultation_id='$consultationID'";
                                     $consul_list_query_result = $conn->query($consul_list_query);
@@ -147,41 +147,103 @@
                                                 <div class="col-md-12 d-flex form-check form-switch">    
                                                     <input class="form-check-input" type="checkbox" name="subcatid[]" id="flexSwitchCheckDefault" value="<?= $list['sub_cat_uniID'] ?>" checked/>
                                                     
-                                                    <label class="form-check-label" for="flexSwitchCheckDefault"><?= $list['sub_cat_title'] ?></label><br>
+                                                    <label class="form-check-label" for="flexSwitchCheckDefault"><?= $list['sub_cat_title'] ?> </label> <br>
                                                 </div>
+                                                
                                             <?php
                                         }
                                     }
                                 ?>
+                                <small><Span>(Note: blue means selected)</Span></small>
+                            </div>
+                            <input class="col-md-12" type="text" name="adminID" value="<?= $id ?>" hidden>
+                            <input class="col-md-12" type="text" name="admin" value="<?= $rusername ?>" hidden>
+                            <input class="col-md-12" type="text" name="action3" value="update colsultaion sub categories request" hidden> 
+                            <input class="col-md-12" type="text" name="consulID" value="<?= $consultationID ?>" hidden>
+                            <div class="col-md-12">
+                                <button type="submit" name="btnedit" class="m-2 px-4 rounded border-0 float-right text-white bg-blue">Edit</button>
                             </div>
                         </div>
 
-                        
                     </div>
                     <hr class="dropdown-divider bg-dark col-md-11 px-5 my-2" />
 
                     <div>Reservation Information</div>
                     <div class="row col-md-12">
                         <div class="col-md-12 d-flex">
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <label class="col-form-label">Consultation ID:</label>
                                 <input class="col-md-12" type="text" name="consulID" value="<?= $consultationID ?>" readonly>
                             </div>
                             <div class="col-md-2">
-                                <label class="col-form-label">Set Date: <small>(Editable Date)</small></label>
-                                <input class="col-md-12" type="text" name="setdate" value="<?= date('F d Y', strtotime($set_date)) ?>">
+                                <table class="">
+                                    <thead hidden>
+                                        <tr>
+                                            <th>Email</th>
+                                            <th>Consultation</th>                            
+                                        </tr>
+                                    </thead>
+                                    <tbody >
+                                        <tr>
+                                            <td hidden><?= $email_add ?></td>
+                                            <td hidden><?= $consultationID ?></td>
+                                            <td hidden><?= $id ?></td>
+                                            <td hidden><?= $rusername ?></td>
+                                            <label class="col-form-label">Set Date: <small>(Editable Date)</small></label>
+                                            <td> 
+                                <input class="col-md-12" type="button" class="text-dark bg-white dateset" id="dateset" value="<?= date('F d Y',strtotime($set_date)) ?>" readonly>
+                                            </td>
+                                            
+                                        </tr>
+                                    </tbody>
+                                    <tfoot hidden>
+                                        <tr>
+                                            <th>Email</th>
+                                            <th>Consultation</th>   
+                                        </tr>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <input class="col-md-12" type="text" name="setdate" value="<?= $set_date ?>" readonly>
                             </div>
                             <div class="col-md-2">
-                                <label class="col-form-label">Set Time: <small>(Editable Time)</small></label>
-                                <input class="col-md-12" type="text" name="settime" value="<?= date('g:i a',  strtotime($set_time)) ?>">
+                            <table class="">
+                                    <thead hidden>
+                                        <tr>
+                                            <th>Email</th>
+                                            <th>Consultation</th>                            
+                                        </tr>
+                                    </thead>
+                                    <tbody >
+                                        <tr>
+                                            <td hidden><?= $email_add ?></td>
+                                            <td hidden><?= $consultationID ?></td>
+                                            <td hidden><?= $id ?></td>
+                                            <td hidden><?= $rusername ?></td>
+                                            <label class="col-form-label">Set Time: <small>(Editable Time)</small></label>
+                                            <td> 
+                                            <input class="col-md-12" type="button" class="text-dark bg-white timeset" id="timeset" value="<?= date('g:i a', strtotime($set_time)) ?>" readonly>
+                                            </td>
+                                            
+                                        </tr>
+                                    </tbody>
+                                    <tfoot hidden>
+                                        <tr>
+                                            <th>Email</th>
+                                            <th>Consultation</th>   
+                                        </tr>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <input class="col-md-12" type="text" name="settime" value="<?= $set_time ?>" readonly>
                             </div>
                             <div class="col-md-2">
                                 <label class="col-form-label">Status:</label>
                                 <input class="col-md-12" type="text" value="<?= $status?>" readonly>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <label class="col-form-label">Date Registered:</label>
-                                <input class="col-md-12" type="text" value="<?= date('M d Y',  strtotime($date_registered)) ?>" readonly>
+                                <input class="col-md-12" type="text" value="<?= date('F d Y g:i a',  strtotime($date_registered)) ?>" readonly>
                             </div>
                             
                         </div>
@@ -220,9 +282,9 @@
                                         <td hidden><?= $rusername ?></td>
                                         <td hidden><?= $consultationID ?></td>
                                         <td> 
-                                            <input type="btn" class="m-2 py-2 px-1 float-right text-center text-dark bg-white sendMail" style="cursor: pointer; width: 100px; height: 40px;" placeholder="Send Mail" >
-                                            <button type="submit" name="declined" class="m-2 py-2 px-4 border-0 float-right text-white bg-coloured">Declined</button>
-                                            <button type="submit" name="approved" class="m-2 py-2 px-4 border-0 float-right text-white bg-blue">Approved</button>
+                                            <input type="button" class="m-2 rounded py-2 px-1 float-right text-center text-dark bg-white sendMail" style="cursor: pointer; width: 100px; height: 40px;" placeholder="Send Mail" value="Send Mail">
+                                            <button type="submit" name="declined" class="m-2 rounded py-2 px-4 border-0 float-right text-white bg-coloured">Declined</button>
+                                            <button type="submit" name="approved" class="m-2 rounded py-2 px-4 border-0 float-right text-white bg-blue">Approved</button>
                                         </td>
                                         
                                     </tr>
@@ -268,7 +330,7 @@
                             </div>
                         </div>
                         <div class="mb-1">
-                            <label for="$email_add" class="col-form-label">Recipient Email Address:</label>
+                            <label for="email_add" class="col-form-label">Recipient Email Address:</label>
                             <input type="text" class="form-control" id="emailadd" name="emailadd" readonly>
                         </div>
                         <div class="cold-md-12 d-flex">
@@ -322,6 +384,56 @@
         </div>
     </div>
 
+    <div class="modal fade" id="dateedit" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Set New Date</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="comptroller/consultation.control.php" method="POST">
+                        
+                        <input type="text" class="form-control" id="cemailadd" name="cemailadd" hidden>
+                        <input type="text" class="form-control" id="cconsulid" name="cconsulid" hidden>
+                        <input type="text" class="form-control" id="adminid" name="adminid" hidden>
+                        <input type="text" class="form-control" id="useradmin" name="useradmin" hidden>
+                        <input type="text" class="form-control" id="newaction" name="newaction" value="Edit consultation date" placeholder="Edit consultation date" hidden>
+                        <div class="mb-1">
+                            <input class="col-md-12" type="date" name="newdate" required>
+                        </div>
+                        <button type="submit" class="btn bg-blue text-white mt-2" name="dateedit">Edit Date</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="timeedit" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Set New Time</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="comptroller/consultation.control.php" method="POST">
+                        
+                        <input type="text" class="form-control" id="cusemailadd" name="cusemailadd" hidden>
+                        <input type="text" class="form-control" id="cusconsulid" name="cusconsulid" hidden>
+                        <input type="text" class="form-control" id="id" name="id" hidden>
+                        <input type="text" class="form-control" id="user" name="user" hidden>
+                        <input type="text" class="form-control" id="newaction" name="newaction" value="Edit consultation time" placeholder="Edit consultation date" hidden>
+                        <div class="mb-1">
+                            <input class="col-md-12" type="time" name="newdtime" required>
+                        </div>
+                        <button type="submit" class="btn bg-blue text-white mt-2" name="timeedit">Edit Time</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer and JS Script Start Here -->
     <?php
       require "layout.part/admin.footer.php";
@@ -347,6 +459,42 @@
                 $('#adminID').val(data[6])
                 $('#admin').val(data[7])
                 $('#consulid').val(data[8])
+            })
+        })
+
+        $(document).ready(function(){
+            $('#dateset').on('click', function(){
+                $('#dateedit').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data= $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+                $('#cemailadd').val(data[0]);
+                $('#cconsulid').val(data[1]);
+                $('#adminid').val(data[2]);
+                $('#useradmin').val(data[3]);
+            })
+        })
+
+        $(document).ready(function(){
+            $('#timeset').on('click', function(){
+                $('#timeedit').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data= $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+                $('#cusemailadd').val(data[0]);
+                $('#cusconsulid').val(data[1]);
+                $('#id').val(data[2]);
+                $('#user').val(data[3]);
             })
         })
     </script>

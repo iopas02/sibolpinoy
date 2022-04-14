@@ -200,6 +200,4 @@ if(isset($_POST['sendmessage'])){
         exit();
     }
 
-}else{
-    header("Location: ../event.reservation");
 }
