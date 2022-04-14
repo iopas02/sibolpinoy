@@ -51,10 +51,11 @@
                                         <th>Last Name</th>
                                         <th>User Name</th>
                                         <th>Level</th>
-                                        <th>Reason</th>
                                         <th>Status</th>
+                                        <th>Reason</th>
                                         <th>Date Added</th>
                                         <th>Date Deleted</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -74,8 +75,9 @@
                                                         <td><?= $archive_user['level']?></td>
                                                         <td><?= $archive_user['status']?></td>
                                                         <td><?= $archive_user['reason']?></td>
-                                                        <td><?= date('M d Y', strtotime($archive_user['dateAdded'])) ?></td>
-                                                        <td><?= date('M d Y', strtotime($archive_user['dateDeleted'])) ?></td>
+                                                        <td><?= date('M d Y g:i a', strtotime($archive_user['dateAdded'])) ?></td>
+                                                        <td><?= date('M d Y g:i a', strtotime($archive_user['dateDeleted'])) ?></td>
+                                                        <td><button class="border-1 px-2 py-1 rounded-circle bg-white text-dark openmenu"><i class="bi bi-menu-up"></i></button></td>
                                                     </tr>
                                                 <?php
                                             }
@@ -93,10 +95,11 @@
                                         <th>Last Name</th>
                                         <th>User Name</th>
                                         <th>Level</th>
-                                        <th>Reason</th>
                                         <th>Status</th>
+                                        <th>Reason</th>
                                         <th>Date Added</th>
                                         <th>Date Deleted</th>
+                                        <th>Action</th>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -107,74 +110,45 @@
         </div>
 
         <!-- Modal Start Here -->
-        <div class="modal fade" id="exampleModalToggle" data-bs-backdrop="static" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-            <div class="modal-dialog modal-lg">
+        <div class="modal fade" id="menu" data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalToggleLabel">New message</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Sender:</label>
-                            <input type="text" class="form-control" readonly id="recipient-name" value="Mrs. Maria Fully Grace">
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Email Address:</label>
-                            <input type="text" class="form-control" readonly id="recipient-name" value="MariaFullyGrace@x123.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Subject:</label>
-                            <input type="text" class="form-control" readonly id="recipient-name" value="Strategic Planning and Risk-Based Management">
-                        </div>
-                        <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" readonly id="message-text" placeholder="Where na you? Dito na me.."></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Reply message</button>
-                </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="exampleModalToggle2" data-bs-backdrop="static" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalToggleLabel2">Compose Message Form</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Recipient Email Address:</label>
-                            <input type="text" class="form-control" id="recipient-name" >
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Sender Email Address:</label>
-                            <input type="text" class="form-control" id="recipient-name" >
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Subject:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="message-text" ></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <input type="file" class="form-control" id="recipient-name" placeholder="attach you files here">
-                        </div>
-                        <button type="button" class="btn bg-blue text-white" data-bs-dismiss="modal">Send Message</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Activate Admin/Super Admin</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="comptroller/admin-add.php" method="POST">
+                            <div class="col-md-12">
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-6 mb-1">
+                                        <label>Archive ID</label>
+                                        <input type="text" class="form-control" id="archiveid" name="archiveid" readonly>
+                                    </div>
+                                    <div class="col-md-6 mb-1">
+                                        <label>Admin ID</label>
+                                        <input type="text" class="form-control" id="loginid" name="loginid" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 d-flex">
+                                    <div class="col-md-6 mb-1">
+                                        <label>Admin Username</label>
+                                        <input type="text" class="form-control" id="username" name="username" readonly>
+                                    </div>
+                                    <div class="col-md-6 mb-1">
+                                        <label>Action</label>
+                                        <input type="text" class="form-control" name="active" value="active" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <input type="text" class="form-control" id="id" name="id" value="<?= $id ?>" hidden>
+                            <input type="text" class="form-control" id="user" name="user" value="<?= $rusername ?>" hidden>
+                            <input type="text" class="form-control" id="newaction" name="newaction" value="Activate user" hidden>
+                            
+                            <button type="submit" class="btn bg-blue text-white mt-2" name="activate">Activate User</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -186,6 +160,24 @@
     <?php
       require "layout.part/admin.footer.php";
     ?>
+       <script>
+        $(document).ready(function(){
+            $('.openmenu').on('click', function(){
+                $('#menu').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data= $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
+
+                console.log(data);
+                $('#archiveid').val(data[0]);
+                $('#loginid').val(data[1]);
+                $('#username').val(data[5]);
+            })
+        })
+    </script>
     <!-- Footer and JS Script End Here -->
   </body>
 </html>

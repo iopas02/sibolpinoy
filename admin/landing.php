@@ -219,7 +219,7 @@
                         </thead>
                         <tbody>
                           <?php
-                            $adminlog_query = "SELECT actionBy, action, date FROM `adminlog` ORDER BY date DESC LIMIT 3";
+                            $adminlog_query = "SELECT actionBy, action, date FROM `adminlog` ORDER BY date DESC LIMIT 4";
                             $adminlog_query_result = $conn->query($adminlog_query);
                             if($adminlog_query_result->num_rows > 0){
                               foreach($adminlog_query_result as $adminlog){
