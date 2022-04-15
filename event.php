@@ -39,6 +39,9 @@
     
     <div class="container-fluid bg-white py-5">
         <div class="container">
+            <?php
+                include_once 'includes/error.php';
+            ?>  
             <div class="text-center">
                 <h6 class="bg-white text-center text-dark px-3 secondary-font">Upcoming Events</h6>
                 <h1 class="mb-5 header-font">Check Our Upcoming Events</h1>
@@ -309,22 +312,15 @@
                         <img class="__logo" src="img/logo.png" alt="">
                     </div>
                     <div class="text-center">
-                        <h5 class="modal-title" id="registrationTitle">Events Group Registration Form</h5>
+                        <h5 class="modal-title" id="registrationTitle">Events Registration Form</h5>
                     </div>
                     <div class="modal-body">
                  
                         <div id="exTab1" class="container">	
-                            <ul  class="nav nav-pills">
-                                <li class="px-2">
-                                    <a href="#1a" class="text-dark" data-toggle="tab">Solo</a>
-                                </li>
-                                <li class="px-2">
-                                    <a href="#2a" class="text-dark" data-toggle="tab">Group</a>
-                                </li>
-                            </ul>
-
+                           
                             <div class="tab-content clearfix">
                                 <div class="tab-pane active" id="1a">
+                                <small>All fields with (*) are needed to fill up</small>
                                     <form action="controllers/event.registration.php" method="POST">
                                         <div class="row col-md-12 mb-2">
                                             <div class="col-md-12">
@@ -345,45 +341,46 @@
                                         </div>
                                         <div class="row col-md-12 mb-2">
                                             <div class="col-md-5">
-                                                <label>First Name: </label>
+                                                <label>First Name:* </label>
                                                 <input type="text" class="form-control" name="firstname" placeholder="First Name">
                                             </div>                                   
                                             <div class="col-md-2">
-                                                <label>M.I. :</label>
+                                                <label>M.I. :*</label>
                                                 <input type="text" class="form-control" name="mi" placeholder="M.I.">
                                             </div>
                                             <div class="col-md-5">
-                                                <label>Last Name: </label>
+                                                <label>Last Name:* </label>
                                                 <input type="text" class="form-control" name="lastname" placeholder="Last Name">
                                             </div>
                                         </div>
                                         <div class="row col-md-12 mb-2">
                                             <div class="col-md-6">
-                                                <label>Email Address: </label>
+                                                <label>Email Address:* </label>
                                                 <input type="Email" class="form-control" name="email_add" placeholder="Email Address">
                                             </div>
                                             <div class="col-md-6">
-                                                <label>Contact Number: </label>
+                                                <label>Contact Number:* </label>
                                                 <input type="text" class="form-control"  name="contact" placeholder="Contact Number">
                                             </div>
                                         </div>
                                         <div class="row col-md-12 mb-2">
                                             <div class="col-md-6">
-                                                <label>Name Of Oragnization: </label>
+                                                <label>Name Of Oragnization:* </label>
                                                 <input type="text" class="form-control" name="orgs" placeholder="Name Of Oragnization">
                                             </div>
                                             <div class="col-md-6">
-                                                <label>Position: </label>
+                                                <label>Position:* </label>
                                                 <input type="text" class="form-control"  name="position" placeholder="Position">
                                             </div>
                                         </div>
                                         <div class="row col-md-12 mb-2">
-                                            <label>Reservation ID: <br><span><small>(Please enter your partner's Rerservation ID if you have one, keep it blank if you don't have one)</small></span></label>
+                                            <label>Reservation ID: <br><span><small>( Please enter your partner's Rerservation ID if you have one, keep it blank if you don't have one )</small></span></label>
                                             <input type="text" class="form-control" name="reservationid" placeholder="e.g. 2022-2jsyr1****">
                                         </div>
                                         <div class="row col-md-12 mb-2">
+                                            <label>Methods Of Payments:* </label><br>
+                                            <small>( If the event is "FREE", Please select the 'Free' in the selection method otherwise select type of payment method. )</small>
                                             <div class="col-md-4">
-                                                <label>Methods Of Payments: </label><br>
                                                 <input type="radio" id="myCheck0" name="payment" onclick="myFunction()"  value="Free">
                                                 <label for="myCheck0">Free</label><br>
                                                 <input type="radio" id="myCheck" name="payment" onclick="myFunction()"  value="Bank Transfer">
@@ -407,9 +404,8 @@
                                             </div>
                                         </div>
                                        
-                                       
                                         <div class="col-12">
-                                            <small>SPMC <a href=#>TERMS</a> and <a href="#">PRIVACY POLICY</a></small>
+                                            <small>Read SPMC <button type="button" class="border-0 bg-white text-primary" data-bs-target="#termsmodal" data-bs-toggle="modal" data-bs-dismiss="modal">TERMS and PRIVACY POLICY</button> </small>
                                             <div class="form-check">
                                                 <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
                                                 <label class="form-check-label" for="invalidCheck3">
@@ -420,109 +416,58 @@
                                         <button type="submit" class="btn bg-blue text-white" name="register">Register</button>
                                     </form>
                                 </div>
-                                <div class="tab-pane" id="2a">
-                                    <form action="controllers/event.registration.php" method="POST">
-                                        <div class="row col-md-12 mb-2">
-                                            <div class="col-md-12">
-                                                <input type="text" class="form-control" readonly id="eID" name="eventID" hidden>
-                                                <label for="event_title" class="form-label">Event Title</label>
-                                                <input type="text" class="col-md-12" readonly id="eventTitle" name="event_title">
-                                                <input type="text" name="status" value="pending" hidden>
-                                                <input type="text" name="action" value="New" hidden>
-                                            </div>
-                                            <div class="col-md-8 mt-2">
-                                                <label for="date" class="form-label">Date and Time</label>
-                                                <input type="text" class="col-md-12" readonly id="dateStart" name="date">
-                                            </div>
-                                            <div class="col-md-4 mt-2">
-                                                <label for="reg_fee" class="form-label">Other Details</label>
-                                                <input type="text" class="col-md-12" readonly id="regFee" name="reg_fee">
-                                            </div>
-                                        </div>
-                                        <div class="row col-md-12 mb-2">
-                                            <div class="col-md-5">
-                                                <label>First Name</label>
-                                                <input type="text" class="form-control" name="firstname[]" placeholder="First Name">
-                                            </div>
-                                            <div class="col-md-2">
-                                                <label>M.I.</label>
-                                                <input type="text" class="form-control" name="mi[]" placeholder="M.I.">
-                                            </div>
-                                            <div class="col-md-5">
-                                                <label>Last Name</label>
-                                                <input type="text" class="form-control" name="lastname[]" placeholder="Last Name">
-                                            </div>
-                                        </div>
-                                        <div class="row col-md-12 mb-2">
-                                            <div class="col-md-6">
-                                                <label>Email Address</label>
-                                                <input type="Email" class="form-control" name="email_add[]" placeholder="Email Address">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label>Contact Number</label>
-                                                <input type="text" class="form-control"  name="contact[]" placeholder="Contact Number">
-                                            </div>
-                                        </div>
-                                        <div class="row col-md-12 mb-2">
-                                            <div class="col-md-6">
-                                                <label>Name Of Oragnization</label>
-                                                <input type="text" class="form-control" name="orgs[]" placeholder="Name Of Oragnization">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label>Position</label>
-                                                <input type="text" class="form-control"  name="position[]" placeholder="Position">
-                                            </div>
-                                        </div>
-                                        <div class="row col-md-12 mb-2">
-                                            <div class="col-md-4">
-                                                <label>Methods Of Payments: </label><br>
-                                                <input type="radio" id="xCheck0" name="payment[]" onclick="myFunction()"  value="Free">
-                                                <label for="xCheck0">Free</label><br>
-                                                <input type="radio" id="xCheck1" name="payment[]" onclick="myFunction()"  value="Bank Transfer">
-                                                <label for="xCheck1">Bank Transfer</label><br>
-                                                <input type="radio" id="xCheck2" name="payment[]" onclick="myFunction()" value="GCash">
-                                                <label for="xCheck2">GCash</label> 
-                                            </div>
-                                            <div class="col-md-8" id="xtext" style="display: none;"> 
-                                                FREE WEBINAR
-                                            </div>
-                                            
-                                            <div class="col-md-8" id="xtext1" style="display: none;"> 
-                                                Account Number: <span>2000 2941 9654</span><br>
-                                                Account Name: <span>Sibol-PINOY Management Consultancy</span><br>
-                                                Bank: <span>EastWest Bank, The Fort-PSE TOWER</span>
-                                            </div>
-                                            
-                                            <div class="col-md-8" id="xtext2" style="display: none;">
-                                                Account Number: <span>0917 113 9078</span><br>
-                                                Account Name: <span>SibolPINOY (Ceazar Valerie N.)</span>
-                                            </div>
-                                        </div>
-                                        <div class="new-forms mb-3"> </div>
-                                        
-                                        <div class="row col-md-12 mb-2">
-                                            <a href="javascript:void(0)" class="add-more-form float-end btn bg-blue text-white">Add Member</a>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <small>SPMC <a href=#>TERMS</a> and <a href="#">PRIVACY POLICY</a></small>
-                                            <div class="form-check">
-                                                <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
-                                                <label class="form-check-label" for="invalidCheck3">
-                                                    Agree to terms and conditions
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <button type="submit" class="btn bg-blue text-white" name="group_register">Register</button>
-                                    </form>
-                                </div>
                             </div>
                         </div>
                     </div>
                    
                     <div class="modal-footer">
                         <button type="button" class="btn bg-dark text-light" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" tabindex="-1" id="termsmodal">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Terms And Condition</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="p-2">
+                            <h6 class="bg-white text-center">PLEASE READ THESE TERMS OF USE CAREFULLY BEFORE USING, REGISTERING, OR SUBMITTING CONTENT TO THE SERVICES FROM THE SPMC. BY USING, REGISTERING, OR SUBMITTING CONTENT TO THE SERVICES, OR OTHERWISE INDICATING YOUR ACCEPTANCE OF THESE TERMS OF USE.</h6>
+
+                            <h3 class="bg-white text-dark pt-3">1. General</h3>                      
+                            <p class="mb-4">We collect personal information that you voluntarily provide to us when you register on the Services, express an interest in obtaining information about us or our Services, when you participate in activities on the Services, or otherwise when you contact us.</p>
+                            
+                            <h3 class="bg-white text-dark pe-3">2. Privacy Policy</h3>
+                            <p class="mb-4">The personal information that we collect depends on the context of your interactions with us and the Services, the choice you make, and the products and features you use. The personal information we collect may include the following: </p> 
+                            <ul>
+                                <li>Name </li>
+                                <li>Phone Number </li>
+                                <li>Email </li>
+                                <li>Contact Preferences </li>
+                            </ul>
+
+                            <p><strong>Note:<strong> All personal information that you provide to us must be true, complete, and accurate, and you must notify us of any changes to such personal information. </p>
+
+                            <h3 class="bg-white text-dark pe-3">3. Process of User's Information </h3>    
+
+                            <p class="mb-4">We process your information to administer, provide, improve our Services, we also use it to communicate with you, to comply with the law and for security and fraud prevention. We may also use your information for other purposes but surely with your consent. </p>
+                    
+                            <p>We process your personal information for a variety of reasons, depending on the your interaction with our Services, these includes:</p>
+
+                            <ul>
+                                <li>To facilitate and deliver our services to the user: We may process your information to provide you our services that you requested.  </li>
+                                <li>To respond to the user inquiries and offer support to the users: We may process your information to respond to your inquiries and solve any problems you might encounter within our services. </li>
+                                <li>To request feedback: We may process your information if necessary to request a feedback and to contact you about your experience in our Services.</li>
+                                <li>For posting of testimonials: We post testimonials on our Services that may contain company or personal information. </li>
+                            </ul>
+                        </div> 
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-target="#registration" data-bs-toggle="modal" data-bs-dismiss="modal">Back to Registration</button>
                     </div>
                 </div>
             </div>
@@ -579,121 +524,8 @@
             })
         })
 
-        function myFunction() {
-            var checkBox0 = document.getElementById("myCheck0");
-            var checkBox = document.getElementById("myCheck");
-            var checkBoxTwo = document.getElementById("myCheckTwo");
+    
 
-            var checkBox00 = document.getElementById("xCheck0");
-            var checkBox01 = document.getElementById("xCheck1");
-            var checkBox02 = document.getElementById("xCheck2");
-
-            var text0 = document.getElementById("text0");
-            var text = document.getElementById("text");
-            var textTwo = document.getElementById("text-two");
-
-            var text00 = document.getElementById("xtext");
-            var text01 = document.getElementById("xtext1");
-            var text02 = document.getElementById("xtext2");
-
-            if (checkBox0.checked == true){
-                text0.style.display = "block";
-            } else {
-                text0.style.display = "none";
-            }
-
-            if (checkBox.checked == true){
-                text.style.display = "block";
-            } else {
-                text.style.display = "none";
-            }
-
-            if (checkBoxTwo.checked == true){
-                textTwo.style.display = "block";
-            } else {
-                textTwo.style.display = "none";
-            }
-
-            if (checkBox00.checked == true){
-                text00.style.display = "block";
-            } else {
-                text00.style.display = "none";
-            }
-
-            if (checkBox01.checked == true){
-                text01.style.display = "block";
-            } else {
-                text01.style.display = "none";
-            }
-
-            if (checkBox02.checked == true){
-                text02.style.display = "block";
-            } else {
-                text02.style.display = "none";
-            }
-        }
-
-        $(document).ready(function(){
-
-            $(document).on('click', '.remove-btn' ,function(){
-                $(this).closest('.main-form').remove();
-            })
-
-            $(document).on('click', '.add-more-form' ,function(){
-                // alert("Hello");
-                $('.new-forms').append('<div class="main-form">\
-                            <hr class="dropdown-divider bg-dark"/>\<label class="col-md-9 col-sm-9">New Member:</label>\
-                            <button class="remove-btn col-md-2 bg-dark text-white border-0" type="button">Remove</button>\
-                            <div class="row col-md-12 mb-2">\
-                                <div class="col-md-5">\
-                                    <label>First Name</label>\
-                                    <input type="text" class="form-control" name="firstname[]" placeholder="First Name" value="" required>\
-                                </div>\
-                                <div class="col-md-2">\
-                                    <label>M.I.</label>\
-                                    <input type="text" class="form-control" name="mi[]" placeholder="M.I." value="" required>\
-                                </div>\
-                                <div class="col-md-5">\
-                                    <label>Last Name</label>\
-                                    <input type="text" class="form-control" name="lastname[]" placeholder="Last Name" value="" required>\
-                                </div>\
-                            </div>\
-                            <div class="row col-md-12 mb-2">\
-                                <div class="col-md-6">\
-                                    <label>Email Address</label>\
-                                    <input type="Email" class="form-control" name="email_add[]" placeholder="Email Address" value="" required>\
-                                </div>\
-                                <div class="col-md-6">\
-                                    <label>Contact Number</label>\
-                                    <input type="text" class="form-control"  name="contact[]" placeholder="Contact Number" value="" required>\
-                                </div>\
-                            </div>\
-                            <div class="row col-md-12 mb-2">\
-                                <div class="col-md-6">\
-                                    <label>Name Of Oragnization</label>\
-                                    <input type="text" class="form-control" name="orgs[]" placeholder="Name Of Oragnization" value="" required>\
-                                </div>\
-                                <div class="col-md-6">\
-                                    <label>Position</label>\
-                                    <input type="text" class="form-control"  name="position[]" placeholder="Position" value="" required>\
-                                </div>\
-                            </div>\
-                            <div class="row col-md-12 mb-2">\
-                                <div class="col-md-4">\
-                                    <label>Methods Of Payments: </label><br>\
-                                    <select class="form-select" name="payment[]" required>\
-                                        <option value="">Open this select menu</option>\
-                                        <option value="Free">Free</option>\
-                                        <option value="Bank Transfer">Bank Transfer</option>\
-                                        <option value="GCash">GCash</option>\
-                                    </select>\
-                                </div>\
-                            </div>\
-                            <input type="text" name="status" value="pending" hidden>\
-                            <input type="text" name="action" value="New" hidden>\
-                        </div>');
-            })
-        })
     </script>
     <script src="js/main.js"></script>
 </body>

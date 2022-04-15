@@ -41,36 +41,7 @@
     <div class="container-fuid bg-white py-5">
         <div class="container">
         <?php
-            $fullUrl = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-            if (strpos($fullUrl, "error=message_failed") == true ){
-            echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <i class="bi bi-exclamation-triangle-fill"></i><strong> Message Sending Failed!</strong> Please Try Again.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>';
-            }    
-            else if(strpos($fullUrl, "error=client_info_invalid") == true ){
-                echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <i class="bi bi-exclamation-triangle-fill"></i><strong> Information is Invalid!</strong> Please check your information before sending.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>';  
-            }else if(strpos($fullUrl, "error=Message_not_sent") == true ){
-                echo  '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <i class="bi bi-exclamation-triangle-fill"></i><strong> Message Not Sent!</strong> Please Try Again Later.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>';
-            }else if(strpos($fullUrl, "error=empty_fields") == true ){
-                echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <i class="bi bi-exclamation-triangle-fill"></i><strong> Some Fields are empty!</strong> Please check and fill up all fields before submitting.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>';
-            }
-            else if(strpos($fullUrl, "success=message_sent") == true ){
-                echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <i class="bi bi-info-circle"></i><strong> Message Successfully Sent!</strong> We will reply to your query once we read your concern, Thank you!
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>';
-            }
+           include_once 'includes/error.php';
         ?>
             
             <div class="text-center" >
