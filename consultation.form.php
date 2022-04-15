@@ -3,6 +3,7 @@
 
 <?php
     require "includes/header.php";
+    require_once "includes/modal.php";
 ?>
  <title>Sibol-PINOY - Consultation</title>
 <body>
@@ -61,53 +62,55 @@
 
             <div class="container-fluid">
                 <div class="col-md-12 p-5 d-flex justify-content-center align-items-center">
+                    
                     <form action="controllers/consultation.control.php" method="POST">
+                    <small>All fields with (*) are needed to fill up</small>
                         <div class="row col-md-12 mb-3">
                             <div class="col-md-5">
                                 <input class="form-control form-control-sm" type="text" name="services" value="<?= $service_uniID?>" hidden>
                                 <input class="form-control form-control-sm" type="text" name="services_name" value="<?= $service_name?>" hidden>
-                                <label for="" class="form-label">First Name</label>
+                                <label for="" class="form-label">First Name*</label>
                                 <input class="form-control form-control-sm" type="text" name="firstName" placeholder="First Name" required>
                             </div>
                             <div class="col-md-2">
-                                <label for="" class="form-label">M.I.</label>
+                                <label for="" class="form-label">M.I.*</label>
                                 <input class="form-control form-control-sm" type="text" name="mi" placeholder="M.I." required>
                             </div>
                             <div class="col-md-5">
-                                <label for="" class="form-label">Last Name</label>
+                                <label for="" class="form-label">Last Name*</label>
                                 <input class="form-control form-control-sm" type="text" name="lastName" placeholder="Last Name" required>
                             </div>
                         </div>
 
                         <div class="row col-md-12 mb-3">
                             <div class="col-md-6">
-                                <label for="" class="form-label">Email Address</label>
+                                <label for="" class="form-label">Email Address*</label>
                                 <input class="form-control form-control-sm" type="email" name="email" placeholder="Email Address" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="" class="form-label">Contact Number</label>
-                                <input class="form-control form-control-sm" type="text" name="contact" placeholder="Contact Number">
+                                <label for="" class="form-label">Contact Number*</label>
+                                <input class="form-control form-control-sm" type="text" name="contact" placeholder="Contact Number" required>
                             </div>  
                         </div>
                         
                         <div class="row col-md-12 mb-3">
                             <div class="col-md-6">
-                                <label for="" class="form-label">Organization</label>
+                                <label for="" class="form-label">Organization*</label>
                                 <input class="form-control form-control-sm" type="text" name="orgs" placeholder="Organization" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="" class="form-label">Position</label>
+                                <label for="" class="form-label">Position*</label>
                                 <input class="form-control form-control-sm" type="text" name="position" placeholder="Position" required>
                             </div>
                         </div>
 
                         <div class="row col-md-12 mb-3">
                             <div class="col-md-6">
-                                <label for="" class="form-label">Consultation Date</label>
+                                <label for="" class="form-label">Consultation Date*</label>
                                 <input class="form-control form-control-sm" type="date" name="date" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="" class="form-label">Consultation Time</label>
+                                <label for="" class="form-label">Consultation Time*</label>
                                 <input class="form-control form-control-sm" type="time" name="time" required>
                             </div>
                         </div>
@@ -152,7 +155,7 @@
                         <input type="text" name="status" value="Pending" hidden>
                         <input type="text" name="action" value="New" hidden>
                         <div class="col-12">
-                            <small>SPMC <a href=#>TERMS</a> and <a href="#">PRIVACY POLICY</a></small>
+                            <small>Read SPMC <button type="button" class="border-0 bg-white text-primary terms">TERMS and PRIVACY POLICY</button> </small>
                             <div class="form-check">
                                 <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
                                 <label class="form-check-label" for="invalidCheck3">
@@ -168,10 +171,7 @@
             </div> 
         </div>
 
-        </div>
-       
-        
-       
+
     <!-- Footer Start -->
     <?php
         require "includes/footer.php";
@@ -193,6 +193,14 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>   
+       $(document).ready(function(){
+           $('.terms').on('click', function(){
+               $('#termsmodal').modal('show');
+
+           })
+       })
+   </script>
 </body>
 
 </html>

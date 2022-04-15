@@ -51,7 +51,7 @@
             }    
             else if(strpos($fullUrl, "error=client_info_invalid") == true ){
                 echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <i class="bi bi-exclamation-triangle-fill"></i><strong> Information is Invalid!</strong> Please check your inforamtion before sending.
+                <i class="bi bi-exclamation-triangle-fill"></i><strong> Information is Invalid!</strong> Please check your information before sending.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>';  
             }else if(strpos($fullUrl, "error=Message_not_sent") == true ){
@@ -59,8 +59,6 @@
                 <i class="bi bi-exclamation-triangle-fill"></i><strong> Message Not Sent!</strong> Please Try Again Later.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>';
-            }else if(strpos($fullUrl, "error=email_is_invalid") == true ){
-                echo "<p class='alert'>User doesn't Exist!</p>";
             }else if(strpos($fullUrl, "error=empty_fields") == true ){
                 echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <i class="bi bi-exclamation-triangle-fill"></i><strong> Some Fields are empty!</strong> Please check and fill up all fields before submitting.

@@ -38,7 +38,6 @@ if(isset($_POST['book_me'])){
             $uniID = $year."-".$random_num1;
             $bookingID = $year."-".$random_num2;
 
-        
             $check_user_query = "SELECT `email_add` FROM `client` WHERE `email_add`=?";
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt, $check_user_query)) {
@@ -128,7 +127,7 @@ if(isset($_POST['book_me'])){
                         }
 
                     }else{
-                        header("Location: ../consultation?error=consultation_registration_failed");
+                        header("Location: ../consultation?error=consultation_request_failed");
                         exit();
                     }
                   
@@ -218,7 +217,7 @@ if(isset($_POST['book_me'])){
                             }
 
                         }else{
-                            header("Location: ../consultation?error=consultation_registration_failed");
+                            header("Location: ../consultation?error=consultation_request_failed");
                             exit();
                         }
                       
