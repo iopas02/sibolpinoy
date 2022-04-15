@@ -1,43 +1,3 @@
-<?php
-$err_message = "";
-if(isset($_GET["error"])){
-    $error = $_GET["error"];
-    if($error == "username_null"){
-        $err_message = "Username field empty.";
-    }
-    else if($error == "password_null"){
-        $err_message = "Password field empty.";
-    }
-    else if($error == "firstName_null"){
-        $err_message = "First Name field empty.";
-    }
-    else if($error == "lastName_null"){
-        $err_message = "Last Name field empty.";
-    }
-    else if($error == "level_null"){
-        $err_message = "Please pick a level.";
-    }
-    else if($error == "status_null"){
-        $err_message = "Please pick a status.";
-    }
-    else if($error == "passwordNotEqual"){
-        $err_message = "Password not equal.";
-    }
-    else if($error == "username_exist"){
-        $err_message = "Username is already existing.";
-    }
-    else if($error == "reason_null"){
-        $err_message = "Reason Field is empty.";
-    }
-    else if($error == "error_self_delete"){
-        $err_message = "You can not delete yourself.";
-    }
-    else if($error == "error_self_status"){
-        $err_message = "You can not set your own status.";
-    }
-}
-
-?>
 <!doctype html>
 <html lang="en">
   <!-- Header Start -->
@@ -87,20 +47,15 @@ if(isset($_GET["error"])){
         <div class="container-fluid px-4">
             
             <div class="row">
-            <?php if(isset($err_message)){?>
-                <div class="form-group">
-                    <h5 class="text-danger"><?= $err_message ?></h5>
-                </div>
-            <?php 
-                unset($err_message);    
-            }
+            <?php
+                include_once 'layout.part/erro.php'; 
             ?>
+            
             <div class="col-md-12 my-2">
                 <h4 class="page-header">Admin Controller</h4>
                 <hr class="dropdown-divider bg-dark" />
             </div>
         </div>
-
 
         <div class="row">
             <div class="col-md-12 mb-3 px-4">

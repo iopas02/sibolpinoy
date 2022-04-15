@@ -5,11 +5,11 @@ session_start();
     if(isset($_POST["submit"])){
 
         if(!isset($_POST["username"]) || $_POST["username"] == null){
-            header("location: ../index?error=username_null");
+            header("location: ../index?error=username_empty");
             exit();
         }
         else if(!isset($_POST["password"]) || $_POST["password"] == null){
-            header("location: ../index?error=password_null");
+            header("location: ../index?error=password_empty");
             exit();
         }
         else{
@@ -19,7 +19,7 @@ session_start();
             $admin_log_query = "SELECT * FROM login where username =?";
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt, $admin_log_query)) {
-                header("Location: ../index?error=sqlerror");
+                header("Location: ../index?error=sql_error");
                 exit();
             }else{
                 mysqli_stmt_bind_param($stmt, "s", $username);

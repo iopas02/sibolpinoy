@@ -33,6 +33,9 @@
     <!-- THIS IS FOR SIDE NAV-BAR and OFF CANVA END HERE -->
 
     <main class="mt-5 pt-3">
+      <?php
+        include_once 'layout.part/erro.php';
+      ?>
       <div class="container-fluid p-4">
         <div class="row">
           <div class="col-md-12 my-2">

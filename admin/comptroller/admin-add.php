@@ -5,19 +5,24 @@
     if(isset($_POST["submit"])){
         
         if(!isset($_POST["firstName"]) || $_POST["firstName"] == null){
-            header("location: ../admin.con?error=firstName_null");
+            header("location: ../admin.con?error=firstName_empty");
+            exit();
         }
         else if(!isset($_POST["lastName"]) || $_POST["lastName"] == null){
-            header("location: ../admin.con?error=lastName_null");
+            header("location: ../admin.con?error=lastName_empty");
+            exit();
         }
         else if(!isset($_POST["username"]) || $_POST["username"] == null){
-            header("location: ../admin.con?error=username_null");
+            header("location: ../admin.con?error=username_empty");
+            exit();
         }
         else if(!isset($_POST["level"]) || $_POST["level"] == null){
-            header("location: ../admin.con?error=level_null");
+            header("location: ../admin.con?error=level_empty");
+            exit();
         }
         else if(!isset($_POST["status"]) || $_POST["status"] == null){
-            header("location: ../admin.con?error=status_null");
+            header("location: ../admin.con?error=status_empty");
+            exit();
         }
         
         else{
@@ -54,7 +59,7 @@
                 $resultcheck = mysqli_stmt_num_rows($stmt);
 
                 if($resultcheck > 0){
-                    header("Location: ../admin.con?username_already_exist");
+                    header("Location: ../admin.con?error=username_already_exist");
                     exit();
                 }else{
                     //check username duplicate
@@ -81,17 +86,17 @@
                                 exit();
                         
                             }else{
-                                header("Location: ../admin.con?admin_log_failed");
+                                header("Location: ../admin.con?error=admin_log_failed");
                                 exit();
                             }
 
                         }else{
-                            header("Location: ../admin.con?admin_profile_failed");
+                            header("Location: ../admin.con?error=admin_profile_failed");
                             exit();
                         }      
                                  
                     }else{
-                        header("Location: ../admin.con?create_new_admin_failed");
+                        header("Location: ../admin.con?error=create_new_admin_failed");
                         exit();
                     }
                 
@@ -141,13 +146,13 @@
 
                         $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$id', '$action','$user', '$date')";
             
-                            if($conn->query($create_adminlog)===TRUE){
-                                header("Location: ../admin.con?success=activate_user_successfully");
-                                exit(); 
-                            }else{
-                                header("Location: ../user.archive?error=adminlog_error");
-                                exit();
-                            }
+                        if($conn->query($create_adminlog)===TRUE){
+                            header("Location: ../admin.con?success=activate_user_successfully");
+                            exit(); 
+                        }else{
+                            header("Location: ../user.archive?error=adminlog_error");
+                            exit();
+                        }
 
                     }else{
                         header("Location: ../user.archive?error=delete_archive_failed");
@@ -156,7 +161,7 @@
 
                 }else{
                     header("Location: ../user.archive?error=update_user_failed");
-                    exit();
+                    exit(); 
                 }               
 
             }else{

@@ -17,10 +17,12 @@
         $sessionUsername = $_SESSION["username"];
 
         if(!isset($_POST["reason"]) || $_POST["reason"] == null){
-            header("location: admin.con.php?error=reason_null");
+            header("location: admin.con?error=reason_empty");
+            exit();
         }
         else if($sessionUsername == $username){
-            header("location: admin.con.php?error=error_self_delete");
+            header("location: admin.con?error=error_self_delete");
+            exit();
         }
         else{
             $sql = "INSERT INTO `archiveuser`(`loginId`, `profileId`, `firstName`, `lastName`, `username`, `level`, `reason`, `status`, `dateAdded`, `dateDeleted`) VALUES($loginId, $profileId, '$firstName', '$lastName', '$username', '$level', '$reason', '$status', '$dateAdded', '$dateDeleted')";
@@ -40,7 +42,7 @@
                         exit();
 
                     }else{
-                        header("Location: ../admin.con?error=adminlog_failed");
+                        header("Location: ../admin.con?error=adminlog_error");
                         exit();
                     }
                 } 
@@ -54,6 +56,9 @@
             }
         }
 
+    }else{
+        header("Location: ../admin.con");
+        exit();
     }
 
 ?>
