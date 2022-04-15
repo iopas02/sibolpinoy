@@ -111,6 +111,16 @@
         <i class="bi bi-exclamation-triangle-fill"></i><strong> Password should have 8 character and above</strong> You can use 0-9 and a-z,A-Z character in any combination.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
+    }else if(strpos($fullUrl, "error=user_status_change_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Failed to change Admin user status</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=error_self_status") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> You cannot change your own status</strong> Ask your superior assistance.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
     }
 
     else if(strpos($fullUrl, "success=new_admin_created_successfully") == true ){
@@ -140,6 +150,11 @@
     else if(strpos($fullUrl, "success=update_password_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
         <i class="bi bi-info-circle"></i><strong> Password update successfully!</strong> Try admin account using credential.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "success=user_status_change_successfully") == true ){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-info-circle"></i><strong> User status change successfully!</strong> You changes admin user status.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }

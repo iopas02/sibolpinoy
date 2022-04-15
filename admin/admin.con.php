@@ -259,11 +259,11 @@
                     <div class="row py-3 col-md-12">
                     <hr class="dropdown-divider bg-dark" />
                                     <div class="col-md-4">
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#editAdminPassword">Reset password</button>
+                                        <button type="button" class="p-1 text-white rounded bg-coloured" data-bs-toggle="modal" data-bs-target="#editAdminPassword">Reset password</button>
                                     </div>
                                     <div class="col-md-8 d-grid gap-1 d-md-flex justify-content-md-end">
-                                        <button type="submit" class="btn btn-success" name="update">Save</button>    
-                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="p-1 text-white rounded bg-blue" name="update">Update User</button>    
+                                        <button type="button" class="p-1 text-white rounded bg-dark" data-bs-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>    
@@ -276,13 +276,13 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content mx-auto" style="max-width: 400px">                
                         <div class="modal-body">
-                            <form action="admin-status.php" method="POST">
+                            <form action="comptroller/admin-status.php" method="POST">
                                     <input type="hidden" id="statuser" name ="username">  
                             <h5>Are you sure you want to change the status of this user?</h5>     
                         </div>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-success" name="active">Active</button>
-                                    <button type="submit" class="btn btn-danger" name="inactive">Inactive</button>
+                                    <button type="submit" class="p-1 rounded bg-coloured text-white" name="active">Active</button>
+                                    <button type="submit" class="p-1 rounded bg-blue text-white" name="inactive">Inactive</button>
                                 </div>
                             </form>
                     </div>
@@ -353,9 +353,9 @@
                             </div>
                         </div>
                       <div class="modal-footer">
-                        <button type="submit" class="btn btn-danger" name="deleteUser">Delete</button>
+                        <button type="submit" class="p-1 rounded bg-coloured text-white" name="deleteUser">Delete User</button>
                     </form>       
-                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="p-1 rounded bg-dark text-white" data-bs-dismiss="modal">Close</button>
                 </div>
                 </div>
             </div>
