@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2022 at 12:10 PM
+-- Generation Time: Apr 16, 2022 at 03:38 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -69,7 +69,45 @@ INSERT INTO `adminlog` (`id`, `loginId`, `action`, `actionBy`, `date`) VALUES
 (295, 29, 'logged in', 'LerwickDeCastro', '2022-04-13 13:43:30'),
 (296, 29, 'created new event', 'LerwickDeCastro', '2022-04-13 13:47:56'),
 (297, 29, 'update event status', 'LerwickDeCastro', '2022-04-13 13:49:29'),
-(298, 29, 'logged in', 'LerwickDeCastro', '2022-04-13 15:53:33');
+(298, 29, 'logged in', 'LerwickDeCastro', '2022-04-13 15:53:33'),
+(299, 29, 'logged in', 'LerwickDeCastro', '2022-04-14 09:14:18'),
+(300, 29, 'update colsultaion sub categories request', 'LerwickDeCastro', '2022-04-14 10:25:50'),
+(301, 29, 'update colsultaion sub categories request', 'LerwickDeCastro', '2022-04-14 10:34:48'),
+(302, 29, 'update colsultaion sub categories request', 'LerwickDeCastro', '2022-04-14 10:38:59'),
+(303, 29, 'update colsultaion sub categories request', 'LerwickDeCastro', '2022-04-14 10:54:11'),
+(304, 29, 'Edit consultation date', 'LerwickDeCastro', '2022-04-14 12:22:01'),
+(305, 29, 'Edit consultation time', 'LerwickDeCastro', '2022-04-14 12:47:32'),
+(306, 29, 'approved  consultation', 'LerwickDeCastro', '2022-04-14 12:59:42'),
+(307, 29, 'Edit consultation time', 'LerwickDeCastro', '2022-04-14 13:06:25'),
+(308, 29, 'approved  consultation', 'LerwickDeCastro', '2022-04-14 13:06:37'),
+(309, 29, 'Activate user yusukeurameshi', 'LerwickDeCastro', '2022-04-14 14:48:57'),
+(310, 29, 'Activate user jasonorioste', 'LerwickDeCastro', '2022-04-14 14:55:47'),
+(311, 28, 'Archiving user', 'LerwickDeCastro', '2022-04-14 14:57:33'),
+(312, 29, 'Activate user jasonorioste', 'LerwickDeCastro', '2022-04-14 15:06:02'),
+(313, 30, 'Archiving user', 'LerwickDeCastro', '2022-04-14 15:08:57'),
+(314, 29, 'Activate user yusukeurameshi', 'LerwickDeCastro', '2022-04-14 15:14:46'),
+(315, 30, 'Archiving user', 'LerwickDeCastro', '2022-04-14 15:16:49'),
+(316, 29, 'Activate user yusukeurameshi', 'LerwickDeCastro', '2022-04-14 15:16:57'),
+(317, 29, 'Activate user yusukeurameshi', 'LerwickDeCastro', '2022-04-14 15:16:57'),
+(318, 30, 'Archiving user', 'LerwickDeCastro', '2022-04-14 15:18:00'),
+(319, 29, 'Activate user yusukeurameshi', 'LerwickDeCastro', '2022-04-14 15:18:16'),
+(320, 29, 'logged in', 'LerwickDeCastro', '2022-04-14 15:47:24'),
+(321, 30, 'logged in', 'yusukeurameshi', '2022-04-14 15:58:57'),
+(322, 30, 'Log out', 'yusukeurameshi', '2022-04-14 16:23:42'),
+(323, 28, 'logged in', 'jasonorioste', '2022-04-14 16:25:57'),
+(324, 28, 'Log out', 'jasonorioste', '2022-04-14 16:28:19'),
+(325, 29, 'Log out', 'LerwickDeCastro', '2022-04-14 17:52:44'),
+(326, 29, 'logged in', 'LerwickDeCastro', '2022-04-14 19:09:47'),
+(327, 29, 'logged in', 'LerwickDeCastro', '2022-04-15 10:02:35'),
+(328, 29, 'Log out', 'LerwickDeCastro', '2022-04-15 11:13:25'),
+(329, 29, 'logged in', 'LerwickDeCastro', '2022-04-15 11:36:28'),
+(330, 29, 'Log out', 'LerwickDeCastro', '2022-04-15 11:36:33'),
+(331, 29, 'logged in', 'LerwickDeCastro', '2022-04-15 13:31:09'),
+(332, 28, 'logged in', 'jasonorioste', '2022-04-15 14:47:03'),
+(333, 28, 'Log out', 'jasonorioste', '2022-04-15 14:48:40'),
+(334, 29, 'updated status', 'LerwickDeCastro', '2022-04-15 15:08:43'),
+(335, 29, 'updated status', 'LerwickDeCastro', '2022-04-15 15:08:51'),
+(336, 29, 'Log out', 'LerwickDeCastro', '2022-04-15 16:08:13');
 
 -- --------------------------------------------------------
 
@@ -87,17 +125,9 @@ CREATE TABLE `archiveuser` (
   `level` varchar(64) NOT NULL,
   `reason` longtext NOT NULL,
   `status` varchar(50) NOT NULL,
-  `dateAdded` date NOT NULL,
-  `dateDeleted` date NOT NULL
+  `dateAdded` datetime NOT NULL,
+  `dateDeleted` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `archiveuser`
---
-
-INSERT INTO `archiveuser` (`id`, `loginId`, `profileId`, `firstName`, `lastName`, `username`, `level`, `reason`, `status`, `dateAdded`, `dateDeleted`) VALUES
-(6, 28, 23, 'Jason', 'Orioste', 'jasonorioste', 'admin', 'Done Internship program', 'archive', '2022-04-12', '2022-04-13'),
-(7, 30, 25, 'Yusuke', 'Urameshi', 'yusukeurameshi', 'admin', 'END of internship Program', 'archive', '2022-04-13', '2022-04-13');
 
 -- --------------------------------------------------------
 
@@ -169,8 +199,8 @@ CREATE TABLE `consultation` (
   `consultation_id` varchar(250) NOT NULL,
   `service_uniID` varchar(250) NOT NULL,
   `memo` text DEFAULT NULL,
-  `set_date` varchar(50) DEFAULT NULL,
-  `set_time` varchar(50) DEFAULT NULL,
+  `set_date` date DEFAULT NULL,
+  `set_time` time DEFAULT NULL,
   `status` varchar(50) NOT NULL,
   `action` varchar(50) NOT NULL,
   `registered_date` datetime DEFAULT NULL
@@ -181,8 +211,9 @@ CREATE TABLE `consultation` (
 --
 
 INSERT INTO `consultation` (`entryID`, `email_add`, `consultation_id`, `service_uniID`, `memo`, `set_date`, `set_time`, `status`, `action`, `registered_date`) VALUES
-(16, 'syntaxgroup2021@gmail.com', '2022-ofh9rzim', '2022-31471', '', 'May 05 2022', '5:00 pm', 'Pending', 'Read', '2022-04-07 13:05:32'),
-(17, 'irecommend.ahis.als@gmail.com', '2022-6k5wchq1ysgpnfr', '2022-12686', 'Test Consultation from consultation page on SPMC website', 'April 29 2022', '2:00 pm', 'Approved', 'Read', '2022-04-13 13:14:06');
+(19, 'treszeta28@gmail.com', '2022-pj2acmnub9w0e1y', '2022-12686', 'test two', '2022-05-02', '10:30:00', 'Approved', 'Read', '2022-04-14 10:52:59'),
+(20, 'syntaxgroup2021@gmail.com', '2022-usrfxgmj29bz0ea', '2022-31471', 'test test test', '2022-05-14', '09:00:00', 'Pending', 'Read', '2022-04-14 12:18:26'),
+(21, 'syntaxgroup2021@gmail.com', '2022-pfkaq305y7t42g8', '2022-31471', 'test test test', '2022-05-13', '09:00:00', 'Pending', 'Read', '2022-04-14 12:18:35');
 
 -- --------------------------------------------------------
 
@@ -196,8 +227,8 @@ CREATE TABLE `consultation_reports` (
   `service_uniID` varchar(250) NOT NULL,
   `sub_cat_uniID` varchar(250) NOT NULL,
   `consultation_id` varchar(250) NOT NULL,
-  `set_date` varchar(50) DEFAULT NULL,
-  `set_time` varchar(50) DEFAULT NULL,
+  `set_date` date DEFAULT NULL,
+  `set_time` time DEFAULT NULL,
   `loginId` int(11) NOT NULL,
   `status` varchar(50) NOT NULL,
   `approved_date` datetime DEFAULT NULL
@@ -208,7 +239,8 @@ CREATE TABLE `consultation_reports` (
 --
 
 INSERT INTO `consultation_reports` (`consul_reportID`, `client_uniID`, `service_uniID`, `sub_cat_uniID`, `consultation_id`, `set_date`, `set_time`, `loginId`, `status`, `approved_date`) VALUES
-(15, '2022-496rwazgny', '2022-12686 ', '2022-v7kdehf', '2022-6k5wchq1ysgpnfr', 'April 29 2022', '2:00 pm', 29, 'Approved', '2022-04-13 13:17:58');
+(18, '2022-z1p092ocxi', '2022-12686 ', '2022-v7kdehf', '2022-pj2acmnub9w0e1y', '2022-05-02', '10:30:00', 29, 'Approved', '2022-04-14 13:06:37'),
+(19, '2022-z1p092ocxi', '2022-12686 ', '2022-b25ngek', '2022-pj2acmnub9w0e1y', '2022-05-02', '10:30:00', 29, 'Approved', '2022-04-14 13:06:37');
 
 -- --------------------------------------------------------
 
@@ -228,10 +260,14 @@ CREATE TABLE `consul_list_category` (
 --
 
 INSERT INTO `consul_list_category` (`listID`, `email_add`, `consultation_id`, `sub_cat_uniID`) VALUES
-(65, 'syntaxgroup2021@gmail.com', '2022-ofh9rzim', '2022-d4ri03x'),
-(66, 'syntaxgroup2021@gmail.com', '2022-ofh9rzim', '2022-hpsi74t'),
-(67, 'irecommend.ahis.als@gmail.com', '2022-6k5wchq1ysgpnfr', '2022-v7kdehf'),
-(68, 'irecommend.ahis.als@gmail.com', '2022-6k5wchq1ysgpnfr', '2022-d5vrgqo');
+(73, 'treszeta28@gmail.com', '2022-pj2acmnub9w0e1y', '2022-v7kdehf'),
+(75, 'treszeta28@gmail.com', '2022-pj2acmnub9w0e1y', '2022-b25ngek'),
+(76, 'syntaxgroup2021@gmail.com', '2022-usrfxgmj29bz0ea', '2022-ntz9hp5'),
+(77, 'syntaxgroup2021@gmail.com', '2022-usrfxgmj29bz0ea', '2022-3cd9ohy'),
+(78, 'syntaxgroup2021@gmail.com', '2022-usrfxgmj29bz0ea', '2022-f8zmpba'),
+(79, 'syntaxgroup2021@gmail.com', '2022-pfkaq305y7t42g8', '2022-ntz9hp5'),
+(80, 'syntaxgroup2021@gmail.com', '2022-pfkaq305y7t42g8', '2022-3cd9ohy'),
+(81, 'syntaxgroup2021@gmail.com', '2022-pfkaq305y7t42g8', '2022-f8zmpba');
 
 -- --------------------------------------------------------
 
@@ -253,7 +289,8 @@ CREATE TABLE `email` (
 --
 
 INSERT INTO `email` (`emailID`, `client_uniID`, `subject`, `message`, `status`, `date_mailed`) VALUES
-(21, '2022-z1p092ocxi', 'Request for sample outline of services', 'This is a sample request message from the contact page of SPMC website', 'Read', '2022-04-07 21:02:26');
+(21, '2022-z1p092ocxi', 'Request for sample outline of services', 'This is a sample request message from the contact page of SPMC website', 'Read', '2022-04-07 21:02:26'),
+(22, '2022-3zkwpnjelc', 'This is a testing message', 'This is a testing message from Contact Page of New SPMC Website', 'Read', '2022-04-14 19:20:49');
 
 -- --------------------------------------------------------
 
@@ -358,8 +395,9 @@ CREATE TABLE `login` (
   `password` varchar(255) NOT NULL,
   `level` varchar(64) NOT NULL,
   `status` varchar(255) NOT NULL,
-  `dateAdded` date NOT NULL,
+  `dateAdded` datetime NOT NULL,
   `lastLoginDate` datetime DEFAULT NULL,
+  `monitor` tinytext DEFAULT NULL,
   `createdBy` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -367,10 +405,10 @@ CREATE TABLE `login` (
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`loginId`, `username`, `password`, `level`, `status`, `dateAdded`, `lastLoginDate`, `createdBy`) VALUES
-(28, 'jasonorioste', '$2y$10$I1k9RgyuhPnuXzU7Hn63k.j70sgQxEm11VooQ9HjF6bMPjruQT2FO', '0', 'archive', '2022-04-12', '2022-04-13 11:02:06', 'yusukeurameshi'),
-(29, 'LerwickDeCastro', '$2y$10$x1eNXnYh0IZQqL3OUdTtv.ztwTOHArTU7tcoHBRh3uZIV84KgfpgS', '1', 'active', '2022-04-12', '2022-04-13 15:53:33', 'yusukeurameshi'),
-(30, 'yusukeurameshi', '$2y$10$HLedyopaYYVLXV/A9nQElO7HWHfanMTJNMe2XCj0adQk6rGnr9zv2', '0', 'archive', '2022-04-13', NULL, 'LerwickDeCastro');
+INSERT INTO `login` (`loginId`, `username`, `password`, `level`, `status`, `dateAdded`, `lastLoginDate`, `monitor`, `createdBy`) VALUES
+(28, 'jasonorioste', '$2y$10$I1k9RgyuhPnuXzU7Hn63k.j70sgQxEm11VooQ9HjF6bMPjruQT2FO', '0', 'active', '2022-04-12 00:00:00', '2022-04-15 14:47:03', 'Out', 'yusukeurameshi'),
+(29, 'LerwickDeCastro', '$2y$10$x1eNXnYh0IZQqL3OUdTtv.ztwTOHArTU7tcoHBRh3uZIV84KgfpgS', '1', 'active', '2022-04-12 00:00:00', '2022-04-15 13:31:09', 'Out', 'yusukeurameshi'),
+(30, 'yusukeurameshi', '$2y$10$HLedyopaYYVLXV/A9nQElO7HWHfanMTJNMe2XCj0adQk6rGnr9zv2', '0', 'active', '2022-04-13 00:00:00', '2022-04-14 15:58:57', 'Out', 'LerwickDeCastro');
 
 -- --------------------------------------------------------
 
@@ -383,7 +421,7 @@ CREATE TABLE `profile` (
   `loginId` int(11) NOT NULL,
   `firstName` varchar(255) NOT NULL,
   `lastName` varchar(255) NOT NULL,
-  `dateAdded` date NOT NULL
+  `dateAdded` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -391,9 +429,9 @@ CREATE TABLE `profile` (
 --
 
 INSERT INTO `profile` (`id`, `loginId`, `firstName`, `lastName`, `dateAdded`) VALUES
-(23, 28, 'Jason', 'Orioste', '2022-04-12'),
-(24, 29, 'Lerwick', 'De Castro', '2022-04-12'),
-(25, 30, 'Yusuke', 'Urameshi', '2022-04-13');
+(23, 28, 'Jason', 'Orioste', '2022-04-12 00:00:00'),
+(24, 29, 'Lerwick', 'De Castro', '2022-04-12 00:00:00'),
+(25, 30, 'Yusuke', 'Urameshi', '2022-04-13 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -404,8 +442,8 @@ INSERT INTO `profile` (`id`, `loginId`, `firstName`, `lastName`, `dateAdded`) VA
 CREATE TABLE `scheduler` (
   `id` int(45) NOT NULL,
   `title` varchar(250) DEFAULT NULL,
-  `start_event` varchar(50) DEFAULT NULL,
-  `end_event` varchar(50) DEFAULT NULL
+  `start_event` datetime DEFAULT NULL,
+  `end_event` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -413,11 +451,12 @@ CREATE TABLE `scheduler` (
 --
 
 INSERT INTO `scheduler` (`id`, `title`, `start_event`, `end_event`) VALUES
-(15, 'Consultation about: Business Consultancy Consultation ID: 2022-ofh9rzim', '2022-05-05 17:00:00', '2022-05-05 21:00:00'),
-(18, 'Consultation about: Technological Solutions Consultation ID: 2022-6k5wchq1ysgpnfr', '2022-04-29 14:00:00', '2022-04-29 17:00:00'),
-(20, ' A Webinar on Web Development', '2022-04-30', '2022-04-30'),
-(24, 'All IT meeting With Sir Lerwick', '2022-04-13 13:00:00', '2022-04-13 15:00:00'),
-(25, 'Holy Week', '2022-04-13 00:00:00', '2022-04-14 00:00:00');
+(27, 'Consultation about: Technological Solutions Consultation ID: 2022-pj2acmnub9w0e1y', '2022-05-02 10:30:00', '2022-05-02 10:30:00'),
+(30, 'Holy Wednesday', '2022-04-13 00:00:00', '2022-04-14 00:00:00'),
+(31, 'Maundy Thursday', '2022-04-14 00:00:00', '2022-04-15 00:00:00'),
+(32, 'Good Friday', '2022-04-15 00:00:00', '2022-04-16 00:00:00'),
+(33, 'Holy Saturday', '2022-04-16 00:00:00', '2022-04-17 00:00:00'),
+(34, 'Easter Sunday', '2022-04-17 00:00:00', '2022-04-18 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1143,7 +1182,146 @@ INSERT INTO `visitors` (`visitorsID`, `visitorsIP`, `date_visited`) VALUES
 (553, '::1', '2022-04-13 16:10:16'),
 (554, '::1', '2022-04-13 18:09:25'),
 (555, '::1', '2022-04-13 18:09:50'),
-(556, '::1', '2022-04-13 18:10:06');
+(556, '::1', '2022-04-13 18:10:06'),
+(557, '::1', '2022-04-14 10:35:18'),
+(558, '::1', '2022-04-14 10:35:21'),
+(559, '::1', '2022-04-14 10:35:24'),
+(560, '::1', '2022-04-14 10:37:06'),
+(561, '::1', '2022-04-14 10:51:45'),
+(562, '::1', '2022-04-14 10:51:55'),
+(563, '::1', '2022-04-14 10:53:24'),
+(564, '::1', '2022-04-14 12:16:53'),
+(565, '::1', '2022-04-14 12:17:00'),
+(566, '::1', '2022-04-14 12:18:59'),
+(567, '::1', '2022-04-14 16:23:42'),
+(568, '::1', '2022-04-14 17:52:53'),
+(569, '::1', '2022-04-14 17:54:08'),
+(570, '::1', '2022-04-14 17:55:02'),
+(571, '::1', '2022-04-14 17:55:21'),
+(572, '::1', '2022-04-14 17:56:05'),
+(573, '::1', '2022-04-14 17:56:23'),
+(574, '::1', '2022-04-14 17:56:29'),
+(575, '::1', '2022-04-14 17:57:11'),
+(576, '::1', '2022-04-14 17:57:19'),
+(577, '::1', '2022-04-14 17:57:58'),
+(578, '::1', '2022-04-14 17:58:05'),
+(579, '::1', '2022-04-14 17:59:29'),
+(580, '::1', '2022-04-14 18:00:14'),
+(581, '::1', '2022-04-14 18:17:59'),
+(582, '::1', '2022-04-14 18:18:40'),
+(583, '::1', '2022-04-14 18:18:46'),
+(584, '::1', '2022-04-14 18:19:24'),
+(585, '::1', '2022-04-14 18:20:48'),
+(586, '::1', '2022-04-14 18:21:37'),
+(587, '::1', '2022-04-14 18:22:12'),
+(588, '::1', '2022-04-14 18:26:01'),
+(589, '::1', '2022-04-14 18:27:43'),
+(590, '::1', '2022-04-14 18:28:16'),
+(591, '::1', '2022-04-14 18:36:12'),
+(592, '::1', '2022-04-14 18:37:03'),
+(593, '::1', '2022-04-14 18:37:08'),
+(594, '::1', '2022-04-14 18:37:54'),
+(595, '::1', '2022-04-14 18:38:21'),
+(596, '::1', '2022-04-14 18:38:44'),
+(597, '::1', '2022-04-14 18:39:14'),
+(598, '::1', '2022-04-14 18:41:13'),
+(599, '::1', '2022-04-14 18:41:48'),
+(600, '::1', '2022-04-14 18:41:49'),
+(601, '::1', '2022-04-14 18:41:49'),
+(602, '::1', '2022-04-14 18:41:49'),
+(603, '::1', '2022-04-14 18:42:16'),
+(604, '::1', '2022-04-14 18:52:03'),
+(605, '::1', '2022-04-14 18:52:22'),
+(606, '::1', '2022-04-14 18:52:23'),
+(607, '::1', '2022-04-14 18:53:01'),
+(608, '::1', '2022-04-14 18:53:14'),
+(609, '::1', '2022-04-14 18:53:59'),
+(610, '::1', '2022-04-14 18:55:00'),
+(611, '::1', '2022-04-14 18:55:57'),
+(612, '::1', '2022-04-14 18:56:23'),
+(613, '::1', '2022-04-14 18:57:30'),
+(614, '::1', '2022-04-14 18:57:41'),
+(615, '::1', '2022-04-14 18:57:48'),
+(616, '::1', '2022-04-14 18:58:59'),
+(617, '::1', '2022-04-14 18:59:18'),
+(618, '::1', '2022-04-14 18:59:59'),
+(619, '::1', '2022-04-14 19:00:17'),
+(620, '::1', '2022-04-14 19:02:11'),
+(621, '::1', '2022-04-14 19:03:40'),
+(622, '::1', '2022-04-14 19:04:46'),
+(623, '::1', '2022-04-14 19:05:29'),
+(624, '::1', '2022-04-14 19:06:23'),
+(625, '::1', '2022-04-14 19:06:57'),
+(626, '::1', '2022-04-14 19:07:20'),
+(627, '::1', '2022-04-14 19:07:37'),
+(628, '::1', '2022-04-14 19:08:28'),
+(629, '::1', '2022-04-14 19:09:15'),
+(630, '::1', '2022-04-14 19:10:53'),
+(631, '::1', '2022-04-14 19:14:21'),
+(632, '::1', '2022-04-14 19:19:59'),
+(633, '::1', '2022-04-14 19:20:53'),
+(634, '::1', '2022-04-15 09:18:13'),
+(635, '::1', '2022-04-15 09:18:17'),
+(636, '::1', '2022-04-15 09:19:13'),
+(637, '::1', '2022-04-15 09:23:08'),
+(638, '::1', '2022-04-15 09:23:59'),
+(639, '::1', '2022-04-15 09:24:23'),
+(640, '::1', '2022-04-15 09:24:28'),
+(641, '::1', '2022-04-15 09:24:36'),
+(642, '::1', '2022-04-15 09:24:40'),
+(643, '::1', '2022-04-15 09:25:22'),
+(644, '::1', '2022-04-15 09:29:11'),
+(645, '::1', '2022-04-15 09:30:01'),
+(646, '::1', '2022-04-15 09:48:27'),
+(647, '::1', '2022-04-15 09:48:49'),
+(648, '::1', '2022-04-15 09:49:07'),
+(649, '::1', '2022-04-15 09:56:13'),
+(650, '::1', '2022-04-15 09:56:35'),
+(651, '::1', '2022-04-15 09:57:29'),
+(652, '::1', '2022-04-15 09:58:05'),
+(653, '::1', '2022-04-15 10:03:49'),
+(654, '::1', '2022-04-15 10:05:03'),
+(655, '::1', '2022-04-15 10:05:58'),
+(656, '::1', '2022-04-15 10:06:53'),
+(657, '::1', '2022-04-15 10:07:20'),
+(658, '::1', '2022-04-15 10:07:24'),
+(659, '::1', '2022-04-15 10:08:02'),
+(660, '::1', '2022-04-15 10:08:07'),
+(661, '::1', '2022-04-15 10:08:34'),
+(662, '::1', '2022-04-15 10:09:43'),
+(663, '::1', '2022-04-15 10:09:50'),
+(664, '::1', '2022-04-15 10:09:53'),
+(665, '::1', '2022-04-15 10:09:55'),
+(666, '::1', '2022-04-15 10:09:56'),
+(667, '::1', '2022-04-15 10:09:57'),
+(668, '::1', '2022-04-15 10:10:03'),
+(669, '::1', '2022-04-15 10:10:06'),
+(670, '::1', '2022-04-15 10:10:22'),
+(671, '::1', '2022-04-15 10:11:24'),
+(672, '::1', '2022-04-15 10:15:43'),
+(673, '::1', '2022-04-15 10:17:07'),
+(674, '::1', '2022-04-15 10:17:31'),
+(675, '::1', '2022-04-15 10:23:05'),
+(676, '::1', '2022-04-15 10:24:39'),
+(677, '::1', '2022-04-15 10:25:55'),
+(678, '::1', '2022-04-15 10:27:02'),
+(679, '::1', '2022-04-15 10:28:55'),
+(680, '::1', '2022-04-15 10:36:56'),
+(681, '::1', '2022-04-15 10:37:28'),
+(682, '::1', '2022-04-15 10:40:39'),
+(683, '::1', '2022-04-15 10:40:42'),
+(684, '::1', '2022-04-15 10:40:45'),
+(685, '::1', '2022-04-15 10:42:27'),
+(686, '::1', '2022-04-15 10:42:33'),
+(687, '::1', '2022-04-15 10:45:13'),
+(688, '::1', '2022-04-15 10:53:57'),
+(689, '::1', '2022-04-15 10:54:13'),
+(690, '::1', '2022-04-15 10:55:12'),
+(691, '::1', '2022-04-15 10:59:32'),
+(692, '::1', '2022-04-15 11:00:13'),
+(693, '::1', '2022-04-15 11:00:41'),
+(694, '::1', '2022-04-15 11:00:59'),
+(695, '::1', '2022-04-15 11:01:52');
 
 --
 -- Indexes for dumped tables
@@ -1278,13 +1456,13 @@ ALTER TABLE `visitors`
 -- AUTO_INCREMENT for table `adminlog`
 --
 ALTER TABLE `adminlog`
-  MODIFY `id` int(150) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=299;
+  MODIFY `id` int(150) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=337;
 
 --
 -- AUTO_INCREMENT for table `archiveuser`
 --
 ALTER TABLE `archiveuser`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `celebration`
@@ -1302,25 +1480,25 @@ ALTER TABLE `client`
 -- AUTO_INCREMENT for table `consultation`
 --
 ALTER TABLE `consultation`
-  MODIFY `entryID` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `entryID` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `consultation_reports`
 --
 ALTER TABLE `consultation_reports`
-  MODIFY `consul_reportID` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `consul_reportID` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `consul_list_category`
 --
 ALTER TABLE `consul_list_category`
-  MODIFY `listID` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `listID` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `email`
 --
 ALTER TABLE `email`
-  MODIFY `emailID` int(150) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `emailID` int(150) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `events`
@@ -1356,7 +1534,7 @@ ALTER TABLE `profile`
 -- AUTO_INCREMENT for table `scheduler`
 --
 ALTER TABLE `scheduler`
-  MODIFY `id` int(45) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(45) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `sent_email`
@@ -1386,7 +1564,7 @@ ALTER TABLE `services_sub_category`
 -- AUTO_INCREMENT for table `visitors`
 --
 ALTER TABLE `visitors`
-  MODIFY `visitorsID` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=557;
+  MODIFY `visitorsID` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=696;
 
 --
 -- Constraints for dumped tables

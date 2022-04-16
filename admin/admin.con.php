@@ -230,7 +230,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="admin-edit.php" method="POST">
+                        <form action="comptroller/admin-edit.php" method="POST">
                             <input type="hidden" id="sid" name="id">
                             <div class="row col-md-12">
                                 <div class="col-md-6 mb-1">
@@ -245,16 +245,17 @@
                             <div class="row col-md-12">
                                 <div class="col-md-8 mb-1">
                                     <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="un" name="username"  aria-describedby="emailHelp" >
+                                    <input type="text" class="form-control" id="un" name="username" readonly/>
                                 </div>
                                 <div class="col-md-4 mb-1">
                                     <label for="level" aria-label="Default select example" class="form-label">Level</label>
                                     <select class="form-select" id="lev" name="level">
-                                        <option value="admin">admin</option>
-                                        <option value="superadmin">superadmin</option>
+                                        <option value="0">admin</option>
+                                        <option value="1">superadmin</option>
                                     </select>
                                 </div>
                             </div>
+                            <input type="text" class=""  name="action" value="update user info:" hidden/>
                     </div>
                     <div class="row py-3 col-md-12">
                     <hr class="dropdown-divider bg-dark" />
@@ -273,7 +274,7 @@
         </div>
         <!-- status modal -->
             <div class="modal fade" id="editStatus">
-                <div class="modal-dialog modal-lg">
+                <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content mx-auto" style="max-width: 400px">                
                         <div class="modal-body">
                             <form action="comptroller/admin-status.php" method="POST">
@@ -307,16 +308,16 @@
                             <h5>Default password: <strong class="text-primary">SPMC123</strong></h5>
                         </div>
                       <div class="modal-footer">
-                        <button type="submit" class="btn btn-success" name="editPassword">Save</button>
+                        <button type="submit" class="p-1 rounded bg-blue text-white" name="editPassword">Reset Password</button>
                     </form>       
-                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editAdmin">Close</button>
+                    <button type="button" class="p-1 rounded bg-dark text-white" data-bs-toggle="modal" data-bs-target="#editAdmin">Close</button>
                 </div>
                 </div>
             </div>
         </div>
         <!--THIS IS FOR MODAL DELETE user start-->
         <div class="modal" id="deleteUser" tabindex="-1">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Delete User</h5>

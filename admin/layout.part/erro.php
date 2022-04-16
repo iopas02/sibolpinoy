@@ -121,6 +121,16 @@
         <i class="bi bi-exclamation-triangle-fill"></i><strong> You cannot change your own status</strong> Ask your superior assistance.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
+    }else if(strpos($fullUrl, "error=login_details_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Updating user login details Failed!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=profile_details_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Updating user profile details Failed!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
     }
 
     else if(strpos($fullUrl, "success=new_admin_created_successfully") == true ){
@@ -152,9 +162,16 @@
         <i class="bi bi-info-circle"></i><strong> Password update successfully!</strong> Try admin account using credential.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
-    }else if(strpos($fullUrl, "success=user_status_change_successfully") == true ){
+    }
+    else if(strpos($fullUrl, "success=user_status_change_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
         <i class="bi bi-info-circle"></i><strong> User status change successfully!</strong> You changes admin user status.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
+    else if(strpos($fullUrl, "success=user_update_successfully") == true ){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-info-circle"></i><strong> User info updated successfully!</strong> You update admin user info.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }

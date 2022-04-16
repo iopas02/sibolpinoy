@@ -64,14 +64,14 @@
 
 <!--THIS IS FOR MODAL Edit Profile start-->
 <div class="modal" id="editProfile" tabindex="-1">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">Edit Profile</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="user-edit.php" method="POST">
+          <form action="comptroller/user-edit.php" method="POST">
             <div class="row col-md-12">
                 <div class="col-md-6 mb-1">
                     <label for="first_name" class="form-label">First Name</label>
@@ -85,21 +85,22 @@
             <div class="row col-md-12">
                 <div class="col-md-8 mb-1">
                     <label for="email" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="email" name="username"  aria-describedby="emailHelp" value="<?= $rusername?>" <?= $readonly?>>
+                    <input type="text" class="form-control" id="email" name="username"  aria-describedby="emailHelp" value="<?= $rusername?>" readonly>
                 </div>
                 <div class="col-md-4 mb-1">
                     <label for="email" class="form-label">Level</label>
                     <input type="text" class="form-control" id="email"  aria-describedby="emailHelp" value="<?= levelCheck($level)?>" readonly>
+                    <input type="text" class="form-control" name="action" value="Update info" hidden>
                 </div>
             </div>
             <div class="row py-3 col-md-12">
               <hr class="dropdown-divider bg-dark" />
               <div class="col-md-4">
-                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editPassword">Change password</button>
+                  <button type="button" class="p-1 rounded bg-coloured text-white" data-bs-toggle="modal" data-bs-target="#editPassword">Change password</button>
               </div>
               <div class="col-md-8 d-grid gap-1 d-md-flex justify-content-md-end">
-                  <button type="submit" class="btn btn-success" name="update">Save</button>    
-                  <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="p-1 rounded bg-blue text-white" name="update">Update Info</button>    
+                  <button type="button" class="p-1 rounded bg-dark text-white" data-bs-dismiss="modal">Close</button>
               </div>
             </div>
         </form> 
@@ -112,7 +113,7 @@
 
 <!--THIS IS FOR MODAL Edit password start-->
 <div class="modal" gdata-bs-backdrop="static" id="editPassword" tabindex="-1">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
       <div class="modal-header">
           <h5 class="modal-title">Edit password</h5>
@@ -132,9 +133,9 @@
               </div>
       </div>
       <div class="modal-footer">
-              <button type="submit" class="btn btn-success" name="editPassword">Save</button>
+              <button type="submit" class="p-1 rounded bg-blue text-white" name="editPassword">Change Password</button>
           </form>       
-          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editProfile" >Close</button>
+          <button type="button" class="p-1 rounded bg-dark text-white" data-bs-toggle="modal" data-bs-target="#editProfile" >Close</button>
       </div>
       </div>
   </div>
