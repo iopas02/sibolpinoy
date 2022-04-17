@@ -176,6 +176,21 @@
         <i class="bi bi-exclamation-triangle-fill"></i><strong> Client emailed Failed to delete!</strong> Please check your data field and databse attributes.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
+    }else if(strpos($fullUrl, "error=empty_fields") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Some Field are empty!</strong> Please check and fill up all fields before submitting.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=message_not_sent") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Message not sent!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=email_query_error") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Failed to save your email query!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
     }
 
     else if(strpos($fullUrl, "success=new_admin_created_successfully") == true ){
@@ -229,6 +244,12 @@
     else if(strpos($fullUrl, "success=client_delete_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
         <i class="bi bi-info-circle"></i><strong> Client All Information is deleted successfully!</strong> you delete client all information and records.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
+    else if(strpos($fullUrl, "success=email_sent_successfully") == true ){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-info-circle"></i><strong> Message is sent!</strong> you successfully send message to the client/users.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
