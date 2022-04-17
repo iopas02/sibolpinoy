@@ -24,7 +24,30 @@
 
     <!-- THIS IS FOR SIDE NAV-BAR and OFF CANVA END HERE -->
     <?php
+        $entryID = '';
+
+        $eid = 'null';
+        $client_uniID = 'null';
+        $firstname = 'null';
+        $mi = 'null';
+        $lastname = 'null';
+        $contact = 'null';
+        $organization = 'null';
+        $position = 'null';
+        $email_add = 'null';
+
+        $service_uniID = 'null';
+        $service_title = 'null';
+
+        $consultationID = 'null';
+        $set_date = 'null';
+        $set_time = 'null';
+        $status = 'null';
+        $memo = 'null';
+        $date_registered = 'null';
+
         if(isset($_POST['read'])){
+            
             $entryID = mysqli_real_escape_string($conn, $_POST['entryID']);
 
             $change_action_query = "UPDATE `consultation` SET `action`='Read' WHERE `entryID`='$entryID' ";
@@ -38,9 +61,9 @@
                     while($row = $reload_event_request_query_result->fetch_assoc()){
                         $eid = $row['entryID'];
                         $client_uniID = $row['client_uniID'];
-                        $firstName = $row['firstName'];
+                        $firstnaame = $row['firstName'];
                         $mi = $row['mi'];
-                        $lastName = $row['lastName'];
+                        $lastname = $row['lastName'];
                         $contact = $row['contact'];
                         $organization = $row['organization'];
                         $position = $row['position'];
@@ -62,6 +85,9 @@
                 exit();
             }
         
+        }else{
+            header("Location: consultation");
+            exit();
         }
     ?>
   
@@ -88,7 +114,7 @@
                         </div>
                         <div class="col-md-4">
                             <label class="col-form-label">First Name:</label>
-                            <input class="col-md-12" type="text" name="fname" value="<?= $firstName ?>"readonly>
+                            <input class="col-md-12" type="text" name="fname" value="<?= $firstname ?>"readonly>
                         </div>
                         <div class="col-md-1">
                             <label class="col-form-label">MI:</label>
@@ -96,7 +122,7 @@
                         </div>
                         <div class="col-md-4">
                             <label class="col-form-label">Last Name:</label>
-                            <input class="col-md-12" type="text" name="lname" value="<?= $lastName ?>"readonly>
+                            <input class="col-md-12" type="text" name="lname" value="<?= $lastname ?>"readonly>
                         </div> 
                     </div>
                     <div class="col-md-12 d-flex">
@@ -204,7 +230,7 @@
                                         </tr>
                                     </tfoot>
                                 </table>
-                                <input class="col-md-12" type="text" name="setdate" value="<?= $set_date ?>" readonly>
+                                <input class="col-md-12" type="text" name="setdate" value="<?= $set_date ?>" hidden>
                             </div>
                             <div class="col-md-2">
                             <table class="">
@@ -235,7 +261,7 @@
                                         </tr>
                                     </tfoot>
                                 </table>
-                                <input class="col-md-12" type="text" name="settime" value="<?= $set_time ?>" readonly>
+                                <input class="col-md-12" type="text" name="settime" value="<?= $set_time ?>" hidden>
                             </div>
                             <div class="col-md-2">
                                 <label class="col-form-label">Status:</label>

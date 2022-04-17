@@ -36,6 +36,9 @@
     <!-- THIS IS FOR SIDE NAV-BAR and OFF CANVA END HERE -->
 
     <main class="mt-5 pt-3">
+        <?php
+            include_once 'layout.part/erro.php';
+        ?>
         <div class="container-fluid p-4">
             <div class="row">
             <div class="col-md-12 my-2">
@@ -122,12 +125,17 @@
                                                     <td><?= $client_list['contact'] ?></td>
                                                     <td><?= $client_list['organization'] ?></td>
                                                     <td><?= $client_list['position'] ?></td>
-                                                    <td><?= date('M d Y g i:a',  strtotime($client_list['date_register'])) ?></td>
-                                                    <td>
-                                                        <button type="button" class="stats-white tooltip-test read" title="READ" id="read">
+                                                    <td><?= date('F d Y g:i a',  strtotime($client_list['date_register'])) ?></td>
+                                                <form action="client.info.php" method="POST">
+                                                     <td>
+                                                        <input name="client_email" value="<?= $client_list['email_add'] ?>" hidden/>
+                                                        <input name="client_id" value="<?= $client_list['client_uniID'] ?>" hidden/>  
+                                                        <button type="submit" name="readclient" class="stats-white tooltip-test read" title="READ" id="read">
                                                             <i class="bi bi-arrow-repeat"></i>
                                                         </button>
                                                     </td>
+                                                </form>    
+                                
                                                 </tr>
 
                                                 <?php
