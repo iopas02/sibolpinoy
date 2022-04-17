@@ -122,7 +122,13 @@
 
                                                 <?php
                                             }
-                                        }
+                                        }else{
+                                                echo '
+                                                    <tr >
+                                                        <td class="text-center" colspan="7"><h4>No Records Found.</h4></td>
+                                                    </tr>
+                                                ';
+                                            }
 
                                     ?>
                                        

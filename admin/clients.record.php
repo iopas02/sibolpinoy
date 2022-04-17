@@ -140,6 +140,12 @@
 
                                                 <?php
                                             }
+                                        }else{
+                                            echo '
+                                                <tr >
+                                                    <td class="text-center" colspan="10"><h4>No Records Found.</h4></td>
+                                                </tr>
+                                            ';
                                         }
                                     ?>
                                 </tbody>

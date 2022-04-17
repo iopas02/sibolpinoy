@@ -129,8 +129,12 @@
                                             <?php
                                         }
                                     }else{
-                                        echo "No Email Yet";
-                                    }
+                                            echo '
+                                            <tr >
+                                                <td class="text-center" colspan="6"><h4>No Email Found.</h4></td>
+                                            </tr>
+                                        ';
+                                        }
 
                                     ?>
 
