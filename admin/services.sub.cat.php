@@ -68,6 +68,7 @@
                                     ?>
                                 </select>
                                 <button class="btn bg-coloured text-white edit" type="submit"><i class="bi bi-binoculars"></i></button>
+                                <small>( Please Select Category uniID to find the Category name that you want to add the New Service Sub-Category)</small>
                             </div>
                         </form>                        
                     </div>
@@ -94,11 +95,13 @@
                             }
                         ?>
                         <label for="service_uniID" class="form-label">Service uniID</label>
-                        <input type="text" class="form-control" id="service_uniID" readonly name="service_uniID" value="<?= $serv_uniID ?>"> 
+                        <input type="text" class="form-control" id="service_uniID" readonly name="service_uniID" value="<?= $serv_uniID ?>">
+                        <small>( Service uniID will place here once you selected on the "Category uniID" search bar )</small> 
                     </div>
                     <div class="col-md-8 ">
                         <label for="service_title" class="form-label">Service Title</label>
-                        <input type="text" class="form-control" id="service_title" readonly name="service_title" value="<?= $Service_title ?>">  
+                        <input type="text" class="form-control" id="service_title" readonly name="service_title" value="<?= $Service_title ?>">
+                        <small>( Service Name will place here once you selected on the "Category uniID" search bar )</small>   
                     </div>   
                 </div>   
             
@@ -106,10 +109,12 @@
                     <div class="col-md-4">
                         <label for="category_uniID" class="form-label service_uniID">Category UniID</label>
                         <input class="form-control" type="text" readonly id="category_uniID" name="category_uniID" value="<?= $cat_uniID ?> ">
+                        <small>( Category uniID will place here once you selected on the "Category uniID" search bar )</small> 
                     </div>
                     <div class="col-md-8">
                         <label for="category_title" class="form-label service_uniID">Category Title</label>
                         <input class="form-control" type="text" readonly id="category_title" name="category_title" value="<?= $cat_title ?>" >
+                        <small>( Category Name will place here once you selected on the "Category uniID" search bar )</small> 
                     </div>
                 </div>
 
@@ -117,10 +122,12 @@
                     <div class="col-md-4">
                         <label for="sub_cat_uniID" class="form-label service_uniID">Sub-Category UniID</label>
                         <input class="form-control" type="text" readonly id="sub_cat_uniID" name="sub_cat_uniID">
+                        <small>( This is an Auto generated sub_cat_uniID )</small>
                     </div>
                     <div class="col-md-8">
                         <label for="sub_cat_title" class="form-label service_uniID">Sub-Category Title</label>
                         <input class="form-control" type="text" id="sub_cat_title" name="sub_cat_title">
+                        <small>( Please type here the Sub-Category Name of additional Sub-Category )</small>
                         <input class="form-control" hidden type="text" id="status" name="status" value="Active">
                     </div>
                 </div>

@@ -53,21 +53,25 @@
                         <div class="col-md-2 m-2">
                             <label for="service_uniID" class="form-label service_uniID">uniID</label>
                             <input class="form-control" type="text" readonly id="service_uniID" name="service_uniID">
+                            <small>( This is an Auto generated service_uniID )</small>
                         </div>
                         <div class="col-md-3 m-2">
                             <label for="image" class="form-label">Insert Image</label>
                             <input class="form-control" type="file" id="image" name="image">
+                            <small>( jpeg, jpg, png, gif file extension and limit to 25mb can be upload here )</small>
                         </div>
                         <div class="col-md-6 m-2">
                             <label for="status" class="form-label">Sevice Title</label>
                             <input type="text" class="form-control" id="service_title" name="service_title" placeholder="Sevice Title">
                             <input type="text" hidden class="form-control" id="status" name="status" value="Active" >
+                            <small>( Please type here the Service Name of additional Services )</small>
                         </div>
                     </div>
                     <div class="row col-md-12">
                         <div class="col-md-11 m-2">
                             <label for="service_desc" class="col-form-label">Description:</label>
                             <textarea class="form-control" id="service_desc" name="service_desc" rows="5" placeholder="Type services Description"></textarea>
+                            <small>( Please type here the Description of additional Services )</small>
                         </div>
                     </div>
 

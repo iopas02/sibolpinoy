@@ -207,6 +207,12 @@
                                     </tr>
                                     <?php
                                 }
+                            }else{
+                                echo '
+                                    <tr>
+                                        <td class="text-center" colspan="12"><h4>No Consultation Request Approved yet.</h4></td>
+                                    </tr>
+                                ';
                             }
 
                             ?>
