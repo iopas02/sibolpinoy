@@ -34,7 +34,7 @@ if(isset($_POST['create_services'])){
         $uniID_query = "SELECT `service_uniID` FROM `services` WHERE `service_uniID`= ?";
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt, $uniID_query )) {
-            header("Location: ../services.tools.php?error=sql_error");
+            header("Location: ../services.tools?error=sql_error");
             exit();
         }else {
             mysqli_stmt_bind_param($stmt, "s", $uniID);
@@ -43,7 +43,7 @@ if(isset($_POST['create_services'])){
             $resultcheck = mysqli_stmt_num_rows($stmt);
             
             if($resultcheck > 0) {
-                header("Location: ../services.tools.php?error=service_uniID_is_already_been_exist");
+                header("Location: ../services.tools?error=service_uniID_is_already_been_exist");
                 exit();
             }else {
                 if(in_array($image_ex_loc, $allowed_ex)){
@@ -60,31 +60,31 @@ if(isset($_POST['create_services'])){
 
                     $insert_services_result = mysqli_query($conn, $insert_services );
                     if(!$insert_services_result){
-                        header("Location: ../services.tools.php?error=sql_error");
+                        header("Location: ../services.tools?error=sql_error");
                         exit();
                     }else{
                         $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$user_id', '$create_services','$username', '$date')";
 
                         $create_adminlog_result = mysqli_query($conn, $create_adminlog);
                         if(!$create_adminlog_result){
-                            header("Location: ../services.tools.php?error=adminlog_error");
+                            header("Location: ../services.tools?error=adminlog_error");
                             exit(); 
                         }else{
-                            header("Location: ../services.tools.php?success=new_created_services_successfully");
+                            header("Location: ../services.tools?success=new_created_services_successfully");
                             exit();
                         }
                         
                     }
 
                 }else{
-                    header("Location: ../services.tools.php?error=ext_file_not_supported");
+                    header("Location: ../services.tools?error=ext_file_not_supported");
                     exit();
                 }    
             }
         }       
 
     }else{
-        header("Location: ../services.tools.php?error=empty_fields");
+        header("Location: ../services.tools?error=empty_fields");
         exit();
     }  
 
@@ -110,7 +110,7 @@ if(isset($_POST['edit_services'])){
         $service_query = "SELECT `service_uniID` FROM `services` WHERE `service_uniID`=?";
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt, $service_query)) {
-            header("Location: ../services.tools.php?error=sql_error");
+            header("Location: ../services.tools?error=sql_error");
             exit();
         }else {
             mysqli_stmt_bind_param($stmt, "s", $uniID);
@@ -129,20 +129,20 @@ if(isset($_POST['edit_services'])){
 
                     $create_adminlog_result = mysqli_query($conn, $create_adminlog);
                     if(!$create_adminlog_result){
-                        header("Location: ../services.tools.php?error=adminlog_error");
+                        header("Location: ../services.tools?error=adminlog_error");
                         exit(); 
                     }else{
-                        header("Location: ../services.tools.php?success=services_update_successfully");
+                        header("Location: ../services.tools?success=services_update_successfully");
                         exit();
                     }
 
                 }else{
-                    header("Location: ../services.tools.php?error=sql_error");
+                    header("Location: ../services.tools?error=sql_error");
                     exit();
                 }
 
             }else{
-                header("Location: ../services.tools.php?services_not_exist");
+                header("Location: ../services.tools?error=services_not_exist");
                 exit();
             }
         }
@@ -171,7 +171,7 @@ if(isset($_POST['update_stats'])){
     $service_query = "SELECT `service_uniID` FROM `services` WHERE `service_uniID`=?";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $service_query)) {
-        header("Location: ../services.tools.php?error=sql_error");
+        header("Location: ../services.tools?error=sql_error");
         exit();
     }else {
         mysqli_stmt_bind_param($stmt, "s", $uniID);
@@ -199,30 +199,30 @@ if(isset($_POST['update_stats'])){
 
                         $create_adminlog_result = mysqli_query($conn, $create_adminlog);
                         if(!$create_adminlog_result){
-                            header("Location: ../services.tools.php?error=adminlog_error");
+                            header("Location: ../services.tools?error=adminlog_error");
                             exit(); 
                         }else{
-                            header("Location: ../services.tools.php?success=status_update_successfully");
+                            header("Location: ../services.tools?success=status_update_successfully");
                             exit();
                         }
 
                     }else{
-                        header("Location: ../services.tools.php?error=sub_category_error");
+                        header("Location: ../services.tools?error=sub_category_error");
                         exit();
                     }
 
                 }else{
-                    header("Location: ../services.tools.php?error=category_error");
+                    header("Location: ../services.tools?error=category_error");
                     exit();
                 }
 
             }else{
-                header("Location: ../services.tools.php?error=sql_error");
+                header("Location: ../services.tools?error=sql_error");
                 exit();
             }
 
         }else{
-            header("Location: ../services.tools.php?services_not_exist");
+            header("Location: ../services.tools?services_not_exist");
             exit();
         }
     }    
@@ -253,7 +253,7 @@ if(isset($_POST['update_image'])){
     $image_query = "SELECT `service_uniID` FROM `services` WHERE `service_uniID`=?";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $image_query)) {
-        header("Location: ../services.tools.php?error=sql_error");
+        header("Location: ../services.tools?error=sql_error");
         exit();
     }else{
         mysqli_stmt_bind_param($stmt, "s", $uniID);
@@ -278,25 +278,28 @@ if(isset($_POST['update_image'])){
 
                     $create_adminlog_result = mysqli_query($conn, $create_adminlog);
                     if(!$create_adminlog_result){
-                        header("Location: ../services.tools.php?error=adminlog_error");
+                        header("Location: ../services.tools?error=adminlog_error");
                         exit(); 
                     }else{
-                        header("Location: ../services.tools.php?success=service_image_update_successfully");
+                        header("Location: ../services.tools?success=service_image_update_successfully");
                         exit();
                     }
 
                 }else{
-                    header("Location: ../services.tools.php?error=sql_error");
+                    header("Location: ../services.tools?error=sql_error");
                     exit();
                 }
             }else{
-                header("Location: ../services.tools.php?error=file_not_supported");
+                header("Location: ../services.tools?error=file_not_supported");
                 exit();
             }
 
         }else{
-            header("Location: ../services.tools.php?services_not_exist");
+            header("Location: ../services.tools?error=services_not_exist");
             exit();
         }
     }
+}else{
+    header("Location: ../services.tools");
+    exit();
 }

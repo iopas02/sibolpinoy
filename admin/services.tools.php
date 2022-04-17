@@ -44,6 +44,9 @@
 
     <!-- THIS IS CREATE NEW SERVICES FORM START HERE -->
         <div class="row col-md-12 border-bottom border-1 border-dark mb-2">
+            <?php
+                include_once 'layout.part/erro.php';
+            ?>
             <div class="row col-md-12 px-5">
                 <h5 class="page-header">Create Services</h5>
             </div>
@@ -295,7 +298,7 @@
                     <li class="p-2 <?php if($page_no >= $total_number_of_page) {echo "disabled";} ?>" >
                         <a <?php if($page_no < $total_number_of_page) {echo "href='?page_no=$next_page'";} ?>>Next</a>
                     </li>
-                    <?php if($page_no < $total_number_of_page) {echo "<li class='p-2'><a href='?page_no=$total_number_of_page'>Last &rsaquo;</a?</li>";} ?>
+                   
                     
                 </ul>
             </div>

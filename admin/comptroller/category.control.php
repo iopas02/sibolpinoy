@@ -28,7 +28,7 @@ if(isset($_POST['create_category'])){
         $cat_uniID_query = "SELECT `category_uniID` FROM `services_category` WHERE `category_uniID`= ?";
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt, $cat_uniID_query)) {
-            header("Location: ../services.category.php?error=sql_error");
+            header("Location: ../services.category?error=sql_error");
             exit();
         }else {
             mysqli_stmt_bind_param($stmt, "s", $cat_uniID);
@@ -45,7 +45,7 @@ if(isset($_POST['create_category'])){
                 $insert_category_result = mysqli_query($conn, $insert_category);
 
                 if(!$insert_category_result){
-                    header("Location: ../services.category.php?error=sql_error");
+                    header("Location: ../services.category?error=sql_error");
                     exit();
                 }else{
                     
@@ -53,10 +53,10 @@ if(isset($_POST['create_category'])){
 
                     $create_adminlog_result = mysqli_query($conn, $create_adminlog);
                     if(!$create_adminlog_result){
-                        header("Location: ../services.tools.php?error=adminlog_error");
+                        header("Location: ../services.tools?error=adminlog_error");
                         exit(); 
                     }else{
-                        header("Location: ../services.category.php?success=new_services_category_upload");
+                        header("Location: ../services.category?success=new_services_category_upload");
                         exit();
                     }
                 }
@@ -64,7 +64,7 @@ if(isset($_POST['create_category'])){
         }
 
     }else{
-        header("Location: ../services.category.php?error=empty_fields");
+        header("Location: ../services.category?error=empty_fields");
         exit();
     }  
 }
@@ -89,7 +89,7 @@ if(isset($_POST['edit_category'])){
         $cat_uniID_query = "SELECT `category_uniID` FROM `services_category` WHERE `category_uniID`= ?";
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt, $cat_uniID_query)) {
-            header("Location: ../services.category.php?error=sql_error");
+            header("Location: ../services.category?error=sql_error");
             exit();
         }else {
             mysqli_stmt_bind_param($stmt, "s", $category_uniID);
@@ -104,7 +104,7 @@ if(isset($_POST['edit_category'])){
                 $cat_update_query_result = mysqli_query($conn, $cat_update_query);
 
                 if(!$cat_update_query_result){
-                    header("Location: ../services.category.php?error=sql_error");
+                    header("Location: ../services.category?error=sql_error");
                     exit();
                 }else{
                     
@@ -112,10 +112,10 @@ if(isset($_POST['edit_category'])){
 
                     $create_adminlog_result = mysqli_query($conn, $create_adminlog);
                     if(!$create_adminlog_result){
-                        header("Location: ../services.tools.php?error=adminlog_error");
+                        header("Location: ../services.tools?error=adminlog_error");
                         exit(); 
                     }else{
-                        header("Location: ../services.category.php?success=category_update_successfully");
+                        header("Location: ../services.category?success=category_update_successfully");
                         exit();
                     }
                     
@@ -151,7 +151,7 @@ if(isset($_POST['cat_update_stats'])){
     $cat_uniID_query = "SELECT `category_uniID` FROM `services_category` WHERE `category_uniID`= ?";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $cat_uniID_query)) {
-        header("Location: ../services.category.php?error=sql_error");
+        header("Location: ../services.category?error=sql_error");
         exit();
     }else {
         mysqli_stmt_bind_param($stmt, "s", $cat_uniID);
@@ -175,15 +175,15 @@ if(isset($_POST['cat_update_stats'])){
 
                     $create_adminlog_result = mysqli_query($conn, $create_adminlog);
                     if(!$create_adminlog_result){
-                        header("Location: ../services.tools.php?error=adminlog_error");
+                        header("Location: ../services.tools?error=adminlog_error");
                         exit(); 
                     }else{
-                        header("Location: ../services.category.php?success=update_status_successfully");
+                        header("Location: ../services.category?success=status_update_successfully");
                         exit();
                     }
 
                 }else{
-                    header("Location: ../services.category.php?error=sub_cat_error");
+                    header("Location: ../services.category.php?error=sub_category_error");
                     exit();
                 }    
 
@@ -227,7 +227,7 @@ if(isset($_POST['create_sub_cat'])){
         $sub_cat_uniID_query = "SELECT `sub_cat_uniID` FROM `services_sub_category` WHERE `sub_cat_uniID`=?";
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt, $sub_cat_uniID_query)) {
-            header("Location: ../services.sub.cat.php?error=sql_error");
+            header("Location: ../services.sub.cat?error=sql_error");
             exit();
         }else {
             mysqli_stmt_bind_param($stmt, "s", $sub_cat_uniID);
@@ -236,7 +236,7 @@ if(isset($_POST['create_sub_cat'])){
             $resultcheck = mysqli_stmt_num_rows($stmt);
     
             if($resultcheck > 0) {
-                header("Location: ../services.sub.cat.php?error=category_uniID_is_already_been_exist");
+                header("Location: ../services.sub.cat?error=sub_category_uniID_is_already_been_exist");
                 exit();
             }else{
                 
@@ -245,7 +245,7 @@ if(isset($_POST['create_sub_cat'])){
                 $insert_sub_cat_result = mysqli_query($conn, $insert_sub_cat);
 
                 if(!$insert_sub_cat_result){
-                    header("Location: ../services.sub.cat.php?error=sql_error");
+                    header("Location: ../services.sub.cat?error=sql_error");
                     exit();
                 }else{
                    
@@ -253,10 +253,10 @@ if(isset($_POST['create_sub_cat'])){
 
                     $create_adminlog_result = mysqli_query($conn, $create_adminlog);
                     if(!$create_adminlog_result){
-                        header("Location: ../services.tools.php?error=adminlog_error");
+                        header("Location: ../services.sub.cat?error=adminlog_error");
                         exit(); 
                     }else{
-                        header("Location: ../services.sub.cat.php?success=new_services_sub_category_upload");
+                        header("Location: ../services.sub.cat?success=new_services_sub_category_upload");
                         exit();
                     }
 
@@ -288,7 +288,7 @@ if(isset($_POST['edit_sub_cat'])){
         $sub_cat_uniID_query = "SELECT `sub_cat_uniID` FROM `services_sub_category` WHERE `sub_cat_uniID`=?";
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt, $sub_cat_uniID_query)) {
-            header("Location: ../services.sub.cat.php?error=sql_error");
+            header("Location: ../services.sub.cat?error=sql_error");
             exit();
         }else {
             mysqli_stmt_bind_param($stmt, "s", $sub_cat_uniID);
@@ -303,7 +303,7 @@ if(isset($_POST['edit_sub_cat'])){
                 $sub_cat_update_query_result = mysqli_query($conn, $sub_cat_update_query);
 
                 if(!$sub_cat_update_query_result){
-                    header("Location: ../services.sub.cat.php?error=sql_error");
+                    header("Location: ../services.sub.catp?error=sql_error");
                     exit();
                 }else{
                  
@@ -311,17 +311,17 @@ if(isset($_POST['edit_sub_cat'])){
 
                     $create_adminlog_result = mysqli_query($conn, $create_adminlog);
                     if(!$create_adminlog_result){
-                        header("Location: ../services.tools.php?error=adminlog_error");
+                        header("Location: ../services.sub.cat?error=adminlog_error");
                         exit(); 
                     }else{
-                        header("Location: ../services.sub.cat.php?success=sub_category_update_successfully");
+                        header("Location: ../services.sub.cat?success=sub_category_update_successfully");
                         exit();
                     }
 
                 }
 
             }else{
-                header("Location: ../services.sub.cat.php?error=sub_categoty_is_not_exist");
+                header("Location: ../services.sub.cat?error=sub_categoty_is_not_exist");
                 exit();
             }
         }
@@ -348,7 +348,7 @@ if(isset($_POST['sub_cat_update_stats'])){
     $sub_cat_uniID_query = "SELECT `sub_cat_uniID` FROM `services_sub_category` WHERE `sub_cat_uniID`=?";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sub_cat_uniID_query)) {
-        header("Location: ../services.sub.cat.php?error=sql_error");
+        header("Location: ../services.sub.cat?error=sql_error");
         exit();
     }else {
         mysqli_stmt_bind_param($stmt, "s", $subcat_uniID);
@@ -367,21 +367,85 @@ if(isset($_POST['sub_cat_update_stats'])){
 
                 $create_adminlog_result = mysqli_query($conn, $create_adminlog);
                 if(!$create_adminlog_result){
-                    header("Location: ../services.tools.php?error=adminlog_error");
+                    header("Location: ../services.sub.cat?error=adminlog_error");
                     exit(); 
                 }else{
-                    header("Location: ../services.sub.cat.php?success=update_status_successfully");
+                    header("Location: ../services.sub.cat?success=status_update_successfully");
                     exit();
                 }
                 
             }else{
-                header("Location: ../services.sub.cat.php?error=sql_error");
+                header("Location: ../services.sub.cat?error=sql_error");
                 exit();
             }
 
         }else{
-            header("Location: ../services.sub.cat.php?error=sub_categoty_is_not_exist");
+            header("Location: ../services.sub.cat?error=sub_categoty_is_not_exist");
             exit();
         } 
     }    
+}
+
+if(isset($_POST['delete_category'])){
+
+    if($_POST['sub_cat_uniID'] !=''){
+        date_default_timezone_set("Asia/Manila");
+
+        $sub_cat_uniID = mysqli_real_escape_string($conn, $_POST['sub_cat_uniID']);
+        $newstats = 'archive';
+
+        $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
+        $username = mysqli_real_escape_string($conn, $_POST['username']);
+        $user_level = mysqli_real_escape_string($conn, $_POST['user_level']);
+        $archive_sub_cat_service = mysqli_real_escape_string($conn, $_POST['archive_sub_cat_service']);
+        
+        $date = date("Y-m-d H:i:s");
+
+        $ssc_query = "SELECT * FROM `services_sub_category` WHERE `sub_cat_uniID`='$sub_cat_uniID'";
+        $ssc_query_result = $conn->query($ssc_query);
+        if ($ssc_query_result->num_rows > 0) {
+            while($row = $ssc_query_result->fetch_assoc()) {
+                $service_uniID = $row['service_uniID'];
+                $category_uniID = $row['category_uniID'];
+                $sub_cat_title = $row['sub_cat_title'];
+                $date_update = $row['date_update'];
+            }
+
+            $ssc_archive_query = "INSERT INTO `ssc_archive`(`sub_cat_uniID`, `service_uniID`, `category_uniID`, `sub_cat_title`, `status`,`date_upload`) VALUES ('$sub_cat_uniID','$service_uniID','$category_uniID','$sub_cat_title','$newstats','$date_update')";
+            
+            if ($conn->query($ssc_archive_query) === TRUE) { 
+                $ssc_update_query = "UPDATE `services_sub_category` SET `status`='$newstats' WHERE `sub_cat_uniID`='$sub_cat_uniID'";
+                if ($conn->query($ssc_update_query) === TRUE) {
+
+                    $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$user_id', '$archive_sub_cat_service', '$username', '$date')";
+
+                    $create_adminlog_result = mysqli_query($conn, $create_adminlog);
+                    if(!$create_adminlog_result){
+                        header("Location: ../services.sub.cat?error=adminlog_error");
+                        exit(); 
+                    }else{
+                        header("Location: ../services.sub.cat?success=sub_cat_archive_successfully");
+                        exit();
+                    }
+
+                }else{
+                    header("Location: ../services.sub.cat?error=sub_categoty_update_failed");
+                exit();
+                }
+
+            }else{
+                header("Location: ../services.sub.cat?error=sub_categoty_archive_failed");
+                exit();
+            }
+
+        }else{
+            header("Location: ../services.sub.cat?error=sub_categoty_is_not_exist");
+            exit();
+        }
+    
+    }else{
+        header("Location: ../services.sub.cat?error=empty_fields");
+        exit();
+    }    
+
 }
