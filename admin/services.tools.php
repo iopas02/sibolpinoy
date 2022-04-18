@@ -61,7 +61,7 @@
                         <div class="col-md-3 m-2">
                             <label for="image" class="form-label">Insert Image</label>
                             <input class="form-control" type="file" id="image" name="image">
-                            <small>( jpeg, jpg, png, gif file extension and limit to 25mb can be upload here )</small>
+                            <small>( only jpeg, jpg, png, gif file extension and limit to 25mb can be upload here )</small>
                         </div>
                         <div class="col-md-6 m-2">
                             <label for="status" class="form-label">Sevice Title</label>

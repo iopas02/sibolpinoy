@@ -296,6 +296,31 @@
         <i class="bi bi-exclamation-triangle-fill"></i><strong> Failed to Send mail!</strong> Please check your data field and databse attributes.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
+    }else if(strpos($fullUrl, "error=failed_to_insert_in calendar") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Failed Add the Event in the Calendar!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=event_update_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Failed to Update Event!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=please_re_enter_event_start_date") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Please Set Again the "Start Date"!</strong> you need to set again the start date of the event when editing.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=update_event_status_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Event Status Update Failed"!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=image_update_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Event Image Update Failed"!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
     }
     
 
@@ -437,5 +462,28 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
-    
+    else if(strpos($fullUrl, "success=new_event_created_successfully") == true ){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-info-circle"></i><strong> New Event Successfully Created!</strong> you successfully create new event.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
+    else if(strpos($fullUrl, "success=event_updated_successfully") == true ){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-info-circle"></i><strong> Event Successfully Update!</strong> you successfully update the event.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
+    else if(strpos($fullUrl, "success=event_status_updated_successfully") == true ){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-info-circle"></i><strong> Event Status Successfully Update!</strong> you successfully update the event status.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
+    else if(strpos($fullUrl, "success=event_image_update_successfully") == true ){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-info-circle"></i><strong> Event Image update!</strong> you successfully change image of event.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
 ?>

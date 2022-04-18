@@ -41,7 +41,7 @@ if(isset($_POST['event_published'])){
             $event_pub_query_result = mysqli_query($conn, $event_pub_query);
             if(!$event_pub_query_result){
                 
-                header("Location: ../events.php?error=event_sql_error");
+                header("Location: ../events?error=event_sql_error");
                 exit();
 
             }else {
@@ -50,11 +50,9 @@ if(isset($_POST['event_published'])){
 
                $scheduler_query_result = mysqli_query($conn, $scheduler_query);
                if(!$scheduler_query_result){
-
-                    header("Location: ../events.php?error=failed_to_insert_in calendar");
-                    exit();
-                    
-               }else {
+                    header("Location: ../events?error=failed_to_insert_in calendar");
+                    exit();     
+                }else {
 
                     $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$loginid', '$action','$admin', '$date')";
 
@@ -66,13 +64,12 @@ if(isset($_POST['event_published'])){
                         header("Location: ../events.php?success=new_event_created_successfully");
                         exit();
                     }
-
-               }
+                }
 
             }
 
         }else{
-            header("Location: ../events.php?error=image_not_suppoted");
+            header("Location: ../events.php?error=ext_file_not_supported");
             exit();
         }
 
@@ -167,7 +164,7 @@ if(isset($_POST['update_event_stats'])){
         }
 
     }else{
-        header("Location: ../events.php?error=please_select_status");
+        header("Location: ../events.php?error=empty_field");
         exit();
     }
 }
@@ -223,13 +220,16 @@ if(isset($_POST['update_event_img'])){
                 exit();
             }
         }else{
-            header("Location: ../events.php?error=file_not_supported");
+            header("Location: ../events.php?error=ext_file_not_supported");
             exit();
         }
 
     }
     else{
-        header("Location: ../events.php?error=no_image_attach");
+        header("Location: ../events.php?error=empty_fields");
         exit();
     }
+}else{
+    header("Location: ../events.php");
+    exit();
 }

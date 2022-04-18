@@ -43,6 +43,9 @@
 
         <!-- THIS IS HEADER PAGE START HERE -->
         <div class="container-fluid">
+            <?php
+                include_once 'layout.part/erro.php';
+            ?>
             <div class="row">
             <div class="col-md-12 mb-4">
                 <h5 class="page-header">Create Event</h5>
@@ -58,13 +61,16 @@
                         <div class="row">
                             <div class="col-lg-4" style="min-height: 400px;">
                                 <label for="#eventID">Event ID</label>
-                                <input type="text" id="eventID" name="eventID" class="form-control w-50" readonly>                           
+                                <input type="text" id="eventID" name="eventID" class="form-control w-50" readonly>
+                                <small>( This is an Auto generated eventID )</small>                           
                                 <div class="position-relative" >
                                     <div class="pb-2" >
                                         <label>Upload Image Here</label>
-                                        <img class="img-fluid w-100" style="height: 250px" src="svg/default_new_image.jpg">  
+                                        <img class="img-fluid w-100" style="height: 250px" src="svg/default_new_image.jpg">
+                                        <small>(only jpeg, jpg, png, gif file extension and limit to 25mb can be upload here)</small>  
                                     </div>
                                 </div>
+                                
                                 <input type="file" name="event_image">
                                        
                             </div>
@@ -80,13 +86,15 @@
                                     <input class="w-100 h-100 p-1" type="text" id="event_title" name="event_title" placeholder="e.g ISO 9001:2015 Requirements and internal Aquality Audit">  
                                 </div>
                                    
+                                <small>( You have to set again the "Start Date" when you edit the event )</small> 
                                 <div class="bg-white text-dark pe-3 second-header">
                                     <label>Date And Time </label>
                                     <input class="w-50 h-100 p-1" type="text" id="date_and_time" name="event_date" placeholder="e.g March 5, 6, 12 & 13, 2022 | 9AM-5PM">
                                     
                                     <label>Start Date</label>
-                                    <input class="w-30 h-100 p-1" type="date" id="date_start" name="start_date"> 
+                                    <input class="w-30 h-100 p-1" type="date" id="date_start" name="start_date">
                                 </div>
+                                
 
                                 <div class="mb-2"> 
                                     <label>Registration Fees </label>
