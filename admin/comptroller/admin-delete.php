@@ -13,8 +13,11 @@
         $status = mysqli_real_escape_string($conn, $_POST["status"]);
         $dateAdded = mysqli_real_escape_string($conn, $_POST["dateAdded"]);
 
+        $action = $status.' '."by: ";
+
         $dateDeleted = date("Y-m-d H:i:s");
         $sessionUsername = $_SESSION["username"];
+        $adminID = $_SESSION["id"];     
 
         if(!isset($_POST["reason"]) || $_POST["reason"] == null){
             header("location: admin.con?error=reason_empty");
@@ -25,7 +28,7 @@
             exit();
         }
         else{
-            $sql = "INSERT INTO `archiveuser`(`loginId`, `profileId`, `firstName`, `lastName`, `username`, `level`, `reason`, `status`, `dateAdded`, `dateDeleted`) VALUES($loginId, $profileId, '$firstName', '$lastName', '$username', '$level', '$reason', '$status', '$dateAdded', '$dateDeleted')";
+            $sql = "INSERT INTO `archiveuser`(`loginId`, `profileId`, `firstName`, `lastName`, `username`, `level`, `reason`, `status`, `dateAdded`, `dateDeleted`, `adminId`, `action`) VALUES($loginId, $profileId, '$firstName', '$lastName', '$username', '$level', '$reason', '$status', '$dateAdded', '$dateDeleted', '$adminID', '$action')";
 
             if($conn->query($sql)){ 
                 $sql ="UPDATE `login` SET `status`='$status' WHERE `loginId`='$loginId' AND `username`='$username' " ;
@@ -36,7 +39,7 @@
                     $by = $_SESSION["username"];
                     $date = date("Y-m-d H:i:s");
                     $action = "Archiving user";
-                    $sql = "INSERT INTO `adminlog` (`loginId`,`action`,`actionBy`,`date`) VALUES($loginId,'$action','$by','$date')";
+                    $sql = "INSERT INTO `adminlog` (`loginId`,`action`,`actionBy`,`date`) VALUES($adminID,'$action','$by','$date')";
                     if($conn->query($sql)){
                         header("Location: ../admin.con?success=archiving_user_successfully");
                         exit();

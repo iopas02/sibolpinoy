@@ -8,7 +8,7 @@
   <!-- Header End -->
 
   <body>
-    <title>Sibol-PINOY User Archieve</title>
+    <title>Sibol-PINOY Services Archieve</title>
     <script>
         $(document).ready(function(){
             $(".inputSearch").on('keyup', function(){
@@ -34,11 +34,20 @@
     <!-- THIS IS FOR SIDE NAV-BAR and OFF CANVA END HERE -->
 
     <main class="mt-5 pt-3">
+       
         <div class="container-fluid p-4">
             <div class="row">
             <div class="col-md-12 my-2">
-                <h4 class="page-header">User Archive</h4>
-                <hr class="dropdown-divider bg-dark" />
+                <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                    <div class="container-fluid border-bottom border-3 border-dark mb-2">
+                        <a class="navbar-brand" href="services.archive">Services Archive</a>
+                        
+                        <div class="navbar-nav">
+                            <a class="nav-link active" aria-current="page" href="service.cat.archive">Services Category Archive</a>
+                            <a class="nav-link active" aria-current="page" href="sub.cat.archive">Services Sub-Category Archive</a>
+                        </div>
+                    </div>
+                </nav>
             </div>
         </div>
 
@@ -46,7 +55,7 @@
             <div class="col-md-12 mb-3">
                 <div class="card">
                     <div class="card-header">
-                        <span><i class="bi bi-person-dash"></i></span> User Archive
+                        <span><i class="bi bi-bookmark-dash"></i></span> Service Archive
                         <div class="form-group float-end col-md-6">
                             <input type="text" class="form-control inputSearch" id="inputSearch" placeholder="Search..">
                         </div>
@@ -56,17 +65,13 @@
                             <table id="example" class="table data-table" style="width: 100%">
                                 <thead>
                                     <tr>
-                                        <th>A_ID</th>
-                                        <th>loginID</th>
-                                        <th>ProfileID</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>User Name</th>
-                                        <th>Level</th>
+                                        <th>ID</th>
+                                        <th>Service uniID</th>
+                                        <th>Servive Title</th>
+                                        <th>Image</th>
+                                        <th>Description</th>
                                         <th>Status</th>
-                                        <th>Reason</th>
-                                        <th>Date Added</th>
-                                        <th>Date Deleted</th>
+                                        <th>Date_upload</th>
                                         <th>log</th>
                                         <th>Action</th>
                                     </tr>
@@ -85,31 +90,27 @@
                                         $next_page = $page_no + 1;
                                         $adjacents = "2";
             
-                                        $result_count = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM `archiveuser`" );
+                                        $result_count = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM `services_archive`" );
                                         $total_records = mysqli_fetch_array($result_count);
                                         $total_records = $total_records['total_records'];
                                         $total_number_of_page = ceil($total_records / $total_records_per_page);
                                         $second_last = $total_number_of_page - 1;
 
-                                        $archive_query = "SELECT tb1.id, tb1.loginId, tb1.profileId, tb1.firstName, tb1.lastName, tb1.username, tb1.level, tb1.reason, tb1.status, tb1.dateAdded, tb1.dateDeleted, tb2.username AS admin, tb1.action FROM archiveuser tb1 INNER JOIN login tb2 ON tb1.adminId = tb2.loginId ORDER BY tb1.id DESC LIMIT 25";
-                                        $archive_query_result = mysqli_query($conn, $archive_query);
-                                        if(mysqli_num_rows($archive_query_result) > 0){
-                                            foreach($archive_query_result as $archive_user){
+                                        $service_archive_query = "SELECT tb1.id, tb1.service_uniID, tb1.service_title, tb1.image, tb1.service_desc, tb1.status, tb1.date_upload, tb2.username, tb1.action FROM services_archive tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId ORDER BY tb1.id DESC LIMIT 5";
+                                        $service_archive_query_result = mysqli_query($conn, $service_archive_query);
+                                        if(mysqli_num_rows($service_archive_query_result) > 0){
+                                            foreach($service_archive_query_result as $service_archive){
                                                 ?>
                                                     <tr>
-                                                        <td><?= $archive_user['id']?></td>
-                                                        <td><?= $archive_user['loginId']?></td>
-                                                        <td><?= $archive_user['profileId']?></td>
-                                                        <td><?= $archive_user['firstName']?></td>
-                                                        <td><?= $archive_user['lastName']?></td>
-                                                        <td><?= $archive_user['username']?></td>
-                                                        <td><?= $archive_user['level']?></td>
-                                                        <td><?= $archive_user['status']?></td>
-                                                        <td><?= $archive_user['reason']?></td>
-                                                        <td><?= date('M d Y g:i a', strtotime($archive_user['dateAdded'])) ?></td>
-                                                        <td><?= date('M d Y g:i a', strtotime($archive_user['dateDeleted'])) ?></td>
+                                                        <td><?= $service_archive['id']?></td>
+                                                        <td><?= $service_archive['service_uniID']?></td>
+                                                        <td><?= $service_archive['service_title']?></td>
+                                                        <td><img src="./upload/<?= $service_archive['image']?>" class="h-50 w-50"></td>
+                                                        <td><?= $service_archive['service_desc']?></td>
+                                                        <td><?= $service_archive['status']?></td>
+                                                        <td><?= date('M d Y g:i a', strtotime($service_archive['date_upload'])) ?></td>
                                                         <td>
-                                                            <button type="button" class="border-0 bg-white p-2" data-bs-toggle="popover" title="Last Admin Log" data-bs-content="<?= $archive_user['action']?> <?=$archive_user['admin']?>"><i class="bi bi-exclamation-circle"></i></button>
+                                                            <button type="button" class="border-0 bg-white p-2" data-bs-toggle="popover" title="Last Admin Log" data-bs-content="<?= $service_archive['action']?> by <?=$service_archive['username']?>"><i class="bi bi-exclamation-circle"></i></button>
                                                         </td>
                                                         <td><button class="border-1 px-2 py-1 rounded-circle bg-white text-dark openmenu"><i class="bi bi-menu-up"></i></button></td>
                                                     </tr>
@@ -118,7 +119,7 @@
                                         }else{
                                             echo '
                                                 <tr>
-                                                    <td class="text-center" colspan="13"><h4>No Archive List</h4></td>
+                                                    <td class="text-center" colspan="9"><h4>No Archive List</h4></td>
                                                 </tr>
                                             ';
                                         }
@@ -128,17 +129,13 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>A_ID</th>
-                                        <th>loginID</th>
-                                        <th>ProfileID</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>User Name</th>
-                                        <th>Level</th>
+                                        <th>ID</th>
+                                        <th>Service uniID</th>
+                                        <th>Servive Title</th>
+                                        <th>Image</th>
+                                        <th>Description</th>
                                         <th>Status</th>
-                                        <th>Reason</th>
-                                        <th>Date Added</th>
-                                        <th>Date Deleted</th>
+                                        <th>Date_upload</th>
                                         <th>log</th>
                                         <th>Action</th>
                                     </tr>

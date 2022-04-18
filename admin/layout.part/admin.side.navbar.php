@@ -194,22 +194,28 @@
                             ?>    
                             </li>
                             <li>
-                            <a href="404" class="nav-link px-2 text-normal">
-                                <span class="me-2"><i class="bi bi-clipboard-check"></i></span>
-                                <span>Consultation request</span>
-                            </a>
+                                <a href="404" class="nav-link px-2 text-normal">
+                                    <span class="me-2"><i class="bi bi-clipboard-check"></i></span>
+                                    <span>Consultation request</span>
+                                </a>
                             </li>
                             <li>
-                            <a href="404" class="nav-link px-2 text-normal">
-                                <span class="me-2"><i class="bi bi-calendar-check"></i></span>
-                                <span>Event Reservation</span>
-                            </a>
+                                <a href="404" class="nav-link px-2 text-normal">
+                                    <span class="me-2"><i class="bi bi-calendar-check"></i></span>
+                                    <span>Event Reservation</span>
+                                </a>
                             </li>
                             <li>
-                            <a href="404" class="nav-link px-2 text-normal">
-                                <span class="me-2"><i class="bi bi-envelope"></i></span>
-                                <span>Message</span>
-                            </a>
+                                <a href="services.archive" class="nav-link px-2 text-normal">
+                                    <span class="me-2"><i class="bi bi-tags"></i></span>
+                                    <span>Services</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="404" class="nav-link px-2 text-normal">
+                                    <span class="me-2"><i class="bi bi-envelope"></i></span>
+                                    <span>Message</span>
+                                </a>
                             </li>
                         </ul>
                     </div>    
