@@ -114,7 +114,6 @@
                 <script type="text/javascript">
 
                     google.charts.setOnLoadCallback(eventChart);
-
                     function eventChart() {
                         var data = google.visualization.arrayToDataTable([
                         ['Events Name', 'Participants'],
@@ -134,7 +133,7 @@
                     ]);
 
                     var options = {
-                        legend:{position: 'right', textStyle: {color: 'black', fontSize: 12}},
+                        legend:{position: 'bottom', textStyle: {color: 'black', fontSize: 12}},
                         title: 'Participants Organization',
                         is3D: true,
                         width: 600, 
@@ -143,6 +142,44 @@
 
                     var chart = new google.visualization.PieChart(document.getElementById('participantschart'));
                     chart.draw(data, options);
+                    }
+
+                    google.charts.setOnLoadCallback(positionChart);
+                    function positionChart() {
+                        var data = google.visualization.arrayToDataTable([
+                        ['Name', 'Frequency'],
+
+                        <?php
+                            $org_count_query = "SELECT tb1.eventID, tb2.event_title, tb1.client_uniID, tb3.position, COUNT(*) AS `pos_count` FROM (event_reservation_reports tb1 INNER JOIN events tb2 ON tb1.eventID = tb2.eventID) INNER JOIN client tb3 ON tb1.client_uniID = tb3.client_uniID WHERE tb1.eventID='$id' AND tb2.event_title='$evenettitle' GROUP BY tb3.position";
+
+                            $org_count_query_run = mysqli_query($conn, $org_count_query);
+                            $org_count = array();
+                            while ($row = mysqli_fetch_assoc($org_count_query_run)) {
+                                $org_count = "['".$row['position']."',".$row['pos_count']."],";
+                            
+                                echo $org_count;
+                            }
+                    
+                        ?>
+
+                        // ['2014', 1000],
+                        // ['2015', 1170],
+                        // ['2016', 660,],
+                        // ['2017', 1030]
+                        ]);
+
+                        var options = {
+                        legend: { position: "none" },
+                        width: 500, 
+                        height: 400,
+                        bar: { groupWidth: '10%' },    
+                        chart: {
+                            title: 'Position Frequency',
+                        }
+                        };
+
+                        var chart = new google.charts.Bar(document.getElementById('positionCount'));
+                        chart.draw(data, google.charts.Bar.convertOptions(options));
                     }
                 </script>
                 <div class="col-md-12 d-flex">
@@ -160,9 +197,11 @@
                 <?php
                     if($id && $evenettitle != ''){
                         echo '
-                            <div class="col-md-4">
+                            <div class="col-md-5">
                                 <div id="participantschart"></div>
-                                
+                            </div>
+                            <div class="col-md-5">
+                                <div id="positionCount"></div>
                             </div>
                         ';
                         
