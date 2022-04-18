@@ -2,9 +2,10 @@
 <script type="text/javascript">
     google.charts.load('current', {'packages':['bar']});
     google.charts.load('current', {'packages':['corechart']});
-    
+   
     google.charts.setOnLoadCallback(drawChart);
     google.charts.setOnLoadCallback(drawPosition);
+    google.charts.setOnLoadCallback(drawStuff);
 
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
@@ -87,4 +88,47 @@
 
     chart.draw(data, options);
     }
+
+
+    function drawStuff() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Events Name', 'Participants'],
+        
+            <?php    
+                $events_partcipants_query = "SELECT tb1.eventID, tb2.event_title, COUNT(*) AS `participants` FROM event_reservation_reports tb1 INNER JOIN events tb2 ON tb1.eventID = tb2.eventID GROUP BY tb2.event_title";
+                $events_partcipants_query_run = mysqli_query($conn, $events_partcipants_query);
+                $events_partcipants = array();
+                while ($row = mysqli_fetch_assoc($events_partcipants_query_run)) {
+                    $events_partcipants = "['".$row['event_title']."',".$row['participants']."],";
+                
+                    echo $events_partcipants;
+                }
+            ?>
+
+        //   ["King's pawn (e4)", 44],
+        //   ["Queen's pawn (d4)", 31],
+        //   ["Knight to King 3 (Nf3)", 12],
+        //   ["Queen's bishop pawn (c4)", 10],
+        //   ['Other', 3]
+        ]);
+
+        var options = {
+          width: 1200,
+          height: 400,
+          legend: { position: 'none' },
+          chart: {
+            title: 'Number of Participants per Events',
+            subtitle: 'participants by number' },
+          axes: {
+            x: {
+              0: { side: 'top', label: 'SPMC Events'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "10%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        // Convert the Classic options to Material options.
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      };
 </script>
