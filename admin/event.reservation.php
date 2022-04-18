@@ -37,6 +37,9 @@
     <main class="mt-5 pt-3">
         <div class="container-fluid p-4">
             <div class="row">
+            <?php
+                include_once 'layout.part/erro.php';
+            ?>
             <div class="col-md-12 my-2">
                 <h4 class="page-header">Event Reservation</h4>
                 <hr class="dropdown-divider bg-dark" />

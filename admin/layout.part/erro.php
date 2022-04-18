@@ -271,6 +271,31 @@
         <i class="bi bi-exclamation-triangle-fill"></i><strong> Service Failed to move in archive!</strong> Please check your data field and databse attributes.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
+    }else if(strpos($fullUrl, "error=update_event_reservation_status_failedd") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Event Status Update Failed!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=event_reservation_reports_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Event Approve Failed!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=update_event_reservation_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Event Declined Failed!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=email_is_invalid") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Failed to Send mail!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=email_query_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Failed to Send mail!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
     }
     
 
@@ -397,6 +422,18 @@
     else if(strpos($fullUrl, "success=service_archive_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
         <i class="bi bi-info-circle"></i><strong> Service is move in the archive!</strong> you successfully move Service, Category, and Sub-Category in the archive.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
+    else if(strpos($fullUrl, "success=event_reservation_reports_successfully") == true ){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-info-circle"></i><strong> Event Reservation is Approve!</strong> you successfully approved event reservation.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
+    else if(strpos($fullUrl, "success=event_reservation_update_successfully") == true ){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-info-circle"></i><strong> Event Reservation is Decline!</strong> you successfully declined event reservation.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
