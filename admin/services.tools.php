@@ -100,20 +100,22 @@
                             <input type="text" class="form-control" id="update_services" name="update_service" value="update services">
 
                             <label for="delete_services" class="form-label">Action 3</label>
-                            <input type="text" class="form-control" id="delete_services" name="delete_service" value="delete services">
+                            <input type="text" class="form-control" id="archive_services" name="archive_service" value="archive services">
+                            <input type="text" class="form-control" name="archive_cat_service" value="archive category services">
+                            <input type="text" class="form-control" id="archive_sub_cat_service" name="archive_sub_cat_service" value="archive sub-category services">
                         </div>
                     </div>
                  <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
 
                     <div class="row col-md-12">
                         <div class="col-md-6">
-                            <button type="submit" name="create_services" class="btn bg-coloured text-white my-2" >
+                            <button type="submit" name="create_services" class="btn bg-blue text-white my-2" >
                             <i class="bi bi-folder-plus"></i> Create Services
                             </button>
                         </div>
                         <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
                             <button  type="submit" name="edit_services" class="btn bg-coloured text-white my-2" "><i class="bi bi-vector-pen"></i> Update</button>
-                            <button  type="submit" name="delete_services" class="btn bg-coloured text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
+                            <button  type="submit" name="delete_services" class="btn bg-dark text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
                         </div>
                     </div>
                 </form>
@@ -169,7 +171,8 @@
                             $total_number_of_page = ceil($total_records / $total_records_per_page);
                             $second_last = $total_number_of_page - 1;
 
-                            $Service_reload = "SELECT tb1.service_uniID, tb1.service_title, tb1.image, tb1.service_desc, tb1.status, tb2.username, tb1.action, tb1.date_upload, tb1.date_update FROM services tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId";
+                            $Service_reload = "SELECT tb1.number, tb1.service_uniID, tb1.service_title, tb1.image, tb1.service_desc, tb1.status, tb2.username, tb1.action, tb1.date_upload, tb1.date_update FROM services tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId WHERE tb1.status='Active' OR tb1.status='Inactive' ORDER BY tb1.number DESC LIMIT 25";
+                            
                             $Service_reload_result = mysqli_query($conn, $Service_reload);
                             if(mysqli_num_rows($Service_reload_result) > 0 ){
                                 foreach($Service_reload_result as $services){
@@ -298,8 +301,6 @@
                     <li class="p-2 <?php if($page_no >= $total_number_of_page) {echo "disabled";} ?>" >
                         <a <?php if($page_no < $total_number_of_page) {echo "href='?page_no=$next_page'";} ?>>Next</a>
                     </li>
-                   
-                    
                 </ul>
             </div>
         </div>

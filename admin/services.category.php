@@ -143,7 +143,8 @@
                         <input type="text" class="form-control" id="update_cat_service" name="update_cat_service" value="update category services">
 
                         <label for="delete_cat_service" class="form-label">Action 3</label>
-                        <input type="text" class="form-control" id="delete_cat_service" name="delete_cat_service" value="delete category services">
+                        <input type="text" class="form-control" name="archive_cat_service" value="archive category services">
+                        <input type="text" class="form-control" id="archive_sub_cat_service" name="archive_sub_cat_service" value="archive sub-category services">
                     </div>
                 </div>
             <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
@@ -151,13 +152,13 @@
 
                 <div class="row col-md-12">
                     <div class="col-md-6">
-                        <button type="submit" name="create_category" class="btn bg-coloured text-white my-2" >
+                        <button type="submit" name="create_category" class="btn bg-blue text-white my-2" >
                         <i class="bi bi-folder-plus"></i> Create Services Category
                         </button>
                     </div>
                     <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
                         <button  type="submit" name="edit_category" class="btn bg-coloured text-white my-2" "><i class="bi bi-vector-pen"></i> Update</button>
-                        <button  type="submit" name="delete_category" class="btn bg-coloured text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
+                        <button  type="submit" name="delete_category" class="btn bg-dark text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
                     </div>
                 </div>
 
@@ -214,7 +215,8 @@
                             $total_number_of_page = ceil($total_records / $total_records_per_page);
                             $second_last = $total_number_of_page - 1;
 
-                            $category_reload = "SELECT tb1.category_uniID, tb2.service_uniID, tb2.service_title, tb1.category_title, tb1.status, tb3.username, tb1.action, tb1.date_upload, tb1.date_update FROM ((services_category tb1 INNER JOIN services tb2 ON tb1.service_uniID = tb2.service_uniID) INNER JOIN login tb3 ON tb1.loginId = tb3.loginId)";
+                            $category_reload = "SELECT tb1.number, tb1.category_uniID, tb2.service_uniID, tb2.service_title, tb1.category_title, tb1.status, tb3.username, tb1.action, tb1.date_upload, tb1.date_update FROM ((services_category tb1 INNER JOIN services tb2 ON tb1.service_uniID = tb2.service_uniID) INNER JOIN login tb3 ON tb1.loginId = tb3.loginId) WHERE tb1.status='Active' OR tb1.status='Inactive' ORDER BY tb1.number DESC LIMIT 25";
+
                             $category_reload_result = mysqli_query($conn, $category_reload);
                             if(mysqli_num_rows($category_reload_result) > 0 ){
                                 foreach($category_reload_result as $category){
@@ -257,22 +259,6 @@
                             }
 
                             ?>
-
-                            <!-- <tr>
-                                <td>Mrs. Maria Fully Grace</td>
-                                <td>Strategic Planning and Risk-Based Management</td>
-                                <td>12:00 pm</td>
-                                <td>
-                                    <button type="button" class="btn tooltip-test" title="Read" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-                                        <i class="bi bi-bookmark"></i>
-                                    </button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </td>
-                            </tr> -->
 
                         </tbody>
                         <tfoot>
@@ -355,7 +341,6 @@
                     <li class="p-2 <?php if($page_no >= $total_number_of_page) {echo "disabled";} ?>" >
                         <a <?php if($page_no < $total_number_of_page) {echo "href='?page_no=$next_page'";} ?>>Next</a>
                     </li>
-                    
                 </ul>
             </div>
         </div>

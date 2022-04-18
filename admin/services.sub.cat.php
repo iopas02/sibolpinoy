@@ -171,7 +171,7 @@
                     </div>
                     <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
                         <button  type="submit" name="edit_sub_cat" class="btn bg-coloured text-white my-2" "><i class="bi bi-vector-pen"></i> Update</button>
-                        <button  type="submit" name="delete_category" class="btn bg-dark text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
+                        <button  type="submit" name="delete_ssc" class="btn bg-dark text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
                     </div>
                 </div>
 
@@ -231,7 +231,7 @@
                             $total_number_of_page = ceil($total_records / $total_records_per_page);
                             $second_last = $total_number_of_page - 1;
 
-                            $sub_cat_reload = "SELECT tb1.sub_cat_uniID, tb1.service_uniID, tb1.category_uniID, tb2.service_title, tb3.category_title, tb1.sub_cat_title, tb1.status, tb4.username, tb1.action, tb1.date_upload, tb1.date_update FROM (((services_sub_category tb1 INNER JOIN services tb2 ON tb1.service_uniID = tb2.service_uniID) INNER JOIN services_category tb3 ON tb1.category_uniID = tb3.category_uniID) INNER JOIN login tb4 ON tb1.loginId = tb4.loginId) WHERE tb1.status='Active' OR tb1.status='Inactive'" ;
+                            $sub_cat_reload = "SELECT tb1.number, tb1.sub_cat_uniID, tb1.service_uniID, tb1.category_uniID, tb2.service_title, tb3.category_title, tb1.sub_cat_title, tb1.status, tb4.username, tb1.action, tb1.date_upload, tb1.date_update FROM (((services_sub_category tb1 INNER JOIN services tb2 ON tb1.service_uniID = tb2.service_uniID) INNER JOIN services_category tb3 ON tb1.category_uniID = tb3.category_uniID) INNER JOIN login tb4 ON tb1.loginId = tb4.loginId) WHERE tb1.status='Active' OR tb1.status='Inactive' ORDER BY tb1.number DESC LIMIT 25" ;
 
                             $sub_cat_reload_result = mysqli_query($conn, $sub_cat_reload);
                             if(mysqli_num_rows($sub_cat_reload_result) > 0 ){

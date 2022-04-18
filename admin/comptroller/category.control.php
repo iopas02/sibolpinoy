@@ -386,7 +386,7 @@ if(isset($_POST['sub_cat_update_stats'])){
     }    
 }
 
-if(isset($_POST['delete_category'])){
+if(isset($_POST['delete_ssc'])){
 
     if($_POST['sub_cat_uniID'] !=''){
         date_default_timezone_set("Asia/Manila");
@@ -397,27 +397,27 @@ if(isset($_POST['delete_category'])){
         $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
         $username = mysqli_real_escape_string($conn, $_POST['username']);
         $user_level = mysqli_real_escape_string($conn, $_POST['user_level']);
-        $archive_sub_cat_service = mysqli_real_escape_string($conn, $_POST['archive_sub_cat_service']);
+        $delete_sub_cat_service = mysqli_real_escape_string($conn, $_POST['delete_sub_cat_service']);
         
         $date = date("Y-m-d H:i:s");
 
         $ssc_query = "SELECT * FROM `services_sub_category` WHERE `sub_cat_uniID`='$sub_cat_uniID'";
         $ssc_query_result = $conn->query($ssc_query);
-        if ($ssc_query_result->num_rows > 0) {
+        if($ssc_query_result->num_rows > 0) {
             while($row = $ssc_query_result->fetch_assoc()) {
                 $service_uniID = $row['service_uniID'];
                 $category_uniID = $row['category_uniID'];
                 $sub_cat_title = $row['sub_cat_title'];
-                $date_update = $row['date_update'];
+                $date_upload = $row['date_upload'];
             }
 
-            $ssc_archive_query = "INSERT INTO `ssc_archive`(`sub_cat_uniID`, `service_uniID`, `category_uniID`, `sub_cat_title`, `status`,`date_upload`) VALUES ('$sub_cat_uniID','$service_uniID','$category_uniID','$sub_cat_title','$newstats','$date_update')";
+            $ssc_archive_query = "INSERT INTO `ssc_archive`(`sub_cat_uniID`, `service_uniID`, `category_uniID`, `sub_cat_title`, `status`, `date_upload`, `loginId`, `action`) VALUES ('$sub_cat_uniID','$service_uniID','$category_uniID','$sub_cat_title','$newstats','$date_upload','$user_id','$delete_sub_cat_service')";
             
-            if ($conn->query($ssc_archive_query) === TRUE) { 
-                $ssc_update_query = "UPDATE `services_sub_category` SET `status`='$newstats' WHERE `sub_cat_uniID`='$sub_cat_uniID'";
-                if ($conn->query($ssc_update_query) === TRUE) {
+            if($conn->query($ssc_archive_query) === TRUE) { 
+                $ssc_update_query = "UPDATE `services_sub_category` SET `status`='$newstats',`loginId`='$user_id',`action`='$delete_sub_cat_service',`date_update`='$date' WHERE `sub_cat_uniID`='$sub_cat_uniID'";
+                if($conn->query($ssc_update_query) === TRUE) {
 
-                    $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$user_id', '$archive_sub_cat_service', '$username', '$date')";
+                    $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$user_id', '$delete_sub_cat_service', '$username', '$date')";
 
                     $create_adminlog_result = mysqli_query($conn, $create_adminlog);
                     if(!$create_adminlog_result){
@@ -429,17 +429,17 @@ if(isset($_POST['delete_category'])){
                     }
 
                 }else{
-                    header("Location: ../services.sub.cat?error=sub_categoty_update_failed");
-                exit();
+                    header("Location: ../services.sub.cat?error=sub_category_update_failed");
+                    exit();
                 }
 
             }else{
-                header("Location: ../services.sub.cat?error=sub_categoty_archive_failed");
+                header("Location: ../services.sub.cat?error=sub_category_archive_failed");
                 exit();
             }
 
         }else{
-            header("Location: ../services.sub.cat?error=sub_categoty_is_not_exist");
+            header("Location: ../services.sub.cat?error=sub_category_is_not_exist");
             exit();
         }
     
@@ -448,4 +448,115 @@ if(isset($_POST['delete_category'])){
         exit();
     }    
 
+}
+
+if(isset($_POST['delete_category'])){
+    if($_POST['category_uniID'] !=''){
+        date_default_timezone_set("Asia/Manila");
+
+        $category_uniID = mysqli_real_escape_string($conn, $_POST['category_uniID']);
+        $newstats = 'archive';
+
+        $user_id = mysqli_real_escape_string($conn, $_POST['user_id']);
+        $username = mysqli_real_escape_string($conn, $_POST['username']);
+        $user_level = mysqli_real_escape_string($conn, $_POST['user_level']);
+        $archive_cat_service = mysqli_real_escape_string($conn, $_POST['archive_cat_service']);
+        $archive_sub_cat_service = mysqli_real_escape_string($conn, $_POST['archive_sub_cat_service']);
+        
+        $date = date("Y-m-d H:i:s");
+
+        $cat_query = "SELECT * FROM `services_category` WHERE `category_uniID`='$category_uniID'";
+        $cat_query_result = $conn->query($cat_query);
+        if($cat_query_result->num_rows > 0) {
+            while($row = $cat_query_result->fetch_assoc()) {
+                $service_uniID = $row['service_uniID'];
+                $category_title = $row['category_title'];
+                $date_upload = $row['date_upload'];
+            }
+
+            $cat_archive_query = "INSERT INTO `sc_archive`(`category_uniID`, `service_uniID`, `category_title`, `status`, `date_upload`, `loginId`, `action`) VALUES ('$category_uniID','$service_uniID','$category_title','$newstats','$date_upload','$user_id','$archive_cat_service')";
+
+            if($conn->query($cat_archive_query) === TRUE){
+
+                $cat_update_query = "UPDATE `services_category` SET `status`='$newstats',`loginId`='$user_id',`action`='$archive_cat_service',`date_update`='$date' WHERE `category_uniID`='$category_uniID'";
+
+                if ($conn->query($cat_update_query) === TRUE){
+
+                    $ssc_query = "SELECT * FROM `services_sub_category` WHERE `category_uniID`='$category_uniID'";
+                    $ssc_query_result = $conn->query($ssc_query);
+                    if(mysqli_num_rows($ssc_query_result) > 0) {
+                        foreach($ssc_query_result as $ssc) {
+                            $service_uniID = $ssc['service_uniID'];
+                            $sub_cat_uniID = $ssc['sub_cat_uniID'];
+                            $sub_cat_title = $ssc['sub_cat_title'];
+                            $date_upload = $ssc['date_upload'];
+
+                            $ssc_archive_query = "INSERT INTO `ssc_archive`(`sub_cat_uniID`, `service_uniID`, `category_uniID`, `sub_cat_title`, `status`,`date_upload`, `loginId`, `action`) VALUES ('$sub_cat_uniID','$service_uniID','$category_uniID','$sub_cat_title','$newstats','$date_upload','$user_id','$archive_sub_cat_service')";
+
+                            $ssc_archive_query_result = mysqli_query($conn, $ssc_archive_query);
+                        }
+                        if($ssc_archive_query_result){
+
+                            $ssc_update_query = "UPDATE `services_sub_category` SET `status`='$newstats',`loginId`='$user_id',`action`='$archive_sub_cat_service',`date_update`='$date' WHERE `category_uniID`='$category_uniID' " ;
+
+                            if($conn->query($ssc_update_query) === TRUE){
+
+                                $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$user_id', '$archive_cat_service', '$username', '$date')";
+
+                                $create_adminlog_result = mysqli_query($conn, $create_adminlog);
+                                if(!$create_adminlog_result){
+                                    header("Location: ../services.category?error=adminlog_error");
+                                    exit(); 
+                                }else{
+                                    header("Location: ../services.category?success=category_archive_successfully");
+                                    exit();
+                                }
+
+                            }else{
+                                header("Location: ../services.sub.cat?error=sub_category_update_failed");
+                                exit();
+                            }
+
+                        }else{
+                            header("Location: ../services.category?error=sub_category_archive_failed");
+                            exit();
+                        }
+
+                    }else{
+
+                        $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$user_id', '$archive_cat_service', '$username', '$date')";
+
+                        $create_adminlog_result = mysqli_query($conn, $create_adminlog);
+                        if(!$create_adminlog_result){
+                            header("Location: ../services.category?error=adminlog_error");
+                            exit(); 
+                        }else{
+                            header("Location: ../services.category?success=category_archive_successfully");
+                            exit();
+                        }
+                    }    
+
+
+                }else{
+                    header("Location: ../services.category?error=category_update_failed");
+                    exit(); 
+                }
+
+            }else{
+                header("Location: ../services.category?error=category_archive_failed");
+                exit();
+            }
+
+        }else{
+            header("Location: ../services.category?error=category_not_exist");
+            exit();
+        }
+        
+    }else{
+        header("Location: ../services.category?error=empty_fields");
+        exit();
+    }
+}else{
+    header("Location: ../services.category");
+    exit();
 }

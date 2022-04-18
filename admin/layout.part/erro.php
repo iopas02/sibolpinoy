@@ -231,22 +231,48 @@
         <i class="bi bi-exclamation-triangle-fill"></i><strong> Sub-Category is already in the list!</strong> You cannot create Sub-Category with the same uniID.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
-    }else if(strpos($fullUrl, "error=sub_categoty_is_not_exist") == true ){
+    }else if(strpos($fullUrl, "error=sub_category_is_not_exist") == true ){
         echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <i class="bi bi-exclamation-triangle-fill"></i><strong> Sub-Category Not Found!</strong> Please check your data field and databse attributes.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
-    }else if(strpos($fullUrl, "error=sub_categoty_archive_failed") == true ){
+    }else if(strpos($fullUrl, "error=sub_category_archive_failed") == true ){
         echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <i class="bi bi-exclamation-triangle-fill"></i><strong> Sub-Category Failed to move in archive!</strong> Please check your data field and databse attributes.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
-    }else if(strpos($fullUrl, "error=sub_categoty_update_failed") == true ){
+    }else if(strpos($fullUrl, "error=sub_category_update_failed") == true ){
         echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
         <i class="bi bi-exclamation-triangle-fill"></i><strong> Sub-Category Failed to move in archive!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=category_archive_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Category Failed to move in archive!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=category_update_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Category Failed to move in archive!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=service_not_exist") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Service Not Found!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=service_archive_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Category Failed to move in archive!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=service_update_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Service Failed to move in archive!</strong> Please check your data field and databse attributes.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
+    
 
     else if(strpos($fullUrl, "success=new_admin_created_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -359,6 +385,18 @@
     else if(strpos($fullUrl, "success=sub_cat_archive_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
         <i class="bi bi-info-circle"></i><strong> Sub-Category is move in the archive!</strong> you successfully move Sub-Category in the archive.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
+    else if(strpos($fullUrl, "success=category_archive_successfully") == true ){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-info-circle"></i><strong> Category is move in the archive!</strong> you successfully move Service Category in the archive.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
+    else if(strpos($fullUrl, "success=service_archive_successfully") == true ){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-info-circle"></i><strong> Service is move in the archive!</strong> you successfully move Service, Category, and Sub-Category in the archive.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
