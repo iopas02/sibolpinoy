@@ -41,12 +41,12 @@
             <div class="row ">
                 <div class="col-md-12 text-center m-3">
                     <h1 class="bg-white text-dark pe-3 header-font">Our Mission</h1>
-                    <p class="desc-font-two">Unlocking potentials of Organizations Both in the public and private sectors that will open limitless opportunity to yield superior results</p>
+                    <p class="mb-4 desc-font">Unlocking potentials of Organizations Both in the public and private sectors that will open limitless opportunity to yield superior results</p>
                 </div>
 
                 <div class="col-md-12 text-center m-3">
                     <h1 class="bg-white text-dark pe-3 header-font">Our Vision</h1>
-                    <p class="desc-font-two">Become the Leading business Solution provider in the Philippines.</p>
+                    <p class="mb-4 desc-font">Become the Leading business Solution provider in the Philippines.</p>
                 </div>
             </div>
             <hr class="dropdown-divider bg-primary" />
