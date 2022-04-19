@@ -5,19 +5,24 @@
     if(isset($_POST["submit"])){
         
         if(!isset($_POST["firstName"]) || $_POST["firstName"] == null){
-            header("location: ../admin.con?error=firstName_null");
+            header("location: ../admin.con?error=firstName_empty");
+            exit();
         }
         else if(!isset($_POST["lastName"]) || $_POST["lastName"] == null){
-            header("location: ../admin.con?error=lastName_null");
+            header("location: ../admin.con?error=lastName_empty");
+            exit();
         }
         else if(!isset($_POST["username"]) || $_POST["username"] == null){
-            header("location: ../admin.con?error=username_null");
+            header("location: ../admin.con?error=username_empty");
+            exit();
         }
         else if(!isset($_POST["level"]) || $_POST["level"] == null){
-            header("location: ../admin.con?error=level_null");
+            header("location: ../admin.con?error=level_empty");
+            exit();
         }
         else if(!isset($_POST["status"]) || $_POST["status"] == null){
-            header("location: ../admin.con?error=status_null");
+            header("location: ../admin.con?error=status_empty");
+            exit();
         }
         
         else{
@@ -54,7 +59,7 @@
                 $resultcheck = mysqli_stmt_num_rows($stmt);
 
                 if($resultcheck > 0){
-                    header("Location: ../admin.con?username_already_exist");
+                    header("Location: ../admin.con?error=username_already_exist");
                     exit();
                 }else{
                     //check username duplicate
@@ -81,17 +86,17 @@
                                 exit();
                         
                             }else{
-                                header("Location: ../admin.con?admin_log_failed");
+                                header("Location: ../admin.con?error=admin_log_failed");
                                 exit();
                             }
 
                         }else{
-                            header("Location: ../admin.con?admin_profile_failed");
+                            header("Location: ../admin.con?error=admin_profile_failed");
                             exit();
                         }      
                                  
                     }else{
-                        header("Location: ../admin.con?create_new_admin_failed");
+                        header("Location: ../admin.con?error=create_new_admin_failed");
                         exit();
                     }
                 
@@ -101,6 +106,69 @@
            
         }
 
+    }
+
+    if(isset($_POST['activate'])){
+        // echo "You are connected!";
+        date_default_timezone_set('Asia/Manila');
+
+        $archiveid = mysqli_real_escape_string($conn, $_POST['archiveid']);
+        $loginid = mysqli_real_escape_string($conn, $_POST['loginid']);
+        $username = mysqli_real_escape_string($conn, $_POST['username']);
+        $active = mysqli_real_escape_string($conn, $_POST['active']);
+
+        $id = mysqli_real_escape_string($conn, $_POST['id']);
+        $user = mysqli_real_escape_string($conn, $_POST['user']);
+        $newaction = mysqli_real_escape_string($conn, $_POST['newaction']);
+
+        $action = $newaction.' '.$username;
+
+        $date = date("Y-m-d H:i:s");
+
+        $verifyid_query = "SELECT * FROM `login` WHERE `username`=?";
+        $stmt = mysqli_stmt_init($conn);
+        if(!mysqli_stmt_prepare($stmt, $verifyid_query)) {
+            header("Location: ../user.archive?error=sql_error");
+            exit();
+        }else{
+            mysqli_stmt_bind_param($stmt, "s", $username);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_store_result($stmt);
+            $resultcheck = mysqli_stmt_num_rows($stmt);
+            if($resultcheck > 0){
+
+                $update_admin_query ="UPDATE `login` SET `status`='$active' WHERE `loginId`='$loginId' OR `username`='$username' " ;
+                if($conn->query($update_admin_query)===TRUE) {
+
+                    $delete_archive_query = "DELETE FROM `archiveuser` WHERE `id`='$archiveid' AND `username`='$username' ";
+
+                    if($conn->query($delete_archive_query)===TRUE){
+
+                        $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$id', '$action','$user', '$date')";
+            
+                        if($conn->query($create_adminlog)===TRUE){
+                            header("Location: ../admin.con?success=activate_user_successfully");
+                            exit(); 
+                        }else{
+                            header("Location: ../user.archive?error=adminlog_error");
+                            exit();
+                        }
+
+                    }else{
+                        header("Location: ../user.archive?error=delete_archive_failed");
+                        exit();
+                    }
+
+                }else{
+                    header("Location: ../user.archive?error=update_user_failed");
+                    exit(); 
+                }               
+
+            }else{
+                header("Location: ../user.archive?error=username_not_exist");
+                exit();
+            }
+        }
     }
 
 ?>

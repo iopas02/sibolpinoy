@@ -89,7 +89,7 @@
                                     $total_number_of_page = ceil($total_records / $total_records_per_page);
                                     $second_last = $total_number_of_page - 1;
                                     
-                                    $inbox_mail = "SELECT tb2.emailID, tb1.client_uniID, tb1.firstName, tb1.mi, tb1.lastName, tb1.email_add, tb2.subject, tb2.message, tb2.status, tb2.date_mailed  FROM client tb1 INNER JOIN email tb2 ON tb1.client_uniID = tb2.client_uniID";
+                                    $inbox_mail = "SELECT tb2.emailID, tb1.client_uniID, tb1.firstName, tb1.mi, tb1.lastName, tb1.email_add, tb2.subject, tb2.message, tb2.status, tb2.date_mailed  FROM client tb1 INNER JOIN email tb2 ON tb1.client_uniID = tb2.client_uniID ORDER BY tb2.emailID DESC";
 
                                     $inbox_mail_result = mysqli_query($conn, $inbox_mail);
                                     if(mysqli_num_rows($inbox_mail_result) > 0 ){
@@ -114,7 +114,7 @@
                                                 <td hidden><?= $email['email_add']?></td>
                                                 <td><?= $email['subject']?></td>
                                                 <td><?= $email['message']?></td>
-                                                <td><?= date('M d Y H:i', strtotime($email['date_mailed'])) ?></td>
+                                                <td><?= date('M d Y g:i a', strtotime($email['date_mailed'])) ?></td>
                                                 <td>
                                                     <button type="button" class="btn tooltip-test read" id="read" title="Read">
                                                         <i class="bi bi-bookmark"></i>
@@ -129,8 +129,12 @@
                                             <?php
                                         }
                                     }else{
-                                        echo "No Email Yet";
-                                    }
+                                            echo '
+                                            <tr >
+                                                <td class="text-center" colspan="6"><h4>No Email Found.</h4></td>
+                                            </tr>
+                                        ';
+                                        }
 
                                     ?>
 

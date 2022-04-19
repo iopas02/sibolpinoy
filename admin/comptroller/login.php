@@ -5,11 +5,11 @@ session_start();
     if(isset($_POST["submit"])){
 
         if(!isset($_POST["username"]) || $_POST["username"] == null){
-            header("location: ../index?error=username_null");
+            header("location: ../index?error=username_empty");
             exit();
         }
         else if(!isset($_POST["password"]) || $_POST["password"] == null){
-            header("location: ../index?error=password_null");
+            header("location: ../index?error=password_empty");
             exit();
         }
         else{
@@ -19,7 +19,7 @@ session_start();
             $admin_log_query = "SELECT * FROM login where username =?";
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt, $admin_log_query)) {
-                header("Location: ../index?error=sqlerror");
+                header("Location: ../index?error=sql_error");
                 exit();
             }else{
                 mysqli_stmt_bind_param($stmt, "s", $username);
@@ -31,9 +31,10 @@ session_start();
                     header("Location: ../index?error=wrong_password");
                     exit();  
                 }else if($passwordCkeck == true){
-                    $status = "active";
-                    $status1 = "inactive";
-                    if($row['status'] == $status){
+                    $status1 = "active";
+                    $status0 = "inactive";
+                    $status = "archive";
+                    if($row['status'] == $status1){
                         $_SESSION["id"] = $row["loginId"];
                         $_SESSION["username"] = $row["username"];
                         $_SESSION["level"] = $row["level"];
@@ -50,7 +51,8 @@ session_start();
                                     date_default_timezone_set('Asia/Manila');
                                     $date = date("Y-m-d H:i:s");;
                                     $by = $_SESSION["username"];
-                                    $sql = "UPDATE login SET lastLoginDate = '$date' WHERE loginId = $id";
+                                    $monitor = "In";
+                                    $sql = "UPDATE `login` SET `lastLoginDate`='$date', `monitor`='$monitor' WHERE loginId = $id";
                                     
                                     if($conn->query($sql)){
                                         $sql = "INSERT INTO adminlog (loginId, action, actionBy, date) VALUES($id, 'logged in', '$by', '$date')";
@@ -65,8 +67,8 @@ session_start();
                                 }
                             }
                         }
-                    }else if($row["status"] == $status1){
-                        header("location: ../index?error=inactive");
+                    }else if($row["status"] == $status0 || $row["status"] == $status ){
+                        header("location: ../index?error=inactive_or_deleted");
                     }
                         
                 }

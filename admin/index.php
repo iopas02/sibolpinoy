@@ -33,6 +33,8 @@ if(isset($_GET["error"])){
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
     <!-- Template Stylesheet -->
     <link href="style/addstyler.css" rel="stylesheet">
 
@@ -48,8 +50,11 @@ if(isset($_GET["error"])){
                     <img src="../img/sibol-GIF.gif" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-5 form-postion">
+                    <?php
+                        include_once 'layout.part/erro.php';
+                    ?>
                     <div class="">
-                        <h4 class="welcome-note text-center">Welcome To Login Form</h4>
+                        <h4 class="welcome-note text-center">Welcome SPMC Admin</h4>
                     </div>
                     <form action="comptroller/login.php" method="POST">
                         <div class="form-row my-3">
@@ -69,15 +74,6 @@ if(isset($_GET["error"])){
                                 <button type="submit" name="submit" class="btn-login login-text" >Login</button>
                             </div>
                         </div>
-                        <?php if(isset($err_message)){?>
-                            <div class="form-group">
-                                <h5 class="text-danger"><?= $err_message ?></h5>
-                            </div>
-                        <?php 
-                            unset($_GET["error"]);    
-                        }
-                        ?>
-                        <a href="#" class="text-normal">Forgot Password</a>
                     </form>
                 </div>
             </div>

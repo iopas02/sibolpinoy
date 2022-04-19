@@ -3,6 +3,7 @@
 
 <?php
     require "includes/header.php";
+    require_once "includes/modal.php";
 ?>
  <title>Sibol-PINOY - Consultation</title>
 <body>
@@ -38,6 +39,10 @@
     <!-- Consultation services Start -->
     <div class="container-xxl py-5">
         <div class="container">
+            <?php
+                include_once 'includes/error.php';
+            ?>    
+
             <div class="text-center" >
                 <h6 class="bg-white text-center text-dark px-3 secondary-font">Our Services</h6>
                 <h1 class="mb-5 header-font">We have 30 mins Free Consultation, Hurry and Book now!</h1>
@@ -146,6 +151,7 @@
                 </div>
                 <div class="col-lg-6">
                     <h6 class="bg-white text-start text-dark pe-3 secondary-font">You Can leave A Message</h6>
+                    <small>All fields with (*) are needed to fill up</small>
                     <form action="controllers/mail.php" method="POST">
                         <div class="row g-3">
                             <div class="col-md-5">
@@ -203,7 +209,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <small>SPMC <a href=#>TERMS</a> and <a href="#poirty">PRIVACY POLICY</a></small>
+                            <small>Read SPMC <button type="button" class="border-0 bg-white text-primary terms">TERMS and PRIVACY POLICY</button> </small>
                                 <div class="form-check">
                                     <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
                                     <label class="form-check-label" for="invalidCheck3">
@@ -244,6 +250,14 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>   
+       $(document).ready(function(){
+           $('.terms').on('click', function(){
+               $('#termsmodal').modal('show');
+
+           })
+       })
+   </script>
 </body>
 
 </html>

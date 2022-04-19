@@ -37,6 +37,9 @@
     <main class="mt-5 pt-3">
         <div class="container-fluid p-4">
             <div class="row">
+            <?php
+                include_once 'layout.part/erro.php';
+            ?>
             <div class="col-md-12 my-2">
                 <h4 class="page-header">Event Reservation</h4>
                 <hr class="dropdown-divider bg-dark" />
@@ -150,6 +153,12 @@
 
                                                 <?php
                                             }
+                                        }else{
+                                            echo '
+                                                <tr >
+                                                    <td class="text-center" colspan="7"><h4>No Records Found.</h4></td>
+                                                </tr>
+                                            ';
                                         }
                                     ?>
                                 </tbody>

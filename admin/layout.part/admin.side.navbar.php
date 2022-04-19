@@ -194,22 +194,28 @@
                             ?>    
                             </li>
                             <li>
-                            <a href="404" class="nav-link px-2 text-normal">
-                                <span class="me-2"><i class="bi bi-clipboard-check"></i></span>
-                                <span>Consultation request</span>
-                            </a>
+                                <a href="404" class="nav-link px-2 text-normal">
+                                    <span class="me-2"><i class="bi bi-clipboard-check"></i></span>
+                                    <span>Consultation request</span>
+                                </a>
                             </li>
                             <li>
-                            <a href="404" class="nav-link px-2 text-normal">
-                                <span class="me-2"><i class="bi bi-calendar-check"></i></span>
-                                <span>Event Reservation</span>
-                            </a>
+                                <a href="404" class="nav-link px-2 text-normal">
+                                    <span class="me-2"><i class="bi bi-calendar-check"></i></span>
+                                    <span>Event Reservation</span>
+                                </a>
                             </li>
                             <li>
-                            <a href="404" class="nav-link px-2 text-normal">
-                                <span class="me-2"><i class="bi bi-envelope"></i></span>
-                                <span>Message</span>
-                            </a>
+                                <a href="services.archive" class="nav-link px-2 text-normal">
+                                    <span class="me-2"><i class="bi bi-tags"></i></span>
+                                    <span>Services</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="404" class="nav-link px-2 text-normal">
+                                    <span class="me-2"><i class="bi bi-envelope"></i></span>
+                                    <span>Message</span>
+                                </a>
                             </li>
                         </ul>
                     </div>    
@@ -224,35 +230,40 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Compose Message</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form action="comptroller/send.mail.php" method="POST">
+            <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Recipient Name:</label>
+                <input type="text" class="form-control" name="recipient_name" required>
+            </div>
             <div class="mb-3">
                 <label for="recipient-name" class="col-form-label">Recipient Email Address:</label>
-                <input type="text" class="form-control" id="recipient-name" >
+                <input type="text" class="form-control" name="recipient_email" required>
             </div>
             <div class="mb-3">
                 <label for="recipient-name" class="col-form-label">Sender Email Address:</label>
-                <input type="text" class="form-control" id="recipient-name" >
+                <input type="text" class="form-control" name="companyEmail" required>
             </div>
             <div class="mb-3">
                 <label for="recipient-name" class="col-form-label">Subject:</label>
-                <input type="text" class="form-control" id="recipient-name">
+                <input type="text" class="form-control" name="subject" required> 
             </div>
             <div class="mb-3">
                 <label for="message-text" class="col-form-label">Message:</label>
-                <textarea class="form-control" id="message-text" ></textarea>
+                <textarea class="form-control" name="message" rows="6" required></textarea>
             </div>
-            <div class="mb-3">
-                <input type="file" class="form-control" id="recipient-name" placeholder="attach you files here">
-            </div>
-            <button type="button" class="btn bg-blue text-white" data-bs-dismiss="modal">Send Message</button>
+           
+            <input type="text" class="form-control" name="adminid" value="<?= $_SESSION["id"] ?>" hidden>
+            <input type="text" class="form-control" name="username" value="<?= $_SESSION["username"] ?>" hidden>
+            <input type="text" class="form-control" name="action" value="Send Message to client" hidden>
+            <button type="submit" class="btn bg-blue text-white" name="send_reply">Send Message</button>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn bg-coloured text-white" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

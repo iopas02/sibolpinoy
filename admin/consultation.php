@@ -109,7 +109,7 @@
                                                         <td><?= $consultation['consultation_id'] ?></td>
                                                         <td><?= $consultation['service_title'] ?></td>
                                                         <td><?= $consultation['status'] ?></td>
-                                                        <td><?= date('M d Y',  strtotime($consultation['registered_date'])) ?></td>
+                                                        <td><?= date('M d Y g:i a',  strtotime($consultation['registered_date'])) ?></td>
                                                         <td>
                                                             <form action="consultation.info" method="POST">
                                                                 <input name="entryID" value="<?= $consultation['entryID'] ?>" hidden>
@@ -122,7 +122,13 @@
 
                                                 <?php
                                             }
-                                        }
+                                        }else{
+                                                echo '
+                                                    <tr >
+                                                        <td class="text-center" colspan="7"><h4>No Records Found.</h4></td>
+                                                    </tr>
+                                                ';
+                                            }
 
                                     ?>
                                        

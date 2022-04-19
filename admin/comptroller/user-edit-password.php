@@ -44,7 +44,7 @@
                             header( "Location: ../index?success=update_password_successfully");
                             exit();  
                         }else{
-                            header( "Location: ../landing?error=adminlog_failed");
+                            header( "Location: ../landing?error=adminlog_error");
                             exit();
                         }
                     }
@@ -54,7 +54,7 @@
                     }
 
                 }else{
-                    header( "Location: ../index?error=user_not_exist" );
+                    header( "Location: ../index?error=username_not_exist" );
                     exit();
                 }
             }

@@ -28,7 +28,7 @@ if(isset($_POST['email_submit'])) {
         $status = "New";
 
         
-        $check_cmail = "SELECT `email_add` FROM `client` WHERE `email_add`=? ";
+        $check_cmail = "SELECT * FROM `client` WHERE `email_add`=? ";
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt, $check_cmail)) {
             header("Location: ../contact.php?");
@@ -46,7 +46,7 @@ if(isset($_POST['email_submit'])) {
                     while($row = $result->fetch_assoc()) {
                         $client_uniID = $row['client_uniID'];
 
-                        $email_request = "INSERT INTO `email`(`client_uniID`, `subject`, `message`, `status`, `date_mailed``) VALUES ('$client_uniID', '$subject', '$message', '$status', '$date')";
+                        $email_request = "INSERT INTO `email`(`client_uniID`,`subject`,`message`,`status`,`date_mailed`) VALUES ('$client_uniID', '$subject', '$message', '$status', '$date')";
 
                         $email_result = mysqli_query($conn, $email_request);
                         if(!$email_result){

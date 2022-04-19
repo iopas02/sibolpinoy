@@ -44,8 +44,11 @@
 
     <!-- THIS IS CREATE NEW SERVICES FORM START HERE -->
         <div class="row col-md-12 border-bottom border-1 border-dark mb-2">
+            <?php
+                include_once 'layout.part/erro.php';
+            ?>
             <div class="row col-md-12 px-5">
-                    <h5>Sub-Category Services</h5>
+                <h5>Sub-Category Services</h5>
             </div>
 
             <div class="row col-md-12 mb-2">
@@ -68,6 +71,7 @@
                                     ?>
                                 </select>
                                 <button class="btn bg-coloured text-white edit" type="submit"><i class="bi bi-binoculars"></i></button>
+                                <small>( Please Select Category uniID to find the Category name that you want to add the New Service Sub-Category)</small>
                             </div>
                         </form>                        
                     </div>
@@ -94,11 +98,13 @@
                             }
                         ?>
                         <label for="service_uniID" class="form-label">Service uniID</label>
-                        <input type="text" class="form-control" id="service_uniID" readonly name="service_uniID" value="<?= $serv_uniID ?>"> 
+                        <input type="text" class="form-control" id="service_uniID" readonly name="service_uniID" value="<?= $serv_uniID ?>">
+                        <small>( Service uniID will place here once you selected on the "Category uniID" search bar )</small> 
                     </div>
                     <div class="col-md-8 ">
                         <label for="service_title" class="form-label">Service Title</label>
-                        <input type="text" class="form-control" id="service_title" readonly name="service_title" value="<?= $Service_title ?>">  
+                        <input type="text" class="form-control" id="service_title" readonly name="service_title" value="<?= $Service_title ?>">
+                        <small>( Service Name will place here once you selected on the "Category uniID" search bar )</small>   
                     </div>   
                 </div>   
             
@@ -106,10 +112,12 @@
                     <div class="col-md-4">
                         <label for="category_uniID" class="form-label service_uniID">Category UniID</label>
                         <input class="form-control" type="text" readonly id="category_uniID" name="category_uniID" value="<?= $cat_uniID ?> ">
+                        <small>( Category uniID will place here once you selected on the "Category uniID" search bar )</small> 
                     </div>
                     <div class="col-md-8">
                         <label for="category_title" class="form-label service_uniID">Category Title</label>
                         <input class="form-control" type="text" readonly id="category_title" name="category_title" value="<?= $cat_title ?>" >
+                        <small>( Category Name will place here once you selected on the "Category uniID" search bar )</small> 
                     </div>
                 </div>
 
@@ -117,10 +125,12 @@
                     <div class="col-md-4">
                         <label for="sub_cat_uniID" class="form-label service_uniID">Sub-Category UniID</label>
                         <input class="form-control" type="text" readonly id="sub_cat_uniID" name="sub_cat_uniID">
+                        <small>( This is an Auto generated sub_cat_uniID )</small>
                     </div>
                     <div class="col-md-8">
                         <label for="sub_cat_title" class="form-label service_uniID">Sub-Category Title</label>
                         <input class="form-control" type="text" id="sub_cat_title" name="sub_cat_title">
+                        <small>( Please type here the Sub-Category Name of additional Sub-Category )</small>
                         <input class="form-control" hidden type="text" id="status" name="status" value="Active">
                     </div>
                 </div>
@@ -147,7 +157,7 @@
                         <input type="text" class="form-control" id="update_sub_cat_service" name="update_sub_cat_service" value="update sub-category services">
 
                         <label for="delete_sub_cat_service" class="form-label">Action 3</label>
-                        <input type="text" class="form-control" id="delete_sub_cat_service" name="delete_sub_cat_service" value="delete sub-category services">
+                        <input type="text" class="form-control" id="delete_sub_cat_service" name="delete_sub_cat_service" value="archive sub-category services">
                     </div>
                 </div>
             <!---- THIS IS HIDDEN PART OF THE CREATE SERVICES START HERE --->
@@ -155,13 +165,13 @@
 
                 <div class="row col-md-12">
                     <div class="col-md-6">
-                        <button type="submit" name="create_sub_cat" class="btn bg-coloured text-white my-2" >
+                        <button type="submit" name="create_sub_cat" class="btn bg-blue text-white my-2" >
                         <i class="bi bi-folder-plus"></i> Create Sub-Category
                         </button>
                     </div>
                     <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
                         <button  type="submit" name="edit_sub_cat" class="btn bg-coloured text-white my-2" "><i class="bi bi-vector-pen"></i> Update</button>
-                        <button  type="submit" name="delete_category" class="btn bg-coloured text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
+                        <button  type="submit" name="delete_ssc" class="btn bg-dark text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
                     </div>
                 </div>
 
@@ -221,7 +231,7 @@
                             $total_number_of_page = ceil($total_records / $total_records_per_page);
                             $second_last = $total_number_of_page - 1;
 
-                            $sub_cat_reload = "SELECT tb1.sub_cat_uniID, tb1.service_uniID, tb1.category_uniID, tb2.service_title, tb3.category_title, tb1.sub_cat_title, tb1.status, tb4.username, tb1.action, tb1.date_upload, tb1.date_update FROM (((services_sub_category tb1 INNER JOIN services tb2 ON tb1.service_uniID = tb2.service_uniID) INNER JOIN services_category tb3 ON tb1.category_uniID = tb3.category_uniID) INNER JOIN login tb4 ON tb1.loginId = tb4.loginId) LIMIT $offset,$total_records_per_page " ;
+                            $sub_cat_reload = "SELECT tb1.number, tb1.sub_cat_uniID, tb1.service_uniID, tb1.category_uniID, tb2.service_title, tb3.category_title, tb1.sub_cat_title, tb1.status, tb4.username, tb1.action, tb1.date_upload, tb1.date_update FROM (((services_sub_category tb1 INNER JOIN services tb2 ON tb1.service_uniID = tb2.service_uniID) INNER JOIN services_category tb3 ON tb1.category_uniID = tb3.category_uniID) INNER JOIN login tb4 ON tb1.loginId = tb4.loginId) WHERE tb1.status='Active' OR tb1.status='Inactive' ORDER BY tb1.number DESC LIMIT 25" ;
 
                             $sub_cat_reload_result = mysqli_query($conn, $sub_cat_reload);
                             if(mysqli_num_rows($sub_cat_reload_result) > 0 ){
@@ -350,7 +360,7 @@
                     <li class="p-2 <?php if($page_no >= $total_number_of_page) {echo "disabled";} ?>" >
                         <a <?php if($page_no < $total_number_of_page) {echo "href='?page_no=$next_page'";} ?>>Next</a>
                     </li>
-                    <?php if($page_no < $total_number_of_page) {echo "<li class='p-2'><a href='?page_no=$total_number_of_page'>Last &rsaquo;</a?</li>";} ?>
+                   
                     
                 </ul>
             </div>

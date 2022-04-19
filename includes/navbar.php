@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-    <a href="index.php" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+    <a href="#" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
         <img class="__logo" src="img/logo.png" alt=""><h2 class="pt-2 logo-font"></i>Sibol-PINOY</h2>
     </a>
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -16,3 +16,4 @@
         <a href="consultation" class="btn py-4 text-white bg-yellow">Book Consultation<i class="fa fa-arrow-right ms-3 text-light"></i></a>
     </div>
 </nav>
+

@@ -24,6 +24,25 @@
 
     <!-- THIS IS FOR SIDE NAV-BAR and OFF CANVA END HERE -->
     <?php
+        $eid = '';
+        $client_uniID = '';
+        $firstName = '';
+        $mi = '';
+        $lastName = '';
+        $contact = '';
+        $organization = '';
+        $position = '';
+        $email_add = '';
+        $reservationID = '';
+        $eventID = '';
+        $event_title = '';
+        $date_and_time = '';
+        $reg_fee = '';
+        $ss_payment = '';
+        $payment_method = '';
+        $status = '';
+        $date_registered = '';
+        
         if(isset($_POST['read'])){
             $entryID = mysqli_real_escape_string($conn, $_POST['entryID']);
 
@@ -60,6 +79,9 @@
                 exit();
             }
         
+        }else{
+            header("Location: event.reservation.php");
+            exit();
         }
     ?>
 

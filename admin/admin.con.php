@@ -1,43 +1,3 @@
-<?php
-$err_message = "";
-if(isset($_GET["error"])){
-    $error = $_GET["error"];
-    if($error == "username_null"){
-        $err_message = "Username field empty.";
-    }
-    else if($error == "password_null"){
-        $err_message = "Password field empty.";
-    }
-    else if($error == "firstName_null"){
-        $err_message = "First Name field empty.";
-    }
-    else if($error == "lastName_null"){
-        $err_message = "Last Name field empty.";
-    }
-    else if($error == "level_null"){
-        $err_message = "Please pick a level.";
-    }
-    else if($error == "status_null"){
-        $err_message = "Please pick a status.";
-    }
-    else if($error == "passwordNotEqual"){
-        $err_message = "Password not equal.";
-    }
-    else if($error == "username_exist"){
-        $err_message = "Username is already existing.";
-    }
-    else if($error == "reason_null"){
-        $err_message = "Reason Field is empty.";
-    }
-    else if($error == "error_self_delete"){
-        $err_message = "You can not delete yourself.";
-    }
-    else if($error == "error_self_status"){
-        $err_message = "You can not set your own status.";
-    }
-}
-
-?>
 <!doctype html>
 <html lang="en">
   <!-- Header Start -->
@@ -87,20 +47,15 @@ if(isset($_GET["error"])){
         <div class="container-fluid px-4">
             
             <div class="row">
-            <?php if(isset($err_message)){?>
-                <div class="form-group">
-                    <h5 class="text-danger"><?= $err_message ?></h5>
-                </div>
-            <?php 
-                unset($err_message);    
-            }
+            <?php
+                include_once 'layout.part/erro.php'; 
             ?>
+            
             <div class="col-md-12 my-2">
                 <h4 class="page-header">Admin Controller</h4>
                 <hr class="dropdown-divider bg-dark" />
             </div>
         </div>
-
 
         <div class="row">
             <div class="col-md-12 mb-3 px-4">
@@ -275,7 +230,7 @@ if(isset($_GET["error"])){
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="admin-edit.php" method="POST">
+                        <form action="comptroller/admin-edit.php" method="POST">
                             <input type="hidden" id="sid" name="id">
                             <div class="row col-md-12">
                                 <div class="col-md-6 mb-1">
@@ -290,25 +245,26 @@ if(isset($_GET["error"])){
                             <div class="row col-md-12">
                                 <div class="col-md-8 mb-1">
                                     <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="un" name="username"  aria-describedby="emailHelp" >
+                                    <input type="text" class="form-control" id="un" name="username" readonly/>
                                 </div>
                                 <div class="col-md-4 mb-1">
                                     <label for="level" aria-label="Default select example" class="form-label">Level</label>
                                     <select class="form-select" id="lev" name="level">
-                                        <option value="admin">admin</option>
-                                        <option value="superadmin">superadmin</option>
+                                        <option value="0">admin</option>
+                                        <option value="1">superadmin</option>
                                     </select>
                                 </div>
                             </div>
+                            <input type="text" class=""  name="action" value="update user info:" hidden/>
                     </div>
                     <div class="row py-3 col-md-12">
                     <hr class="dropdown-divider bg-dark" />
                                     <div class="col-md-4">
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#editAdminPassword">Reset password</button>
+                                        <button type="button" class="p-1 text-white rounded bg-coloured" data-bs-toggle="modal" data-bs-target="#editAdminPassword">Reset password</button>
                                     </div>
                                     <div class="col-md-8 d-grid gap-1 d-md-flex justify-content-md-end">
-                                        <button type="submit" class="btn btn-success" name="update">Save</button>    
-                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="p-1 text-white rounded bg-blue" name="update">Update User</button>    
+                                        <button type="button" class="p-1 text-white rounded bg-dark" data-bs-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>    
@@ -318,16 +274,16 @@ if(isset($_GET["error"])){
         </div>
         <!-- status modal -->
             <div class="modal fade" id="editStatus">
-                <div class="modal-dialog modal-lg">
+                <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content mx-auto" style="max-width: 400px">                
                         <div class="modal-body">
-                            <form action="admin-status.php" method="POST">
+                            <form action="comptroller/admin-status.php" method="POST">
                                     <input type="hidden" id="statuser" name ="username">  
                             <h5>Are you sure you want to change the status of this user?</h5>     
                         </div>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-success" name="active">Active</button>
-                                    <button type="submit" class="btn btn-danger" name="inactive">Inactive</button>
+                                    <button type="submit" class="p-1 rounded bg-coloured text-white" name="active">Active</button>
+                                    <button type="submit" class="p-1 rounded bg-blue text-white" name="inactive">Inactive</button>
                                 </div>
                             </form>
                     </div>
@@ -352,26 +308,28 @@ if(isset($_GET["error"])){
                             <h5>Default password: <strong class="text-primary">SPMC123</strong></h5>
                         </div>
                       <div class="modal-footer">
-                        <button type="submit" class="btn btn-success" name="editPassword">Save</button>
+                        <button type="submit" class="p-1 rounded bg-blue text-white" name="editPassword">Reset Password</button>
                     </form>       
-                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editAdmin">Close</button>
+                    <button type="button" class="p-1 rounded bg-dark text-white" data-bs-toggle="modal" data-bs-target="#editAdmin">Close</button>
                 </div>
                 </div>
             </div>
         </div>
         <!--THIS IS FOR MODAL DELETE user start-->
         <div class="modal" id="deleteUser" tabindex="-1">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Delete User</h5>
                         <button type="button" class="btn-close"  data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                 <div class="modal-body">
-                    <form action="admin-delete.php" method="POST">
+                    <form action="comptroller/admin-delete.php" method="POST">
                         <input type="hidden" id="delId" name="loginId">
                         <input type="hidden" id="delprofid" name="profileId">
                         <input type="hidden" id="deldate" name="dateAdded">
+                        <input type="hidden" name="status" value="archive">
+
                             <div class="row col-md-12">
                                 <div class="col-md-6 mb-1">
                                     <label for="delfn" class="form-label">First Name:</label>
@@ -396,9 +354,9 @@ if(isset($_GET["error"])){
                             </div>
                         </div>
                       <div class="modal-footer">
-                        <button type="submit" class="btn btn-danger" name="deleteUser">Delete</button>
+                        <button type="submit" class="p-1 rounded bg-coloured text-white" name="deleteUser">Delete User</button>
                     </form>       
-                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="p-1 rounded bg-dark text-white" data-bs-dismiss="modal">Close</button>
                 </div>
                 </div>
             </div>

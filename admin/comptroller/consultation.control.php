@@ -58,11 +58,13 @@ if(isset($_POST['approved'])){
                 }
         
                 if($insert_report_query_result){
-                    $update_consul_query = "UPDATE `consultation` SET `set_date`='$setdate',`set_time`='$settime',`status`='$status' WHERE `email_add`='$email' AND `consultation_id`='$consulID'";
+                    $update_consul_query = "UPDATE `consultation` SET `status`='$status' WHERE `email_add`='$email' AND `consultation_id`='$consulID'";
                     
                     if($conn->query($update_consul_query)===TRUE){
+
+                        $date_time = ($setdate.' '.$settime);
                         
-                       $scheduler_query = "INSERT INTO `scheduler`(`title`, `start_event`, `end_event`) VALUES ('$title','$setdate','$setdate')";
+                       $scheduler_query = "INSERT INTO `scheduler`(`title`, `start_event`, `end_event`) VALUES ('$title','$date_time','$date_time')";
 
                        if($conn->query($scheduler_query )===TRUE){
 
@@ -227,7 +229,7 @@ if(isset($_POST['send'])){
                 }
 
             }else{
-                header("Location: ../consultation?error=email_query)failed");
+                header("Location: ../consultation?error=email_query_failed");
                 exit();
             }
         }
@@ -237,6 +239,117 @@ if(isset($_POST['send'])){
         header("Location: ../consultation?error=textarea_or_company_email_is_empty_field");
         exit();
     }
-}else{
-    header("Location: ../consultation");
+}
+
+if(isset($_POST['btnedit'])){
+    // echo "You are connected!";
+    date_default_timezone_set("Asia/Manila");
+
+    $adminID =  mysqli_real_escape_string($conn, $_POST['adminID']);
+    $admin =  mysqli_real_escape_string($conn, $_POST['admin']);
+    $action3 =  mysqli_real_escape_string($conn, $_POST['action3']);
+
+    $emailadd =  mysqli_real_escape_string($conn, $_POST['email']);
+    $consulID =  mysqli_real_escape_string($conn, $_POST['consulID']);
+    $sub_cat_name = $_POST['subcatid'];
+    
+    $date = date("Y-m-d H:i:s");
+
+    foreach($sub_cat_name as $subcat_id){
+       $delete_query = "DELETE FROM `consul_list_category` WHERE `sub_cat_uniID`='$subcat_id' AND `email_add`='$emailadd'";
+       $delete_query_result = mysqli_query($conn, $delete_query);
+    }
+    if($delete_query_result){
+
+        $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$action3','$admin', '$date')";
+        
+        if($conn->query($create_adminlog)===TRUE){
+            header("Location: ../consultation?success=consultation_sub_cat_update_successfully");
+            exit(); 
+        }else{
+            header("Location: ../consultation?error=adminlog_error");
+            exit();
+        }
+
+    }else{
+        header("Location: ../consultation?error=sub_categoty_update_failed");
+        exit();
+    }
+    
+}
+
+if(isset($_POST['dateedit'])){
+    if($_POST['newdate'] !=''){
+        date_default_timezone_set("Asia/Manila");
+
+        $adminid =  mysqli_real_escape_string($conn, $_POST['adminid']);
+        $useradmin =  mysqli_real_escape_string($conn, $_POST['useradmin']);
+        $newaction =  mysqli_real_escape_string($conn, $_POST['newaction']);
+    
+        $cemailadd =  mysqli_real_escape_string($conn, $_POST['cemailadd']);
+        $cconsulid =  mysqli_real_escape_string($conn, $_POST['cconsulid']);
+        $newdate =  mysqli_real_escape_string($conn, $_POST['newdate']);
+
+        $date = date("Y-m-d H:i:s");
+
+        $update_date_query = "UPDATE `consultation` SET `set_date`='$newdate' WHERE `email_add`='$cemailadd' AND `consultation_id`='$cconsulid'";
+        if($conn->query($update_date_query)===TRUE){
+
+            $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminid', '$newaction','$useradmin', '$date')";
+        
+            if($conn->query($create_adminlog)===TRUE){
+                header("Location: ../consultation?success=new_cosultation_date_update_successfully");
+                exit(); 
+            }else{
+                header("Location: ../consultation?error=adminlog_error");
+                exit();
+            }
+
+        }else{
+            header("Location: ../consultation?error=new_cosultation_date_failed");
+            exit();
+        }
+
+    }else{
+        header("Location: ../consultation?error=please_set_new_cosultation_date");
+        exit();
+    }
+}
+
+if(isset($_POST['timeedit'])){
+    if($_POST['newdtime'] !=''){
+        date_default_timezone_set("Asia/Manila");
+
+        $adminid =  mysqli_real_escape_string($conn, $_POST['id']);
+        $useradmin =  mysqli_real_escape_string($conn, $_POST['user']);
+        $newaction =  mysqli_real_escape_string($conn, $_POST['newaction']);
+    
+        $cemailadd =  mysqli_real_escape_string($conn, $_POST['cusemailadd']);
+        $cconsulid =  mysqli_real_escape_string($conn, $_POST['cusconsulid']);
+        $newdtime =  mysqli_real_escape_string($conn, $_POST['newdtime']);
+
+        $date = date("Y-m-d H:i:s");
+
+        $update_date_query = "UPDATE `consultation` SET `set_time`='$newdtime' WHERE `email_add`='$cemailadd' AND `consultation_id`='$cconsulid'";
+        if($conn->query($update_date_query)===TRUE){
+
+            $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminid', '$newaction','$useradmin', '$date')";
+        
+            if($conn->query($create_adminlog)===TRUE){
+                header("Location: ../consultation?success=new_cosultation_time_update_successfully");
+                exit(); 
+            }else{
+                header("Location: ../consultation?error=adminlog_error");
+                exit();
+            }
+
+        }else{
+            header("Location: ../consultation?error=new_cosultation_time_failed");
+            exit();
+        }
+
+    }else{
+        header("Location: ../consultation?error=please_set_new_cosultation_time");
+        exit();
+    }
 }

@@ -33,7 +33,7 @@ if(isset($_POST['eventapproved'])){
     $event_report_query = "INSERT INTO `event_reservation_reports`(`client_uniID`, `eventID`, `reservationID`, `date_and_time`, `payment_method`, `loginid`, `status`, `approved_date`) VALUES (?,?,?,?,?,?,?,?)";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $event_report_query)) {
-        header("Location: ../event.reservation.php?error=sql_error");
+        header("Location: ../event.reservation?error=sql_error");
         exit();
     }else{
         mysqli_stmt_bind_param($stmt, "sissssss", $clientuniID, $eventid, $reservationid, $dateandtime, $payment, $adminID, $status1, $date_approved);
@@ -62,8 +62,6 @@ if(isset($_POST['eventapproved'])){
             exit();
         }
     }    
-}else{
-    header("Location: ../event.reservation");
 }
 
 if(isset($_POST['eventdeclined'])){
@@ -97,8 +95,6 @@ if(isset($_POST['eventdeclined'])){
         exit();
     }
     
-}else{
-    header("Location: ../event.reservation");
 }
 
 if(isset($_POST['sendmessage'])){
@@ -189,17 +185,18 @@ if(isset($_POST['sendmessage'])){
                 }
 
             }else{
-                header("Location: ../event.reservation?error=email_query)failed");
+                header("Location: ../event.reservation?error=email_query_failed");
                 exit();
             }
         }
         
 
     }else{
-        header("Location: ../event.reservation?error=textarea_or_company_email_is_empty_field");
+        header("Location: ../event.reservation?error=empty_fields");
         exit();
     }
 
 }else{
     header("Location: ../event.reservation");
+    exit();
 }

@@ -52,75 +52,111 @@ if(isset($_POST['send_reply'])) {
 
         $date = date("Y-m-d H:i:s");
 
-            $subjects = $subject;
-            $company_email = $comp_email;
-            $company = "Sibol-PINOY Management Consultancy";
+        $subjects = $subject;
+        $company_email = $comp_email;
+        $company = "Sibol-PINOY Management Consultancy";
 
-            $message = '';
-            $message .= "<p>".$reply."</p>";
+        $message = '';
+        $message .= '<br>Hi! Ms/Mr.'.' '.$recipient_name;
+        $message .= "<p>".$reply."</p>";
 
-            $body = "";
+        $body = "";
 
-            $body .="From: " .$company. "<br>";
-            $body .="Email :" . $company_email. "<br>";
-            $body .="Message :" .$message. "<br>";
+        $body .="From: " .$company. "<br>";
+        $body .="Email :" . $company_email. "<br>";
+        $body .="Message :" .$message. "<br>";
+        
+        require '../../PHPMailer/src/Exception.php';
+        require '../../PHPMailer/src/PHPMailer.php';
+        require '../../PHPMailer/src/SMTP.php';
+
+        $mail = new PHPMailer\PHPMailer\PHPMailer();
+
+        $mail->isSMTP();                      // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com';       // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;               // Enable SMTP authentication
+        $mail->Username = 'itdept.sibolpinoy@gmail.com';   // SMTP username
+        $mail->Password = 'gsmprrixmbecdpzc';   // SMTP password
+        $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 587;                    // TCP port to connect to
+        $mail->setFrom($company_email, $company);
+        $mail->addReplyTo($company_email, $company);
+
+        // Add a recipient
+        $mail->addAddress($recipient_email);
+
+        $mail->addCC($carbon_copy);
+        //$mail->addBCC('bcc@example.com');
+
+        // Set email format to HTML
+        $mail->isHTML(true);
+
+        // Mail subject
+        $mail->Subject = $subject;
+
+        // Mail body content
+        // $bodyContent = '<h1>How to Send Email from Localhost using PHP by InfoTech</h1>';
+        // $bodyContent .= '<p>This HTML email is sent from the localhost server using PHP by <b>TechWAR</b></p>';
+        $mail->Body = $body;
+
+        if(!$mail->send()) {
+            header("Location: ../inbox.php?error=message_not_sent");
+            exit();
+        } else {
+            if($client_id !=''){
+
+                $email_record_query = "INSERT INTO `sent_email`( `client_uniID`, `email_add`, `loginId`, `company_email`, `subject`, `reply`, `action`, `date_reply`) VALUES ('$client_id','$recipient_email','$adminid','$comp_email','$subject','$reply','$action','$date')";
             
-            require '../../PHPMailer/src/Exception.php';
-            require '../../PHPMailer/src/PHPMailer.php';
-            require '../../PHPMailer/src/SMTP.php';
-    
-            $mail = new PHPMailer\PHPMailer\PHPMailer();
-    
-            $mail->isSMTP();                      // Set mailer to use SMTP
-            $mail->Host = 'smtp.gmail.com';       // Specify main and backup SMTP servers
-            $mail->SMTPAuth = true;               // Enable SMTP authentication
-            $mail->Username = 'itdept.sibolpinoy@gmail.com';   // SMTP username
-            $mail->Password = 'gsmprrixmbecdpzc';   // SMTP password
-            $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted
-            $mail->Port = 587;                    // TCP port to connect to
-            $mail->setFrom($company_email, $company);
-            $mail->addReplyTo($company_email, $company);
-    
-            // Add a recipient
-            $mail->addAddress($recipient_email);
-    
-            $mail->addCC($carbon_copy);
-            //$mail->addBCC('bcc@example.com');
-    
-            // Set email format to HTML
-            $mail->isHTML(true);
-    
-            // Mail subject
-            $mail->Subject = $subject;
-    
-            // Mail body content
-            // $bodyContent = '<h1>How to Send Email from Localhost using PHP by InfoTech</h1>';
-            // $bodyContent .= '<p>This HTML email is sent from the localhost server using PHP by <b>TechWAR</b></p>';
-            $mail->Body = $body;
-    
-            if(!$mail->send()) {
-                header("Location: ../inbox.php?error=Message_not_sent");
-                exit();
-            } else {
-               $email_record_query = "INSERT INTO `sent_email`( `client_uniID`, `email_add`, `loginId`, `company_email`, `subject`, `reply`, `action`, `date_reply`) VALUES ('$client_id','$recipient_email','$adminid','$comp_email','$subject','$reply','$action','$date')";
-               
-               if($conn->query($email_record_query)===TRUE){
-
+                if($conn->query($email_record_query)===TRUE){
                     $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminid', '$action','$username', '$date')";
                         
                     if($conn->query($create_adminlog)===TRUE){
-                        header("Location: ../consultation?success=reply_email_successfully");
+                        header("Location: ../landing?success=email_sent_successfully");
                         exit(); 
                     }else{
                         header("Location: ../consultation?error=adminlog_error");
                         exit();
                     }
-
+    
                 }else{   
                     header("Location: ../inbox.php?error=email_query_error");
                     exit(); 
                 }
+                
+            }else{
+
+                $cilentID_query = "SELECT `client_uniID` FROM `client` WHERE `email_add`='$recipient_email'";
+                $cilentID_query_result = $conn->query($cilentID_query);
+                if ($cilentID_query_result->num_rows > 0) { 
+                    while($row = $cilentID_query_result->fetch_assoc()) {
+                        $client_id = $row['client_uniID'];
+                    }
+                }else{
+                    $client_id = 'Not Client';
+                }
+    
+                $email_record_query = "INSERT INTO `sent_email`( `client_uniID`, `email_add`, `loginId`, `company_email`, `subject`, `reply`, `action`, `date_reply`) VALUES ('$client_id','$recipient_email','$adminid','$comp_email','$subject','$reply','$action','$date')";
+                
+                if($conn->query($email_record_query)===TRUE){
+                        $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminid', '$action','$username', '$date')";
+                            
+                        if($conn->query($create_adminlog)===TRUE){
+                            header("Location: ../landing?success=email_sent_successfully");
+                            exit(); 
+                        }else{
+                            header("Location: ../consultation?error=adminlog_error");
+                            exit();
+                        }
+    
+                    }else{   
+                        header("Location: ../inbox.php?error=email_query_error");
+                        exit(); 
+                    }
+
             }
+
+            
+        }
               
        
     }else{

@@ -6,7 +6,6 @@
         $id = mysqli_real_escape_string($conn, $_POST['id']);
         $password = mysqli_real_escape_string($conn, $_POST['resetpass']);
         
-
         $sql = "SELECT * FROM `login` WHERE `loginId`=?";
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt, $sql)) {
@@ -25,7 +24,7 @@
                 
                 if($conn->query($sql)){   
                     $username_query = "SELECT `username` FROM `login` WHERE loginId = '$id'";
-                    $username_query_result =$conn->query($username_query);
+                    $username_query_result = $conn->query($username_query);
                     if($username_query_result > 0){
                         while($row = $username_query_result->fetch_assoc()){
                             $username = $row['username'];
@@ -41,15 +40,25 @@
                         header( "Location: ../admin.con?success=password_reset_successfully" );
                         exit(); 
                     }else{
-                        header( "Location: ../admin.con?error=password_reset_error" );
+                        header( "Location: ../admin.con?error=adminlog_error" );
                         exit(); 
                     }
+
+                }else{
+                    header( "Location: ../admin.con?error=password_reset_failed" );
+                    exit(); 
                 }
+
+            }else{
+                header( "Location: ../admin.con?error=username_not_exist" );
+                exit();
             }
 
         }
-
         
+    }else{
+        header( "Location: ../admin.con" );
+        exit();
     }
 
 ?>

@@ -3,7 +3,7 @@
   
   <!-- Header Start -->
   <?php
-      require "layout.part/admin.header.php";
+    require "layout.part/admin.header.php";
   ?>
   <!-- Header End -->
 
@@ -30,7 +30,9 @@
     <!-- THIS IS FOR SIDE NAV-BAR and OFF CANVA START HERE -->
     <?php
       require "layout.part/admin.side.navbar.php";
+      require_once 'layout.part/dashboard.php';
     ?>
+    
     <!-- THIS IS FOR SIDE NAV-BAR and OFF CANVA END HERE -->
 
     <main class="mt-5 pt-2">
@@ -48,93 +50,176 @@
                 <h5 class="page-header">Events Reservation Reports Table</h5>
             </div>
         </div>
-        <!-- THIS IS HEADER PAGE END HERE -->
+        <div class="row">
         
-        <!-- THIS IS CREATE NEW EVENTS FORM START HERE -->
-        <!-- <div class="p-2">
-            <form action="comptroller/event.control.php" enctype="multipart/form-data" method="post">
-                <div class="">
-                    <div class="">
-                        <div class="row">
-                            <div class="col-lg-4" style="min-height: 400px;">
-                                <label for="#eventID">Event ID</label>
-                                <input type="text" id="eventID" name="eventID" class="form-control w-50" readonly>                           
-                                <div class="position-relative" >
-                                    <div class="pb-2" >
-                                        <label>Upload Image Here</label>
-                                        <img class="img-fluid w-100" style="height: 250px" src="svg/default_new_image.jpg">  
-                                    </div>
-                                </div>
-                                <input type="file" name="event_image">
-                                       
-                            </div>
-                            <div class="col-lg-8">
-                                
-                                <div class="bg-white text-dark mb-2">
-                                    <label>Header</label>
-                                    <input class="w-100 h-100 p-1" type="text" id="header" name="header" placeholder="e.g Avail UP TO 50% OFF on any of the following Training-Workshops below:">    
-                                </div>
-                                
-                                <div class="bg-white text-dark mb-2">
-                                    <label>Event Title:</label>
-                                    <input class="w-100 h-100 p-1" type="text" id="event_title" name="event_title" placeholder="e.g ISO 9001:2015 Requirements and internal Aquality Audit">  
-                                </div>
-                                   
-                                <div class="bg-white text-dark pe-3 second-header">
-                                    <label>Date And Time </label>
-                                    <input class="w-50 h-100 p-1" type="text" id="date_and_time" name="event_date" placeholder="e.g March 5, 6, 12 & 13, 2022 | 9AM-5PM">
-                                    
-                                    <label>Start Date</label>
-                                    <input class="w-30 h-100 p-1" type="date" id="date_start" name="start_date"> 
-                                </div>
-
-                                <div class="mb-2"> 
-                                    <label>Registration Fees </label>
-                                    <input class="w-50 p-1" type="text" id="reg_fee" name="reg_fee" placeholder="e.g Regular Fee: P2,000.00">
-
-                                    <label>Status</label>
-                                    <select class="w-40 p-2" name="status" id="">
-                                            <option value="">Select Status</option>
-                                            <option value="sample">sample</option>
-                                            <option value="published">published</option>
-                                            <option value="unpublished">unpublished</option>
-                                    </select> 
-                                </div>
-
-                                <div class="mb-2">
-                                    <label>Description 1</label>
-                                    <input class="w-100 p-1" type="text" id="desc_1" name="desc_one" placeholder="e.g Early Bird Discount (20% OFF): P1,600.00/Training if you register until March 1, 2022">
-                                </div>
-
-                                
-                                <div class="mb-2">
-                                    <label>Description 2</label>
-                                    <input class="w-100 p-1" type="text" id="desc_2" name="desc_two" placeholder="e.g Student & Group Registration (Min. of 3 pax | 50% OFF): P1,000.00/Pax.">
-                                </div>
-                               
-                                
-                                <input type="text" hidden name="action" value="created new event">
-                                <input type="text" hidden name="action1" value="update event">   
-                                <input type="text" hidden name="action2" value="delete event"> 
-                                
-                                <div class="row col-md-12">
-                                    <div class="col-md-6">
-                                        <button type="submit" name="event_published" class="btn bg-coloured text-white my-2" >
-                                        <i class="bi bi-folder-plus"></i> Create Event
-                                        </button>
-                                    </div>
-                                    <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
-                                        <button  type="submit" name="edit_event" class="btn bg-coloured text-white my-2" "><i class="bi bi-vector-pen"></i> Update</button>
-                                        <button  type="submit" name="delete_services" class="btn bg-coloured text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <form action="event.report" method="POST">
+                <div class="col-md-12 p-3 d-flex">
+                    <div class="col-md-2">
+                        <select class="form-select form-select-sm" name="eventid">
+                        <option selected>Select Event ID</option>
+                            <?php
+                                $eventid_query = "SELECT `eventID` FROM `events` ";
+                                $eventid_query_results = $conn->query($eventid_query);
+                                if(mysqli_num_rows($eventid_query_results) > 0){
+                                    foreach($eventid_query_results as $eventid){
+                                        ?>
+                                            <option value="<?= $eventid['eventID'] ?>"><?= $eventid['eventID'] ?></option>
+                                        <?php
+                                    }
+                                }
+                            ?>
+                        </select>
                     </div>
+                    <div class="col-md-6">
+                        <select class="form-select form-select-sm" name="evenettitle">
+                        <option selected>Open this select menu</option>
+                        <?php
+                            $event_title_query = "SELECT `event_title` FROM `events` ";
+                            $event_title_query_results = $conn->query($event_title_query);
+                            if(mysqli_num_rows($event_title_query_results) > 0){
+                                foreach($event_title_query_results as $event_title){
+                                    ?>
+                                        <option value="<?= $event_title['event_title'] ?>"><?= $event_title['event_title'] ?></option>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <button type="submit" name="search"><i class="bi bi-search"></i></button>
                 </div>
             </form>
-        </div> -->
-        <!-- THIS IS CREATE NEW EVENTS FORM END HERE -->
+        
+            <div class="col-md-12 p-3">
+                <?php
+                    $id = '';
+                    $evenettitle = '';
+                    $count = '';
+                    $name = '';   
+                    if(isset($_POST['search'])){
+                        $id = $_POST['eventid'];
+                        $evenettitle = $_POST['evenettitle'];
+                    }
+
+                    $event_partcipants_query = "SELECT tb1.eventID, tb2.event_title, COUNT(*) AS `participants` FROM event_reservation_reports tb1 INNER JOIN events tb2 ON tb1.eventID = tb2.eventID WHERE tb1.eventID='$id' AND tb2.event_title='$evenettitle' GROUP BY tb2.event_title";
+
+                    $event_partcipants_query_run = mysqli_query($conn, $event_partcipants_query);
+                   
+                    while ($row = mysqli_fetch_assoc($event_partcipants_query_run)) {
+                        $count = $row['participants'];
+                        $name = $row['event_title'];
+                    }
+            
+                ?>
+                <script type="text/javascript">
+
+                    google.charts.setOnLoadCallback(eventChart);
+                    function eventChart() {
+                        var data = google.visualization.arrayToDataTable([
+                        ['Events Name', 'Participants'],
+
+                        <?php
+                            $org_count_query = "SELECT tb1.eventID, tb2.event_title, tb1.client_uniID, tb3.organization, COUNT(*) AS `orgs_count` FROM (event_reservation_reports tb1 INNER JOIN events tb2 ON tb1.eventID = tb2.eventID) INNER JOIN client tb3 ON tb1.client_uniID = tb3.client_uniID WHERE tb1.eventID='$id' AND tb2.event_title='$evenettitle' GROUP BY tb3.organization";
+
+                            $org_count_query_run = mysqli_query($conn, $org_count_query);
+                            $org_count = array();
+                            while ($row = mysqli_fetch_assoc($org_count_query_run)) {
+                                $org_count = "['".$row['organization']."',".$row['orgs_count']."],";
+                            
+                                echo $org_count;
+                            }
+                    
+                        ?>
+                    ]);
+
+                    var options = {
+                        legend:{position: 'bottom', textStyle: {color: 'black', fontSize: 12}},
+                        title: 'Participants Organization',
+                        is3D: true,
+                        width: 600, 
+                        height: 500,
+                    };
+
+                    var chart = new google.visualization.PieChart(document.getElementById('participantschart'));
+                    chart.draw(data, options);
+                    }
+
+                    google.charts.setOnLoadCallback(positionChart);
+                    function positionChart() {
+                        var data = google.visualization.arrayToDataTable([
+                        ['Name', 'Frequency'],
+
+                        <?php
+                            $org_count_query = "SELECT tb1.eventID, tb2.event_title, tb1.client_uniID, tb3.position, COUNT(*) AS `pos_count` FROM (event_reservation_reports tb1 INNER JOIN events tb2 ON tb1.eventID = tb2.eventID) INNER JOIN client tb3 ON tb1.client_uniID = tb3.client_uniID WHERE tb1.eventID='$id' AND tb2.event_title='$evenettitle' GROUP BY tb3.position";
+
+                            $org_count_query_run = mysqli_query($conn, $org_count_query);
+                            $org_count = array();
+                            while ($row = mysqli_fetch_assoc($org_count_query_run)) {
+                                $org_count = "['".$row['position']."',".$row['pos_count']."],";
+                            
+                                echo $org_count;
+                            }
+                    
+                        ?>
+
+                        // ['2014', 1000],
+                        // ['2015', 1170],
+                        // ['2016', 660,],
+                        // ['2017', 1030]
+                        ]);
+
+                        var options = {
+                        legend: { position: "none" },
+                        width: 500, 
+                        height: 400,
+                        bar: { groupWidth: '10%' },    
+                        chart: {
+                            title: 'Position Frequency',
+                        }
+                        };
+
+                        var chart = new google.charts.Bar(document.getElementById('positionCount'));
+                        chart.draw(data, google.charts.Bar.convertOptions(options));
+                    }
+                </script>
+                <div class="col-md-12 d-flex">
+                    <div class="col-md-2 pt-3" <?php 
+                            if($id && $evenettitle != ''){
+                                echo '';
+                            }else{
+                                echo 'hidden';
+                            }
+
+                        ?>>
+                        <div class="text-center" style="font-size: 100px"><i class="bi bi-people-fill"></i> <?= $count ?></div>
+                        <div class="text-center"><?= $name ?></div>	
+                    </div>    
+                <?php
+                    if($id && $evenettitle != ''){
+                        echo '
+                            <div class="col-md-5">
+                                <div id="participantschart"></div>
+                            </div>
+                            <div class="col-md-5">
+                                <div id="positionCount"></div>
+                            </div>
+                        ';
+                        
+                    }else {
+                        echo '
+                            <div class="">
+                                <div id="top_x_div"></div>
+                            </div>
+                        ';
+                    }
+                ?>
+            
+                </div>
+                
+            </div>
+        </div>
+        <!-- THIS IS HEADER PAGE END HERE -->
+        
 
         <!-- THIS IS EVENTS TABLE START HERE -->
         <div class="row col-md-12 my-3">
@@ -146,6 +231,7 @@
             <div class="form-group float-end col-md-6">
                 <input type="text" class="form-control inputSearch" id="inputSearch" placeholder="Search..">
             </div>
+            
 
             <div class="card-body">
                 <div class="table-responsive">
@@ -208,6 +294,12 @@
                                     </tr>
                                     <?php
                                 }
+                            }else{
+                                echo '
+                                    <tr>
+                                        <td class="text-center" colspan="12"><h4>No Event Reservation Approved yet.</h4></td>
+                                    </tr>
+                                ';
                             }
 
                             ?>
