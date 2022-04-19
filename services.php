@@ -28,9 +28,9 @@
     <section>
         <div class="sevicestContent" >
             <div class="textServiceContent">
-                <div class="textTextService">Business Consultancy</div>
-                <div class="textTextService">Technological Solutions</div>
-                <div class="textTextService">Training and Development</div>
+                <div class="textTextService">Business Consultancy,</div>
+                <div class="textTextService">Technological Solutions,</div>
+                <div class="textTextService">Training and Development,</div>
                 <div class="textTextService">Research Development</div>
             </div>
         </div>
@@ -64,7 +64,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-10 mx-5 pt-3 small-container">
-                                                <small class="smaller-text"><?= $serv_load['service_desc']?>
+                                                <small class="mb-4 desc-font"><?= $serv_load['service_desc']?>
                                                 </small>  
                                             </div>
                                             <div class="">
