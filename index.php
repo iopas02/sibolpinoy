@@ -43,7 +43,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="text-center pt-3">
                         <div class="p-4">
-                            <i class="fa fa-3x fa-comments text-primary mb-4"></i>
+                            <i class="fa fa-3x fa-comments text-primary mb-4 "></i>
                             <h5 class="mb-3 secondary-font-two">Passion & Commitment</h5>
                             <!-- <p class="smaller-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus nostrum autem, ab vel voluptates molestias?</p> -->
                         </div>
