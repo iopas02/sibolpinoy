@@ -153,7 +153,7 @@
                 <div class="row col-md-12">
                     <?php
                         $tatus = 'published';
-                        $load_event_query = "SELECT * FROM `events` WHERE `status`='$tatus' ORDER BY `date_start` DESC";
+                        $load_event_query = "SELECT * FROM `events` WHERE `status`='$tatus' ORDER BY `date_start`";
                         $load_event_query_result = mysqli_query($conn, $load_event_query );
                         if(mysqli_num_rows($load_event_query_result) > 0 ){
                             foreach($load_event_query_result as $published_event){
