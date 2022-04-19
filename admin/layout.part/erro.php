@@ -308,17 +308,32 @@
         </div>';
     }else if(strpos($fullUrl, "error=please_re_enter_event_start_date") == true ){
         echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <i class="bi bi-exclamation-triangle-fill"></i><strong> Please Set Again the "Start Date"!</strong> you need to set again the start date of the event when editing.   
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Please Set Again the "Start Date!"</strong> you need to set again the start date of the event when editing.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }else if(strpos($fullUrl, "error=update_event_status_failed") == true ){
         echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <i class="bi bi-exclamation-triangle-fill"></i><strong> Event Status Update Failed"!</strong> Please check your data field and databse attributes.   
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Event Status Update Failed!</strong> Please check your data field and databse attributes.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }else if(strpos($fullUrl, "error=image_update_failed") == true ){
         echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <i class="bi bi-exclamation-triangle-fill"></i><strong> Event Image Update Failed"!</strong> Please check your data field and databse attributes.   
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Event Image Update Failed!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=consultation_already_approved") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Consultation Request is Already Exist!</strong> this request is already in the Consultation Report list, Please check and verify.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=consultation_update_status_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Consultation Request Failed to Change the Status!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=consultation_reports_insertion_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Consultation Request Failed to move in the Consultation Report!</strong> Please check your data field and databse attributes.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
@@ -483,6 +498,18 @@
     else if(strpos($fullUrl, "success=event_image_update_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
         <i class="bi bi-info-circle"></i><strong> Event Image update!</strong> you successfully change image of event.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
+    else if(strpos($fullUrl, "success=consultation_report_successfully") == true ){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-info-circle"></i><strong> You Successfully Approve Consultation Request!</strong> The consultation request in now move in Consultation Report, Please check and verify.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
+    else if(strpos($fullUrl, "success=consultation_update_successfully") == true ){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-info-circle"></i><strong> Consultation Request Declined!</strong> You Declined Consultation Request.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }

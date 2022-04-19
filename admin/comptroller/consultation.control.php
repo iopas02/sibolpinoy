@@ -79,7 +79,7 @@ if(isset($_POST['approved'])){
                             }
 
                         }else{
-                            header("Location: ../consultation?error=scheduler_failed_to_add");
+                            header("Location: ../consultation?error=failed_to_insert_in calendar");
                             exit();
                         }
 
@@ -98,7 +98,7 @@ if(isset($_POST['approved'])){
         }   
 
     }else{
-        header("Location: ../consultation?error=please_select_sub_categories_title");
+        header("Location: ../consultation?error=empty_fields");
         exit();
     }
     
@@ -134,7 +134,7 @@ if(isset($_POST['declined'])){
         }
 
     }else{
-        header("Location: ../consultation?error=consultation_failed_to_update");
+        header("Location: ../consultation?error=consultation_update_status_failed");
         exit();
     }
 
@@ -210,7 +210,7 @@ if(isset($_POST['send'])){
         $mail->Body = $body;
 
         if(!$mail->send()) {
-            header("Location: ../consultation?error=email_is_invalid");
+            header("Location: ../consultation?error=email_query_failed");
             exit();
         } else {
 
@@ -236,7 +236,7 @@ if(isset($_POST['send'])){
         
 
     }else{
-        header("Location: ../consultation?error=textarea_or_company_email_is_empty_field");
+        header("Location: ../consultation?error=empty_fields");
         exit();
     }
 }

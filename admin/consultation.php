@@ -36,6 +36,9 @@
 
     <main class="mt-5 pt-3">
         <div class="container-fluid p-4">
+            <?php
+                include_once 'layout.part/erro.php';
+            ?>
             <div class="row">
             <div class="col-md-12 my-2">
                 <h4 class="page-header">Consultation</h4>
