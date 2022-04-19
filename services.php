@@ -284,33 +284,33 @@
                     <img class="border rounded-circle p-2 mx-auto mb-3" src="img/client_1.PNG" style="width: 80px; height: 80px;">
                     <h5 class="mb-0 second-header">Mr. Juan Dela Cluz</h5>
                     <p>Y.M.C.A Manila</p>
-                    <div class="testimonial-text text-dark text-center p-4 bg-light">
-                    <p class="mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, adipisci!</p>
-                    </div>
+                    <!-- <div class="testimonial-text text-dark text-center p-4 bg-light"> -->
+                    <!-- <p class="mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, adipisci!</p> -->
+                    <!-- </div> -->
                 </div>
                 <div class="testimonial-item text-center" >
                     <img class="border rounded-circle p-2 mx-auto mb-3" src="img/client_2.PNG" style="width: 80px; height: 80px;">
                     <h5 class="mb-0 second-header">Mrs. Marites</h5>
                     <p>Virgen Milagrosa University Foundation</p>
-                    <div class="testimonial-text text-dark text-center p-4 bg-light">
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut tempore accusantium? Explicabo, quia reprehenderit.</p>
-                    </div>
+                    <!-- <div class="testimonial-text text-dark text-center p-4 bg-light"> -->
+                    <!-- <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut tempore accusantium? Explicabo, quia reprehenderit.</p> -->
+                    <!-- </div> -->
                 </div>
                 <div class="testimonial-item text-center" >
                     <img class="border rounded-circle p-2 mx-auto mb-3" src="img/client_3.PNG" style="width: 80px; height: 80px;">
                     <h5 class="mb-0 second-header">Dr. Jose Marua</h5>
                     <p>Magna Prime Chemical Tech. inc.</p>
-                    <div class="testimonial-text text-dark text-center p-4 bg-light">
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dicta quaerat quos, vel animi, fugiat similique ipsa illo ipsam, corrupti aspernatur adipisci. Nobis.</p>
-                    </div>
+                    <!-- <div class="testimonial-text text-dark text-center p-4 bg-light"> -->
+                    <!-- <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dicta quaerat quos, vel animi, fugiat similique ipsa illo ipsam, corrupti aspernatur adipisci. Nobis.</p> -->
+                    <!-- </div> -->
                 </div>
                 <div class="testimonial-item text-center"> 
                     <img class="border rounded-circle p-2 mx-auto mb-3" src="img\client_4.PNG" style="width: 80px; height: 80px;">
                     <h5 class="mb-0 second-header">Engr. Maria Fully Grace</h5>
                     <p>Romblon State University</p>
-                    <div class="testimonial-text text-dark text-center p-4 bg-light">
-                        <p class="mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et tenetur blanditiis repellat rem recusandae ex!</p>
-                    </div>
+                    <!-- <div class="testimonial-text text-dark text-center p-4 bg-light"> -->
+                        <!-- <p class="mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et tenetur blanditiis repellat rem recusandae ex!</p> -->
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
