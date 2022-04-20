@@ -223,6 +223,12 @@
                                     <span>Message</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="event.archive" class="nav-link px-2 text-normal">
+                                    <span class="me-2"><i class="bi bi-journal-minus"></i></span>
+                                    <span>Event</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>    
                 </li>
