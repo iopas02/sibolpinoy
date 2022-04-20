@@ -288,7 +288,7 @@
                             <input class="col-md-12" type="text" name="c_id" id="c_id" hidden>    
                             <input class="col-md-12" type="text" name="e_add" id="e_add" hidden>
                         </div>
-                        <h4 class="text-center">Are you Sure you want to delete all inforamtion of this Client?!</h4>
+                        <h4 class="text-center">Are you sure you want to delete all inforamtion of this Client?!</h4>
                         
                         <button type="submit" class="btn bg-coloured text-white m-1  float-right" name="cancel">Cancel</button>
                         <button type="submit" class="btn bg-blue text-white m-1  float-right" name="deleteallinfo">Delete All Info</button>
