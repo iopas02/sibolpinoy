@@ -318,7 +318,7 @@
         </div>';
     }else if(strpos($fullUrl, "error=image_update_failed") == true ){
         echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <i class="bi bi-exclamation-triangle-fill"></i><strong> Event Image Update Failed!</strong> Please check your data field and databse attributes.   
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Image Update Failed!</strong> Please check your data field and databse attributes.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }else if(strpos($fullUrl, "error=consultation_already_approved") == true ){
@@ -376,6 +376,46 @@
         <i class="bi bi-exclamation-triangle-fill"></i><strong> Event Failed to move in Archive!</strong> Please check your data field and databse attributes.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
+    }else if(strpos($fullUrl, "error=create_celebration_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Creating New Celebration Failed!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=please_select_images") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Image attach File is Empty!</strong> Please attached image file before submitting.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=celebration_updated_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Failed to Update Celebration!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=celebretion_status_update_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Celebration Status Update Failed!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=celebration_not_exist") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Celebration not on the List!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=celebration_archive_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Celebration Failed to move in the Archive!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=celebration_delete_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Failed to Delete Celebration!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }else if(strpos($fullUrl, "error=celebration_delete_in_scheduler_failed") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Celebration is Failed to remove in the Calendar!</strong> Please check your data field and databse attributes.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
     }
     
 
@@ -423,67 +463,67 @@
     }
     else if(strpos($fullUrl, "success=cancellation_success") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i><strong> You cancelled your activity!</strong> you are now redirection to this page.   
+        <i class="bi bi-info-circle"></i><strong> You cancelled your activity!</strong> You are now redirection to this page.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
     else if(strpos($fullUrl, "success=client_delete_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i><strong> Client All Information is deleted successfully!</strong> you delete client all information and records.   
+        <i class="bi bi-info-circle"></i><strong> Client All Information is deleted successfully!</strong> You delete client all information and records.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
     else if(strpos($fullUrl, "success=email_sent_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i><strong> Message is sent!</strong> you successfully send message to the client/users.   
+        <i class="bi bi-info-circle"></i><strong> Message is sent!</strong> You successfully send message to the client/users.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
     else if(strpos($fullUrl, "success=new_created_services_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i><strong> New Services added!</strong> you successfully create new services.   
+        <i class="bi bi-info-circle"></i><strong> New Services added!</strong> You successfully create new services.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
     else if(strpos($fullUrl, "success=services_update_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i><strong> Service is Update!</strong> you successfully updated services.   
+        <i class="bi bi-info-circle"></i><strong> Service is Update!</strong> You successfully updated services.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
     else if(strpos($fullUrl, "success=status_update_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i><strong> Status is Update!</strong> you successfully updated status.   
+        <i class="bi bi-info-circle"></i><strong> Status is Update!</strong> You successfully updated status.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
     else if(strpos($fullUrl, "success=service_image_update_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i><strong> Service Image update!</strong> you successfully change image of service.   
+        <i class="bi bi-info-circle"></i><strong> Service Image update!</strong> You successfully change image of service.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
     else if(strpos($fullUrl, "success=new_services_category_upload") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i><strong> New Category added!</strong> you successfully create new category.   
+        <i class="bi bi-info-circle"></i><strong> New Category added!</strong> You successfully create new category.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
     else if(strpos($fullUrl, "success=category_update_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i><strong> Category is Update!</strong> you successfully updated Category.   
+        <i class="bi bi-info-circle"></i><strong> Category is Update!</strong> You successfully updated Category.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
     else if(strpos($fullUrl, "success=new_services_sub_category_upload") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i><strong> New Sub-Category added!</strong> you successfully create new sub-category.   
+        <i class="bi bi-info-circle"></i><strong> New Sub-Category added!</strong> You successfully create new sub-category.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
     else if(strpos($fullUrl, "success=sub_category_update_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i><strong> Sub-Category is Update!</strong> you successfully updated Sub-Category.   
+        <i class="bi bi-info-circle"></i><strong> Sub-Category is Update!</strong> You successfully updated Sub-Category.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
@@ -495,49 +535,49 @@
     }
     else if(strpos($fullUrl, "success=category_archive_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i><strong> Category is move in the archive!</strong> you successfully move Service Category in the archive.   
+        <i class="bi bi-info-circle"></i><strong> Category is move in the archive!</strong> You successfully move Service Category in the archive.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
     else if(strpos($fullUrl, "success=service_archive_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i><strong> Service is move in the archive!</strong> you successfully move Service, Category, and Sub-Category in the archive.   
+        <i class="bi bi-info-circle"></i><strong> Service is move in the archive!</strong> You successfully move Service, Category, and Sub-Category in the archive.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
     else if(strpos($fullUrl, "success=event_reservation_reports_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i><strong> Event Reservation is Approve!</strong> you successfully approved event reservation.   
+        <i class="bi bi-info-circle"></i><strong> Event Reservation is Approve!</strong> You successfully approved event reservation.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
     else if(strpos($fullUrl, "success=event_reservation_update_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i><strong> Event Reservation is Decline!</strong> you successfully declined event reservation.   
+        <i class="bi bi-info-circle"></i><strong> Event Reservation is Decline!</strong> You successfully declined event reservation.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
     else if(strpos($fullUrl, "success=new_event_created_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i><strong> New Event Successfully Created!</strong> you successfully create new event.   
+        <i class="bi bi-info-circle"></i><strong> New Event Successfully Created!</strong> You successfully create new event.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
     else if(strpos($fullUrl, "success=event_updated_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i><strong> Event Successfully Update!</strong> you successfully update the event.   
+        <i class="bi bi-info-circle"></i><strong> Event Successfully Update!</strong> You successfully update the event.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
     else if(strpos($fullUrl, "success=event_status_updated_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i><strong> Event Status Successfully Update!</strong> you successfully update the event status.   
+        <i class="bi bi-info-circle"></i><strong> Event Status Successfully Update!</strong> You successfully update the event status.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
     else if(strpos($fullUrl, "success=event_image_update_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-info-circle"></i><strong> Event Image update!</strong> you successfully change image of event.   
+        <i class="bi bi-info-circle"></i><strong> Event Image update!</strong> You successfully change image of event.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }
@@ -562,6 +602,36 @@
     else if(strpos($fullUrl, "success=event_delete_successfully") == true ){
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
         <i class="bi bi-info-circle"></i><strong> Event is Successfully Deleted!</strong> You Delete event.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
+    else if(strpos($fullUrl, "success=new_created_celebration_successfully") == true ){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-info-circle"></i><strong> New Celebration Created Successfully!</strong> You Create new Celebration.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
+    else if(strpos($fullUrl, "success=celebration_updated_successfully") == true ){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-info-circle"></i><strong> Celebration is Update!</strong> You successfully updated Celebration.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
+    else if(strpos($fullUrl, "success=celebretion_status_update_successfully") == true ){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-info-circle"></i><strong> Celebration Status Successfully Update!</strong> You successfully update the celebration status.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
+    else if(strpos($fullUrl, "success=celebration_image_update_successfully") == true ){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-info-circle"></i><strong> Celebration Image update!</strong> You successfully change image of celebration.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
+    else if(strpos($fullUrl, "success=celebration_delete_successfully") == true ){
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="bi bi-info-circle"></i><strong> Celebration is Successfully Deleted!</strong> You Delete Celebration.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
     }

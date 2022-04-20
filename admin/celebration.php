@@ -43,6 +43,9 @@
 
         <!-- THIS IS HEADER PAGE START HERE -->
         <div class="container-fluid">
+            <?php
+                include_once 'layout.part/erro.php';
+            ?>
             <div class="row">
             <div class="col-md-12 mb-4">
                 <h5 class="page-header">Create New Celebration</h5>
@@ -58,11 +61,13 @@
                         <div class="row">
                             <div class="col-lg-4" style="min-height: 400px;">
                                 <label for="#eventID">Celebration ID</label>
-                                <input type="text" id="keepingID" name="eventID" class="form-control w-50" readonly>                           
+                                <input type="text" id="keepingID" name="eventID" class="form-control w-50" readonly>
+                                <small>( This is an Auto generated celebration ID )</small>                           
                                 <div class="position-relative" >
                                     <div class="pb-2" >
                                         <label>Upload Image Here</label>
-                                        <img class="img-fluid w-100" style="height: 250px" src="svg/default_new_image.jpg">  
+                                        <img class="img-fluid w-100" style="height: 250px" src="svg/default_new_image.jpg">
+                                        <small>( only jpeg, jpg, png, gif file extension and limit to 25mb can be upload here )</small>  
                                     </div>
                                 </div>
                                 <input type="file" name="celeb_image">
@@ -90,12 +95,13 @@
                                     <input class="w-100 p-1" type="text" id="message2" name="message2" placeholder="e.g `` ">
                                 </div>
 
+                                <small>( You have to set again the "Date Start" when you edit Celebration )</small> 
                                 <div class="col-md-12 d-flex">
                                     <div class="m-2">
-                                        <label>Date Starts</label>
+                                        <label>Date Start</label>
                                         <input class="w-60 p-1" type="date" id="" name="datestart">
                                     </div>
-
+                                    
                                     <div class="m-2"> 
                                         <label>Status</label>
                                         <select class="w-40 p-2" name="status" id="">
@@ -112,17 +118,17 @@
                                 <input type="text" hidden name="admin" value="<?= $rusername?>">
                                 <input type="text" hidden name="action" value="created new celebration post">
                                 <input type="text" hidden name="action1" value="update celebration">   
-                                <input type="text" hidden name="action2" value="delete celebation"> 
+                                <input type="text" hidden name="action2" value="delete celebration"> 
                                 
                                 <div class="row col-md-12">
                                     <div class="col-md-6">
-                                        <button type="submit" name="create_celeb" class="btn bg-coloured text-white my-2" >
+                                        <button type="submit" name="create_celeb" class="btn bg-blue text-white my-2" >
                                         <i class="bi bi-folder-plus"></i> Create Celebration Post
                                         </button>
                                     </div>
                                     <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
                                         <button  type="submit" name="edit_celeb" class="btn bg-coloured text-white my-2" "><i class="bi bi-vector-pen"></i> Update</button>
-                                        <button  type="submit" name="delete_services" class="btn bg-coloured text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
+                                        <button  type="submit" name="delete_celeb" class="btn bg-dark text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
                                     </div>
                                 </div>
                             </div>
@@ -186,7 +192,7 @@
                             $total_number_of_page = ceil($total_records / $total_records_per_page);
                             $second_last = $total_number_of_page - 1;
 
-                            $celeb_reload_query = "SELECT tb1.keepingID, tb1.commemoration, tb1.header, tb1.image, tb1.message1, tb1.message2, tb1.date_start, tb1.status, tb1.loginId, tb2.username, tb1.action, tb1.uploaded, tb1.updated FROM celebration tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId";
+                            $celeb_reload_query = "SELECT tb1.keepingID, tb1.commemoration, tb1.header, tb1.image, tb1.message1, tb1.message2, tb1.date_start, tb1.status, tb1.loginId, tb2.username, tb1.action, tb1.uploaded, tb1.updated FROM celebration tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId ORDER BY tb1.keepingID DESC LIMIT 25";
 
                             $celeb_reload_query_result = mysqli_query($conn, $celeb_reload_query);
                             if(mysqli_num_rows($celeb_reload_query_result) > 0 ){

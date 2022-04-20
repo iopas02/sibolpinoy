@@ -4,7 +4,7 @@ include_once('../../connection.php');
 if(isset($_POST['create_celeb'])){
     if($_POST['header'] && $_POST['celeb_title'] && $_POST['message1'] && $_POST['status'] !=''){
 
-        if($_FILES['celeb_image'] !=''){
+        if($_FILES['celeb_image']['name'] !=''){
 
             date_default_timezone_set("Asia/Manila");
 
@@ -69,11 +69,9 @@ if(isset($_POST['create_celeb'])){
                 }
 
             }else{
-                header("Location: ../celebration?error=image_not_supported");
+                header("Location: ../celebration?error=ext_file_not_supported");
                 exit();
             }    
-
-            
 
         }else{
             header("Location: ../celebration?error=please_select_images");
@@ -119,7 +117,7 @@ if(isset($_POST['edit_celeb'])){
             $scheduler_query_result = mysqli_query($conn, $scheduler_query);
 
             if(!$scheduler_query_result){
-                header("Location: ../celebration?error=scheduler_insertion_failed");
+                header("Location: ../celebration?error=failed_to_insert_in calendar");
                 exit();
             }else{
 
@@ -136,11 +134,10 @@ if(isset($_POST['edit_celeb'])){
 
             }
           
-
         }
 
     }else{
-        header("Location: ../celebration?error=id_empty_field");
+        header("Location: ../celebration?error=empty_fields");
         exit();
     }
 }
@@ -220,7 +217,7 @@ if(isset($_POST['update_celeb_stats'])){
      
 
     }else{
-        header("Location: ../celebration?error=empty_field");
+        header("Location: ../celebration?error=empty_fields");
         exit();
     }
 }
@@ -267,7 +264,7 @@ if(isset($_POST['image_update'])){
                     header("Location: ../celebration?error=adminlog_error");
                     exit(); 
                 }else{
-                    header("Location: ../celebration?success=image_update_successfully");
+                    header("Location: ../celebration?success=celebration_image_update_successfully");
                     exit();
                 }
 
@@ -276,15 +273,91 @@ if(isset($_POST['image_update'])){
                 exit();
             }
         }else{
-            header("Location: ../celebration?error=file_not_supported");
+            header("Location: ../celebration?error=ext_file_not_supported");
             exit();
         }
 
     }
     else{
-        header("Location: ../celebration?error=no_image_attach");
+        header("Location: ../celebration?error=please_select_images");
         exit();
     }
 
-    // echo "you're connected!";
+}
+
+if(isset($_POST['delete_celeb'])){
+   if($_POST['eventID'] !=''){
+    date_default_timezone_set("Asia/Manila");
+
+    $eventID = mysqli_real_escape_string($conn, $_POST['eventID']);
+
+    $loginid = mysqli_real_escape_string($conn, $_POST['loginid']);
+    $admin = mysqli_real_escape_string($conn, $_POST['admin']);
+    $action2 = mysqli_real_escape_string($conn, $_POST['action2']);
+    $newstats = 'archive';
+
+    $date = date("Y-m-d H:i:s");
+
+    $celebration_query = "SELECT * FROM `celebration` WHERE `keepingID`='$eventID' ";
+    $celebration_query_result = $conn->query($celebration_query);
+    if($celebration_query_result > 0){
+        while($row = mysqli_fetch_assoc($celebration_query_result)){
+            $commemoration = $row['commemoration'];
+            $header = $row['header'];
+            $image = $row['image'];
+            $message1 = $row['message1'];
+            $message2 = $row['message2'];
+            $date_start = $row['date_start'];
+            $uploaded = $row['uploaded'];
+        }
+
+        $celeb_archive_query = "INSERT INTO `celebration_archive`(`keepingID`, `commemoration`, `header`, `image`, `message1`, `message2`, `date_start`, `status`, `uploaded`, `loginId`, `action`) VALUES ('$eventID','$commemoration','$header','$image','$message1','$message2','$date_start','$newstats','$uploaded','$loginid','$action2')";
+        
+        if($conn->query($celeb_archive_query)===TRUE){
+
+            $delete_celeb_query = "DELETE FROM `celebration` WHERE `keepingID`='$eventID' ";
+            if($conn->query($delete_celeb_query)===TRUE){
+
+                $delete_scheduler_query = "DELETE FROM `scheduler` WHERE `title`='$commemoration'";
+                if($conn->query($delete_scheduler_query)===TRUE){
+
+                    $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$loginid', '$action2','$admin', '$date')";
+
+                    $create_adminlog_result = mysqli_query($conn, $create_adminlog);
+                    if(!$create_adminlog_result){
+                        header("Location: ../celebration?error=adminlog_error");
+                        exit(); 
+                    }else{
+                        header("Location: ../celebration?success=celebration_delete_successfully");
+                        exit();
+                    }
+
+                }else{
+                    header("Location: ../celebration?error=celebration_delete_in_scheduler_failed");
+                    exit();
+                }
+
+            }else{
+                header("Location: ../celebration?error=celebration_delete_failed");
+                exit();
+            }
+
+        }else{
+            header("Location: ../celebration?error=celebration_archive_failed");
+            exit();
+        }
+
+    }else{
+        header("Location: ../celebration?error=celebration_not_exist");
+        exit();
+    }
+
+    }else{
+        header("Location: ../celebration?error=empty_fields");
+        exit();
+    }
+}
+else{
+    header("Location: ../celebration");
+        exit();
 }
