@@ -23,6 +23,7 @@ if(isset($_POST['register'])){
         $status = mysqli_real_escape_string($conn, $_POST['status']);
         $action = mysqli_real_escape_string($conn, $_POST['action']);
         $ss_payment = '';
+        $active = "Active";
 
         $registered_date = date("Y-m-d H:i:s");
 
@@ -140,8 +141,7 @@ if(isset($_POST['register'])){
                 }
 
             }else{
-
-                $client_registration_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `mi`, `lastName`, `email_add`, `contact`, `organization`, `position`, `date_register`) VALUES ('$uniID','$firstname','$mi','$lastname','$email_add','$contact','$orgs','$position','$registered_date')";
+                $client_registration_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `mi`, `lastName`, `email_add`, `contact`, `organization`, `position`, `status`, `date_register`) VALUES ('$uniID','$firstname','$mi','$lastname','$email_add','$contact','$orgs','$position','$active','$registered_date')";
 
                 $client_registration_query_result = mysqli_query($conn, $client_registration_query);
                 if(!$client_registration_query_result){

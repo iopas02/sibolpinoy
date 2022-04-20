@@ -63,7 +63,7 @@
                             if($check_level == '1'){
                                 echo ' <a href="admin.con" class="nav-link px-3 text-light text-normal">
                                             <span class="me-2"><i class="bi bi-person-bounding-box"></i></span>
-                                            <span>Manage admin</span>
+                                            <span>Manage Admin</span>
                                         </a>';
                             }
                         }
@@ -187,20 +187,20 @@
                                     if($check_level == '1'){
                                         echo ' <a href="user.archive" class="nav-link px-2 text-normal">
                                         <span class="me-2"><i class="bi bi-person-dash"></i></span>
-                                        <span>Users</span>
+                                        <span>Admin user</span>
                                     </a>';
                                     }
                                 }
                             ?>    
                             </li>
                             <li>
-                                <a href="404" class="nav-link px-2 text-normal">
+                                <a href="cr.archive" class="nav-link px-2 text-normal">
                                     <span class="me-2"><i class="bi bi-clipboard-check"></i></span>
-                                    <span>Consultation request</span>
+                                    <span>Consultation Request</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="404" class="nav-link px-2 text-normal">
+                                <a href="er_archive" class="nav-link px-2 text-normal">
                                     <span class="me-2"><i class="bi bi-calendar-check"></i></span>
                                     <span>Event Reservation</span>
                                 </a>

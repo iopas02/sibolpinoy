@@ -8,7 +8,7 @@
   <!-- Header End -->
 
   <body>
-    <title>Sibol-PINOY Services Categories Archive</title>
+    <title>Sibol-PINOY Event Reservation Archive</title>
     <script>
         $(document).ready(function(){
             $(".inputSearch").on('keyup', function(){
@@ -34,20 +34,11 @@
     <!-- THIS IS FOR SIDE NAV-BAR and OFF CANVA END HERE -->
 
     <main class="mt-5 pt-3">
-       
         <div class="container-fluid p-4">
             <div class="row">
             <div class="col-md-12 my-2">
-                <nav class="navbar navbar-expand-lg navbar-light bg-white">
-                    <div class="container-fluid border-bottom border-3 border-dark mb-2">
-                        <a class="navbar-brand" href="services.archive">Services Archive</a>
-                        
-                        <div class="navbar-nav">
-                            <a class="nav-link active" aria-current="page" href="service.cat.archive">Services Category Archive</a>
-                            <a class="nav-link active" aria-current="page" href="sub.cat.archive">Services Sub-Category Archive</a>
-                        </div>
-                    </div>
-                </nav>
+                <h4 class="page-header">Event Reservation Archive</h4>
+                <hr class="dropdown-divider bg-dark" />
             </div>
         </div>
 
@@ -55,7 +46,7 @@
             <div class="col-md-12 mb-3">
                 <div class="card">
                     <div class="card-header">
-                        <span><i class="bi bi-bookmark-dash"></i></span> Service Categories Archive
+                        <span><i class="bi bi-folder-minus"></i> </span> Event Reservation Archive List
                         <div class="form-group float-end col-md-6">
                             <input type="text" class="form-control inputSearch" id="inputSearch" placeholder="Search..">
                         </div>
@@ -66,13 +57,15 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Category uniID</th>
-                                        <th>Service uniID</th>
-                                        <th>Category Title</th>
+                                        <th>EntryID</th>
+                                        <th>Email Add</th>
+                                        <th>ReservationID</th>
+                                        <th>EventID</th>
+                                        <th>SS_Payment</th>
+                                        <th>Payment Method</th>
                                         <th>Status</th>
-                                        <th>Date_upload</th>
+                                        <th>Date Reserve</th>
                                         <th>log</th>
-                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody id="myTable">
@@ -89,36 +82,38 @@
                                         $next_page = $page_no + 1;
                                         $adjacents = "2";
             
-                                        $result_count = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM `sc_archive`" );
+                                        $result_count = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM `archiveuser`" );
                                         $total_records = mysqli_fetch_array($result_count);
                                         $total_records = $total_records['total_records'];
                                         $total_number_of_page = ceil($total_records / $total_records_per_page);
                                         $second_last = $total_number_of_page - 1;
 
-                                        $serv_cat_archive_query = "SELECT tb1.id, tb1.category_uniID, tb1.service_uniID, tb1.category_title, tb1.status, tb1.date_upload, tb2.username, tb1.action FROM sc_archive tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId ORDER BY tb1.id DESC LIMIT 25";
+                                        $er_archive_query = "SELECT tb1.id, tb1.entryID, tb1.email_add, tb1.reservationID, tb1.event_id, tb1.ss_payment, tb1.payment_method, tb1.status, tb1.date_regiestered, tb2.username, tb1.action FROM er_archive tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId ORDER BY tb1.id DESC LIMIT 25";
 
-                                        $serv_cat_archive_query_result = mysqli_query($conn, $serv_cat_archive_query);
-                                        if(mysqli_num_rows($serv_cat_archive_query_result) > 0){
-                                            foreach($serv_cat_archive_query_result as $serv_cat_archive){
+                                        $er_archive_query_result = mysqli_query($conn, $er_archive_query);
+                                        if(mysqli_num_rows($er_archive_query_result) > 0){
+                                            foreach($er_archive_query_result as $er_archive){
                                                 ?>
                                                     <tr>
-                                                        <td><?= $serv_cat_archive['id']?></td>
-                                                        <td><?= $serv_cat_archive['category_uniID']?></td>
-                                                        <td><?= $serv_cat_archive['service_uniID']?></td>
-                                                        <td><?= $serv_cat_archive['category_title']?></td>                                           
-                                                        <td><?= $serv_cat_archive['status']?></td>
-                                                        <td><?= date('M d Y g:i a', strtotime($serv_cat_archive['date_upload'])) ?></td>
+                                                        <td><?= $er_archive['id']?></td>
+                                                        <td><?= $er_archive['entryID']?></td>
+                                                        <td><?= $er_archive['email_add']?></td>
+                                                        <td><?= $er_archive['reservationID']?></td>
+                                                        <td><?= $er_archive['event_id']?></td>
+                                                        <td><img src="./upload/<?= $er_archive['ss_payment']?>" class="h-50 w-50"></td>
+                                                        <td><?= $er_archive['payment_method']?></td>
+                                                        <td><?= $er_archive['status']?></td>
+                                                        <td><?= date('M d Y g:i a', strtotime($er_archive['date_regiestered'])) ?></td>
                                                         <td>
-                                                            <button type="button" class="border-0 bg-white p-2" data-bs-toggle="popover" title="Last Admin Log" data-bs-content="<?= $serv_cat_archive['action']?> by <?=$serv_cat_archive['username']?>"><i class="bi bi-exclamation-circle"></i></button>
+                                                            <button type="button" class="border-0 bg-white p-2" data-bs-toggle="popover" title="Last Admin Log" data-bs-content="<?= $er_archive['action']?> by <?=$er_archive['username']?>"><i class="bi bi-exclamation-circle"></i></button>
                                                         </td>
-                                                        <td><button class="border-1 px-2 py-1 rounded-circle bg-white text-dark openmenu"><i class="bi bi-menu-up"></i></button></td>
                                                     </tr>
                                                 <?php
                                             }
                                         }else{
                                             echo '
                                                 <tr>
-                                                    <td class="text-center" colspan="8"><h4>No Archive List</h4></td>
+                                                    <td class="text-center" colspan="10"><h4>No Archive List</h4></td>
                                                 </tr>
                                             ';
                                         }
@@ -129,13 +124,15 @@
                                 <tfoot>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Category uniID</th>
-                                        <th>Service uniID</th>
-                                        <th>Category Title</th>
+                                        <th>EntryID</th>
+                                        <th>Email Add</th>
+                                        <th>ReservationID</th>
+                                        <th>EventID</th>
+                                        <th>SS_Payment</th>
+                                        <th>Payment Method</th>
                                         <th>Status</th>
-                                        <th>Date_upload</th>
+                                        <th>Date Reserve</th>
                                         <th>log</th>
-                                        <th>Action</th>
                                     </tr>
                                 </tfoot>
                             </table>

@@ -16,6 +16,7 @@ if(isset($_POST['email_submit'])) {
         $position = mysqli_real_escape_string($conn, $_POST['position']);
         $subject = mysqli_real_escape_string($conn, $_POST['subject']);
         $message = mysqli_real_escape_string($conn, $_POST['message']);
+        $active = "Active";
         
         $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
         // Output: 54esmdr0qf
@@ -50,7 +51,7 @@ if(isset($_POST['email_submit'])) {
 
                         $email_result = mysqli_query($conn, $email_request);
                         if(!$email_result){
-                            header("Location: ../contact.php?error=message_failed");
+                            header("Location: ../contact?error=message_failed");
                             exit();
                         }else{
 
@@ -96,10 +97,10 @@ if(isset($_POST['email_submit'])) {
                             $mail->Body = $body;
 
                             if(!$mail->send()) {
-                                header("Location: ../contact.php?error=Message_not_sent");
+                                header("Location: ../contact?error=Message_not_sent");
                                 exit();
                             } else {
-                                header("Location: ../contact.php?success=message_sent");
+                                header("Location: ../contact?success=message_sent");
                                 exit(); 
                             }
                         }
@@ -107,7 +108,7 @@ if(isset($_POST['email_submit'])) {
                 }
 
             }else{
-                $new_client_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `mi`, `lastName`, `email_add`, `contact`, `organization`, `position`, `date_register`) VALUES ('$client_uniID','$first_name','$mi','$last_name','$cemail','$contact','$orgs','$position','$date')" ;
+                $new_client_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `mi`, `lastName`, `email_add`, `contact`, `organization`, `position`, `status`, `date_register`) VALUES ('$client_uniID','$first_name','$mi','$last_name','$cemail','$contact','$orgs','$position','$active','$date')" ;
 
                 $new_client_query_result = mysqli_query($conn,  $new_client_query);
                 if(!$new_client_query_result ){
@@ -118,7 +119,7 @@ if(isset($_POST['email_submit'])) {
 
                     $email_query_result = mysqli_query($conn, $email_request_query);
                     if(!$email_query_result){
-                        header("Location: ../contact.php?error=message_failed");
+                        header("Location: ../contact?error=message_failed");
                         exit();
                     }else{
                        
@@ -164,10 +165,10 @@ if(isset($_POST['email_submit'])) {
                         $mail->Body = $body;
 
                         if(!$mail->send()) {
-                            header("Location: ../contact.php?error=Message_not_sent");
+                            header("Location: ../contact?error=Message_not_sent");
                             exit();
                         } else {
-                            header("Location: ../contact.php?success=message_sent");
+                            header("Location: ../contact?success=message_sent");
                             exit(); 
                         }
                     }
@@ -177,7 +178,7 @@ if(isset($_POST['email_submit'])) {
         }
 
     }else{
-        header("Location: ../contact.php?error=empty_fields");
+        header("Location: ../contact?error=empty_fields");
         exit();
     }
 
@@ -187,7 +188,6 @@ if(isset($_POST['email_submit'])) {
 if(isset($_POST['consult_submit'])) {
 
     if($_POST['first_name'] && $_POST['last_name'] && $_POST['cemail'] && $_POST['subject'] && $_POST['message'] !=''){
-        
         date_default_timezone_set("Asia/Manila");
 
         $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
@@ -199,6 +199,7 @@ if(isset($_POST['consult_submit'])) {
         $position = mysqli_real_escape_string($conn, $_POST['position']);
         $subject = mysqli_real_escape_string($conn, $_POST['subject']);
         $message = mysqli_real_escape_string($conn, $_POST['message']);
+        $active = "Active";
         
         $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
         // Output: 54esmdr0qf
@@ -208,7 +209,7 @@ if(isset($_POST['consult_submit'])) {
 
         $date = date("Y-m-d H:i:s");
         $to = "itdept.sibolpinoy@gmail.com";
-        $status = "New";
+        $status = "Active";
 
         
         $check_cmail = "SELECT `email_add` FROM `client` WHERE `email_add`=? ";
@@ -279,10 +280,10 @@ if(isset($_POST['consult_submit'])) {
                             $mail->Body = $body;
 
                             if(!$mail->send()) {
-                                header("Location: ../consultation.php?error=Message_not_sent");
+                                header("Location: ../consultation?error=Message_not_sent");
                                 exit();
                             } else {
-                                header("Location: ../consultation.php?success=message_sent");
+                                header("Location: ../consultation?success=message_sent");
                                 exit(); 
                             }
                         }
@@ -290,18 +291,18 @@ if(isset($_POST['consult_submit'])) {
                 }
 
             }else{
-                $new_client_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `mi`, `lastName`, `email_add`, `contact`, `organization`, `position`, `date_register`) VALUES ('$client_uniID','$first_name','$mi','$last_name','$cemail','$contact','$orgs','$position','$date')" ;
+                $new_client_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `mi`, `lastName`, `email_add`, `contact`, `organization`, `position`, `status`, `date_register`) VALUES ('$client_uniID','$first_name','$mi','$last_name','$cemail','$contact','$orgs','$position','$active','$date')" ;
 
                 $new_client_query_result = mysqli_query($conn,  $new_client_query);
                 if(!$new_client_query_result ){
-                    header("Location: ../contact.php?error=client_info_invalid");
+                    header("Location: ../contact?error=client_info_invalid");
                     exit();
                 }else{
                     $email_request_query = "INSERT INTO `email`(`client_uniID`, `subject`, `message`, `status`, `date_mailed`) VALUES ('$client_uniID', '$subject', '$message', '$status', '$date')";
 
                     $email_query_result = mysqli_query($conn, $email_request_query);
                     if(!$email_query_result){
-                        header("Location: ../contact.php?error=message_failed");
+                        header("Location: ../contact?error=message_failed");
                         exit();
                     }else{
                        
@@ -347,10 +348,10 @@ if(isset($_POST['consult_submit'])) {
                         $mail->Body    = $body;
 
                         if(!$mail->send()) {
-                            header("Location: ../consultation.php?error=Message_not_sent");
+                            header("Location: ../consultation?error=Message_not_sent");
                             exit();
                         } else {
-                            header("Location: ../consultation.php?success=message_sent");
+                            header("Location: ../consultation?success=message_sent");
                             exit(); 
                         }
                     }
@@ -360,11 +361,14 @@ if(isset($_POST['consult_submit'])) {
         }
 
     }else{
-        header("Location: ../consultation.php?error=empty_fields");
+        header("Location: ../consultation?error=empty_fields");
         exit();
     }
 
    
+}else{
+    header("Location: ../consultation");
+    exit();
 }
 
 ?>

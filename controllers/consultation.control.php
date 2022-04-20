@@ -22,6 +22,7 @@ if(isset($_POST['book_me'])){
             $date = mysqli_real_escape_string($conn, $_POST['date']);
             $time = mysqli_real_escape_string($conn, $_POST['time']);
             $message = mysqli_real_escape_string($conn, $_POST['message']);
+            $active = "Active";
 
     
             $status = mysqli_real_escape_string($conn, $_POST['status']);
@@ -133,9 +134,9 @@ if(isset($_POST['book_me'])){
                   
                   
                 }else{
-                    $client_reg_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `mi`, `lastName`, `email_add`, `contact`, `organization`, `position`, `date_register`) VALUES (?,?,?,?,?,?,?,?,?)";
+                    $client_reg_query = "INSERT INTO `client`(`client_uniID`, `firstName`, `mi`, `lastName`, `email_add`, `contact`, `organization`, `position`, `status`, `date_register`) VALUES (?,?,?,?,?,?,?,?,?)";
                     $stmtthree = $conn->prepare($client_reg_query);
-                    mysqli_stmt_bind_param($stmtthree, "sssssssss", $uniID, $firstName, $mi, $lastName, $email, $contact, $orgs, $position, $book_date);
+                    mysqli_stmt_bind_param($stmtthree, "sssssssss", $uniID, $firstName, $mi, $lastName, $email, $contact, $orgs, $position,$active,$book_date);
                    
                     if($stmtthree->execute()){
 
@@ -240,4 +241,8 @@ if(isset($_POST['book_me'])){
         header("Location: ../consultation?error=empty_field");
         exit();
     }
+    
+}else{
+    header("Location: ../consultation?error=empty_field");
+    exit();
 }

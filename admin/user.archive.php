@@ -8,7 +8,7 @@
   <!-- Header End -->
 
   <body>
-    <title>Sibol-PINOY User Archieve</title>
+    <title>Sibol-PINOY User Archive</title>
     <script>
         $(document).ready(function(){
             $(".inputSearch").on('keyup', function(){

@@ -8,7 +8,7 @@
   <!-- Header End -->
 
   <body>
-    <title>Sibol-PINOY Services Categories Archieve</title>
+    <title>Sibol-PINOY Services Categories Archive</title>
     <script>
         $(document).ready(function(){
             $(".inputSearch").on('keyup', function(){
