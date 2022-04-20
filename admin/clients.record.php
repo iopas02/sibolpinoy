@@ -40,6 +40,9 @@
             include_once 'layout.part/erro.php';
         ?>
         <div class="container-fluid p-4">
+            <?php
+                include_once 'layout.part/erro.php';
+            ?>
             <div class="row">
             <div class="col-md-12 my-2">
                 <h4 class="page-header">Clients Record</h4>

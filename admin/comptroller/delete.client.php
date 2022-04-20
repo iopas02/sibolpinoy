@@ -28,7 +28,7 @@ if(isset($_POST['deleteallinfo'])){
             $status = $consul_query['status'];
             $registered_date = $consul_query['registered_date'];
 
-            $archive_consul_query = "INSERT INTO `consultation_archive`(`entryID`, `email_add`, `consultation_id`, `service_uniID`, `sub_cat_uniID`, `memo`, `set_date`, `set_time`, `status`, `date_registered`) VALUES ('$entryID','$email_add','$consultation_id','$service_uniID','$sub_cat_uniID','$memo','$set_date','$set_time','$status','$registered_date')";
+            $archive_consul_query = "INSERT INTO `consultation_archive`(`entryID`, `email_add`, `consultation_id`, `service_uniID`, `sub_cat_uniID`, `memo`, `set_date`, `set_time`, `status`, `date_registered`,`loginId`, `action`) VALUES ('$entryID','$email_add','$consultation_id','$service_uniID','$sub_cat_uniID','$memo','$set_date','$set_time','$status','$registered_date','$adminID','$newaction')";
 
             $archive_consul_query_result = mysqli_query($conn, $archive_consul_query);
         }
@@ -53,7 +53,7 @@ if(isset($_POST['deleteallinfo'])){
                             $stats = $client_er['status'];
                             $registered = $client_er['date_registered'];
 
-                            $er_archive_query = "INSERT INTO `er_archive`(`entryID`, `email_add`, `reservationID`, `event_id`, `ss_payment`, `payment_method`, `status`, `date_regiestered`) VALUES ('$entryIDS','$email_addS','$reservationID','$eventID','$ss_payment','$payment_method','$stats','$registered')";
+                            $er_archive_query = "INSERT INTO `er_archive`(`entryID`, `email_add`, `reservationID`, `event_id`, `ss_payment`, `payment_method`, `status`, `date_regiestered`,`loginId`, `action`) VALUES ('$entryIDS','$email_addS','$reservationID','$eventID','$ss_payment','$payment_method','$stats','$registered','$adminID','$newaction')";
                             
                             $er_archive_query_result = mysqli_query($conn, $er_archive_query);
                         }
@@ -73,7 +73,7 @@ if(isset($_POST['deleteallinfo'])){
                                         $status = $client_email['status'];
                                         $date_mailed = $client_email['date_mailed'];
 
-                                        $email_archive_query = "INSERT INTO `email_archive`(`emailID`, `client_uniID`, `subject`, `message`, `status`, `date_mailed`) VALUES ('$emailID','$client_uniID','$subject','$message','$status','$date_mailed')";
+                                        $email_archive_query = "INSERT INTO `email_archive`(`emailID`, `client_uniID`, `subject`, `message`, `status`, `date_mailed`, `loginId`, `action`) VALUES ('$emailID','$client_uniID','$subject','$message','$status','$date_mailed','$adminID','$newaction')";
 
                                         $email_archive_query_result = mysqli_query($conn, $email_archive_query);
                                     }
@@ -96,7 +96,7 @@ if(isset($_POST['deleteallinfo'])){
                                                     $post= $client['position'];
                                                     $date_reg = $client['date_register'];
 
-                                                    $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg')";
+                                                    $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`,`loginId`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$newaction')";
 
                                                     $client_archive_query_result = mysqli_query($conn, $client_archive_query);
                                                 }
@@ -108,10 +108,10 @@ if(isset($_POST['deleteallinfo'])){
                                                         $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$newaction','$username', '$date')";
             
                                                         if($conn->query($create_adminlog)===TRUE){
-                                                            header("Location: ../admin.con?success=client_delete_successfully");
+                                                            header("Location: ../clients.record?success=client_delete_successfully");
                                                             exit(); 
                                                         }else{
-                                                            header("Location: ../admin.con?error=adminlog_error");
+                                                            header("Location: ../clients.record?error=adminlog_error");
                                                             exit();
                                                         }
 
@@ -158,7 +158,7 @@ if(isset($_POST['deleteallinfo'])){
                                             $post= $client['position'];
                                             $date_reg = $client['date_register'];
 
-                                            $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg')";
+                                            $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$newaction')";
 
                                             $client_archive_query_result = mysqli_query($conn, $client_archive_query);
                                         }
@@ -170,10 +170,10 @@ if(isset($_POST['deleteallinfo'])){
                                                 $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$newaction','$username', '$date')";
     
                                                 if($conn->query($create_adminlog)===TRUE){
-                                                    header("Location: ../admin.con?success=client_delete_successfully");
+                                                    header("Location: ../clients.record?success=client_delete_successfully");
                                                     exit(); 
                                                 }else{
-                                                    header("Location: ../admin.con?error=adminlog_error");
+                                                    header("Location: ../clients.record?error=adminlog_error");
                                                     exit();
                                                 }
 
@@ -213,7 +213,7 @@ if(isset($_POST['deleteallinfo'])){
                                 $status = $client_email['status'];
                                 $date_mailed = $client_email['date_mailed'];
 
-                                $email_archive_query = "INSERT INTO `email_archive`(`emailID`, `client_uniID`, `subject`, `message`, `status`, `date_mailed`) VALUES ('$emailID','$client_uniID','$subject','$message','$status','$date_mailed')";
+                                $email_archive_query = "INSERT INTO `email_archive`(`emailID`, `client_uniID`, `subject`, `message`, `status`, `date_mailed`,  `loginId`, `action`) VALUES ('$emailID','$client_uniID','$subject','$message','$status','$date_mailed', '$adminID', '$newaction')";
 
                                 $email_archive_query_result = mysqli_query($conn, $email_archive_query);
                             }
@@ -236,7 +236,7 @@ if(isset($_POST['deleteallinfo'])){
                                             $post= $client['position'];
                                             $date_reg = $client['date_register'];
 
-                                            $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg')";
+                                            $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID', '$newaction')";
 
                                             $client_archive_query_result = mysqli_query($conn, $client_archive_query);
                                         }
@@ -248,10 +248,10 @@ if(isset($_POST['deleteallinfo'])){
                                                 $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$newaction','$username', '$date')";
     
                                                 if($conn->query($create_adminlog)===TRUE){
-                                                    header("Location: ../admin.con?success=client_delete_successfully");
+                                                    header("Location: ../clients.record?success=client_delete_successfully");
                                                     exit(); 
                                                 }else{
-                                                    header("Location: ../admin.con?error=adminlog_error");
+                                                    header("Location: ../clients.record?error=adminlog_error");
                                                     exit();
                                                 }
 
@@ -298,7 +298,7 @@ if(isset($_POST['deleteallinfo'])){
                                     $post= $client['position'];
                                     $date_reg = $client['date_register'];
 
-                                    $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg')";
+                                    $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID', '$newaction')";
 
                                     $client_archive_query_result = mysqli_query($conn, $client_archive_query);
                                 }
@@ -310,10 +310,10 @@ if(isset($_POST['deleteallinfo'])){
                                         $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$newaction','$username', '$date')";
 
                                         if($conn->query($create_adminlog)===TRUE){
-                                            header("Location: ../admin.con?success=client_delete_successfully");
+                                            header("Location: ../clients.record?success=client_delete_successfully");
                                             exit(); 
                                         }else{
-                                            header("Location: ../admin.con?error=adminlog_error");
+                                            header("Location: ../clients.record?error=adminlog_error");
                                             exit();
                                         }
 
@@ -368,7 +368,7 @@ if(isset($_POST['deleteallinfo'])){
                 $stats = $client_er['status'];
                 $registered = $client_er['date_registered'];
 
-                $er_archive_query = "INSERT INTO `er_archive`(`entryID`, `email_add`, `reservationID`, `event_id`, `ss_payment`, `payment_method`, `status`, `date_regiestered`) VALUES ('$entryIDS','$email_addS','$reservationID','$eventID','$ss_payment','$payment_method','$stats','$registered')";
+                $er_archive_query = "INSERT INTO `er_archive`(`entryID`, `email_add`, `reservationID`, `event_id`, `ss_payment`, `payment_method`, `status`, `date_regiestered`, `loginId`, `action`) VALUES ('$entryIDS','$email_addS','$reservationID','$eventID','$ss_payment','$payment_method','$stats','$registered','$adminID','$newaction')";
                 
                 $er_archive_query_result = mysqli_query($conn, $er_archive_query);
             }
@@ -388,7 +388,7 @@ if(isset($_POST['deleteallinfo'])){
                             $status = $client_email['status'];
                             $date_mailed = $client_email['date_mailed'];
 
-                            $email_archive_query = "INSERT INTO `email_archive`(`emailID`, `client_uniID`, `subject`, `message`, `status`, `date_mailed`) VALUES ('$emailID','$client_uniID','$subject','$message','$status','$date_mailed')";
+                            $email_archive_query = "INSERT INTO `email_archive`(`emailID`, `client_uniID`, `subject`, `message`, `status`, `date_mailed`, `loginId`, `action`) VALUES ('$emailID','$client_uniID','$subject','$message','$status','$date_mailed','$adminID','$newaction')";
 
                             $email_archive_query_result = mysqli_query($conn, $email_archive_query);
                         }
@@ -411,7 +411,7 @@ if(isset($_POST['deleteallinfo'])){
                                         $post= $client['position'];
                                         $date_reg = $client['date_register'];
 
-                                        $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg')";
+                                        $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$newaction')";
 
                                         $client_archive_query_result = mysqli_query($conn, $client_archive_query);
                                     }
@@ -423,10 +423,10 @@ if(isset($_POST['deleteallinfo'])){
                                             $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$newaction','$username', '$date')";
 
                                             if($conn->query($create_adminlog)===TRUE){
-                                                header("Location: ../admin.con?success=client_delete_successfully");
+                                                header("Location: ../clients.record?success=client_delete_successfully");
                                                 exit(); 
                                             }else{
-                                                header("Location: ../admin.con?error=adminlog_error");
+                                                header("Location: ../clients.record?error=adminlog_error");
                                                 exit();
                                             }
 
@@ -473,7 +473,7 @@ if(isset($_POST['deleteallinfo'])){
                                 $post= $client['position'];
                                 $date_reg = $client['date_register'];
 
-                                $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg')";
+                                $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$newaction')";
 
                                 $client_archive_query_result = mysqli_query($conn, $client_archive_query);
                             }
@@ -485,10 +485,10 @@ if(isset($_POST['deleteallinfo'])){
                                     $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$newaction','$username', '$date')";
 
                                     if($conn->query($create_adminlog)===TRUE){
-                                        header("Location: ../admin.con?success=client_delete_successfully");
+                                        header("Location: ../clients.record?success=client_delete_successfully");
                                         exit(); 
                                     }else{
-                                        header("Location: ../admin.con?error=adminlog_error");
+                                        header("Location: ../clients.record?error=adminlog_error");
                                         exit();
                                     }
 
@@ -528,7 +528,7 @@ if(isset($_POST['deleteallinfo'])){
                     $status = $client_email['status'];
                     $date_mailed = $client_email['date_mailed'];
 
-                    $email_archive_query = "INSERT INTO `email_archive`(`emailID`, `client_uniID`, `subject`, `message`, `status`, `date_mailed`) VALUES ('$emailID','$client_uniID','$subject','$message','$status','$date_mailed')";
+                    $email_archive_query = "INSERT INTO `email_archive`(`emailID`, `client_uniID`, `subject`, `message`, `status`, `date_mailed`,`loginId`, `action`) VALUES ('$emailID','$client_uniID','$subject','$message','$status','$date_mailed','$adminID','$newaction')";
 
                     $email_archive_query_result = mysqli_query($conn, $email_archive_query);
                 }
@@ -551,7 +551,7 @@ if(isset($_POST['deleteallinfo'])){
                                 $post= $client['position'];
                                 $date_reg = $client['date_register'];
 
-                                $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg')";
+                                $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$newaction')";
 
                                 $client_archive_query_result = mysqli_query($conn, $client_archive_query);
                             }
@@ -563,10 +563,10 @@ if(isset($_POST['deleteallinfo'])){
                                     $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$newaction','$username', '$date')";
 
                                     if($conn->query($create_adminlog)===TRUE){
-                                        header("Location: ../admin.con?success=client_delete_successfully");
+                                        header("Location: ../clients.record?success=client_delete_successfully");
                                         exit(); 
                                     }else{
-                                        header("Location: ../admin.con?error=adminlog_error");
+                                        header("Location: ../clients.record?error=adminlog_error");
                                         exit();
                                     }
 
@@ -613,7 +613,7 @@ if(isset($_POST['deleteallinfo'])){
                         $post= $client['position'];
                         $date_reg = $client['date_register'];
 
-                        $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg')";
+                        $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$newaction')";
 
                         $client_archive_query_result = mysqli_query($conn, $client_archive_query);
                     }
@@ -625,10 +625,10 @@ if(isset($_POST['deleteallinfo'])){
                             $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$newaction','$username', '$date')";
 
                             if($conn->query($create_adminlog)===TRUE){
-                                header("Location: ../admin.con?success=client_delete_successfully");
+                                header("Location: ../clients.record?success=client_delete_successfully");
                                 exit(); 
                             }else{
-                                header("Location: ../admin.con?error=adminlog_error");
+                                header("Location: ../clients.record?error=adminlog_error");
                                 exit();
                             }
 
