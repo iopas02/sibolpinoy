@@ -8,7 +8,7 @@
   <!-- Header End -->
 
   <body>
-    <title>Sibol-PINOY Consultation Request Archive</title>
+    <title>Sibol-PINOY Inbox Archive</title>
     <script>
         $(document).ready(function(){
             $(".inputSearch").on('keyup', function(){
@@ -37,7 +37,7 @@
         <div class="container-fluid p-4">
             <div class="row">
             <div class="col-md-12 my-2">
-                <h4 class="page-header">Consultation Reservation Archive</h4>
+                <h4 class="page-header">Inbox Archive</h4>
                 <hr class="dropdown-divider bg-dark" />
             </div>
         </div>
@@ -46,7 +46,7 @@
             <div class="col-md-12 mb-3">
                 <div class="card">
                     <div class="card-header">
-                        <span><i class="bi bi-folder-minus"></i> </span> Consultation Reservation Archive List
+                        <span><i class="bi bi-folder-minus"></i> </span> Inbox Archive List
                         <div class="form-group float-end col-md-6">
                             <input type="text" class="form-control inputSearch" id="inputSearch" placeholder="Search..">
                         </div>
@@ -57,16 +57,12 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>EntryID</th>
-                                        <th>Email Add</th>
-                                        <th>ConsultationID</th>
-                                        <th>ServiceID</th>
-                                        <th>Sub-Cat ID</th>
+                                        <th>EmailID</th>
+                                        <th>Client uniID</th>
+                                        <th>Subject</th>
                                         <th>Message</th>
-                                        <th>Set Date</th>
-                                        <th>Set Time</th>
                                         <th>Status</th>
-                                        <th>Date Request</th>
+                                        <th>Date Emailed</th>
                                         <th>log</th>
                                     </tr>
                                 </thead>
@@ -90,25 +86,22 @@
                                         $total_number_of_page = ceil($total_records / $total_records_per_page);
                                         $second_last = $total_number_of_page - 1;
 
-                                        $cr_archive_query = "SELECT tb1.id, tb1.entryID, tb1.email_add, tb1.consultation_id, tb1.service_uniID, tb1.sub_cat_uniID, tb1.memo, tb1.set_date, tb1.set_time, tb1.status, tb1.date_registered, tb2.username, tb1.action FROM consultation_archive tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId ORDER BY tb1.id DESC LIMIT 25";
-                                        $cr_archive_query_result = mysqli_query($conn, $cr_archive_query);
-                                        if(mysqli_num_rows($cr_archive_query_result) > 0){
-                                            foreach($cr_archive_query_result as $cr_archive){
+                                        $email_archive_query = "SELECT tb1.id, tb1.emailID, tb1.client_uniID, tb1.subject, tb1.message, tb1.status, tb1.date_mailed, tb2.username, tb1.action FROM email_archive tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId ORDER BY tb1.id DESC LIMIT 25";
+
+                                        $email_archive_query_result = mysqli_query($conn, $email_archive_query);
+                                        if(mysqli_num_rows($email_archive_query_result) > 0){
+                                            foreach($email_archive_query_result as $email_archive){
                                                 ?>
                                                     <tr>
-                                                        <td><?= $cr_archive['id']?></td>
-                                                        <td><?= $cr_archive['entryID']?></td>
-                                                        <td><?= $cr_archive['email_add']?></td>
-                                                        <td><?= $cr_archive['consultation_id']?></td>
-                                                        <td><?= $cr_archive['service_uniID']?></td>
-                                                        <td><?= $cr_archive['sub_cat_uniID']?></td>
-                                                        <td><?= $cr_archive['memo']?></td>
-                                                        <td><?= $cr_archive['set_date']?></td>
-                                                        <td><?= $cr_archive['set_time']?></td>
-                                                        <td><?= $cr_archive['status']?></td>
-                                                        <td><?= date('M d Y g:i a', strtotime($cr_archive['date_registered'])) ?></td>
+                                                        <td><?= $email_archive['id']?></td>
+                                                        <td><?= $email_archive['emailID']?></td>
+                                                        <td><?= $email_archive['client_uniID']?></td>
+                                                        <td><?= $email_archive['subject']?></td>
+                                                        <td><?= $email_archive['message']?></td>
+                                                        <td><?= $email_archive['status']?></td>
+                                                        <td><?= date('M d Y g:i a', strtotime($email_archive['date_mailed'])) ?></td>
                                                         <td>
-                                                            <button type="button" class="border-0 bg-white p-2" data-bs-toggle="popover" title="Last Admin Log" data-bs-content="<?= $cr_archive['action']?> by <?=$cr_archive['username']?>"><i class="bi bi-exclamation-circle"></i></button>
+                                                            <button type="button" class="border-0 bg-white p-2" data-bs-toggle="popover" title="Last Admin Log" data-bs-content="<?= $email_archive['action']?> by <?=$email_archive['username']?>"><i class="bi bi-exclamation-circle"></i></button>
                                                         </td>
                                                     </tr>
                                                 <?php
@@ -116,7 +109,7 @@
                                         }else{
                                             echo '
                                                 <tr>
-                                                    <td class="text-center" colspan="12"><h4>No Archive List</h4></td>
+                                                    <td class="text-center" colspan="8"><h4>No Archive List</h4></td>
                                                 </tr>
                                             ';
                                         }
@@ -127,16 +120,12 @@
                                 <tfoot>
                                     <tr>
                                         <th>ID</th>
-                                        <th>EntryID</th>
-                                        <th>Email Add</th>
-                                        <th>ConsultationID</th>
-                                        <th>ServiceID</th>
-                                        <th>Sub-Cat ID</th>
+                                        <th>EmailID</th>
+                                        <th>Client uniID</th>
+                                        <th>Subject</th>
                                         <th>Message</th>
-                                        <th>Set Date</th>
-                                        <th>Set Time</th>
                                         <th>Status</th>
-                                        <th>Date Request</th>
+                                        <th>Date Emailed</th>
                                         <th>log</th>
                                     </tr>
                                 </tfoot>

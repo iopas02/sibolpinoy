@@ -9,6 +9,7 @@ if(isset($_POST['deleteallinfo'])){
     $adminID = mysqli_real_escape_string($conn, $_POST['adminID']);
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $newaction = mysqli_real_escape_string($conn, $_POST['newaction']);
+    $archive = "archive";
    
     $date = date("Y-m-d H:i:s");
 
@@ -96,13 +97,13 @@ if(isset($_POST['deleteallinfo'])){
                                                     $post= $client['position'];
                                                     $date_reg = $client['date_register'];
 
-                                                    $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`,`loginId`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$newaction')";
+                                                    $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`,`loginId`, `status`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$archive','$newaction')";
 
                                                     $client_archive_query_result = mysqli_query($conn, $client_archive_query);
                                                 }
                                                 if($client_archive_query_result){
 
-                                                    $delete_client_query = "DELETE FROM `client` WHERE `email_add`='$e_add' AND `client_uniID`='$c_id'";
+                                                    $delete_client_query = "UPDATE `client` SET `status`='$archive' WHERE `email_add`='$e_add' AND `client_uniID`='$c_id'";
                                                     if($conn->query($delete_client_query)===TRUE){
 
                                                         $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$newaction','$username', '$date')";
@@ -158,13 +159,13 @@ if(isset($_POST['deleteallinfo'])){
                                             $post= $client['position'];
                                             $date_reg = $client['date_register'];
 
-                                            $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$newaction')";
+                                            $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `status`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$archive','$newaction')";
 
                                             $client_archive_query_result = mysqli_query($conn, $client_archive_query);
                                         }
                                         if($client_archive_query_result){
 
-                                            $delete_client_query = "DELETE FROM `client` WHERE `email_add`='$e_add' AND `client_uniID`='$c_id'";
+                                            $delete_client_query = "UPDATE `client` SET `status`='$archive' WHERE `email_add`='$e_add' AND `client_uniID`='$c_id'";
                                             if($conn->query($delete_client_query)===TRUE){
 
                                                 $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$newaction','$username', '$date')";
@@ -236,13 +237,13 @@ if(isset($_POST['deleteallinfo'])){
                                             $post= $client['position'];
                                             $date_reg = $client['date_register'];
 
-                                            $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID', '$newaction')";
+                                            $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `status`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$archive','$newaction')";
 
                                             $client_archive_query_result = mysqli_query($conn, $client_archive_query);
                                         }
                                         if($client_archive_query_result){
 
-                                            $delete_client_query = "DELETE FROM `client` WHERE `email_add`='$e_add' AND `client_uniID`='$c_id'";
+                                            $delete_client_query = "UPDATE `client` SET `status`='$archive' WHERE `email_add`='$e_add' AND `client_uniID`='$c_id'";
                                             if($conn->query($delete_client_query)===TRUE){
 
                                                 $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$newaction','$username', '$date')";
@@ -298,13 +299,13 @@ if(isset($_POST['deleteallinfo'])){
                                     $post= $client['position'];
                                     $date_reg = $client['date_register'];
 
-                                    $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID', '$newaction')";
+                                    $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `status`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$archive','$newaction')";
 
                                     $client_archive_query_result = mysqli_query($conn, $client_archive_query);
                                 }
                                 if($client_archive_query_result){
 
-                                    $delete_client_query = "DELETE FROM `client` WHERE `email_add`='$e_add' AND `client_uniID`='$c_id'";
+                                    $delete_client_query = "UPDATE `client` SET `status`='$archive' WHERE `email_add`='$e_add' AND `client_uniID`='$c_id'";
                                     if($conn->query($delete_client_query)===TRUE){
 
                                         $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$newaction','$username', '$date')";
@@ -411,13 +412,13 @@ if(isset($_POST['deleteallinfo'])){
                                         $post= $client['position'];
                                         $date_reg = $client['date_register'];
 
-                                        $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$newaction')";
+                                        $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `status`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$archive','$newaction')";
 
                                         $client_archive_query_result = mysqli_query($conn, $client_archive_query);
                                     }
                                     if($client_archive_query_result){
 
-                                        $delete_client_query = "DELETE FROM `client` WHERE `email_add`='$e_add'  AND `client_uniID`='$c_id'";
+                                        $delete_client_query = "UPDATE `client` SET `status`='$archive' WHERE `email_add`='$e_add'  AND `client_uniID`='$c_id'";
                                         if($conn->query($delete_client_query)===TRUE){
 
                                             $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$newaction','$username', '$date')";
@@ -473,13 +474,13 @@ if(isset($_POST['deleteallinfo'])){
                                 $post= $client['position'];
                                 $date_reg = $client['date_register'];
 
-                                $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$newaction')";
+                                $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `status`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$archive','$newaction')";
 
                                 $client_archive_query_result = mysqli_query($conn, $client_archive_query);
                             }
                             if($client_archive_query_result){
 
-                                $delete_client_query = "DELETE FROM `client` WHERE `email_add`='$e_add'  AND `client_uniID`='$c_id' ";
+                                $delete_client_query = "UPDATE `client` SET `status`='$archive' WHERE `email_add`='$e_add'  AND `client_uniID`='$c_id' ";
                                 if($conn->query($delete_client_query)===TRUE){
 
                                     $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$newaction','$username', '$date')";
@@ -551,13 +552,13 @@ if(isset($_POST['deleteallinfo'])){
                                 $post= $client['position'];
                                 $date_reg = $client['date_register'];
 
-                                $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$newaction')";
+                                $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `status`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$archive','$newaction')";
 
                                 $client_archive_query_result = mysqli_query($conn, $client_archive_query);
                             }
                             if($client_archive_query_result){
 
-                                $delete_client_query = "DELETE FROM `client` WHERE `email_add`='$e_add'  AND `client_uniID`='$c_id' ";
+                                $delete_client_query = "UPDATE `client` SET `status`='$archive' WHERE `email_add`='$e_add'  AND `client_uniID`='$c_id' ";
                                 if($conn->query($delete_client_query)===TRUE){
 
                                     $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$newaction','$username', '$date')";
@@ -613,13 +614,13 @@ if(isset($_POST['deleteallinfo'])){
                         $post= $client['position'];
                         $date_reg = $client['date_register'];
 
-                        $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$newaction')";
+                        $client_archive_query = "INSERT INTO `client_archive`(`client_uniID`, `first_name`, `mi`, `last_name`, `email`, `contact`, `orgs`, `position`, `date_registered`, `loginId`, `status`, `action`) VALUES ('$client_uniIDs','$firstName','$mi','$lastName','$emailadd','$con','$orgn','$post','$date_reg','$adminID','$archive','$newaction')";
 
                         $client_archive_query_result = mysqli_query($conn, $client_archive_query);
                     }
                     if($client_archive_query_result){
 
-                        $delete_client_query = "DELETE FROM `client` WHERE `email_add`='$e_add' AND `client_uniID`='$c_id'";
+                        $delete_client_query = "UPDATE `client` SET `status`='$archive' WHERE `email_add`='$e_add' AND `client_uniID`='$c_id'";
                         if($conn->query($delete_client_query)===TRUE){
 
                             $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$adminID', '$newaction','$username', '$date')";

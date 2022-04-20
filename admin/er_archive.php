@@ -206,51 +206,6 @@
             </div>
         </div>
 
-        <!-- Modal Start Here -->
-        <div class="modal fade" id="menu" data-bs-backdrop="static">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Activate Admin/Super Admin</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="comptroller/admin-add.php" method="POST">
-                            <div class="col-md-12">
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-6 mb-1">
-                                        <label>Archive ID</label>
-                                        <input type="text" class="form-control" id="archiveid" name="archiveid" readonly>
-                                    </div>
-                                    <div class="col-md-6 mb-1">
-                                        <label>Admin ID</label>
-                                        <input type="text" class="form-control" id="loginid" name="loginid" readonly>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 d-flex">
-                                    <div class="col-md-6 mb-1">
-                                        <label>Admin Username</label>
-                                        <input type="text" class="form-control" id="username" name="username" readonly>
-                                    </div>
-                                    <div class="col-md-6 mb-1">
-                                        <label>Action</label>
-                                        <input type="text" class="form-control" name="active" value="active" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <input type="text" class="form-control" id="id" name="id" value="<?= $id ?>" hidden>
-                            <input type="text" class="form-control" id="user" name="user" value="<?= $rusername ?>" hidden>
-                            <input type="text" class="form-control" id="newaction" name="newaction" value="Activate user" hidden>
-                            
-                            <button type="submit" class="btn bg-blue text-white mt-2" name="activate">Activate User</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal End Here -->
-
     </main>
 
     <!-- Footer and JS Script Start Here -->
@@ -258,23 +213,6 @@
       require "layout.part/admin.footer.php";
     ?>
     <script>
-        $(document).ready(function(){
-            $('.openmenu').on('click', function(){
-                $('#menu').modal('show');
-
-                $tr = $(this).closest('tr');
-
-                var data= $tr.children("td").map(function(){
-                    return $(this).text();
-                }).get();
-
-                console.log(data);
-                $('#archiveid').val(data[0]);
-                $('#loginid').val(data[1]);
-                $('#username').val(data[5]);
-            })
-        })
-
         var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
             var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
             return new bootstrap.Popover(popoverTriggerEl)
