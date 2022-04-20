@@ -128,13 +128,13 @@
                                 
                                 <div class="row col-md-12">
                                     <div class="col-md-6">
-                                        <button type="submit" name="event_published" class="btn bg-coloured text-white my-2" >
+                                        <button type="submit" name="event_published" class="btn bg-blue text-white my-2" >
                                         <i class="bi bi-folder-plus"></i> Create Event
                                         </button>
                                     </div>
                                     <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
                                         <button  type="submit" name="edit_event" class="btn bg-coloured text-white my-2" "><i class="bi bi-vector-pen"></i> Update</button>
-                                        <button  type="submit" name="delete_services" class="btn bg-coloured text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
+                                        <button  type="submit" name="delete_services" class="btn bg-dark text-white my-2" ><i class="bi bi-trash"></i> Delete</button>
                                     </div>
                                 </div>
                             </div>
@@ -200,7 +200,7 @@
                             $total_number_of_page = ceil($total_records / $total_records_per_page);
                             $second_last = $total_number_of_page - 1;
 
-                            $event_reload_query = "SELECT tb1.eventID, tb1.event_img, tb1.header, tb1.event_title, tb1.date_start, tb1.date_and_time, tb1.reg_fee, tb1.desc_1, tb1.desc_2, tb2.loginId, tb2.username, tb1.status, tb1.date_published, tb1.action, tb1.date_update FROM events tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId ORDER BY tb1.date_start DESC";
+                            $event_reload_query = "SELECT tb1.eventID, tb1.event_img, tb1.header, tb1.event_title, tb1.date_start, tb1.date_and_time, tb1.reg_fee, tb1.desc_1, tb1.desc_2, tb2.loginId, tb2.username, tb1.status, tb1.date_published, tb1.action, tb1.date_update FROM events tb1 INNER JOIN login tb2 ON tb1.loginId = tb2.loginId ORDER BY tb1.date_start DESC LIMIT 25" ;
 
                             $event_reload_query_result = mysqli_query($conn, $event_reload_query);
                             if(mysqli_num_rows($event_reload_query_result) > 0 ){

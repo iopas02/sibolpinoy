@@ -201,25 +201,25 @@
                             </li>
                             <li>
                                 <a href="cr.archive" class="nav-link px-2 text-normal">
-                                    <span class="me-2"><i class="bi bi-clipboard-check"></i></span>
+                                    <span class="me-2"><i class="bi bi-dash-circle"></i></span>
                                     <span>Consultation Request</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="er_archive" class="nav-link px-2 text-normal">
-                                    <span class="me-2"><i class="bi bi-calendar-check"></i></span>
+                                    <span class="me-2"><i class="bi bi-dash-circle"></i></span>
                                     <span>Event Reservation</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="services.archive" class="nav-link px-2 text-normal">
-                                    <span class="me-2"><i class="bi bi-tags"></i></span>
+                                    <span class="me-2"><i class="bi bi-dash-circle"></i></span>
                                     <span>Services</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="inbox.archive" class="nav-link px-2 text-normal">
-                                    <span class="me-2"><i class="bi bi-envelope"></i></span>
+                                    <span class="me-2"><i class="bi bi-file-earmark-minus"></i></span>
                                     <span>Message</span>
                                 </a>
                             </li>

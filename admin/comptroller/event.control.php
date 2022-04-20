@@ -41,7 +41,7 @@ if(isset($_POST['event_published'])){
             $event_pub_query_result = mysqli_query($conn, $event_pub_query);
             if(!$event_pub_query_result){
                 
-                header("Location: ../events?error=event_sql_error");
+                header("Location: ../events?error=sql_error");
                 exit();
 
             }else {
@@ -50,7 +50,7 @@ if(isset($_POST['event_published'])){
 
                $scheduler_query_result = mysqli_query($conn, $scheduler_query);
                if(!$scheduler_query_result){
-                    header("Location: ../events?error=failed_to_insert_in calendar");
+                    header("Location: ../events?error=failed_to_insert_in_calendar");
                     exit();     
                 }else {
 
@@ -58,10 +58,10 @@ if(isset($_POST['event_published'])){
 
                     $create_adminlog_result = mysqli_query($conn, $create_adminlog);
                     if(!$create_adminlog_result){
-                        header("Location: ../events.php?error=adminlog_error");
+                        header("Location: ../events?error=adminlog_error");
                         exit(); 
                     }else{
-                        header("Location: ../events.php?success=new_event_created_successfully");
+                        header("Location: ../events?success=new_event_created_successfully");
                         exit();
                     }
                 }
@@ -69,12 +69,12 @@ if(isset($_POST['event_published'])){
             }
 
         }else{
-            header("Location: ../events.php?error=ext_file_not_supported");
+            header("Location: ../events?error=ext_file_not_supported");
             exit();
         }
 
     } else {
-        header("Location: ../events.php?error=empty_fields");
+        header("Location: ../events?error=empty_fields");
         exit();
     }
 }
@@ -105,28 +105,28 @@ if(isset($_POST['edit_event'])){
 
             $update_event_query_result = mysqli_query($conn, $update_event_query);
             if(!$update_event_query_result){
-                header("Location: ../events.php?error=event_update_failed");
+                header("Location: ../events?error=event_update_failed");
                 exit(); 
             }else {
                 $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$loginid','$action1','$admin', '$date_update')";
 
                 $create_adminlog_result = mysqli_query($conn, $create_adminlog);
                 if(!$create_adminlog_result){
-                    header("Location: ../events.php?error=adminlog_error");
+                    header("Location: ../events?error=adminlog_error");
                     exit(); 
                 }else{
-                    header("Location: ../events.php?success=event_updated_successfully");
+                    header("Location: ../events?success=event_updated_successfully");
                     exit();
                 }
             } 
 
         }else{
-            header("Location: ../events.php?error=please_re_enter_event_start_date");
+            header("Location: ../events?error=please_re_enter_event_start_date");
             exit(); 
         }
 
     }else {
-        header("Location: ../events.php?error=empty_fields");
+        header("Location: ../events?error=empty_fields");
         exit();
     }
 
@@ -148,23 +148,23 @@ if(isset($_POST['update_event_stats'])){
 
         $update_event_status_result = mysqli_query($conn, $update_event_status);
         if(!$update_event_status_result){
-            header("Location: ../events.php?error=update_event_status_failed");
+            header("Location: ../events?error=update_event_status_failed");
             exit();
         }else{
             $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$user_id','$status_update','$admin', '$date_update')";
 
             $create_adminlog_result = mysqli_query($conn, $create_adminlog);
             if(!$create_adminlog_result){
-                header("Location: ../events.php?error=adminlog_error");
+                header("Location: ../events?error=adminlog_error");
                 exit(); 
             }else{
-                header("Location: ../events.php?success=event_status_updated_successfully");
+                header("Location: ../events?success=event_status_updated_successfully");
                 exit();
             }
         }
 
     }else{
-        header("Location: ../events.php?error=empty_field");
+        header("Location: ../events?error=empty_field");
         exit();
     }
 }
@@ -208,28 +208,95 @@ if(isset($_POST['update_event_img'])){
 
                 $create_adminlog_result = mysqli_query($conn, $create_adminlog);
                 if(!$create_adminlog_result){
-                    header("Location: ../events.php?error=adminlog_error");
+                    header("Location: ../events?error=adminlog_error");
                     exit(); 
                 }else{
-                    header("Location: ../events.php?success=event_image_update_successfully");
+                    header("Location: ../events?success=event_image_update_successfully");
                     exit();
                 }
 
             }else{
-                header("Location: ../events.php?error=image_update_failed");
+                header("Location: ../events?error=image_update_failed");
                 exit();
             }
         }else{
-            header("Location: ../events.php?error=ext_file_not_supported");
+            header("Location: ../events?error=ext_file_not_supported");
             exit();
         }
 
     }
     else{
-        header("Location: ../events.php?error=empty_fields");
+        header("Location: ../events?error=empty_fields");
         exit();
     }
+}
+
+if(isset($_POST['delete_services'])){
+    if($_POST['eventID'] !=''){
+        date_default_timezone_set("Asia/Manila");
+
+        $eventID = mysqli_real_escape_string($conn, $_POST['eventID']);
+
+        $loginid = mysqli_real_escape_string($conn, $_POST['loginid']);
+        $admin = mysqli_real_escape_string($conn, $_POST['admin']);
+        $action2 = mysqli_real_escape_string($conn, $_POST['action2']);
+        $newstats = 'archive';
+
+        $date = date("Y-m-d H:i:s");
+
+        $event_query = "SELECT * FROM `events` WHERE `eventID`='$eventID'";
+        $event_query_result = $conn->query($event_query);
+        if ($event_query_result->num_rows > 0){
+            while($info = $event_query_result->fetch_assoc()){
+                $event_img = $info['event_img'];
+                $header = $info['header'];
+                $event_title = $info['event_title'];
+                $date_start = $info['date_start'];
+                $date_and_time = $info['date_and_time'];
+                $reg_fee = $info['reg_fee'];
+                $desc_1 = $info['desc_1'];
+                $desc_2 = $info['desc_2'];
+                $date_published = $info['date_published'];
+            }
+
+            $event_archive_query = "INSERT INTO `event_archive`(`eventID`, `event_img`, `header`, `event_title`, `date_start`, `date_and_time`, `reg_fee`, `desc_1`, `desc_2`, `status`, `date_published`, `loginId`, `action`) VALUES ('$eventID','$event_img','$header','$event_title','$date_start','$date_and_time','$reg_fee','$desc_1','$desc_2','$newstats','$date_published','$loginid','$action2')";
+
+            if ($conn->query($event_archive_query) === TRUE){
+
+                $delete_event_query = "DELETE FROM `events` WHERE `eventID`='$eventID' ";
+                if ($conn->query($delete_event_query) === TRUE){
+
+                    $create_adminlog = "INSERT INTO `adminlog`(`loginId`, `action`, `actionBy`, `date`) VALUES ('$loginid', '$action2','$admin', '$date')";
+    
+                    if($conn->query($create_adminlog)===TRUE){
+                        header("Location: ../events?success=event_delete_successfully");
+                        exit(); 
+                    }else{
+                        header("Location: ../events?error=adminlog_error");
+                        exit();
+                    }
+
+                }else{
+                    header("Location: ../events?error=event_delete_failed");
+                    exit();
+                }
+
+            }else{
+                header("Location: ../events?error=event_archive_failed");
+                exit();
+            }
+
+        }else{
+            header("Location: ../events?error=event_not_exist");
+            exit();
+        }
+
+    }else{
+        header("Location: ../events?error=empty_fields");
+        exit();
+    }
+
 }else{
-    header("Location: ../events.php");
+    header("Location: ../events");
     exit();
 }

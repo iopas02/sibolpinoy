@@ -11,7 +11,7 @@
         var data = google.visualization.arrayToDataTable([
         ['Organization', 'Frequency'],
             <?php    
-                $orgaization_query = "SELECT organization, COUNT(*) AS `orgs_Frequency` FROM client GROUP BY organization";
+                $orgaization_query = "SELECT organization, COUNT(*) AS `orgs_Frequency` FROM client WHERE `status`='Active' GROUP BY organization";
                 $orgaization_query_run = mysqli_query($conn, $orgaization_query);
                 $eachOrgs = array();
                 while ($row = mysqli_fetch_assoc($orgaization_query_run)) {
@@ -54,7 +54,7 @@
     var data = google.visualization.arrayToDataTable([
         ['Position', 'Number'],
         <?php    
-            $position_query = "SELECT position, COUNT(*) AS `position_number` FROM client GROUP BY position";
+            $position_query = "SELECT position, COUNT(*) AS `position_number` FROM client WHERE `status`='Active' GROUP BY position";
             $position_query_run = mysqli_query($conn, $position_query);
             $eachPosition = array();
             while ($row = mysqli_fetch_assoc($position_query_run)) {
