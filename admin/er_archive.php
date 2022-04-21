@@ -82,7 +82,7 @@
                                         $next_page = $page_no + 1;
                                         $adjacents = "2";
             
-                                        $result_count = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM `archiveuser`" );
+                                        $result_count = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM `er_archive`" );
                                         $total_records = mysqli_fetch_array($result_count);
                                         $total_records = $total_records['total_records'];
                                         $total_number_of_page = ceil($total_records / $total_records_per_page);

@@ -37,8 +37,15 @@
         <div class="container-fluid p-4">
             <div class="row">
             <div class="col-md-12 my-2">
-                <h4 class="page-header">Event Archive</h4>
-                <hr class="dropdown-divider bg-dark" />
+                <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                    <div class="container-fluid border-bottom border-3 border-dark mb-2">
+                        <h4><a class="navbar-brand" href="event.archive">Event Archive</a></h4>
+                        
+                        <div class="navbar-nav">
+                            <a class="nav-link active" aria-current="page" href="celebration.archive">Celebration Archive</a>
+                        </div>
+                    </div>
+                </nav>
             </div>
         </div>
 
@@ -85,7 +92,7 @@
                                         $next_page = $page_no + 1;
                                         $adjacents = "2";
             
-                                        $result_count = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM `archiveuser`" );
+                                        $result_count = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM `event_archive`" );
                                         $total_records = mysqli_fetch_array($result_count);
                                         $total_records = $total_records['total_records'];
                                         $total_number_of_page = ceil($total_records / $total_records_per_page);
@@ -103,13 +110,13 @@
                                                         <td><img src="./upload/<?= $event_archive['event_img'] ?>" class="h-50 w-50"></td>
                                                         <td><?= $event_archive['header']?></td>
                                                         <td><?= $event_archive['event_title']?></td>
-                                                        <td><?= date('M d Y g:i a', strtotime($event_archive['date_start'])) ?></td>
+                                                        <td><?= date('F d Y', strtotime($event_archive['date_start'])) ?></td>
                                                         <td><?= $event_archive['date_and_time']?></td>
                                                         <td><?= $event_archive['reg_fee']?></td>
                                                         <td><?= $event_archive['desc_1']?></td>
                                                         <td><?= $event_archive['desc_2']?></td>
                                                         <td><?= $event_archive['status']?></td>
-                                                        <td><?= date('M d Y g:i a', strtotime($event_archive['date_published'])) ?></td>
+                                                        <td><?= date('F d Y g:i a', strtotime($event_archive['date_published'])) ?></td>
                                                         <td>
                                                             <button type="button" class="border-0 bg-white p-2" data-bs-toggle="popover" title="Last Admin Log" data-bs-content="<?= $event_archive['action']?> by <?=$event_archive['username']?>"><i class="bi bi-exclamation-circle"></i></button>
                                                         </td>

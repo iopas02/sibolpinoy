@@ -416,6 +416,11 @@
         <i class="bi bi-exclamation-triangle-fill"></i><strong> Celebration is Failed to remove in the Calendar!</strong> Please check your data field and databse attributes.   
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
+    }else if(strpos($fullUrl, "error=you_must_log_in_first") == true ){
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class="bi bi-exclamation-triangle-fill"></i><strong> Please Use Your Credential To Access Admin Panel!</strong> You can ask for your superior about credential.   
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
     }
     
 
